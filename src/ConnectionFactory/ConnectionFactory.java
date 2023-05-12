@@ -1,4 +1,4 @@
-package conexao;
+package ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
     //declaração de variaveis
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/meubanco";
+    private static final String URL = "jdbc:mysql://localhost:3306/projetointegrador";
     private static final String USER = "root";
     private static final String PASS = "";
     
@@ -48,17 +48,14 @@ public class ConnectionFactory {
         }
     }
     
-public static void closeConnection(Connection con, PreparedStatement sql, ResultSet rs){
-    closeConnection(con,sql);
-    try{
-        if(rs != null){
-            rs.close();
+    public static void closeConnection(Connection con, PreparedStatement sql, ResultSet rs){
+        closeConnection(con,sql);
+        try{
+            if(rs != null){
+                rs.close();
+            }
+        }catch(SQLException ex){
+            throw new RuntimeException("Erro de Conexão!" + ex);
         }
-    }catch(SQLException ex){
-        throw new RuntimeException("Erro de Conexão!" + ex);
     }
-}
-    
-    
-    
 }
