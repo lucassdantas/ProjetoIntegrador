@@ -30,14 +30,11 @@ public class EntradasDao {
         
         try{
             sql = con.prepareStatement(
-         "insert into cliente(nome, telefone, email, rg, cpf, endereco, cep) values (?,?, ?, ? ,? ,?, ?)") ;
-            sql.setString(1, c.getNome());
-            sql.setString(2, c.getTelefone());
-            sql.setString(3, c.getEmail());
-            sql.setString(4, c.getRg());
-            sql.setString(5, c.getCpf());
-            sql.setString(6, c.getEndereco());
-            sql.setString(7,c.getCep());
+         "insert into cliente(peso_e, custo_e, quantidade_e, criacao_e, atualizacao_e, status_e, id_ingrediente) values (?,?,?,?,?,?,?)") ;
+            sql.setFloat(1, entrada.getWeight());
+            sql.setFloat(2, entrada.getCost());
+            sql.setInt(3, entrada.getQuantity());
+            sql.setTimestamp(4, entrada.getCreation());
             sql.executeUpdate();
             
             JOptionPane.showMessageDialog(

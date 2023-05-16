@@ -4,68 +4,60 @@
  */
 package models;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 /**
  *
  * @author 42labinfo
  */
 public class Entradas extends Entity{
-    private String login;
-    private String password;
-    private String type;
-    private String name;
-    private String photo;
-    
     public Entradas(){}
+    
+    private float weight;
+    private float cost;
+    private int quantity;
+    private int id_ingredient;
 
-    public Entradas(String login, String password, String type, String name, String photo, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Entradas(float weight, float cost, int quantity, int id_ingredient, int id, Instant creation, Instant update, String status) {
         super(id, creation, update, status);
-        this.login = login;
-        this.password = password;
-        this.type = type;
-        this.name = name;
-        this.photo = photo;
+        this.weight = weight;
+        this.cost = cost;
+        this.quantity = quantity;
+        this.id_ingredient = id_ingredient;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public float getCost() {
+        return cost;
+    }
+
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getId_ingredient() {
+        return id_ingredient;
+    }
+
+    public void setId_ingredient(int id_ingredient) {
+        this.id_ingredient = id_ingredient;
     }
     
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+  
     
 }

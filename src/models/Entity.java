@@ -4,7 +4,8 @@
  */
 package models;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.Instant;
 
 /**
  *
@@ -12,12 +13,12 @@ import java.time.LocalDateTime;
  */
 public class Entity {
     protected int id;
-    protected LocalDateTime creation;
-    protected LocalDateTime update;
+    protected Instant creation;
+    protected Instant update;
     protected String status;
     
     public Entity() {}
-    public Entity(int id, LocalDateTime creation, LocalDateTime update, String status){
+    public Entity(int id, Instant creation, Instant update, String status){
         this.id= id;
         this.creation = creation;
         this.update = update;
@@ -32,19 +33,19 @@ public class Entity {
         this.id = id;
     }
 
-    public LocalDateTime getCreation() {
+    public Instant getCreation() {
         return creation;
     }
 
-    public void setCreation(LocalDateTime creation) {
+    public void setCreation(Instant creation) {
         this.creation = creation;
     }
 
-    public LocalDateTime getUpdate() {
+    public Instant getUpdate() {
         return update;
     }
 
-    public void setUpdate(LocalDateTime update) {
+    public void setUpdate(Instant update) {
         this.update = update;
     }
 
