@@ -5,6 +5,7 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
+import java.security.Timestamp;
 import models.Entradas;
 import java.util.List;
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 
 
@@ -30,15 +33,18 @@ public class EntradasDao {
         
         try{
             sql = con.prepareStatement(
-         "insert into cliente(peso_e, custo_e, quantidade_e, criacao_e, atualizacao_e, status_e, id_ingrediente) values (?,?,?,?,?,?,?)") ;
+         "insert into entradas(peso_e, custo_e, quantidade_e, criacao_e, atualizacao_e, status_e, id_ingrediente) values (?,?,?,?,?,?,?)") ;
             sql.setFloat(1, entrada.getWeight());
             sql.setFloat(2, entrada.getCost());
             sql.setInt(3, entrada.getQuantity());
             sql.setTimestamp(4, entrada.getCreation());
+            sql.setTimestamp(5, entrada.getUpdate());
+            sql.setString(6, entrada.getStatus());
+            sql.setInt(7, entrada.getId_ingredient());
             sql.executeUpdate();
             
             JOptionPane.showMessageDialog(
-                    null, "Cadastrado com sucesso!");
+                    null, "Cadasdtrado com sucesso!");
         }catch(SQLException ex){
            JOptionPane.showMessageDialog(
                    null, "Erro ao Cadastrar: " + ex);
@@ -49,51 +55,50 @@ public class EntradasDao {
     }
     
     
-    public List<Cliente> read() throws SQLException{
+    public List<Entradas> read() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Cliente> clientes = new ArrayList<>();
+        List<Entradas> entradas = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM cliente");
+            sql = con.prepareStatement("SELECT * FROM entradas");
             rs = sql.executeQuery();
             while(rs.next()){
-                Cliente c = new Cliente();
-                c.setId(rs.getInt("id"));
-                c.setNome(rs.getString("nome"));
-                c.setTelefone(rs.getString("telefone"));
-                c.setEmail(rs.getString("email"));
-                c.setRg(rs.getString("rg"));
-                c.setCpf(rs.getString("cpf"));
-                c.setCep(rs.getString("cep"));
-                c.setEndereco(rs.getString("endereco"));
-                clientes.add(c);
+                Entradas entrada = new Entradas();
+                entrada.setId(rs.getInt("id_entrada"));
+                entrada.setWeight(rs.getFloat("peso_e"));
+                entrada.setCost(rs.getFloat("custo_e"));
+                entrada.setQuantity(rs.getInt("quantidade_e"));
+                entrada.setCreation(rs.getTimestamp("craicao_e").toLocalDateTime());
+                entrada.setUpdate(rs.getTimestamp("atualizacao_e").toLocalDateTime());
+                entrada.setStatus(rs.getString("status_e"));
+                entrada.setId_ingredient(rs.getInt("id_ingrediente"));
+                entradas.add(entrada);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return clientes;
+        return entradas;
       
     }
     
     
-    public void update(Cliente c) throws SQLException{
+    public void update(Entradas entrada) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("update cliente set nome = ?, telefone = ?, email = ?, rg = ?, cpf = ?, cep = ?, endereco = ? where id = ?");
-            sql.setString(1, c.getNome());
-            sql.setString(2, c.getTelefone());
-            sql.setString(3, c.getEmail());
-            sql.setString(4, c.getRg());
-            sql.setString(5, c.getCpf());
-            sql.setString(6, c.getCep());
-            sql.setString(7, c.getEndereco());            
-            sql.setInt(8, c.getId());
+            sql = con.prepareStatement("update entradas set peso_e = ?, custo_e = ?, quantidade_e = ?, criacao_e = ?, atualizacao_e = ?, status_e = ?, id_ingrediente = ? where id = ?");
+            sql.setFloat(1, entrada.getWeight());
+            sql.setFloat(2, entrada.getCost());
+            sql.setInt(3, entrada.getQuantity());
+            sql.setTimestamp(4, entrada.getCreation());
+            sql.setTimestamp(5, entrada.getUpdate());
+            sql.setString(7, entrada.getStatus());
+            sql.setInt(8, entrada.getId_ingredient());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -103,13 +108,13 @@ public class EntradasDao {
         }
     }
     
-    public void delete(Cliente c) throws SQLException{
+    public void delete(Entradas entradas) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM cliente WHERE id = ?");
-            sql.setInt(1, c.getId());
+            sql = con.prepareStatement("DELETE FROM entradas WHERE id = ?");
+            sql.setInt(1, entradas.getId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -120,34 +125,34 @@ public class EntradasDao {
     }
     
      
-    public List<Cliente> readBusca(String busca) throws SQLException{
+    public List<Entradas> readBusca(String busca) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Cliente> clientes = new ArrayList<>();
+        List<Entradas> entradas = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM cliente WHERE nome LIKE ?");
+            sql = con.prepareStatement("SELECT * FROM entradas INNER JOIN ingredientes.nome ON ingredientes.id_ingrediente = entradas.id_ingrediente WHERE nome LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                Cliente c = new Cliente();
-                c.setId(rs.getInt("id"));
-                c.setNome(rs.getString("nome"));
-                c.setTelefone(rs.getString("telefone"));
-                c.setEmail(rs.getString("email"));
-                c.setRg(rs.getString("rg"));
-                c.setCpf(rs.getString("cpf"));
-                c.setCep(rs.getString("cep"));
-                c.setEndereco(rs.getString("endereco"));
-                clientes.add(c);
+               Entradas entrada = new Entradas();
+                entrada.setId(rs.getInt("id_entrada"));
+                entrada.setWeight(rs.getFloat("peso_e"));
+                entrada.setCost(rs.getFloat("custo_e"));
+                entrada.setQuantity(rs.getInt("quantidade_e"));
+                entrada.setCreation(rs.getTimestamp("criacao_e").toLocalDateTime());
+                entrada.setUpdate(rs.getTimestamp("atualizacao_e").toLocalDateTime());
+                entrada.setStatus(rs.getString("status_e"));
+                entrada.setId_ingredient(rs.getInt("id_ingrediente"));
+                entradas.add(entrada);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return clientes; 
+        return entradas; 
     }
 
     

@@ -4,7 +4,7 @@
  */
 package models;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -18,7 +18,7 @@ public class Entradas extends Entity{
     private int quantity;
     private int id_ingredient;
 
-    public Entradas(float weight, float cost, int quantity, int id_ingredient, int id, Instant creation, Instant update, String status) {
+    public Entradas(float weight, float cost, int quantity, int id_ingredient, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
         this.weight = weight;
         this.cost = cost;
