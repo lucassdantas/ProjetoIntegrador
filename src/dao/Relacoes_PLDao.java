@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import models.Relacoes_p_l;
 
 
 
@@ -21,23 +22,22 @@ import java.sql.SQLException;
  *
  * @author 42labinfo
  */
-public class Relacoes_LIDao {
+public class Relacoes_PLDao {
     
-    public void create(Relacoes_l_i relacoesLI) throws SQLException{
+    public void create(Relacoes_p_l RelacoesPL) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into relacoes_l_i(id_lanche, id_ingrediente, quantidade_li, peso_li, criacao_li, atualizacao_li, status) values (?,?,?,?,?,?,?);") ;
+         "insert into relacoes_l_i(id_lanche, id_ingrediente, peso_li, criacao_li, atualizacao_li, status) values (?,?,?,?,?,?,?);") ;
             sql.setInt(1, relacoesLI.getId_lunch());
             sql.setInt(2, relacoesLI.getId_ingredient());
-            sql.setInt(3, relacoesLI.getQuantity());
-            sql.setFloat(4, relacoesLI.getWeight());
-            sql.setTimestamp(3, Timestamp.valueOf(relacoesLI.getCreation()));
-            sql.setTimestamp(4, Timestamp.valueOf(relacoesLI.getUpdate()));
-            sql.setString(5, relacoesLI.getStatus());
+            sql.setFloat(3 relacoesLI.getWeight());
+            sql.setTimestamp(4, Timestamp.valueOf(relacoesLI.getCreation()));
+            sql.setTimestamp(5, Timestamp.valueOf(relacoesLI.getUpdate()));
+            sql.setString(6, relacoesLI.getStatus());
             
             sql.executeUpdate();
             
