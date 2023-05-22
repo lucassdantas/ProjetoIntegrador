@@ -38,8 +38,8 @@ public class LanchesDao {
             sql.setFloat(2, lanche.getCost());
             sql.setFloat(3, lanche.getPrice());
             sql.setFloat(4, lanche.getWeight());
-            sql.setTimestamp(5, Timestamp.valueOf(lanche.getCreation()));
-            sql.setTimestamp(6, Timestamp.valueOf(lanche.getUpdate()));
+            sql.setTimestamp(5, LocalDateTime.(lanche.getCreation()));
+            sql.setTimestamp(6, LocalDateTime.valueOf(lanche.getUpdate()));
             sql.setInt(7, lanche.getMinQuantity());
             sql.setString(8, lanche.getStatus());
             

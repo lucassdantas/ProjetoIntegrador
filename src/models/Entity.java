@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Entity {
+abstract class Entity {
     protected int id;
     protected LocalDateTime creation;
     protected LocalDateTime update;
