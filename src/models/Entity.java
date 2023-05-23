@@ -5,6 +5,7 @@
 package models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -31,9 +32,20 @@ abstract class Entity {
     public void setId(int id) {
         this.id = id;
     }
+    public String timeToString(LocalDateTime time){
+        DateTimeFormatter formatPattern = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        String formattedTime = time.format(formatPattern);
+        return formattedTime;
+    }
+    
+    public LocalDateTime stringToTime(String time){
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime newTime = LocalDateTime.parse(time, dateFormat);
+        return newTime;
+    }
     //retorna data de criacao no tipo String
     public String getToStringCreation(){
-        return creation;
+        return timeToString(this.creation);
     }
     public LocalDateTime getCreation() {
         return creation;
