@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -5,7 +6,6 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import java.security.Timestamp;
 import models.Ingredientes;
 import java.util.List;
 import java.util.ArrayList;
@@ -39,8 +39,8 @@ public class IngredientesDao {
             sql.setFloat(3, ingrediente.getWeight());
             sql.setInt(4, ingrediente.getQuantity());
             sql.setString(5, ingrediente.getType());
-            sql.setTimestamp(6, Timestamp.valueOf(ingrediente.getCreation()));
-            sql.setTimestamp(7, Timestamp.valueOf(ingrediente.getUpdate()));
+            sql.setString(6, .valueOf(ingrediente.getCreation()));
+            sql.setString(7, .valueOf(ingrediente.getUpdate()));
             sql.setString(8, ingrediente.getStatus());
             
             sql.executeUpdate();
@@ -74,8 +74,8 @@ public class IngredientesDao {
                 ingrediente.setWeight(rs.getFloat("peso_i"));
                 ingrediente.setQuantity(rs.getInt("quantidade_i"));
                 ingrediente.setType(rs.getString("tipo_i"));
-                ingrediente.setCreation(rs.getTimestamp("craicao_i").toLocalDateTime());
-                ingrediente.setUpdate(rs.getTimestamp("atualizacao_i").toLocalDateTime());
+                ingrediente.setCreation(rs.getString("craicao_i").toLocalDateTime());
+                ingrediente.setUpdate(rs.getString("atualizacao_i").toLocalDateTime());
                 ingrediente.setStatus(rs.getString("status_i"));
                 ingredientes.add(ingrediente);
             }
@@ -100,8 +100,8 @@ public class IngredientesDao {
             sql.setFloat(3, ingrediente.getWeight());
             sql.setInt(4, ingrediente.getQuantity());
             sql.setString(5, ingrediente.getType());
-            sql.setTimestamp(6, Timestamp.valueOf(ingrediente.getCreation()));
-            sql.setTimestamp(7, Timestamp.valueOf(ingrediente.getUpdate()));
+            sql.setString(6, .valueOf(ingrediente.getCreation()));
+            sql.setString(7, .valueOf(ingrediente.getUpdate()));
             sql.setString(8, ingrediente.getStatus());
             sql.setString(9, ingrediente.getStatus());
             sql.executeUpdate();
@@ -147,8 +147,8 @@ public class IngredientesDao {
                 ingrediente.setWeight(rs.getFloat("peso_i"));
                 ingrediente.setQuantity(rs.getInt("quantidade_i"));
                 ingrediente.setType(rs.getString("tipo_i"));
-                ingrediente.setCreation(rs.getTimestamp("criacao_i").toLocalDateTime());
-                ingrediente.setUpdate(rs.getTimestamp("atualizacao_i").toLocalDateTime());
+                ingrediente.setCreation(rs.getString("criacao_i").toLocalDateTime());
+                ingrediente.setUpdate(rs.getString("atualizacao_i").toLocalDateTime());
                 ingrediente.setStatus(rs.getString("status_i"));
                 ingredientes.add(ingrediente);
             }

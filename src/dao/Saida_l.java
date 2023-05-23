@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -5,7 +6,6 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import java.security.Timestamp;
 import models.Saida;
 import java.util.List;
 import java.util.ArrayList;
@@ -35,8 +35,8 @@ public class Saida_l {
          sql.setInt(1, saidas.getId_task());
          sql.setInt(2, saidas.getId_lunch());
          sql.setInt(3, saidas.getId_ingredient());
-         sql.setTimestamp(4, Timestamp.valueOf(saidas.getCreation()));
-         sql.setTimestamp(5, Timestamp.valueOf(saidas.getUpdate()));
+         sql.setString(4, .valueOf(saidas.getCreation()));
+         sql.setString(5, .valueOf(saidas.getUpdate()));
          sql.setString(6, saidas.getStatus());
             
             sql.executeUpdate();
@@ -67,8 +67,8 @@ public class Saida_l {
                 saida.setId_lunch(rs.getInt("id_lunch"));
                 saida.setId_task(rs.getInt("id_task"));
                 saida.setId_ingredient(rs.getInt("id_ingredient"));
-                saida.setCreation(rs.getTimestamp("criacao_li").toLocalDateTime());
-                saida.setUpdate(rs.getTimestamp("atualizacao_li").toLocalDateTime());
+                saida.setCreation(rs.getString("criacao_li").toLocalDateTime());
+                saida.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
                 saida.setStatus(rs.getString("status"));
                 saidas.add(saida);
             }
@@ -91,8 +91,8 @@ public class Saida_l {
             sql.setInt(1, saidas.getId_task());
             sql.setInt(2, saidas.getId_lunch());
             sql.setInt(3,saidas.getId_ingredient());
-            sql.setTimestamp(4, Timestamp.valueOf(saidas.getCreation()));
-            sql.setTimestamp(5, Timestamp.valueOf(saidas.getUpdate()));
+            sql.setString(4, .valueOf(saidas.getCreation()));
+            sql.setString5, .valueOf(saidas.getUpdate()));
             sql.setString(6, saidas.getStatus());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
@@ -138,8 +138,8 @@ public class Saida_l {
                 Saida saida = new Saida();
                 saida.setId_lunch(rs.getInt("id_lunch"));
                 saida.setId_ingredient(rs.getInt("id_ingredient"));
-                saida.setCreation(rs.getTimestamp("criacao_li").toLocalDateTime());
-                saida.setUpdate(rs.getTimestamp("atualizacao_li").toLocalDateTime());
+                saida.setCreation(rs.getString("criacao_li").toLocalDateTime());
+                saida.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
                 saida.setStatus(rs.getString("status"));
                 saidas.add(saida);
             }
@@ -153,3 +153,4 @@ public class Saida_l {
 
     
 }
+

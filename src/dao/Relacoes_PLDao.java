@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -5,7 +6,6 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import java.security.Timestamp;
 import models.Relacoes_l_i;
 import java.util.List;
 import java.util.ArrayList;
@@ -35,8 +35,8 @@ public class Relacoes_PLDao {
             sql.setInt(1, relacoesLI.getId_lunch());
             sql.setInt(2, relacoesLI.getId_ingredient());
             sql.setFloat(3 relacoesLI.getWeight());
-            sql.setTimestamp(4, Timestamp.valueOf(relacoesLI.getCreation()));
-            sql.setTimestamp(5, Timestamp.valueOf(relacoesLI.getUpdate()));
+            sql.setString(4, .valueOf(relacoesLI.getCreation()));
+            sql.setString(5, .valueOf(relacoesLI.getUpdate()));
             sql.setString(6, relacoesLI.getStatus());
             
             sql.executeUpdate();
@@ -68,8 +68,8 @@ public class Relacoes_PLDao {
                 relacao.setId_ingredient(rs.getInt("id_ingredient"));
                 relacao.setQuantity(rs.getInt("quantidade_li"));
                 relacao.setWeight(rs.getFloat("peso_li"));
-                relacao.setCreation(rs.getTimestamp("criacao_li").toLocalDateTime());
-                relacao.setUpdate(rs.getTimestamp("atualizacao_li").toLocalDateTime());
+                relacao.setCreation(rs.getString("criacao_li").toLocalDateTime());
+                relacao.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
                 relacao.setStatus(rs.getString("status"));
                 relacoes.add(relacao);
             }
@@ -93,8 +93,8 @@ public class Relacoes_PLDao {
             sql.setInt(2, relacoesLI.getId_ingredient());
             sql.setInt(3, relacoesLI.getQuantity());
             sql.setFloat(4, relacoesLI.getWeight());
-            sql.setTimestamp(3, Timestamp.valueOf(relacoesLI.getCreation()));
-            sql.setTimestamp(4, Timestamp.valueOf(relacoesLI.getUpdate()));
+            sql.setString(3, .valueOf(relacoesLI.getCreation()));
+            sql.setString(4, .valueOf(relacoesLI.getUpdate()));
             sql.setString(5, relacoesLI.getStatus());
             sql.setInt(6, relacoesLI.getId_lunch());
             sql.setInt(7, relacoesLI.getId_ingredient());
@@ -141,8 +141,8 @@ public class Relacoes_PLDao {
                 relacao.setId_ingredient(rs.getInt("id_ingredient"));
                 relacao.setQuantity(rs.getInt("quantidade_li"));
                 relacao.setWeight(rs.getFloat("peso_li"));
-                relacao.setCreation(rs.getTimestamp("criacao_li").toLocalDateTime());
-                relacao.setUpdate(rs.getTimestamp("atualizacao_li").toLocalDateTime());
+                relacao.setCreation(rs.getString("criacao_li").toLocalDateTime());
+                relacao.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
                 relacao.setStatus(rs.getString("status"));
                 relacoes.add(relacao);
             }
