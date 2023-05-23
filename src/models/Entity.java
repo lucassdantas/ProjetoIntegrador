@@ -31,7 +31,10 @@ abstract class Entity {
     public void setId(int id) {
         this.id = id;
     }
-
+    //retorna data de criacao no tipo String
+    public String getToStringCreation(){
+        return creation;
+    }
     public LocalDateTime getCreation() {
         return creation;
     }

@@ -3,7 +3,6 @@ package dao;
 
 
 import ConnectionFactory.ConnectionFactory;
-import java.security.Timestamp;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public void create(Usuarios usuario) throws SQLException{
             sql.setString(3, usuario.getType());
             sql.setString(4, usuario.getName());
             sql.setString(5, usuario.getPhotograph());
-            sql.setTimestamp(6, Timestamp.valueOf(usuario.getCreation()));
-            sql.setTimestamp(7, Timestamp.valueOf(usuario.getUpdate()));
+            sql.setString(6, .valueOf(usuario.getCreation()));
+            sql.setString(7, .valueOf(usuario.getUpdate()));
             sql.setString(8, usuario.getStatus());
             
             sql.executeUpdate();
@@ -66,8 +65,8 @@ public void create(Usuarios usuario) throws SQLException{
                 usuario.setType(rs.getString("type_u"));
                 usuario.setName(rs.getString("name_u"));
                 usuario.setPhotograph(rs.getString("foto_u"));
-                usuario.setCreation(rs.getTimestamp("craicao_u").toLocalDateTime());
-                usuario.setUpdate(rs.getTimestamp("atualizacao_u").toLocalDateTime());
+                usuario.setCreation(rs.getString("craicao_u").toLocalDateTime());
+                usuario.setUpdate(rs.getString("atualizacao_u").toLocalDateTime());
                 usuario.setStatus(rs.getString("status_u"));
                 
                 usuarios.add(usuario);
@@ -98,8 +97,8 @@ public void create(Usuarios usuario) throws SQLException{
             sql.setString(3, usuario.getType());
             sql.setString(4, usuario.getName());
             sql.setString(5, usuario.getPhoto());
-            sql.setTimestamp(6, Timestamp.valueOf(usuario.getCreation()));
-            sql.setTimestamp(7, Timestamp.valueOf(usuario.getUpdate()));
+            sql.setString(6,   .valueOf(usuario.getCreation()));
+            sql.setString(7, .valueOf(usuario.getUpdate()));
             sql.setString(8, usuario.getStatus());
          
             
@@ -145,8 +144,8 @@ public void create(Usuarios usuario) throws SQLException{
                 usuario.setPassword(rs.getString("senha"));
                 usuario.setType(rs.getString("tipo_u"));
                 usuario.setName(rs.getString("nome_u"));
-                usuario.setCreation(rs.getTimestamp("criacao_u").toLocalDateTime());
-                usuario.setUpdate(rs.getTimestamp("atualizacao_u").toLocalDateTime());
+                usuario.setCreation(rs.getString("criacao_u").toLocalDateTime());
+                usuario.setUpdate(rs.getString("atualizacao_u").toLocalDateTime());
                 usuario.setStatus(rs.getString("status_u"));
                 usuarios.add(usuario);
            

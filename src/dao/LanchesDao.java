@@ -5,7 +5,6 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import java.security.Timestamp;
 import models.Lanches;
 import java.util.List;
 import java.util.ArrayList;
@@ -38,8 +37,8 @@ public class LanchesDao {
             sql.setFloat(2, lanche.getCost());
             sql.setFloat(3, lanche.getPrice());
             sql.setFloat(4, lanche.getWeight());
-            sql.setTimestamp(5, LocalDateTime.(lanche.getCreation()));
-            sql.setTimestamp(6, LocalDateTime.valueOf(lanche.getUpdate()));
+            sql.setString(5, LocalDateTime.valueOf(lanche.getCreation()));
+            sql.setString(6, LocalDateTime.valueOf(lanche.getUpdate()));
             sql.setInt(7, lanche.getMinQuantity());
             sql.setString(8, lanche.getStatus());
             
@@ -73,8 +72,8 @@ public class LanchesDao {
                 lanche.setCost(rs.getFloat("custo_l"));
                 lanche.setPrice(rs.getFloat("preco_l"));
                 lanche.setWeight(rs.getFloat("peso_l"));
-                lanche.setCreation(rs.getTimestamp("criacao_l").toLocalDateTime());
-                lanche.setUpdate(rs.getTimestamp("atualizacao_l").toLocalDateTime());
+                lanche.setCreation(rs.getString("criacao_l").toLocalDateTime());
+                lanche.setUpdate(rs.getString("atualizacao_l").toLocalDateTime());
                 lanche.setMinQuantity(rs.getInt("q_minima_l"));
                 lanche.setStatus(rs.getString("status_l"));
                 lanches.add(lanche);
@@ -99,8 +98,8 @@ public class LanchesDao {
             sql.setFloat(2, lanche.getCost());
             sql.setFloat(3, lanche.getPrice());
             sql.setFloat(4, lanche.getWeight());
-            sql.setTimestamp(5, Timestamp.valueOf(lanche.getCreation()));
-            sql.setTimestamp(6, Timestamp.valueOf(lanche.getUpdate()));
+            sql.setString(5, .valueOf(lanche.getCreation()));
+            sql.setString(6, .valueOf(lanche.getUpdate()));
             sql.setInt(7, lanche.getMinQuantity());
             sql.setString(8, lanche.getStatus());
             sql.executeUpdate();
@@ -146,8 +145,8 @@ public class LanchesDao {
                 lanche.setCost(rs.getFloat("custo_l"));
                 lanche.setPrice(rs.getFloat("preco_l"));
                 lanche.setWeight(rs.getFloat("peso_l"));
-                lanche.setCreation(rs.getTimestamp("criacao_l").toLocalDateTime());
-                lanche.setUpdate(rs.getTimestamp("atualizacao_l").toLocalDateTime());
+                lanche.setCreation(rs.getString("criacao_l").toLocalDateTime());
+                lanche.setUpdate(rs.getString("atualizacao_l").toLocalDateTime());
                 lanche.setMinQuantity(rs.getInt("q_minima_l"));
                 lanche.setStatus(rs.getString("status_l"));
                 lanches.add(lanche);

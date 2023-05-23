@@ -5,7 +5,6 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import java.security.Timestamp;
 import models.Pedidos;
 import java.util.List;
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ public class PedidosDao {
          "insert into pedidos(nome_p, valor_p, criacao_p, atualizacao_p, status_p) values (?,?,?,?,?);") ;
             sql.setString(1, pedido.getName());
             sql.setFloat(2, pedido.getValue());
-            sql.setTimestamp(3, Timestamp.valueOf(pedido.getCreation()));
-            sql.setTimestamp(4, Timestamp.valueOf(pedido.getUpdate()));
+            sql.setString(3, .valueOf(pedido.getCreation()));
+            sql.setString(4, .valueOf(pedido.getUpdate()));
             sql.setString(5, pedido.getStatus());
             
             sql.executeUpdate();
@@ -65,8 +64,8 @@ public class PedidosDao {
                 pedido.setId(rs.getInt("id_pedido"));
                 pedido.setName(rs.getString("nome"));
                 pedido.setValue(rs.getFloat("valor_p"));
-                pedido.setCreation(rs.getTimestamp("criacao_p").toLocalDateTime());
-                pedido.setUpdate(rs.getTimestamp("atualizacao_p").toLocalDateTime());
+                pedido.setCreation(rs.getString("criacao_p").toLocalDateTime());
+                pedido.setUpdate(rs.getString("atualizacao_p").toLocalDateTime());
                 pedido.setStatus(rs.getString("status_p"));
                 pedidos.add(pedido);
             }
@@ -88,8 +87,8 @@ public class PedidosDao {
             sql = con.prepareStatement("UPDATE pedidos SET nome_p, valor_p, criacao_p, atualizacao_p, status_p where id_pedido = ?;");
             sql.setString(1, pedido.getName());
             sql.setFloat(2, pedido.getValue());
-            sql.setTimestamp(3, Timestamp.valueOf(pedido.getCreation()));
-            sql.setTimestamp(4, Timestamp.valueOf(pedido.getUpdate()));
+            sql.setString(3, .valueOf(pedido.getCreation()));
+            sql.setString(4, .valueOf(pedido.getUpdate()));
             sql.setString(5, pedido.getStatus());
             sql.setInt(6, pedido.getId());
             sql.executeUpdate();
@@ -133,8 +132,8 @@ public class PedidosDao {
                 pedido.setId(rs.getInt("id_pedido"));
                 pedido.setName(rs.getString("nome"));
                 pedido.setValue(rs.getFloat("valor_p"));
-                pedido.setCreation(rs.getTimestamp("criacao_p").toLocalDateTime());
-                pedido.setUpdate(rs.getTimestamp("atualizacao_p").toLocalDateTime());
+                pedido.setCreation(rs.getString("criacao_p").toLocalDateTime());
+                pedido.setUpdate(rs.getString("atualizacao_p").toLocalDateTime());
                 pedido.setStatus(rs.getString("status_p"));
                 pedidos.add(pedido);
             }
