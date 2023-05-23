@@ -73,7 +73,7 @@ public class EntradasDao {
                 entrada.setWeight(rs.getFloat("peso_e"));
                 entrada.setCost(rs.getFloat("custo_e"));
                 entrada.setQuantity(rs.getInt("quantidade_e"));
-                entrada.setCreation(rs.getString("craicao_e").toLocalDateTime());
+                entrada.setCreation(rs.getString("criacao_e").toLocalDateTime());
                 entrada.setUpdate(rs.getString("atualizacao_e").toLocalDateTime());
                 entrada.setStatus(rs.getString("status_e"));
                 entrada.setId_ingredient(rs.getInt("id_ingrediente"));
