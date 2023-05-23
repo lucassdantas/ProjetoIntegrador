@@ -5,7 +5,6 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import java.security.Timestamp;
 import models.Entradas;
 import java.util.List;
 import java.util.ArrayList;
@@ -37,8 +36,8 @@ public class EntradasDao {
             sql.setFloat(1, entrada.getWeight());
             sql.setFloat(2, entrada.getCost());
             sql.setInt(3, entrada.getQuantity());
-            sql.setTimestamp(4, entrada.getCreation());
-            sql.setTimestamp(5, entrada.getUpdate());
+            sql.set(4, entrada.getCreation());
+            sql.set(5, entrada.getUpdate());
             sql.setString(6, entrada.getStatus());
             sql.setInt(7, entrada.getId_ingredient());
             sql.executeUpdate();
@@ -70,8 +69,8 @@ public class EntradasDao {
                 entrada.setWeight(rs.getFloat("peso_e"));
                 entrada.setCost(rs.getFloat("custo_e"));
                 entrada.setQuantity(rs.getInt("quantidade_e"));
-                entrada.setCreation(rs.getTimestamp("craicao_e").toLocalDateTime());
-                entrada.setUpdate(rs.getTimestamp("atualizacao_e").toLocalDateTime());
+                entrada.setCreation(rs.get("craicao_e").toLocalDateTime());
+                entrada.setUpdate(rs.get("atualizacao_e").toLocalDateTime());
                 entrada.setStatus(rs.getString("status_e"));
                 entrada.setId_ingredient(rs.getInt("id_ingrediente"));
                 entradas.add(entrada);
@@ -95,8 +94,8 @@ public class EntradasDao {
             sql.setFloat(1, entrada.getWeight());
             sql.setFloat(2, entrada.getCost());
             sql.setInt(3, entrada.getQuantity());
-            sql.setTimestamp(4, entrada.getCreation());
-            sql.setTimestamp(5, entrada.getUpdate());
+            sql.set(4, entrada.getCreation());
+            sql.set(5, entrada.getUpdate());
             sql.setString(7, entrada.getStatus());
             sql.setInt(8, entrada.getId_ingredient());
             sql.executeUpdate();
@@ -141,8 +140,8 @@ public class EntradasDao {
                 entrada.setWeight(rs.getFloat("peso_e"));
                 entrada.setCost(rs.getFloat("custo_e"));
                 entrada.setQuantity(rs.getInt("quantidade_e"));
-                entrada.setCreation(rs.getTimestamp("criacao_e").toLocalDateTime());
-                entrada.setUpdate(rs.getTimestamp("atualizacao_e").toLocalDateTime());
+                entrada.setCreation(rs.get("criacao_e").toLocalDateTime());
+                entrada.setUpdate(rs.get("atualizacao_e").toLocalDateTime());
                 entrada.setStatus(rs.getString("status_e"));
                 entrada.setId_ingredient(rs.getInt("id_ingrediente"));
                 entradas.add(entrada);
