@@ -5,8 +5,10 @@
 package views;
 
 import dao.IngredientesDao;
+import dao.testDao;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import models.Ingredientes;
@@ -17,24 +19,15 @@ import models.Ingredientes;
  */
 public class JavaEstoque extends javax.swing.JFrame {
 
-   
-    public JavaEstoque() {
-        initComponents();
-    }
-
-    private void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public class TelaFuncionario extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TelaFuncionario
-     */
-    public TelaFuncionario() throws java.sql.SQLException {
+ 
+    
+    
+    
+    public JavaEstoque () throws java.sql.SQLException {
         initComponents();
         readJTable();
     }
+    
     
     public void readJTable() throws java.sql.SQLException{
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
@@ -58,8 +51,8 @@ public class JavaEstoque extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
         tblEstoque.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
-        IngredientesDao ingredientesDao = new IngredientesDao();
-        for (Ingredientes ingredientes: ingredientesDao.readPesquisar(pesquisar)){
+        testDao ingredientesDao = new testDao();
+        for (Ingredientes ingredientes: ingredientesDao.readBusca(pesquisar)){
             modelo.addRow(new Object[]{
                 ingredientes.getId(),
                 ingredientes.getName(),
@@ -82,12 +75,12 @@ public class JavaEstoque extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEstoque = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnOk = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtUndMedida = new javax.swing.JTextField();
+        txtUndMed = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtEstoqueMin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -100,37 +93,37 @@ public class JavaEstoque extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Pesquisar");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
         tblEstoque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Entradas", "Ingredientes", "Lanches", "Pedidos", "relacão_i_i", "relacao_p_i", "saida_i", "usuarios"
             }
         ));
         jScrollPane1.setViewportView(tblEstoque);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 720, 270));
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Pesquisar");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
-
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnOk.setText("OK");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnOkActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 60, 30));
+        jPanel1.add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 60, 30));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Und.medida");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
-        jPanel1.add(txtUndMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 110, -1));
+        jPanel1.add(txtUndMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 110, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Estoque Min");
@@ -173,22 +166,19 @@ public class JavaEstoque extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIngredienteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         
-         try {
+        try {
             // TODO add your handling code here:
-            readJTableBusca(txtPesquisar.getText());
+            readJTablePesquisar(txtPesquisar.getText());
         } catch (java.sql.SQLException ex) {
             java.util.logging.Logger.getLogger(JavaEstoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnOkActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+ public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -215,13 +205,19 @@ public class JavaEstoque extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JavaEstoque().setVisible(true);
+                try {
+                    new JavaEstoque().setVisible(true);
+                } catch (SQLException ex) {
+                    java.util.logging.Logger.getLogger(JavaEstoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                }
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnOk;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -233,6 +229,6 @@ public class JavaEstoque extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstoqueMin;
     private javax.swing.JTextField txtIngrediente;
     private javax.swing.JTextField txtPesquisar;
-    private javax.swing.JTextField txtUndMedida;
+    private javax.swing.JTextField txtUndMed;
     // End of variables declaration//GEN-END:variables
-
+}
