@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Relacoes_l_i {
+public class Relacoes_l_i extends Entity {
     public Relacoes_l_i(){};
     
     private int id_lunch;

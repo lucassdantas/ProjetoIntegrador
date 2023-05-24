@@ -15,7 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+//=============================================ATENÇÃO =========================================
+//>>>>>>>>>> PRECISAMOS VER COMO FAZER CHAVE COMPOSTA PARA O MODEL DESSA ENTIDADE <<<<<<<<<<<<<<
 
 /**
  *
@@ -35,8 +36,8 @@ public class Relacoes_LIDao {
             sql.setInt(2, relacoesLI.getId_ingredient());
             sql.setInt(3, relacoesLI.getQuantity());
             sql.setFloat(4, relacoesLI.getWeight());
-            sql.setString(3, .valueOf(relacoesLI.getCreation()));
-            sql.setString(4, .valueOf(relacoesLI.getUpdate()));
+            sql.setString(3, relacoesLI.getToStringCreation());
+            sql.setString(4, relacoesLI.getToStringUpdate());
             sql.setString(5, relacoesLI.getStatus());
             
             sql.executeUpdate();

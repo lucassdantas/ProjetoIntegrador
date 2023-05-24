@@ -17,6 +17,8 @@ import java.sql.SQLException;
 import models.Relacoes_p_l;
 
 
+//=============================================ATENÇÃO =========================================
+//>>>>>>>>>> PRECISAMOS VER COMO FAZER CHAVE COMPOSTA PARA O MODEL DESSA ENTIDADE <<<<<<<<<<<<<<
 
 /**
  *
@@ -35,8 +37,8 @@ public class Saida_l {
          sql.setInt(1, saidas.getId_task());
          sql.setInt(2, saidas.getId_lunch());
          sql.setInt(3, saidas.getId_ingredient());
-         sql.setString(4, .valueOf(saidas.getCreation()));
-         sql.setString(5, .valueOf(saidas.getUpdate()));
+         sql.setString(4, saidas.getToStringCreation());
+         sql.setString(5, saidas.getToStringUpdate());
          sql.setString(6, saidas.getStatus());
             
             sql.executeUpdate();
