@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view;
+package views;
 
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
-import dao.LoginDao;
+//import dao.LoginDao;
 
 public class TelaLogin extends javax.swing.JFrame {
 
