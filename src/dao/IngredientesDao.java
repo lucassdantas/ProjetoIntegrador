@@ -15,8 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 
 
 
@@ -39,8 +38,8 @@ public class IngredientesDao {
             sql.setFloat(3, ingrediente.getWeight());
             sql.setInt(4, ingrediente.getQuantity());
             sql.setString(5, ingrediente.getType());
-            sql.setString(6, .valueOf(ingrediente.getCreation()));
-            sql.setString(7, .valueOf(ingrediente.getUpdate()));
+            sql.setString(6, (ingrediente.getToStringCreation()));
+            sql.setString(7, (ingrediente.getToStringUpdate()));
             sql.setString(8, ingrediente.getStatus());
             
             sql.executeUpdate();
@@ -74,8 +73,8 @@ public class IngredientesDao {
                 ingrediente.setWeight(rs.getFloat("peso_i"));
                 ingrediente.setQuantity(rs.getInt("quantidade_i"));
                 ingrediente.setType(rs.getString("tipo_i"));
-                ingrediente.setCreation(rs.getString("craicao_i").toLocalDateTime());
-                ingrediente.setUpdate(rs.getString("atualizacao_i").toLocalDateTime());
+                ingrediente.setToLocalDateTimeCreation(rs.getString("craicao_i"));
+                ingrediente.setToLocalDateTimeUpdate(rs.getString("atualizacao_i"));
                 ingrediente.setStatus(rs.getString("status_i"));
                 ingredientes.add(ingrediente);
             }
@@ -100,8 +99,8 @@ public class IngredientesDao {
             sql.setFloat(3, ingrediente.getWeight());
             sql.setInt(4, ingrediente.getQuantity());
             sql.setString(5, ingrediente.getType());
-            sql.setString(6, .valueOf(ingrediente.getCreation()));
-            sql.setString(7, .valueOf(ingrediente.getUpdate()));
+            sql.setString(6, ingrediente.getToStringCreation());
+            sql.setString(7, ingrediente.getToStringUpdate());
             sql.setString(8, ingrediente.getStatus());
             sql.setString(9, ingrediente.getStatus());
             sql.executeUpdate();
@@ -147,8 +146,8 @@ public class IngredientesDao {
                 ingrediente.setWeight(rs.getFloat("peso_i"));
                 ingrediente.setQuantity(rs.getInt("quantidade_i"));
                 ingrediente.setType(rs.getString("tipo_i"));
-                ingrediente.setCreation(rs.getString("criacao_i").toLocalDateTime());
-                ingrediente.setUpdate(rs.getString("atualizacao_i").toLocalDateTime());
+                ingrediente.setToLocalDateTimeCreation(rs.getString("criacao_i"));
+                ingrediente.setToLocalDateTimeUpdate(rs.getString("atualizacao_i"));
                 ingrediente.setStatus(rs.getString("status_i"));
                 ingredientes.add(ingrediente);
             }
