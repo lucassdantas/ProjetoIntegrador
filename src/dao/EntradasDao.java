@@ -6,20 +6,14 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import models.Entradas;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 
 
@@ -40,8 +34,8 @@ public class EntradasDao {
             sql.setFloat(1, entrada.getWeight());
             sql.setFloat(2, entrada.getCost());
             sql.setInt(3, entrada.getQuantity());
-            sql.setString(4, entrada.getCreationString());
-            sql.setString(5, entrada.getUpdate());
+            sql.setString(4, entrada.getToStringCreation());
+            sql.setString(5, entrada.getToStringUpdate());
             sql.setString(6, entrada.getStatus());
             sql.setInt(7, entrada.getId_ingredient());
             sql.executeUpdate();
@@ -73,8 +67,8 @@ public class EntradasDao {
                 entrada.setWeight(rs.getFloat("peso_e"));
                 entrada.setCost(rs.getFloat("custo_e"));
                 entrada.setQuantity(rs.getInt("quantidade_e"));
-                entrada.setCreation(rs.getString("criacao_e").toLocalDateTime());
-                entrada.setUpdate(rs.getString("atualizacao_e").toLocalDateTime());
+                entrada.setToLocalDateTimeCreation(rs.getString("criacao_e"));
+                entrada.setToLocalDateTimeUpdate(rs.getString("atualizacao_e"));
                 entrada.setStatus(rs.getString("status_e"));
                 entrada.setId_ingredient(rs.getInt("id_ingrediente"));
                 entradas.add(entrada);
@@ -98,8 +92,8 @@ public class EntradasDao {
             sql.setFloat(1, entrada.getWeight());
             sql.setFloat(2, entrada.getCost());
             sql.setInt(3, entrada.getQuantity());
-            sql.setString(4, entrada.getCreation());
-            sql.setString(5, entrada.getUpdate());
+            sql.setString(4, entrada.getToStringCreation());
+            sql.setString(5, entrada.getToStringUpdate());
             sql.setString(7, entrada.getStatus());
             sql.setInt(8, entrada.getId_ingredient());
             sql.executeUpdate();
@@ -144,8 +138,8 @@ public class EntradasDao {
                 entrada.setWeight(rs.getFloat("peso_e"));
                 entrada.setCost(rs.getFloat("custo_e"));
                 entrada.setQuantity(rs.getInt("quantidade_e"));
-                entrada.setCreation(rs.getString("criacao_e").toLocalDateTime());
-                entrada.setUpdate(rs.getString("atualizacao_e").toLocalDateTime());
+                entrada.setToLocalDateTimeCreation(rs.getString("criacao_e"));
+                entrada.setToLocalDateTimeUpdate(rs.getString("atualizacao_e"));
                 entrada.setStatus(rs.getString("status_e"));
                 entrada.setId_ingredient(rs.getInt("id_ingrediente"));
                 entradas.add(entrada);

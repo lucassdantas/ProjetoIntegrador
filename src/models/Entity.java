@@ -48,7 +48,7 @@ abstract class Entity {
         return this.timeToString(this.creation);
     }
     
-    public void setToStringCreation(String time){
+    public void setToLocalDateTimeCreation(String time){
         this.creation = this.stringToTime(time);
     }
     
@@ -56,7 +56,7 @@ abstract class Entity {
         return this.timeToString(this.update);
     }
     
-    public void setToStringUpdate(String time){
+    public void setToLocalDateTimeUpdate(String time){
         this.update = this.stringToTime(time);
     }
     public LocalDateTime getCreation() {
