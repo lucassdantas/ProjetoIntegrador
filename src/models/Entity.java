@@ -45,7 +45,19 @@ abstract class Entity {
     }
     //retorna data de criacao no tipo String
     public String getToStringCreation(){
-        return timeToString(this.creation);
+        return this.timeToString(this.creation);
+    }
+    
+    public void setToStringCreation(String time){
+        this.creation = this.stringToTime(time);
+    }
+    
+    public String getToStringUpdate(){
+        return this.timeToString(this.update);
+    }
+    
+    public void setToStringUpdate(String time){
+        this.update = this.stringToTime(time);
     }
     public LocalDateTime getCreation() {
         return creation;
