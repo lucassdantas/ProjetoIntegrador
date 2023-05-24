@@ -33,8 +33,8 @@ public class PedidosDao {
          "insert into pedidos(nome_p, valor_p, criacao_p, atualizacao_p, status_p) values (?,?,?,?,?);") ;
             sql.setString(1, pedido.getName());
             sql.setFloat(2, pedido.getValue());
-            sql.setString(3, .valueOf(pedido.getCreation()));
-            sql.setString(4, .valueOf(pedido.getUpdate()));
+            sql.setString(3, pedido.getToStringCreation());
+            sql.setString(4, pedido.getToStringUpdate());
             sql.setString(5, pedido.getStatus());
             
             sql.executeUpdate();
@@ -65,8 +65,8 @@ public class PedidosDao {
                 pedido.setId(rs.getInt("id_pedido"));
                 pedido.setName(rs.getString("nome"));
                 pedido.setValue(rs.getFloat("valor_p"));
-                pedido.setCreation(rs.getString("criacao_p").toLocalDateTime());
-                pedido.setUpdate(rs.getString("atualizacao_p").toLocalDateTime());
+                pedido.setToLocalDateTimeCreation(rs.getString("criacao_p"));
+                pedido.setToLocalDateTimeUpdate(rs.getString("atualizacao_p"));
                 pedido.setStatus(rs.getString("status_p"));
                 pedidos.add(pedido);
             }
@@ -88,8 +88,8 @@ public class PedidosDao {
             sql = con.prepareStatement("UPDATE pedidos SET nome_p, valor_p, criacao_p, atualizacao_p, status_p where id_pedido = ?;");
             sql.setString(1, pedido.getName());
             sql.setFloat(2, pedido.getValue());
-            sql.setString(3, .valueOf(pedido.getCreation()));
-            sql.setString(4, .valueOf(pedido.getUpdate()));
+            sql.setString(3, pedido.getToStringCreation());
+            sql.setString(4, pedido.getToStringUpdate());
             sql.setString(5, pedido.getStatus());
             sql.setInt(6, pedido.getId());
             sql.executeUpdate();
@@ -133,8 +133,8 @@ public class PedidosDao {
                 pedido.setId(rs.getInt("id_pedido"));
                 pedido.setName(rs.getString("nome"));
                 pedido.setValue(rs.getFloat("valor_p"));
-                pedido.setCreation(rs.getString("criacao_p").toLocalDateTime());
-                pedido.setUpdate(rs.getString("atualizacao_p").toLocalDateTime());
+                pedido.setToLocalDateTimeCreation(rs.getString("criacao_p"));
+                pedido.setToLocalDateTimeUpdate(rs.getString("atualizacao_p"));
                 pedido.setStatus(rs.getString("status_p"));
                 pedidos.add(pedido);
             }
