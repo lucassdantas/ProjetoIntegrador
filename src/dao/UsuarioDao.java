@@ -3,17 +3,13 @@ package dao;
 
 
 import ConnectionFactory.ConnectionFactory;
-
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.Date;
 import models.Usuarios;
 public class UsuarioDao {
     
@@ -29,9 +25,9 @@ public void create(Usuarios usuario) throws SQLException{
             sql.setString(2, usuario.getPassword());
             sql.setString(3, usuario.getType());
             sql.setString(4, usuario.getName());
-            sql.setString(5, usuario.getPhotograph());
-            sql.setString(6, .valueOf(usuario.getCreation()));
-            sql.setString(7, .valueOf(usuario.getUpdate()));
+            sql.setString(5, usuario.getPhoto());
+            sql.setString(6, usuario.getToStringCreation());
+            sql.setString(7, usuario.getToStringUpdate());
             sql.setString(8, usuario.getStatus());
             
             sql.executeUpdate();
@@ -64,26 +60,19 @@ public void create(Usuarios usuario) throws SQLException{
                 usuario.setPassword(rs.getString("password"));
                 usuario.setType(rs.getString("type_u"));
                 usuario.setName(rs.getString("name_u"));
-                usuario.setPhotograph(rs.getString("foto_u"));
-                usuario.setCreation(rs.getString("craicao_u").toLocalDateTime());
-                usuario.setUpdate(rs.getString("atualizacao_u").toLocalDateTime());
+                usuario.setPhoto(rs.getString("foto_u"));
+                usuario.setToLocalDateTimeCreation(rs.getString("craicao_u"));
+                usuario.setToLocalDateTimeUpdate(rs.getString("atualizacao_u"));
                 usuario.setStatus(rs.getString("status_u"));
-                
                 usuarios.add(usuario);
-           
-            
-            
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
-        } finally{
+        }finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-    List<Usuarios> usuario = null;
         return usuarios;
-      
     }
-    
     
     public void update(Usuarios usuario) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
@@ -97,11 +86,9 @@ public void create(Usuarios usuario) throws SQLException{
             sql.setString(3, usuario.getType());
             sql.setString(4, usuario.getName());
             sql.setString(5, usuario.getPhoto());
-            sql.setString(6,   .valueOf(usuario.getCreation()));
-            sql.setString(7, .valueOf(usuario.getUpdate()));
+            sql.setString(6, usuario.getToStringCreation());
+            sql.setString(7, usuario.getToStringUpdate());
             sql.setString(8, usuario.getStatus());
-         
-            
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
@@ -144,8 +131,8 @@ public void create(Usuarios usuario) throws SQLException{
                 usuario.setPassword(rs.getString("senha"));
                 usuario.setType(rs.getString("tipo_u"));
                 usuario.setName(rs.getString("nome_u"));
-                usuario.setCreation(rs.getString("criacao_u").toLocalDateTime());
-                usuario.setUpdate(rs.getString("atualizacao_u").toLocalDateTime());
+                usuario.setToLocalDateTimeCreation(rs.getString("criacao_u"));
+                usuario.setToLocalDateTimeUpdate(rs.getString("atualizacao_u"));
                 usuario.setStatus(rs.getString("status_u"));
                 usuarios.add(usuario);
            

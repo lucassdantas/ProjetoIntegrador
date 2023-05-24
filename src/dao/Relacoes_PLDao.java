@@ -17,6 +17,8 @@ import java.sql.SQLException;
 import models.Relacoes_p_l;
 
 
+//=============================================ATENÇÃO =========================================
+//>>>>>>>>>> PRECISAMOS VER COMO FAZER CHAVE COMPOSTA PARA O MODEL DESSA ENTIDADE <<<<<<<<<<<<<<
 
 /**
  *
