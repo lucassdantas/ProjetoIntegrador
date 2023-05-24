@@ -40,7 +40,7 @@ public class EntradasDao {
             sql.setFloat(1, entrada.getWeight());
             sql.setFloat(2, entrada.getCost());
             sql.setInt(3, entrada.getQuantity());
-            sql.setString(4, entrada.getCreation());
+            sql.setString(4, entrada.getCreationString());
             sql.setString(5, entrada.getUpdate());
             sql.setString(6, entrada.getStatus());
             sql.setInt(7, entrada.getId_ingredient());
