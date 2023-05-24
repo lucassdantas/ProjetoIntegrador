@@ -4,6 +4,7 @@
  */
 package views;
 
+import controllers.JavaEstoqueController;
 import dao.IngredientesDao;
 import dao.testDao;
 import java.lang.System.Logger;
@@ -25,44 +26,11 @@ public class JavaEstoque extends javax.swing.JFrame {
     
     public JavaEstoque () throws java.sql.SQLException {
         initComponents();
-        readJTable();
+        JavaEstoqueController.readJTable(tblEstoque);
     }
     
     
-    public void readJTable() throws java.sql.SQLException{
-        DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
-        tblEstoque.setRowSorter(new TableRowSorter(modelo));
-        modelo.setNumRows(0);
-        IngredientesDao ingredientesDao = new IngredientesDao();
-        for (Ingredientes ingredientes: ingredientesDao.read()){
-            modelo.addRow(new Object[]{
-                ingredientes.getId(),
-                ingredientes.getName(),
-                ingredientes.getPrice(),
-                ingredientes.getWeight(),
-                ingredientes.getQuantity(),
-                ingredientes.getType(),
-            
-            });
-        }
-    }
     
-    public void readJTablePesquisar(String pesquisar) throws java.sql.SQLException{
-        DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
-        tblEstoque.setRowSorter(new TableRowSorter(modelo));
-        modelo.setNumRows(0);
-        testDao ingredientesDao = new testDao();
-        for (Ingredientes ingredientes: ingredientesDao.readBusca(pesquisar)){
-            modelo.addRow(new Object[]{
-                ingredientes.getId(),
-                ingredientes.getName(),
-                ingredientes.getPrice(),
-                ingredientes.getWeight(),
-                ingredientes.getQuantity(),
-                ingredientes.getType(),
-            });
-        }
-    }
 
     
     /**
@@ -170,7 +138,7 @@ public class JavaEstoque extends javax.swing.JFrame {
         
         try {
             // TODO add your handling code here:
-            readJTablePesquisar(txtPesquisar.getText());
+            JavaEstoqueController.readJTablePesquisar(txtPesquisar.getText(), tblEstoque);
         } catch (java.sql.SQLException ex) {
             java.util.logging.Logger.getLogger(JavaEstoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
