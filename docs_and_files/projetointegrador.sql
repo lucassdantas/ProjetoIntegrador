@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/05/2023 às 02:31
+-- Tempo de geração: 24/05/2023 às 02:05
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -18,138 +18,137 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `projetointegrador`
+-- Banco de dados: `projetointegrador2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `entradas`
+-- Estrutura para tabela `ingredients`
 --
 
-CREATE TABLE `entradas` (
-  `input_i` int(11) NOT NULL,
-  `weight_i` float DEFAULT NULL,
-  `cost_i` float DEFAULT NULL,
-  `quantity_i` int(11) DEFAULT NULL,
-  `creation_i` varchar(20) DEFAULT NULL,
-  `update_i` varchar(20) DEFAULT NULL,
-  `status_i` enum('a','d') DEFAULT NULL,
-  `id_ingrediente` int(11) NOT NULL
+CREATE TABLE `ingredients` (
+  `ingredientId` int(11) NOT NULL,
+  `nameI` varchar(25) NOT NULL,
+  `priceI` float NOT NULL,
+  `weightI` float NOT NULL,
+  `typeI` enum('u','k','g','h') NOT NULL,
+  `creationI` varchar(30) DEFAULT NULL,
+  `updateI` varchar(30) DEFAULT NULL,
+  `statusI` enum('a','n','d','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `ingredientes`
+-- Estrutura para tabela `input`
 --
 
-CREATE TABLE `ingredientes` (
-  `id_ingrediente` int(11) NOT NULL,
-  `name_i` varchar(30) DEFAULT NULL,
-  `price_i` float DEFAULT NULL,
-  `weight_i` float DEFAULT NULL,
-  `quantity_i` int(11) DEFAULT NULL,
-  `tipo_i` enum('k','g','u') NOT NULL,
-  `criacao_i` varchar(20) DEFAULT NULL,
-  `atualizacao_i` varchar(20) DEFAULT NULL,
-  `status_i` enum('n','l','e','d') NOT NULL
+CREATE TABLE `input` (
+  `inpuId` int(11) NOT NULL,
+  `weightI` float NOT NULL,
+  `costI` float NOT NULL,
+  `quantityI` int(11) NOT NULL,
+  `creationI` varchar(30) DEFAULT NULL,
+  `updateI` varchar(30) DEFAULT NULL,
+  `statusI` enum('a','n','d','') NOT NULL,
+  `idIngredient` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `lanches`
+-- Estrutura para tabela `outputi`
 --
 
-CREATE TABLE `lanches` (
-  `id_lanche` int(11) NOT NULL,
-  `nome_l` varchar(255) NOT NULL,
-  `custo_l` float NOT NULL,
-  `preco_l` float NOT NULL,
-  `peso_l` float NOT NULL,
-  `criacao_l` varchar(20) DEFAULT NULL,
-  `atualizacao_l` varchar(20) DEFAULT NULL,
-  `q_minima_l` int(11) NOT NULL,
-  `status` enum('a','s','e','d') NOT NULL
+CREATE TABLE `outputi` (
+  `ingredientId` int(11) NOT NULL,
+  `requestId` int(11) NOT NULL,
+  `snackId` int(11) NOT NULL,
+  `creationOut` varchar(20) DEFAULT NULL,
+  `updateOut` varchar(20) DEFAULT NULL,
+  `statusOut` enum('a','n','d','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `pedidos`
+-- Estrutura para tabela `relationsi`
 --
 
-CREATE TABLE `pedidos` (
-  `id_pedido` int(11) NOT NULL,
-  `nome_p` varchar(255) NOT NULL,
-  `valor_p` float NOT NULL,
-  `criacao_p` varchar(20) DEFAULT NULL,
-  `atualizacao_p` varchar(20) DEFAULT NULL,
-  `status_p` enum('a','n','d') NOT NULL
+CREATE TABLE `relationsi` (
+  `snackId` int(11) NOT NULL,
+  `ingredientId` int(11) NOT NULL,
+  `quantitySI` float DEFAULT NULL,
+  `WeightSI` float DEFAULT NULL,
+  `creationSI` varchar(20) DEFAULT NULL,
+  `updateSI` varchar(20) DEFAULT NULL,
+  `statusSI` enum('a','n','d','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `relacao_l_i`
+-- Estrutura para tabela `relationsr`
 --
 
-CREATE TABLE `relacao_l_i` (
-  `id_lanche` int(11) NOT NULL,
-  `id_ingrediente` int(11) NOT NULL,
-  `quantidade_li` int(11) DEFAULT NULL,
-  `peso_li` float DEFAULT NULL,
-  `criacao_li` varchar(20) DEFAULT NULL,
-  `atualizacao_li` varchar(20) DEFAULT NULL,
-  `status` enum('a','n','d') NOT NULL
+CREATE TABLE `relationsr` (
+  `requestId` int(11) NOT NULL,
+  `snackId` int(11) NOT NULL,
+  `creationSR` varchar(20) DEFAULT NULL,
+  `updateSR` varchar(20) DEFAULT NULL,
+  `statusSR` enum('a','n','d','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `relacoes_p_l`
+-- Estrutura para tabela `request`
 --
 
-CREATE TABLE `relacoes_p_l` (
-  `id_pedido` int(11) NOT NULL,
-  `id_lanche` int(11) NOT NULL,
-  `criacao_pl` varchar(20) DEFAULT NULL,
-  `atualizacao_pl` varchar(20) DEFAULT NULL,
-  `status_pl` enum('a','n','d') NOT NULL
+CREATE TABLE `request` (
+  `requestId` int(11) NOT NULL,
+  `nameR` varchar(255) NOT NULL,
+  `valueR` float NOT NULL,
+  `creationR` varchar(20) DEFAULT NULL,
+  `updateR` varchar(20) DEFAULT NULL,
+  `statusR` enum('a','n','d','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `saida_i`
+-- Estrutura para tabela `snack`
 --
 
-CREATE TABLE `saida_i` (
-  `id_ingrediente` int(11) NOT NULL,
-  `id_pedido` int(11) NOT NULL,
-  `id_lanche` int(11) NOT NULL,
-  `criacao_s` varchar(20) DEFAULT NULL,
-  `atualizacao_s` varchar(20) DEFAULT NULL,
-  `status_s` enum('a','n','d') NOT NULL
+CREATE TABLE `snack` (
+  `snackId` int(11) NOT NULL,
+  `nameS` varchar(255) NOT NULL,
+  `costS` float NOT NULL,
+  `priceS` float NOT NULL,
+  `weightS` float NOT NULL,
+  `creationS` varchar(30) DEFAULT NULL,
+  `updateS` varchar(30) DEFAULT NULL,
+  `statusS` enum('a','s','e','d') NOT NULL,
+  `whitS` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuarios`
+-- Estrutura para tabela `users`
 --
 
-CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
+CREATE TABLE `users` (
+  `userId` int(11) NOT NULL,
   `login` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL,
-  `tipo_u` enum('a','g','e','c') NOT NULL,
-  `nome_u` varchar(255) NOT NULL,
-  `foto_u` varchar(255) NOT NULL,
-  `criacao_u` varchar(20) DEFAULT NULL,
-  `atualizacao_u` varchar(20) DEFAULT NULL,
-  `status_u` enum('a','n','d') NOT NULL
+  `password` varchar(255) NOT NULL,
+  `typeU` enum('a','g','e','c') NOT NULL,
+  `nameU` varchar(255) NOT NULL,
+  `photoU` varchar(255) NOT NULL,
+  `creationU` varchar(20) DEFAULT NULL,
+  `updateU` varchar(20) DEFAULT NULL,
+  `statusU` enum('a','n','d','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -157,118 +156,104 @@ CREATE TABLE `usuarios` (
 --
 
 --
--- Índices de tabela `entradas`
+-- Índices de tabela `ingredients`
 --
-ALTER TABLE `entradas`
-  ADD PRIMARY KEY (`input_i`),
-  ADD KEY `id_ingrediente` (`id_ingrediente`);
+ALTER TABLE `ingredients`
+  ADD PRIMARY KEY (`ingredientId`);
 
 --
--- Índices de tabela `ingredientes`
+-- Índices de tabela `input`
 --
-ALTER TABLE `ingredientes`
-  ADD PRIMARY KEY (`id_ingrediente`);
+ALTER TABLE `input`
+  ADD PRIMARY KEY (`inpuId`);
 
 --
--- Índices de tabela `lanches`
+-- Índices de tabela `outputi`
 --
-ALTER TABLE `lanches`
-  ADD PRIMARY KEY (`id_lanche`);
+ALTER TABLE `outputi`
+  ADD PRIMARY KEY (`ingredientId`);
 
 --
--- Índices de tabela `pedidos`
+-- Índices de tabela `relationsi`
 --
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`id_pedido`);
+ALTER TABLE `relationsi`
+  ADD PRIMARY KEY (`snackId`);
 
 --
--- Índices de tabela `relacao_l_i`
+-- Índices de tabela `relationsr`
 --
-ALTER TABLE `relacao_l_i`
-  ADD PRIMARY KEY (`id_lanche`,`id_ingrediente`),
-  ADD KEY `id_ingrediente` (`id_ingrediente`);
+ALTER TABLE `relationsr`
+  ADD PRIMARY KEY (`requestId`);
 
 --
--- Índices de tabela `relacoes_p_l`
+-- Índices de tabela `request`
 --
-ALTER TABLE `relacoes_p_l`
-  ADD PRIMARY KEY (`id_pedido`,`id_lanche`),
-  ADD KEY `id_lanche` (`id_lanche`);
+ALTER TABLE `request`
+  ADD PRIMARY KEY (`requestId`);
 
 --
--- Índices de tabela `saida_i`
+-- Índices de tabela `snack`
 --
-ALTER TABLE `saida_i`
-  ADD PRIMARY KEY (`id_ingrediente`,`id_pedido`,`id_lanche`),
-  ADD KEY `id_pedido` (`id_pedido`),
-  ADD KEY `id_lanche` (`id_lanche`);
+ALTER TABLE `snack`
+  ADD PRIMARY KEY (`snackId`);
 
 --
--- Índices de tabela `usuarios`
+-- Índices de tabela `users`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userId`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `ingredientes`
+-- AUTO_INCREMENT de tabela `ingredients`
 --
-ALTER TABLE `ingredientes`
-  MODIFY `id_ingrediente` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ingredients`
+  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `lanches`
+-- AUTO_INCREMENT de tabela `input`
 --
-ALTER TABLE `lanches`
-  MODIFY `id_lanche` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `input`
+  MODIFY `inpuId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `pedidos`
+-- AUTO_INCREMENT de tabela `outputi`
 --
-ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `outputi`
+  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT de tabela `relationsi`
 --
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `relationsi`
+  MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restrições para tabelas despejadas
+-- AUTO_INCREMENT de tabela `relationsr`
 --
+ALTER TABLE `relationsr`
+  MODIFY `requestId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restrições para tabelas `entradas`
+-- AUTO_INCREMENT de tabela `request`
 --
-ALTER TABLE `entradas`
-  ADD CONSTRAINT `entradas_ibfk_1` FOREIGN KEY (`id_ingrediente`) REFERENCES `ingredientes` (`id_ingrediente`);
+ALTER TABLE `request`
+  MODIFY `requestId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restrições para tabelas `relacao_l_i`
+-- AUTO_INCREMENT de tabela `snack`
 --
-ALTER TABLE `relacao_l_i`
-  ADD CONSTRAINT `relacao_l_i_ibfk_1` FOREIGN KEY (`id_lanche`) REFERENCES `lanches` (`id_lanche`),
-  ADD CONSTRAINT `relacao_l_i_ibfk_2` FOREIGN KEY (`id_ingrediente`) REFERENCES `ingredientes` (`id_ingrediente`),
-  ADD CONSTRAINT `relacao_l_i_ibfk_3` FOREIGN KEY (`id_lanche`) REFERENCES `lanches` (`id_lanche`);
+ALTER TABLE `snack`
+  MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restrições para tabelas `relacoes_p_l`
+-- AUTO_INCREMENT de tabela `users`
 --
-ALTER TABLE `relacoes_p_l`
-  ADD CONSTRAINT `relacoes_p_l_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`),
-  ADD CONSTRAINT `relacoes_p_l_ibfk_2` FOREIGN KEY (`id_lanche`) REFERENCES `lanches` (`id_lanche`);
-
---
--- Restrições para tabelas `saida_i`
---
-ALTER TABLE `saida_i`
-  ADD CONSTRAINT `saida_i_ibfk_1` FOREIGN KEY (`id_ingrediente`) REFERENCES `ingredientes` (`id_ingrediente`),
-  ADD CONSTRAINT `saida_i_ibfk_2` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`),
-  ADD CONSTRAINT `saida_i_ibfk_3` FOREIGN KEY (`id_lanche`) REFERENCES `lanches` (`id_lanche`);
+ALTER TABLE `users`
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
