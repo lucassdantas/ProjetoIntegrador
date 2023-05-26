@@ -4,11 +4,12 @@
  */
 package controllers;
 
+import dao.EntradasDao;
 import dao.IngredientesDao;
 import dao.LanchesDao;
-import dao.testDao;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import models.Entradas;
 import models.Ingredientes;
 import models.Lanches;
 
@@ -16,20 +17,17 @@ import models.Lanches;
  *
  * @author Lucas Dantas
  */
-public class JavaEstoqueController {
-  public static void readJTable(javax.swing.JTable tblEstoque) throws java.sql.SQLException{
+public class InputController {
+    public static void readJTable(javax.swing.JTable tblEstoque) throws java.sql.SQLException{
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
         tblEstoque.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
-        IngredientesDao ingredientesDao = new IngredientesDao();
-        for (Ingredientes ingredientes: ingredientesDao.read()){
+        EntradasDao inputDao = new EntradasDao();
+        for (Entradas inputs: inputDao.read()){
             modelo.addRow(new Object[]{
-                ingredientes.getId(),
-                ingredientes.getName(),
-                ingredientes.getPrice(),
-                ingredientes.getWeight(),
-                ingredientes.getQuantity(),
-                ingredientes.getType(),
+                inputs.getId(),
+                inputs.getWeight(),
+                inputs.getQuantity(),
             
             });
         }
@@ -39,14 +37,12 @@ public class JavaEstoqueController {
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
         tblEstoque.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
-        LanchesDao ingredientesDao = new LanchesDao();
-        for (Lanches ingredientes: ingredientesDao.readBusca(pesquisar)){
+        EntradasDao inputDao = new EntradasDao();
+        for (Entradas inputs: inputDao.readBusca(pesquisar)){
             modelo.addRow(new Object[]{
-                ingredientes.getId(),
-                ingredientes.getName(),
-                ingredientes.getPrice(),
-                ingredientes.getToStringCreation(),
-                ingredientes.getToStringUpdate()
+                inputs.getId(),
+                inputs.getToStringCreation(),
+                inputs.getToStringUpdate()
             });
         }
     }  

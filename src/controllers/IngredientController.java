@@ -5,19 +5,16 @@
 package controllers;
 
 import dao.IngredientesDao;
-import dao.LanchesDao;
-import dao.testDao;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import models.Ingredientes;
-import models.Lanches;
 
 /**
  *
  * @author Lucas Dantas
  */
-public class JavaEstoqueController {
-  public static void readJTable(javax.swing.JTable tblEstoque) throws java.sql.SQLException{
+public class IngredientController {
+    public static void readJTable(javax.swing.JTable tblEstoque) throws java.sql.SQLException{
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
         tblEstoque.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
@@ -30,7 +27,6 @@ public class JavaEstoqueController {
                 ingredientes.getWeight(),
                 ingredientes.getQuantity(),
                 ingredientes.getType(),
-            
             });
         }
     }
@@ -39,8 +35,8 @@ public class JavaEstoqueController {
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
         tblEstoque.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
-        LanchesDao ingredientesDao = new LanchesDao();
-        for (Lanches ingredientes: ingredientesDao.readBusca(pesquisar)){
+        IngredientesDao ingredientesDao = new IngredientesDao();
+        for (Ingredientes ingredientes: ingredientesDao.readBusca(pesquisar)){
             modelo.addRow(new Object[]{
                 ingredientes.getId(),
                 ingredientes.getName(),
