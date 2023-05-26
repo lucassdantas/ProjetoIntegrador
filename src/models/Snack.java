@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Lanches extends Entity{
-    public Lanches(){}
+public class Snack extends Entity{
+    public Snack(){}
     
     private String name;
     private float cost;
@@ -20,7 +20,7 @@ public class Lanches extends Entity{
     private int minQuantity;
     private String type;
 
-    public Lanches(String name, float cost, float price, float weight, int minQuantity, String type, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Snack(String name, float cost, float price, float weight, int minQuantity, String type, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
         this.name = name;
         this.cost = cost;

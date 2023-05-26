@@ -6,7 +6,7 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import models.Pedidos;
+import models.Request;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -21,9 +21,9 @@ import java.sql.SQLException;
  *
  * @author 42labinfo
  */
-public class PedidosDao {
+public class RequestDao {
     
-    public void create(Pedidos pedido) throws SQLException{
+    public void create(Request pedido) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
@@ -51,17 +51,17 @@ public class PedidosDao {
     }
     
     
-    public List<Pedidos> read() throws SQLException{
+    public List<Request> read() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Pedidos> pedidos = new ArrayList<>();
+        List<Request> pedidos = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM pedidos;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Pedidos pedido = new Pedidos();
+                Request pedido = new Request();
                 pedido.setId(rs.getInt("id_pedido"));
                 pedido.setName(rs.getString("nome"));
                 pedido.setValue(rs.getFloat("valor_p"));
@@ -80,7 +80,7 @@ public class PedidosDao {
     }
     
     
-    public void update(Pedidos pedido) throws SQLException{
+    public void update(Request pedido) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
@@ -101,7 +101,7 @@ public class PedidosDao {
         }
     }
     
-    public void delete(Pedidos pedido) throws SQLException{
+    public void delete(Request pedido) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
@@ -118,18 +118,18 @@ public class PedidosDao {
     }
     
      
-    public List<Pedidos> readBusca(String busca) throws SQLException{
+    public List<Request> readBusca(String busca) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Pedidos> pedidos = new ArrayList<>();
+        List<Request> pedidos = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM pedidos WHERE nome_l LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                Pedidos pedido = new Pedidos();
+                Request pedido = new Request();
                 pedido.setId(rs.getInt("id_pedido"));
                 pedido.setName(rs.getString("nome"));
                 pedido.setValue(rs.getFloat("valor_p"));

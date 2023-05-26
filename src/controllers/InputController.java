@@ -4,14 +4,14 @@
  */
 package controllers;
 
-import dao.EntradasDao;
-import dao.IngredientesDao;
-import dao.LanchesDao;
+import dao.InputDao;
+import dao.IngredientDao;
+import dao.SnackDao;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import models.Entradas;
-import models.Ingredientes;
-import models.Lanches;
+import models.Input;
+import models.Ingredient;
+import models.Snack;
 
 /**
  *
@@ -22,8 +22,8 @@ public class InputController {
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
         tblEstoque.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
-        EntradasDao inputDao = new EntradasDao();
-        for (Entradas inputs: inputDao.read()){
+        InputDao inputDao = new InputDao();
+        for (Input inputs: inputDao.read()){
             modelo.addRow(new Object[]{
                 inputs.getId(),
                 inputs.getWeight(),
@@ -37,8 +37,8 @@ public class InputController {
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
         tblEstoque.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
-        EntradasDao inputDao = new EntradasDao();
-        for (Entradas inputs: inputDao.readBusca(pesquisar)){
+        InputDao inputDao = new InputDao();
+        for (Input inputs: inputDao.readBusca(pesquisar)){
             modelo.addRow(new Object[]{
                 inputs.getId(),
                 inputs.getToStringCreation(),

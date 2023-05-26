@@ -6,7 +6,7 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import models.Saida;
+import models.Output;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import models.Relacoes_p_l;
+import models.RelationSR;
 
 
 //=============================================ATENÇÃO =========================================
@@ -24,9 +24,9 @@ import models.Relacoes_p_l;
  *
  * @author 42labinfo
  */
-public class Saida_l {
+public class OutputDao {
     
-    public void create(Saida saidas) throws SQLException{
+    public void create(Output saidas) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
@@ -55,17 +55,17 @@ public class Saida_l {
     }
     
     
-    public List<Saida> read() throws SQLException{
+    public List<Output> read() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Saida> saidas = new ArrayList<>();
+        List<Output> saidas = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM saida;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Saida saida = new Saida();
+                Output saida = new Output();
                 saida.setId_lunch(rs.getInt("id_lunch"));
                 saida.setId_task(rs.getInt("id_task"));
                 saida.setId_ingredient(rs.getInt("id_ingredient"));
@@ -84,7 +84,7 @@ public class Saida_l {
     }
     
     
-    public void update(Saida saidas) throws SQLException{
+    public void update(Output saidas) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
@@ -105,7 +105,7 @@ public class Saida_l {
         }
     }
     
-    public void delete(Saida saidas) throws SQLException{
+    public void delete(Output saidas) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
@@ -124,12 +124,12 @@ public class Saida_l {
     }
     
      
-    public List<Saida> readBusca(String busca) throws SQLException{
+    public List<Output> readBusca(String busca) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Saida> saidas = new ArrayList<>();
+        List<Output> saidas = new ArrayList<>();
         try{
             sql = con.prepareStatement("select saida_i.*, ingredientes.nome from saida_i INNER JOIN ingredientes ON saida_i.id_ingrediente = ingredientes.id_ingrediente INNER JOIN pedidos ON saida_i.id_pedido = pedidos.id_pedido INNER JOIN lanches ON saida_i.id_lanche = lanches.id_lanche;"); 
             /*Corrigir, por Inner Join.  select saida_i.*, ingredientes.nome from saida_i INNER JOIN ingredientes ON saida_i.id_ingrediente = ingredientes.id_ingrediente INNER JOIN pedidos ON saida_i.id_pedido = pedidos.id_pedido INNER JOIN lanches ON saida_i.id_lanche = lanches.id_lanche;*/
@@ -137,7 +137,7 @@ public class Saida_l {
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                Saida saida = new Saida();
+                Output saida = new Output();
                 saida.setId_lunch(rs.getInt("id_lunch"));
                 saida.setId_ingredient(rs.getInt("id_ingredient"));
                 saida.setCreation(rs.getString("criacao_li").toLocalDateTime());

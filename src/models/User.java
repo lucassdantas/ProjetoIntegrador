@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Usuarios extends Entity {
-    public Usuarios(){};
+public class User extends Entity {
+    public User(){};
     
     private String login;
     private String password;
@@ -19,7 +19,7 @@ public class Usuarios extends Entity {
     private String name;
     private String photo;
 
-    public Usuarios(String login, String password, String type, String name, String photo, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public User(String login, String password, String type, String name, String photo, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
         this.login = login;
         this.password = password;

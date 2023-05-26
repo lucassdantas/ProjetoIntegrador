@@ -6,7 +6,7 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import models.Lanches;
+import models.Snack;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -21,9 +21,9 @@ import java.sql.SQLException;
  *
  * @author 42labinfo
  */
-public class LanchesDao {
+public class SnackDao {
     
-    public void create(Lanches lanche) throws SQLException{
+    public void create(Snack lanche) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
@@ -54,17 +54,17 @@ public class LanchesDao {
     }
     
     
-    public List<Lanches> read() throws SQLException{
+    public List<Snack> read() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Lanches> lanches = new ArrayList<>();
+        List<Snack> lanches = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM lanches;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Lanches lanche = new Lanches();
+                Snack lanche = new Snack();
                 lanche.setId(rs.getInt("id_lanche"));
                 lanche.setName(rs.getString("nome"));
                 lanche.setCost(rs.getFloat("custo_l"));
@@ -86,7 +86,7 @@ public class LanchesDao {
     }
     
     
-    public void update(Lanches lanche) throws SQLException{
+    public void update(Snack lanche) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
@@ -109,7 +109,7 @@ public class LanchesDao {
         }
     }
     
-    public void delete(Lanches lanche) throws SQLException{
+    public void delete(Snack lanche) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
@@ -126,18 +126,18 @@ public class LanchesDao {
     }
     
      
-    public List<Lanches> readBusca(String busca) throws SQLException{
+    public List<Snack> readBusca(String busca) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Lanches> lanches = new ArrayList<>();
+        List<Snack> lanches = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM lanches WHERE nome_l LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                Lanches lanche = new Lanches();
+                Snack lanche = new Snack();
                 lanche.setId(rs.getInt("id_lanche"));
                 lanche.setName(rs.getString("nome"));
                 lanche.setCost(rs.getFloat("custo_l"));
