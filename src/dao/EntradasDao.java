@@ -129,7 +129,7 @@ public class EntradasDao {
         
         List<Entradas> entradas = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM entradas INNER JOIN ingredientes.nome ON ingredientes.id_ingrediente = entradas.id_ingrediente WHERE nome LIKE ?");
+            sql = con.prepareStatement("SELECT input.*, ingredients.nameI FROM snack INNER JOIN ingredients ON input.idIngredient = ingredients.ingredientId WHERE ingredients.nameI LIKE ?;");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
