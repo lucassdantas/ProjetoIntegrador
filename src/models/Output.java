@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Saida {
-   public Saida(){};
+public class Output {
+   public Output(){};
     
     private int id_task;
     private int id_lunch;
@@ -20,7 +20,7 @@ public class Saida {
     private LocalDateTime update;
     private String status; 
 
-    public Saida(int id_task, int id_lunch, int id_ingredient, LocalDateTime creation, LocalDateTime update, String status) {
+    public Output(int id_task, int id_lunch, int id_ingredient, LocalDateTime creation, LocalDateTime update, String status) {
         this.id_task = id_task;
         this.id_lunch = id_lunch;
         this.id_ingredient = id_ingredient;

@@ -5,14 +5,14 @@
 package views;
 
 import controllers.JavaEstoqueController;
-import dao.IngredientesDao;
+import dao.IngredientDao;
 import dao.testDao;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import models.Ingredientes;
+import models.Ingredient;
 
 /**
  *

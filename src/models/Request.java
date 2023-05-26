@@ -10,13 +10,13 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Pedidos extends Entity{
-    public Pedidos(){};
+public class Request extends Entity{
+    public Request(){};
     
     private String name;
     private float value;
 
-    public Pedidos(String name, float value, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Request(String name, float value, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
         this.name = name;
         this.value = value;

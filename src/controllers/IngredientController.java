@@ -4,10 +4,10 @@
  */
 package controllers;
 
-import dao.IngredientesDao;
+import dao.IngredientDao;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import models.Ingredientes;
+import models.Ingredient;
 
 /**
  *
@@ -18,8 +18,8 @@ public class IngredientController {
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
         tblEstoque.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
-        IngredientesDao ingredientesDao = new IngredientesDao();
-        for (Ingredientes ingredientes: ingredientesDao.read()){
+        IngredientDao ingredientesDao = new IngredientDao();
+        for (Ingredient ingredientes: ingredientesDao.read()){
             modelo.addRow(new Object[]{
                 ingredientes.getId(),
                 ingredientes.getName(),
@@ -35,8 +35,8 @@ public class IngredientController {
         DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
         tblEstoque.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
-        IngredientesDao ingredientesDao = new IngredientesDao();
-        for (Ingredientes ingredientes: ingredientesDao.readBusca(pesquisar)){
+        IngredientDao ingredientesDao = new IngredientDao();
+        for (Ingredient ingredientes: ingredientesDao.readBusca(pesquisar)){
             modelo.addRow(new Object[]{
                 ingredientes.getId(),
                 ingredientes.getName(),

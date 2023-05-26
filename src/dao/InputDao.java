@@ -6,7 +6,7 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import models.Entradas;
+import models.Input;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -21,9 +21,9 @@ import java.sql.SQLException;
  *
  * @author 42labinfo
  */
-public class EntradasDao {
+public class InputDao {
     
-    public void create(Entradas entrada) throws SQLException{
+    public void create(Input entrada) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
@@ -52,17 +52,17 @@ public class EntradasDao {
     }
     
     
-    public List<Entradas> read() throws SQLException{
+    public List<Input> read() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Entradas> entradas = new ArrayList<>();
+        List<Input> entradas = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM entradas");
             rs = sql.executeQuery();
             while(rs.next()){
-                Entradas entrada = new Entradas();
+                Input entrada = new Input();
                 entrada.setId(rs.getInt("id_entrada"));
                 entrada.setWeight(rs.getFloat("peso_e"));
                 entrada.setCost(rs.getFloat("custo_e"));
@@ -83,7 +83,7 @@ public class EntradasDao {
     }
     
     
-    public void update(Entradas entrada) throws SQLException{
+    public void update(Input entrada) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
@@ -105,7 +105,7 @@ public class EntradasDao {
         }
     }
     
-    public void delete(Entradas entradas) throws SQLException{
+    public void delete(Input entradas) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
@@ -122,18 +122,18 @@ public class EntradasDao {
     }
     
      
-    public List<Entradas> readBusca(String busca) throws SQLException{
+    public List<Input> readBusca(String busca) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Entradas> entradas = new ArrayList<>();
+        List<Input> entradas = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT input.*, ingredients.nameI FROM snack INNER JOIN ingredients ON input.idIngredient = ingredients.ingredientId WHERE ingredients.nameI LIKE ?;");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-               Entradas entrada = new Entradas();
+               Input entrada = new Input();
                 entrada.setId(rs.getInt("id_entrada"));
                 entrada.setWeight(rs.getFloat("peso_e"));
                 entrada.setCost(rs.getFloat("custo_e"));

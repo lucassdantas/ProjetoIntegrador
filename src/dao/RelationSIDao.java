@@ -6,7 +6,7 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import models.Relacoes_l_i;
+import models.RelationSI;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -22,9 +22,9 @@ import java.sql.SQLException;
  *
  * @author 42labinfo
  */
-public class Relacoes_LIDao {
+public class RelationSIDao {
     
-    public void create(Relacoes_l_i relacoesLI) throws SQLException{
+    public void create(RelationSI relacoesLI) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
@@ -54,17 +54,17 @@ public class Relacoes_LIDao {
     }
     
     
-    public List<Relacoes_l_i> read() throws SQLException{
+    public List<RelationSI> read() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Relacoes_l_i> relacoes = new ArrayList<>();
+        List<RelationSI> relacoes = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM relacoes_l_i;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Relacoes_l_i relacao = new Relacoes_l_i();
+                RelationSI relacao = new RelationSI();
                 relacao.setId_lunch(rs.getInt("id_lunch"));
                 relacao.setId_ingredient(rs.getInt("id_ingredient"));
                 relacao.setQuantity(rs.getInt("quantidade_li"));
@@ -84,7 +84,7 @@ public class Relacoes_LIDao {
     }
     
     
-    public void update(Relacoes_l_i relacoesLI) throws SQLException{
+    public void update(RelationSI relacoesLI) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
@@ -108,7 +108,7 @@ public class Relacoes_LIDao {
         }
     }
     
-    public void delete(Relacoes_l_i pedido) throws SQLException{
+    public void delete(RelationSI pedido) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
@@ -126,18 +126,18 @@ public class Relacoes_LIDao {
     }
     
      
-    public List<Relacoes_l_i> readBusca(String busca) throws SQLException{
+    public List<RelationSI> readBusca(String busca) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Relacoes_l_i> relacoes = new ArrayList<>();
+        List<RelationSI> relacoes = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM relacoes WHERE nome_l LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                Relacoes_l_i relacao = new Relacoes_l_i();
+                RelationSI relacao = new RelationSI();
                 relacao.setId_lunch(rs.getInt("id_lunch"));
                 relacao.setId_ingredient(rs.getInt("id_ingredient"));
                 relacao.setQuantity(rs.getInt("quantidade_li"));

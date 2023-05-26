@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/05/2023 às 02:05
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- Tempo de geração: 26-Maio-2023 às 13:02
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `projetointegrador2`
+-- Banco de dados: `projetointegrador`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `ingredients`
+-- Estrutura da tabela `ingredient`
 --
 
-CREATE TABLE `ingredients` (
+CREATE TABLE `ingredient` (
   `ingredientId` int(11) NOT NULL,
   `nameI` varchar(25) NOT NULL,
   `priceI` float NOT NULL,
@@ -41,27 +41,27 @@ CREATE TABLE `ingredients` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `input`
+-- Estrutura da tabela `input`
 --
 
 CREATE TABLE `input` (
-  `inpuId` int(11) NOT NULL,
+  `inputId` int(11) NOT NULL,
   `weightI` float NOT NULL,
   `costI` float NOT NULL,
   `quantityI` int(11) NOT NULL,
   `creationI` varchar(30) DEFAULT NULL,
   `updateI` varchar(30) DEFAULT NULL,
   `statusI` enum('a','n','d','') NOT NULL,
-  `idIngredient` int(11) NOT NULL
+  `ingredientId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `outputi`
+-- Estrutura da tabela `output`
 --
 
-CREATE TABLE `outputi` (
+CREATE TABLE `output` (
   `ingredientId` int(11) NOT NULL,
   `requestId` int(11) NOT NULL,
   `snackId` int(11) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE `outputi` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `relationsi`
+-- Estrutura da tabela `relationsi`
 --
 
 CREATE TABLE `relationsi` (
@@ -89,7 +89,7 @@ CREATE TABLE `relationsi` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `relationsr`
+-- Estrutura da tabela `relationsr`
 --
 
 CREATE TABLE `relationsr` (
@@ -103,7 +103,7 @@ CREATE TABLE `relationsr` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `request`
+-- Estrutura da tabela `request`
 --
 
 CREATE TABLE `request` (
@@ -112,13 +112,14 @@ CREATE TABLE `request` (
   `valueR` float NOT NULL,
   `creationR` varchar(20) DEFAULT NULL,
   `updateR` varchar(20) DEFAULT NULL,
-  `statusR` enum('a','n','d','') NOT NULL
+  `statusR` enum('a','n','d','') NOT NULL,
+  `snackId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `snack`
+-- Estrutura da tabela `snack`
 --
 
 CREATE TABLE `snack` (
@@ -136,10 +137,10 @@ CREATE TABLE `snack` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `users`
+-- Estrutura da tabela `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `userId` int(11) NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -156,73 +157,79 @@ CREATE TABLE `users` (
 --
 
 --
--- Índices de tabela `ingredients`
+-- Índices para tabela `ingredient`
 --
-ALTER TABLE `ingredients`
+ALTER TABLE `ingredient`
   ADD PRIMARY KEY (`ingredientId`);
 
 --
--- Índices de tabela `input`
+-- Índices para tabela `input`
 --
 ALTER TABLE `input`
-  ADD PRIMARY KEY (`inpuId`);
+  ADD PRIMARY KEY (`inputId`),
+  ADD KEY `ingredientId` (`ingredientId`);
 
 --
--- Índices de tabela `outputi`
+-- Índices para tabela `output`
 --
-ALTER TABLE `outputi`
-  ADD PRIMARY KEY (`ingredientId`);
+ALTER TABLE `output`
+  ADD PRIMARY KEY (`ingredientId`,`requestId`,`snackId`),
+  ADD KEY `requestId` (`requestId`),
+  ADD KEY `snackId` (`snackId`);
 
 --
--- Índices de tabela `relationsi`
+-- Índices para tabela `relationsi`
 --
 ALTER TABLE `relationsi`
-  ADD PRIMARY KEY (`snackId`);
+  ADD PRIMARY KEY (`snackId`,`ingredientId`),
+  ADD KEY `ingredientId` (`ingredientId`);
 
 --
--- Índices de tabela `relationsr`
+-- Índices para tabela `relationsr`
 --
 ALTER TABLE `relationsr`
-  ADD PRIMARY KEY (`requestId`);
+  ADD PRIMARY KEY (`requestId`,`snackId`),
+  ADD KEY `snackId` (`snackId`);
 
 --
--- Índices de tabela `request`
+-- Índices para tabela `request`
 --
 ALTER TABLE `request`
-  ADD PRIMARY KEY (`requestId`);
+  ADD PRIMARY KEY (`requestId`),
+  ADD KEY `snackId` (`snackId`);
 
 --
--- Índices de tabela `snack`
+-- Índices para tabela `snack`
 --
 ALTER TABLE `snack`
   ADD PRIMARY KEY (`snackId`);
 
 --
--- Índices de tabela `users`
+-- Índices para tabela `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`userId`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `ingredients`
+-- AUTO_INCREMENT de tabela `ingredient`
 --
-ALTER TABLE `ingredients`
+ALTER TABLE `ingredient`
   MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `input`
 --
 ALTER TABLE `input`
-  MODIFY `inpuId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `inputId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `outputi`
+-- AUTO_INCREMENT de tabela `output`
 --
-ALTER TABLE `outputi`
+ALTER TABLE `output`
   MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -250,10 +257,48 @@ ALTER TABLE `snack`
   MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `users`
+-- AUTO_INCREMENT de tabela `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `input`
+--
+ALTER TABLE `input`
+  ADD CONSTRAINT `input_ibfk_1` FOREIGN KEY (`ingredientId`) REFERENCES `ingredient` (`ingredientId`);
+
+--
+-- Limitadores para a tabela `output`
+--
+ALTER TABLE `output`
+  ADD CONSTRAINT `output_ibfk_1` FOREIGN KEY (`ingredientId`) REFERENCES `ingredient` (`ingredientId`),
+  ADD CONSTRAINT `output_ibfk_2` FOREIGN KEY (`requestId`) REFERENCES `request` (`requestId`),
+  ADD CONSTRAINT `output_ibfk_3` FOREIGN KEY (`snackId`) REFERENCES `snack` (`snackId`);
+
+--
+-- Limitadores para a tabela `relationsi`
+--
+ALTER TABLE `relationsi`
+  ADD CONSTRAINT `relationsi_ibfk_1` FOREIGN KEY (`ingredientId`) REFERENCES `ingredient` (`ingredientId`),
+  ADD CONSTRAINT `relationsi_ibfk_2` FOREIGN KEY (`snackId`) REFERENCES `snack` (`snackId`);
+
+--
+-- Limitadores para a tabela `relationsr`
+--
+ALTER TABLE `relationsr`
+  ADD CONSTRAINT `relationsr_ibfk_1` FOREIGN KEY (`requestId`) REFERENCES `request` (`requestId`),
+  ADD CONSTRAINT `relationsr_ibfk_2` FOREIGN KEY (`snackId`) REFERENCES `snack` (`snackId`);
+
+--
+-- Limitadores para a tabela `request`
+--
+ALTER TABLE `request`
+  ADD CONSTRAINT `request_ibfk_1` FOREIGN KEY (`snackId`) REFERENCES `snack` (`snackId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

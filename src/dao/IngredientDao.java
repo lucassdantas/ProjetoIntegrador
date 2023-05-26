@@ -6,7 +6,7 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import models.Ingredientes;
+import models.Ingredient;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -23,9 +23,9 @@ import java.sql.SQLException;
  *
  * @author 42labinfo
  */
-public class IngredientesDao {
+public class IngredientDao {
     
-    public void create(Ingredientes ingrediente) throws SQLException{
+    public void create(Ingredient ingrediente) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
@@ -56,17 +56,17 @@ public class IngredientesDao {
     }
     
     
-    public List<Ingredientes> read() throws SQLException{
+    public List<Ingredient> read() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Ingredientes> ingredientes = new ArrayList<>();
+        List<Ingredient> ingredientes = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM ingredientes;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Ingredientes ingrediente = new Ingredientes();
+                Ingredient ingrediente = new Ingredient();
                 ingrediente.setId(rs.getInt("id_ingrediente"));
                 ingrediente.setName(rs.getString("nome"));
                 ingrediente.setPrice(rs.getFloat("preco_i"));
@@ -88,7 +88,7 @@ public class IngredientesDao {
     }
     
     
-    public void update(Ingredientes ingrediente) throws SQLException{
+    public void update(Ingredient ingrediente) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
@@ -112,7 +112,7 @@ public class IngredientesDao {
         }
     }
     
-    public void delete(Ingredientes ingrediente) throws SQLException{
+    public void delete(Ingredient ingrediente) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
@@ -129,18 +129,18 @@ public class IngredientesDao {
     }
     
      
-    public List<Ingredientes> readBusca(String busca) throws SQLException{
+    public List<Ingredient> readBusca(String busca) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Ingredientes> ingredientes = new ArrayList<>();
+        List<Ingredient> ingredientes = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM ingredientes WHERE nome LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-               Ingredientes ingrediente = new Ingredientes();
+               Ingredient ingrediente = new Ingredient();
                 ingrediente.setId(rs.getInt("id_ingrediente"));
                 ingrediente.setPrice(rs.getFloat("preco_i"));
                 ingrediente.setWeight(rs.getFloat("peso_i"));

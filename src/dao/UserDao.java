@@ -10,10 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import models.Usuarios;
-public class UsuarioDao {
+import models.User;
+public class UserDao {
     
-public void create(Usuarios usuario) throws SQLException{
+public void create(User usuario) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
@@ -44,17 +44,17 @@ public void create(Usuarios usuario) throws SQLException{
     }
     
     
-    public List<Usuarios> read() throws SQLException{
+    public List<User> read() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Usuarios> usuarios = new ArrayList<>();
+        List<User> usuarios = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM usuario;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Usuarios usuario = new Usuarios();
+                User usuario = new User();
                 usuario.setId(rs.getInt("id_usuario"));
                 usuario.setLogin(rs.getString("login"));
                 usuario.setPassword(rs.getString("password"));
@@ -74,7 +74,7 @@ public void create(Usuarios usuario) throws SQLException{
         return usuarios;
     }
     
-    public void update(Usuarios usuario) throws SQLException{
+    public void update(User usuario) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
@@ -97,7 +97,7 @@ public void create(Usuarios usuario) throws SQLException{
         }
     }
     
-    public void delete(Usuarios usuario) throws SQLException{
+    public void delete(User usuario) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
@@ -114,18 +114,18 @@ public void create(Usuarios usuario) throws SQLException{
     }
     
      
-    public List<Usuarios> readBusca(String busca) throws SQLException{
+    public List<User> readBusca(String busca) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Usuarios> usuarios = new ArrayList<>();
+        List<User> usuarios = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM usuarios WHERE nome LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-               Usuarios usuario = new Usuarios();
+               User usuario = new User();
                 usuario.setId(rs.getInt("id_usuario"));
                 usuario.setLogin(rs.getString("login"));
                 usuario.setPassword(rs.getString("senha"));
