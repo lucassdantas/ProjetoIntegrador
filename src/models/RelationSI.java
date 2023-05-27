@@ -10,25 +10,21 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class RelationSI extends Entity {
+public class RelationSI extends DefaultAttributes {
     public RelationSI(){};
     
     private int snackId;
     private int ingredientId;
     private int quantity;
     private float weight;
-    private LocalDateTime creation;
-    private LocalDateTime update;
-    private String status;
+ 
 
     public RelationSI(int snackId, int ingredientId, int quantity, float weight, LocalDateTime creation, LocalDateTime update, String status) {
+        super(creation,update,status);
         this.snackId = snackId;
         this.ingredientId = ingredientId;
         this.quantity = quantity;
         this.weight = weight;
-        this.creation = creation;
-        this.update = update;
-        this.status = status;
     }
 
     public int getSnackId() {
@@ -62,29 +58,4 @@ public class RelationSI extends Entity {
     public void setWeight(float weight) {
         this.weight = weight;
     }
-
-    public LocalDateTime getCreation() {
-        return creation;
-    }
-
-    public void setCreation(LocalDateTime creation) {
-        this.creation = creation;
-    }
-
-    public LocalDateTime getUpdate() {
-        return update;
-    }
-
-    public void setUpdate(LocalDateTime update) {
-        this.update = update;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
 }

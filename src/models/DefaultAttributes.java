@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Lucas Dantas
  */
-public class DefaultAttributes {
+abstract class DefaultAttributes {
     protected LocalDateTime creation;
     protected LocalDateTime update;
     protected String status;
