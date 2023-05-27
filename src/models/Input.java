@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Input extends Entity{
+public class Input extends EntityId{
     public Input(){}
     
     private float weight;

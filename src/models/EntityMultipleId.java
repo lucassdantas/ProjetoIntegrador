@@ -11,13 +11,13 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Lucas Dantas
  */
-abstract class DefaultAttributes {
+abstract class EntityMultipleId {
     protected LocalDateTime creation;
     protected LocalDateTime update;
     protected String status;
     
-    DefaultAttributes(){};
-    DefaultAttributes(LocalDateTime creation, LocalDateTime update, String status){
+    EntityMultipleId(){};
+    EntityMultipleId(LocalDateTime creation, LocalDateTime update, String status){
         this.creation = creation;
         this.update = update;
         this.status = status;

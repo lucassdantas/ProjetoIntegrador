@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Ingredient extends Entity{
+public class Ingredient extends EntityId{
     public Ingredient(){}
     
     private String name;

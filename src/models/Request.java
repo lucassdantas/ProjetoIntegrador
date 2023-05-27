@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Request extends Entity{
+public class Request extends EntityId{
     public Request(){};
     
     private String name;

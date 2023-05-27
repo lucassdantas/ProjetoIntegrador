@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class User extends Entity {
+public class User extends EntityId {
     public User(){};
     
     private String login;

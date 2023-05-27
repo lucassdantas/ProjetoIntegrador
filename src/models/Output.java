@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Output extends DefaultAttributes{
+public class Output extends EntityMultipleId{
    public Output(){};
     
     private int requestId;

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class RelationSR extends DefaultAttributes{
+public class RelationSR extends EntityMultipleId{
     public RelationSR(){};
     
     private int id_task;

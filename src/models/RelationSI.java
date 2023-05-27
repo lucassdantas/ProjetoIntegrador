@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class RelationSI extends DefaultAttributes {
+public class RelationSI extends EntityMultipleId {
     public RelationSI(){};
     
     private int snackId;

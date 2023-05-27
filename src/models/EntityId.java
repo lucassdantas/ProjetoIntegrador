@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-abstract class Entity extends DefaultAttributes {
+abstract class EntityId extends EntityMultipleId {
     protected int id;
     
-    public Entity() {}
-    public Entity(int id, LocalDateTime creation, LocalDateTime update, String status){
+    public EntityId() {}
+    public EntityId(int id, LocalDateTime creation, LocalDateTime update, String status){
         super(creation, update, status);
         this.id = id; 
     }
