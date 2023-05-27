@@ -10,72 +10,42 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Output {
+public class Output extends DefaultAttributes{
    public Output(){};
     
-    private int id_task;
-    private int id_lunch;
-    private int id_ingredient;
-    private LocalDateTime creation;
-    private LocalDateTime update;
-    private String status; 
+    private int requestId;
+    private int snackId;
+    private int ingredientId;
 
-    public Output(int id_task, int id_lunch, int id_ingredient, LocalDateTime creation, LocalDateTime update, String status) {
-        this.id_task = id_task;
-        this.id_lunch = id_lunch;
-        this.id_ingredient = id_ingredient;
-        this.creation = creation;
-        this.update = update;
-        this.status = status;
+    public Output(int requestId, int snackId, int ingredientId, LocalDateTime creation, LocalDateTime update, String status) {
+        super(creation, update, status);
+        this.requestId = requestId;
+        this.snackId = snackId;
+        this.ingredientId = ingredientId;
+
     }
 
-    public int getId_task() {
-        return id_task;
+    public int getRequestId() {
+        return requestId;
     }
 
-    public void setId_task(int id_task) {
-        this.id_task = id_task;
+    public void setRequestId(int requestId) {
+        this.requestId = requestId;
     }
 
-    public int getId_lunch() {
-        return id_lunch;
+    public int getSnackId() {
+        return snackId;
     }
 
-    public void setId_lunch(int id_lunch) {
-        this.id_lunch = id_lunch;
+    public void setSnackId(int snackId) {
+        this.snackId = snackId;
     }
 
-    public int getId_ingredient() {
-        return id_ingredient;
+    public int getIngredientId() {
+        return ingredientId;
     }
 
-    public void setId_ingredient(int id_ingredient) {
-        this.id_ingredient = id_ingredient;
+    public void setIngredientId(int ingredientId) {
+        this.ingredientId = ingredientId;
     }
-
-    public LocalDateTime getCreation() {
-        return creation;
-    }
-
-    public void setCreation(LocalDateTime creation) {
-        this.creation = creation;
-    }
-
-    public LocalDateTime getUpdate() {
-        return update;
-    }
-
-    public void setUpdate(LocalDateTime update) {
-        this.update = update;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
-    
 }
