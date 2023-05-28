@@ -14,11 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import models.RelationSR;
 
-
-//=============================================ATENÇÃO =========================================
-//>>>>>>>>>> PRECISAMOS VER COMO FAZER CHAVE COMPOSTA PARA O MODEL DESSA ENTIDADE <<<<<<<<<<<<<<
 
 /**
  *
@@ -33,10 +29,10 @@ public class OutputDao {
         
         try{
             sql = con.prepareStatement(
-         "insert into output (taskId, lunchId, ingredientId, creationOut, updateOut, statusOut) values (?,?,?,?,?,?);") ;
-         sql.setInt(1, output.getId_task());
-         sql.setInt(2, output.getId_lunch());
-         sql.setInt(3, output.getId_ingredient());
+         "insert into output (requestId, snackId, ingredientId, creationOut, updateOut, statusOut) values (?,?,?,?,?,?);") ;
+         sql.setInt(1, output.getRequestId());
+         sql.setInt(2, output.getSnackId());
+         sql.setInt(3, output.getIngredientId());
          sql.setString(4, output.getToStringCreation());
          sql.setString(5, output.getToStringUpdate());
          sql.setString(6, output.getStatus());
@@ -66,11 +62,11 @@ public class OutputDao {
             rs = sql.executeQuery();
             while(rs.next()){
                 Output output = new Output();
-                output.setId_lunch(rs.getInt("lunchId"));
-                output.setId_task(rs.getInt("taskId"));
-                output.setId_ingredient(rs.getInt("ingredientId"));
-                output.setCreation(rs.getString("creationOut").toLocalDateTime());
-                output.setUpdate(rs.getString("updateOut").toLocalDateTime());
+                output.setSnackId(rs.getInt("snackId"));
+                output.setRequestId(rs.getInt("requestId"));
+                output.setIngredientId(rs.getInt("ingredientId"));
+                output.setToLocalDateTimeCreation(rs.getString("creationOut"));
+                output.setToLocalDateTimeUpdate(rs.getString("updateOut"));
                 output.setStatus(rs.getString("statusOut"));
                 outputs.add(output);
             }
@@ -89,12 +85,12 @@ public class OutputDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("UPDATE output SET taskId =?, lunchId = ?, ingredientId = ?, creationOut = ?, updateOut = ?, statusOut = ? where lunchId = ? AND ingredientId = ? AND taskId =?;");
-            sql.setInt(1, outputs.getId_task());
-            sql.setInt(2, outputs.getId_lunch());
-            sql.setInt(3,outputs.getId_ingredient());
-            sql.setString(4, .valueOf(outputs.getCreation()));
-            sql.setString5, .valueOf(outputs.getUpdate()));
+            sql = con.prepareStatement("UPDATE output SET requestId = ?, snackId = ?, ingredientId = ?, creationOut = ?, updateOut = ?, statusOut = ? where snackId = ? AND ingredientId = ? AND taskId =?;");
+            sql.setInt(1, outputs.getRequestId());
+            sql.setInt(2, outputs.getSnackId());
+            sql.setInt(3,outputs.getIngredientId());
+            sql.setString(4,outputs.getToStringCreation());
+            sql.setString(5, outputs.getToStringUpdate());
             sql.setString(6, outputs.getStatus());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
@@ -110,10 +106,10 @@ public class OutputDao {
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM output WHERE lunchId = ? AND ingredientId = ? AND taskId =?;");
-            sql.setInt(1, outputs.getId_lunch());
-            sql.setInt(2, outputs.getId_ingredient());
-            sql.setInt(3, outputs.getId_task());
+            sql = con.prepareStatement("DELETE FROM output WHERE snackId = ? AND ingredientId = ? AND taskId =?;");
+            sql.setInt(1, outputs.getSnackId());
+            sql.setInt(2, outputs.getIngredientId());
+            sql.setInt(3, outputs.getRequestId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -131,17 +127,16 @@ public class OutputDao {
         
         List<Output> outputs = new ArrayList<>();
         try{
-            sql = con.prepareStatement("select outputI.*, ingredientes.nome from outputI INNER JOIN ingredientes ON outputI.ingredientId = ingredientes.id_ingrediente INNER JOIN tanks ON outputI.tankId = tanks.tankId INNER JOIN lunch ON outputId.lunch = lunch.lunchId;"); 
-            /*Corrigir, por Inner Join.  select output_i.*, ingredientes.nome from output_i INNER JOIN ingredientes ON output_i.id_ingrediente = ingredientes.id_ingrediente INNER JOIN pedidos ON output_i.id_pedido = pedidos.id_pedido INNER JOIN lanches ON output_i.id_lanche = lanches.id_lanche;*/
+            sql = con.prepareStatement("select outputI.*, ingredientes.nome from outputI INNER JOIN ingredientes ON outputI.ingredientId = ingredientes.id_ingrediente INNER JOIN tanks ON outputI.tankId = tanks.tankId INNER JOIN snack ON outputId.snack = lunch.lunchId;"); 
 
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
                 Output output = new Output();
-                output.setId_lunch(rs.getInt("lunchId"));
-                output.setId_ingredient(rs.getInt("ingredientId"));
-                output.setCreation(rs.getString("creationId").toLocalDateTime());
-                output.setUpdate(rs.getString("updateId").toLocalDateTime());
+                output.setSnackId(rs.getInt("snackId"));
+                output.setIngredientId(rs.getInt("ingredientId"));
+                output.setToLocalDateTimeCreation(rs.getString("creationId"));
+                output.setToLocalDateTimeUpdate(rs.getString("updateId"));
                 output.setStatus(rs.getString("statusId"));
                 outputs.add(output);
             }

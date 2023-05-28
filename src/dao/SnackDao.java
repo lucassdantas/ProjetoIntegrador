@@ -30,14 +30,14 @@ public class SnackDao {
         
         try{
             sql = con.prepareStatement(
-         "insert into snacks(nameS, costS, priceS, weightS, creationS, updateS, whitS, statusS) values (?,?,?,?,?,?,?,?);") ;
+         "insert into snacks(nameS, costS, priceS, weightS, creationS, updateS, minQuantityS, statusS) values (?,?,?,?,?,?,?,?);") ;
             sql.setString(1, snack.getName());
             sql.setFloat(2, snack.getCost());
             sql.setFloat(3, snack.getPrice());
             sql.setFloat(4, snack.getWeight());
             sql.setString(5, snack.getToStringCreation());
             sql.setString(6, snack.getToStringUpdate());
-            sql.setInt(7, snack.getwhitS());
+            sql.setInt(7, snack.getMinQuantity());
             sql.setString(8, snack.getStatus());
             
             sql.executeUpdate();
@@ -59,7 +59,7 @@ public class SnackDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Snack> lanches = new ArrayList<>();
+        List<Snack> snacks = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM snack;");
             rs = sql.executeQuery();
@@ -81,7 +81,7 @@ public class SnackDao {
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return lanches;
+        return snacks;
       
     }
     

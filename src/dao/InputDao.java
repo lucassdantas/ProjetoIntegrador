@@ -37,7 +37,7 @@ public class InputDao {
             sql.setString(4, input.getToStringCreation());
             sql.setString(5, input.getToStringUpdate());
             sql.setString(6, input.getStatus());
-            sql.setInt(7, input.getingredientId());
+            sql.setInt(7, input.getIngredientId());
             sql.executeUpdate();
             
             JOptionPane.showMessageDialog(
@@ -70,7 +70,7 @@ public class InputDao {
                 input.setToLocalDateTimeCreation(rs.getString("creationI"));
                 input.setToLocalDateTimeUpdate(rs.getString("updateI"));
                 input.setStatus(rs.getString("statusI"));
-                input.setId_ingredient(rs.getInt("ingredienteId"));
+                input.setIngredientId(rs.getInt("ingredienteId"));
                 inputs.add(input);
             }
         }catch(SQLException e){
@@ -95,7 +95,7 @@ public class InputDao {
             sql.setString(4, input.getToStringCreation());
             sql.setString(5, input.getToStringUpdate());
             sql.setString(7, input.getStatus());
-            sql.setInt(8, input.getingredientId());
+            sql.setInt(8, input.getIngredientId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -141,7 +141,7 @@ public class InputDao {
                 input.setToLocalDateTimeCreation(rs.getString("creationI"));
                 input.setToLocalDateTimeUpdate(rs.getString("updateI"));
                 input.setStatus(rs.getString("statusI"));
-                input.setId_ingredient(rs.getInt("ingredient"));
+                input.setIngredientId(rs.getInt("ingredient"));
                 inputs.add(input);
             }
         }catch(SQLException e){

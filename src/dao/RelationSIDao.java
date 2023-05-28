@@ -32,8 +32,8 @@ public class RelationSIDao {
         try{
             sql = con.prepareStatement(
          "insert into relationSI(snackId, ingredientId, quantitySI, weightSI, creationSI, updateSI, statusSI) values (?,?,?,?,?,?,?);") ;
-            sql.setInt(1, relationSI.getsnackId());
-            sql.setInt(2, relationSI.getingredientId());
+            sql.setInt(1, relationSI.getSnackId());
+            sql.setInt(2, relationSI.getIngredientId());
             sql.setInt(3, relationSI.getQuantity());
             sql.setFloat(4, relationSI.getWeight());
             sql.setString(3, relationSI.getToStringCreation());
@@ -59,18 +59,18 @@ public class RelationSIDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<RelationSI> relacoes = new ArrayList<>();
+        List<RelationSI> relations = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM relationSI;");
             rs = sql.executeQuery();
             while(rs.next()){
                 RelationSI relation = new RelationSI();
-                relation.setsnackId(rs.getInt("snackId"));
-                relation.setId_ingredient(rs.getInt("ingredientId"));
+                relation.setSnackId(rs.getInt("snackId"));
+                relation.setIngredientId(rs.getInt("ingredientId"));
                 relation.setQuantity(rs.getInt("quantitySI"));
                 relation.setWeight(rs.getFloat("weightSI"));
-                relation.setCreation(rs.getString("creationSI").toLocalDateTime());
-                relation.setUpdate(rs.getString("updateSI").toLocalDateTime());
+                relation.setToLocalDateTimeCreation(rs.getString("creationSI"));
+                relation.setToLocalDateTimeUpdate(rs.getString("updateSI"));
                 relation.setStatus(rs.getString("statusSI"));
                 relations.add(relation);
             }
@@ -79,7 +79,7 @@ public class RelationSIDao {
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return relacoes;
+        return relations;
       
     }
     
@@ -90,15 +90,15 @@ public class RelationSIDao {
         ResultSet rs = null;
         try{
             sql = con.prepareStatement("UPDATE relationSI SET snackId = ?, ingredientId = ?, quantitySI = ?, weightSI = ?, creationSI = ?, updateSI = ?, statusSI = ? where snackId = ? AND ingredientId = ?;");
-            sql.setInt(1, relationSI.getsnackId());
-            sql.setInt(2, relationSI.getingredientId());
+            sql.setInt(1, relationSI.getSnackId());
+            sql.setInt(2, relationSI.getIngredientId());
             sql.setInt(3, relationSI.getQuantity());
             sql.setFloat(4, relationSI.getWeight());
-            sql.setString(3, .valueOf(relationSI.getCreation()));
-            sql.setString(4, .valueOf(relationSI.getUpdate()));
+            sql.setString(3, relationSI.getToStringCreation());
+            sql.setString(4, relationSI.getToStringUpdate());
             sql.setString(5, relationSI.getStatus());
-            sql.setInt(6, relationSI.getsnackId());
-            sql.setInt(7, relationSI.getingredientId());
+            sql.setInt(6, relationSI.getSnackId());
+            sql.setInt(7, relationSI.getIngredientId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -114,8 +114,8 @@ public class RelationSIDao {
         
         try{
             sql = con.prepareStatement("DELETE FROM relationSI WHERE snackId = ? AND ingredientId = ?");
-            sql.setInt(1, request.getsnackId());
-            sql.setInt(2, request.getingredientId());
+            sql.setInt(1, request.getSnackId());
+            sql.setInt(2, request.getIngredientId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -138,12 +138,12 @@ public class RelationSIDao {
             rs = sql.executeQuery();
             while(rs.next()){
                 RelationSI relacao = new RelationSI();
-                relacao.setsnackId(rs.getInt("snackId"));
-                relacao.setingredientId(rs.getInt("ingredientId"));
+                relacao.setSnackId(rs.getInt("snackId"));
+                relacao.setIngredientId(rs.getInt("ingredientId"));
                 relacao.setQuantity(rs.getInt("quantitySI"));
                 relacao.setWeight(rs.getFloat("weightSI"));
-                relacao.setCreation(rs.getString("creationSI").toLocalDateTime());
-                relacao.setUpdate(rs.getString("updateSI").toLocalDateTime());
+                relacao.setToLocalDateTimeCreation(rs.getString("creationSI"));
+                relacao.setToLocalDateTimeUpdate(rs.getString("updateSI"));
                 relacao.setStatus(rs.getString("statusSI"));
                 relacoes.add(relacao);
             }

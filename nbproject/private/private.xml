@@ -6,6 +6,9 @@
             <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/models/Output.java</file>
             <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/models/Input.java</file>
             <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/models/Ingredient.java</file>
+            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/dao/InputDao.java</file>
+            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/dao/OutputDao.java</file>
+            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/dao/RelationSRDao.java</file>
         </group>
     </open-files>
 </project-private>

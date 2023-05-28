@@ -6,7 +6,6 @@
 package dao;
 
 import ConnectionFactory.ConnectionFactory;
-import models.RelationSI;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -33,12 +32,11 @@ public class RelationSRDao {
         
         try{
             sql = con.prepareStatement(
-         "insert into relationSR(snackId, ingredientId, weightSR, creationSR, updateSR, statusSR) values (?,?,?,?,?,?,?);") ;
-            sql.setInt(1, relationSR.getsnackId());
-            sql.setInt(2, relationSR.getingredientId());
-            sql.setFloat(3 relationSR.getWeight());
-            sql.setString(4, .valueOf(relationSR.getCreation()));
-            sql.setString(5, .valueOf(relationSR.getUpdate()));
+         "insert into relationSR(requestId, snackId, creationSR, updateSR, statusSR) values (?,?,?,?,?);") ;
+            sql.setInt(1, relationSR.getRequestId());
+            sql.setInt(2, relationSR.getSnackId());
+            sql.setString(4, relationSR.getToStringCreation());
+            sql.setString(5, relationSR.getToStringUpdate());
             sql.setString(6, relationSR.getStatus());
             
             sql.executeUpdate();
@@ -65,14 +63,12 @@ public class RelationSRDao {
             sql = con.prepareStatement("SELECT * FROM relationSR;");
             rs = sql.executeQuery();
             while(rs.next()){
-                RelationSR relation= new RelationSR();
-                relations.setsnackId(rs.getInt("snackId"));
-                relations.setingredientId(rs.getInt("ingredientId"));
-                relations.setQuantity(rs.getInt("quantitySR"));
-                relations.setWeight(rs.getFloat("weightSR"));
-                relations.setCreation(rs.getString("creationSR").toLocalDateTime());
-                relations.setUpdate(rs.getString("updateSR").toLocalDateTime());
-                relations.setStatus(rs.getString("statusSR"));
+                RelationSR relation = new RelationSR();
+                relation.setRequestId(rs.getInt("requestId"));
+                relation.setSnackId(rs.getInt("snackId"));
+                relation.setToLocalDateTimeCreation(rs.getString("creationSR"));
+                relation.setToLocalDateTimeUpdate(rs.getString("updateSR"));
+                relation.setStatus(rs.getString("statusSR"));
                 relations.add(relation);
             }
         }catch(SQLException e){
@@ -90,16 +86,12 @@ public class RelationSRDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("UPDATE relationSR SET snackId = ?, ingredientId = ?, quantitySR = ?,  = ?, creationSR = ?, updateSR = ?, statusSR = ? where snackId = ? AND ingredientId = ?;");
-            sql.setInt(1, relationSR.getsnackId());
-            sql.setInt(2, relationSR.getingredientId());
-            sql.setInt(3, relationSR.getQuantity());
-            sql.setFloat(4, relationSR.getWeight());
-            sql.setString(3, .valueOf(relationSR.getCreation()));
-            sql.setString(4, .valueOf(relationSR.getUpdate()));
+            sql = con.prepareStatement("UPDATE relationSR SET snackId = ?, requestId = ?, quantitySR = ?,  = ?, creationSR = ?, updateSR = ?, statusSR = ? where snackId = ? AND ingredientId = ?;");
+            sql.setInt(1, relationSR.getSnackId());
+            sql.setInt(2, relationSR.getRequestId());
+            sql.setString(3, relationSR.getToStringCreation());
+            sql.setString(4, relationSR.getToStringUpdate());
             sql.setString(5, relationSR.getStatus());
-            sql.setInt(6, relationSR.getsnack());
-            sql.setInt(7, relationSR.getingredientId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -115,8 +107,8 @@ public class RelationSRDao {
         
         try{
             sql = con.prepareStatement("DELETE FROM relationsSI WHERE snackId = ? AND ingredientId = ?");
-            sql.setInt(1, request.getsnackId());
-            sql.setInt(2, request.getingredientId());
+            sql.setInt(1, request.getSnackId());
+            sql.setInt(2, request.getRequestId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -127,24 +119,22 @@ public class RelationSRDao {
     }
     
      
-    public List<RelationSI> readBusca(String busca) throws SQLException{
+    public List<RelationSR> readBusca(String busca) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<RelationSI> relations = new ArrayList<>();
+        List<RelationSR> relations = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM relations WHERE namel LIKE ?");
+            sql = con.prepareStatement("SELECT * FROM relationsr INNER JOIN ingredient, snack WHERE namel LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                RelationSI relation = new RelationSI();
-                relation.setsnackId(rs.getInt("snackId"));
-                relation.setingredientId(rs.getInt("ingredientId"));
-                relation.setQuantity(rs.getInt("quantitySR"));
-                relation.setWeight(rs.getFloat("weightSR"));
-                relation.setCreation(rs.getString("creationSR").toLocalDateTime());
-                relation.setUpdate(rs.getString("updateSR").toLocalDateTime());
+                RelationSR relation = new RelationSR();
+                relation.setSnackId(rs.getInt("snackId"));
+                relation.setRequestId(rs.getInt("requestId"));
+                relation.setToLocalDateTimeCreation(rs.getString("creationSR"));
+                relation.setToLocalDateTimeUpdate(rs.getString("updateSR"));
                 relation.setStatus(rs.getString("statusSR"));
                 relations.add(relation);
             }

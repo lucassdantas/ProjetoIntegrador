@@ -56,7 +56,7 @@ public class RequestDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Request> s = new ArrayList<>();
+        List<Request> requests = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM requests;");
             rs = sql.executeQuery();
@@ -123,7 +123,7 @@ public class RequestDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Request> requestR = new ArrayList<>();
+        List<Request> requests = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM request WHERE namel LIKE ?");
             sql.setString(1, "%"+busca+"%");
