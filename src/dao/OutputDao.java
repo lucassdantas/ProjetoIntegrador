@@ -26,20 +26,20 @@ import models.RelationSR;
  */
 public class OutputDao {
     
-    public void create(Output saidas) throws SQLException{
+    public void create(Output output) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into saida(id_pedido, id_lanche, id_ingrediente, criacao_li, atualizacao_li, status) values (?,?,?,?,?,?);") ;
-         sql.setInt(1, saidas.getId_task());
-         sql.setInt(2, saidas.getId_lunch());
-         sql.setInt(3, saidas.getId_ingredient());
-         sql.setString(4, saidas.getToStringCreation());
-         sql.setString(5, saidas.getToStringUpdate());
-         sql.setString(6, saidas.getStatus());
+         "insert into output (taskId, lunchId, ingredientId, creationOut, updateOut, statusOut) values (?,?,?,?,?,?);") ;
+         sql.setInt(1, output.getId_task());
+         sql.setInt(2, output.getId_lunch());
+         sql.setInt(3, output.getId_ingredient());
+         sql.setString(4, output.getToStringCreation());
+         sql.setString(5, output.getToStringUpdate());
+         sql.setString(6, output.getStatus());
             
             sql.executeUpdate();
             
@@ -60,42 +60,42 @@ public class OutputDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Output> saidas = new ArrayList<>();
+        List<Output> outputs = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM saida;");
+            sql = con.prepareStatement("SELECT * FROM output;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Output saida = new Output();
-                saida.setId_lunch(rs.getInt("id_lunch"));
-                saida.setId_task(rs.getInt("id_task"));
-                saida.setId_ingredient(rs.getInt("id_ingredient"));
-                saida.setCreation(rs.getString("criacao_li").toLocalDateTime());
-                saida.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
-                saida.setStatus(rs.getString("status"));
-                saidas.add(saida);
+                Output output = new Output();
+                output.setId_lunch(rs.getInt("lunchId"));
+                output.setId_task(rs.getInt("taskId"));
+                output.setId_ingredient(rs.getInt("ingredientId"));
+                output.setCreation(rs.getString("creationOut").toLocalDateTime());
+                output.setUpdate(rs.getString("updateOut").toLocalDateTime());
+                output.setStatus(rs.getString("statusOut"));
+                outputs.add(output);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return saidas;
+        return outputs;
       
     }
     
     
-    public void update(Output saidas) throws SQLException{
+    public void update(Output outputs) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("UPDATE saida SET id_task =?, id_lanche = ?, id_ingrediente = ?, criacao_li = ?, atualizacao_li = ?, status = ? where id_lanche = ? AND id_ingrediente = ? AND id_pedido =?;");
-            sql.setInt(1, saidas.getId_task());
-            sql.setInt(2, saidas.getId_lunch());
-            sql.setInt(3,saidas.getId_ingredient());
-            sql.setString(4, .valueOf(saidas.getCreation()));
-            sql.setString5, .valueOf(saidas.getUpdate()));
-            sql.setString(6, saidas.getStatus());
+            sql = con.prepareStatement("UPDATE output SET taskId =?, lunchId = ?, ingredientId = ?, creationOut = ?, updateOut = ?, statusOut = ? where lunchId = ? AND ingredientId = ? AND taskId =?;");
+            sql.setInt(1, outputs.getId_task());
+            sql.setInt(2, outputs.getId_lunch());
+            sql.setInt(3,outputs.getId_ingredient());
+            sql.setString(4, .valueOf(outputs.getCreation()));
+            sql.setString5, .valueOf(outputs.getUpdate()));
+            sql.setString(6, outputs.getStatus());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -105,15 +105,15 @@ public class OutputDao {
         }
     }
     
-    public void delete(Output saidas) throws SQLException{
+    public void delete(Output outputs) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM saida WHERE id_lanche = ? AND id_ingrediente = ? AND id_pedido =?;");
-            sql.setInt(1, saidas.getId_lunch());
-            sql.setInt(2, saidas.getId_ingredient());
-            sql.setInt(3, saidas.getId_task());
+            sql = con.prepareStatement("DELETE FROM output WHERE lunchId = ? AND ingredientId = ? AND taskId =?;");
+            sql.setInt(1, outputs.getId_lunch());
+            sql.setInt(2, outputs.getId_ingredient());
+            sql.setInt(3, outputs.getId_task());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -129,28 +129,28 @@ public class OutputDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Output> saidas = new ArrayList<>();
+        List<Output> outputs = new ArrayList<>();
         try{
-            sql = con.prepareStatement("select saida_i.*, ingredientes.nome from saida_i INNER JOIN ingredientes ON saida_i.id_ingrediente = ingredientes.id_ingrediente INNER JOIN pedidos ON saida_i.id_pedido = pedidos.id_pedido INNER JOIN lanches ON saida_i.id_lanche = lanches.id_lanche;"); 
-            /*Corrigir, por Inner Join.  select saida_i.*, ingredientes.nome from saida_i INNER JOIN ingredientes ON saida_i.id_ingrediente = ingredientes.id_ingrediente INNER JOIN pedidos ON saida_i.id_pedido = pedidos.id_pedido INNER JOIN lanches ON saida_i.id_lanche = lanches.id_lanche;*/
+            sql = con.prepareStatement("select outputI.*, ingredientes.nome from outputI INNER JOIN ingredientes ON outputI.ingredientId = ingredientes.id_ingrediente INNER JOIN tanks ON outputI.tankId = tanks.tankId INNER JOIN lunch ON outputId.lunch = lunch.lunchId;"); 
+            /*Corrigir, por Inner Join.  select output_i.*, ingredientes.nome from output_i INNER JOIN ingredientes ON output_i.id_ingrediente = ingredientes.id_ingrediente INNER JOIN pedidos ON output_i.id_pedido = pedidos.id_pedido INNER JOIN lanches ON output_i.id_lanche = lanches.id_lanche;*/
 
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                Output saida = new Output();
-                saida.setId_lunch(rs.getInt("id_lunch"));
-                saida.setId_ingredient(rs.getInt("id_ingredient"));
-                saida.setCreation(rs.getString("criacao_li").toLocalDateTime());
-                saida.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
-                saida.setStatus(rs.getString("status"));
-                saidas.add(saida);
+                Output output = new Output();
+                output.setId_lunch(rs.getInt("lunchId"));
+                output.setId_ingredient(rs.getInt("ingredientId"));
+                output.setCreation(rs.getString("creationId").toLocalDateTime());
+                output.setUpdate(rs.getString("updateId").toLocalDateTime());
+                output.setStatus(rs.getString("statusId"));
+                outputs.add(output);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return saidas; 
+        return outputs; 
     }
 
     

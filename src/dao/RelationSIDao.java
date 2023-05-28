@@ -24,21 +24,21 @@ import java.sql.SQLException;
  */
 public class RelationSIDao {
     
-    public void create(RelationSI relacoesLI) throws SQLException{
+    public void create(RelationSI relationSI) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into relacoes_l_i(id_lanche, id_ingrediente, quantidade_li, peso_li, criacao_li, atualizacao_li, status) values (?,?,?,?,?,?,?);") ;
-            sql.setInt(1, relacoesLI.getId_lunch());
-            sql.setInt(2, relacoesLI.getId_ingredient());
-            sql.setInt(3, relacoesLI.getQuantity());
-            sql.setFloat(4, relacoesLI.getWeight());
-            sql.setString(3, relacoesLI.getToStringCreation());
-            sql.setString(4, relacoesLI.getToStringUpdate());
-            sql.setString(5, relacoesLI.getStatus());
+         "insert into relationSI(snackId, ingredientId, quantitySI, weightSI, creationSI, updateSI, statusSI) values (?,?,?,?,?,?,?);") ;
+            sql.setInt(1, relationSI.getsnackId());
+            sql.setInt(2, relationSI.getingredientId());
+            sql.setInt(3, relationSI.getQuantity());
+            sql.setFloat(4, relationSI.getWeight());
+            sql.setString(3, relationSI.getToStringCreation());
+            sql.setString(4, relationSI.getToStringUpdate());
+            sql.setString(5, relationSI.getStatus());
             
             sql.executeUpdate();
             
@@ -61,18 +61,18 @@ public class RelationSIDao {
         
         List<RelationSI> relacoes = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM relacoes_l_i;");
+            sql = con.prepareStatement("SELECT * FROM relationSI;");
             rs = sql.executeQuery();
             while(rs.next()){
-                RelationSI relacao = new RelationSI();
-                relacao.setId_lunch(rs.getInt("id_lunch"));
-                relacao.setId_ingredient(rs.getInt("id_ingredient"));
-                relacao.setQuantity(rs.getInt("quantidade_li"));
-                relacao.setWeight(rs.getFloat("peso_li"));
-                relacao.setCreation(rs.getString("criacao_li").toLocalDateTime());
-                relacao.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
-                relacao.setStatus(rs.getString("status"));
-                relacoes.add(relacao);
+                RelationSI relation = new RelationSI();
+                relation.setsnackId(rs.getInt("snackId"));
+                relation.setId_ingredient(rs.getInt("ingredientId"));
+                relation.setQuantity(rs.getInt("quantitySI"));
+                relation.setWeight(rs.getFloat("weightSI"));
+                relation.setCreation(rs.getString("creationSI").toLocalDateTime());
+                relation.setUpdate(rs.getString("updateSI").toLocalDateTime());
+                relation.setStatus(rs.getString("statusSI"));
+                relations.add(relation);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
@@ -84,21 +84,21 @@ public class RelationSIDao {
     }
     
     
-    public void update(RelationSI relacoesLI) throws SQLException{
+    public void update(RelationSI relationSI) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("UPDATE relacoes_l_i SET id_lanche = ?, id_ingrediente = ?, quantidade_li = ?, peso_li = ?, criacao_li = ?, atualizacao_li = ?, status = ? where id_lanche = ? AND id_ingrediente = ?;");
-            sql.setInt(1, relacoesLI.getId_lunch());
-            sql.setInt(2, relacoesLI.getId_ingredient());
-            sql.setInt(3, relacoesLI.getQuantity());
-            sql.setFloat(4, relacoesLI.getWeight());
-            sql.setString(3, .valueOf(relacoesLI.getCreation()));
-            sql.setString(4, .valueOf(relacoesLI.getUpdate()));
-            sql.setString(5, relacoesLI.getStatus());
-            sql.setInt(6, relacoesLI.getId_lunch());
-            sql.setInt(7, relacoesLI.getId_ingredient());
+            sql = con.prepareStatement("UPDATE relationSI SET snackId = ?, ingredientId = ?, quantitySI = ?, weightSI = ?, creationSI = ?, updateSI = ?, statusSI = ? where snackId = ? AND ingredientId = ?;");
+            sql.setInt(1, relationSI.getsnackId());
+            sql.setInt(2, relationSI.getingredientId());
+            sql.setInt(3, relationSI.getQuantity());
+            sql.setFloat(4, relationSI.getWeight());
+            sql.setString(3, .valueOf(relationSI.getCreation()));
+            sql.setString(4, .valueOf(relationSI.getUpdate()));
+            sql.setString(5, relationSI.getStatus());
+            sql.setInt(6, relationSI.getsnackId());
+            sql.setInt(7, relationSI.getingredientId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -108,14 +108,14 @@ public class RelationSIDao {
         }
     }
     
-    public void delete(RelationSI pedido) throws SQLException{
+    public void delete(RelationSI request) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM relacoes_l_i WHERE id_lanche = ? AND id_ingrediente = ?");
-            sql.setInt(1, pedido.getId_lunch());
-            sql.setInt(2, pedido.getId_ingredient());
+            sql = con.prepareStatement("DELETE FROM relationSI WHERE snackId = ? AND ingredientId = ?");
+            sql.setInt(1, request.getsnackId());
+            sql.setInt(2, request.getingredientId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -133,18 +133,18 @@ public class RelationSIDao {
         
         List<RelationSI> relacoes = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM relacoes WHERE nome_l LIKE ?");
+            sql = con.prepareStatement("SELECT * FROM relations WHERE namel LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
                 RelationSI relacao = new RelationSI();
-                relacao.setId_lunch(rs.getInt("id_lunch"));
-                relacao.setId_ingredient(rs.getInt("id_ingredient"));
-                relacao.setQuantity(rs.getInt("quantidade_li"));
-                relacao.setWeight(rs.getFloat("peso_li"));
-                relacao.setCreation(rs.getString("criacao_li").toLocalDateTime());
-                relacao.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
-                relacao.setStatus(rs.getString("status"));
+                relacao.setsnackId(rs.getInt("snackId"));
+                relacao.setingredientId(rs.getInt("ingredientId"));
+                relacao.setQuantity(rs.getInt("quantitySI"));
+                relacao.setWeight(rs.getFloat("weightSI"));
+                relacao.setCreation(rs.getString("creationSI").toLocalDateTime());
+                relacao.setUpdate(rs.getString("updateSI").toLocalDateTime());
+                relacao.setStatus(rs.getString("statusSI"));
                 relacoes.add(relacao);
             }
         }catch(SQLException e){

@@ -25,22 +25,22 @@ import java.sql.SQLException;
  */
 public class IngredientDao {
     
-    public void create(Ingredient ingrediente) throws SQLException{
+    public void create(Ingredient ingredient) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into ingredientes(nome, preco_i, peso_i, quantidade_i, tipo_i, criacao_i, atualizacao_i, status_i) values (?,?,?,?,?,?,?,?);") ;
-            sql.setString(1, ingrediente.getName());
-            sql.setFloat(2, ingrediente.getPrice());
-            sql.setFloat(3, ingrediente.getWeight());
-            sql.setInt(4, ingrediente.getQuantity());
-            sql.setString(5, ingrediente.getType());
-            sql.setString(6, (ingrediente.getToStringCreation()));
-            sql.setString(7, (ingrediente.getToStringUpdate()));
-            sql.setString(8, ingrediente.getStatus());
+         "insert into ingredients(nameI, priceI, weightI, quantityI, typeI, creationI, updateI, statusI) values (?,?,?,?,?,?,?,?,);") ;
+            sql.setString(1, ingredient.getName());
+            sql.setFloat(2, ingredient.getPrice());
+            sql.setFloat(3, ingredient.getWeight());
+            sql.setFloat(3, ingredient.getQuantity());
+            sql.setString(4, ingredient.getType());
+            sql.setString(5, (ingredient.getToStringCreation()));
+            sql.setString(6, (ingredient.getToStringUpdate()));
+            sql.setString(7, ingredient.getStatus());
             
             sql.executeUpdate();
             
@@ -61,29 +61,29 @@ public class IngredientDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Ingredient> ingredientes = new ArrayList<>();
+        List<Ingredient> ingredients = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM ingredientes;");
+            sql = con.prepareStatement("SELECT * FROM ingredients;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Ingredient ingrediente = new Ingredient();
-                ingrediente.setId(rs.getInt("id_ingrediente"));
-                ingrediente.setName(rs.getString("nome"));
-                ingrediente.setPrice(rs.getFloat("preco_i"));
-                ingrediente.setWeight(rs.getFloat("peso_i"));
-                ingrediente.setQuantity(rs.getInt("quantidade_i"));
-                ingrediente.setType(rs.getString("tipo_i"));
-                ingrediente.setToLocalDateTimeCreation(rs.getString("craicao_i"));
-                ingrediente.setToLocalDateTimeUpdate(rs.getString("atualizacao_i"));
-                ingrediente.setStatus(rs.getString("status_i"));
-                ingredientes.add(ingrediente);
+                Ingredient ingredient = new Ingredient();
+                ingredient.setId(rs.getInt("ingredientId"));
+                ingredient.setName(rs.getString("nameI"));
+                ingredient.setPrice(rs.getFloat("priceI"));
+                ingredient.setWeight(rs.getFloat("weightI"));
+                ingredient.setQuantity(rs.getInt("quantityI"));
+                ingredient.setType(rs.getString("typeI"));
+                ingredient.setToLocalDateTimeCreation(rs.getString("creationI"));
+                ingredient.setToLocalDateTimeUpdate(rs.getString("updateI"));
+                ingredient.setStatus(rs.getString("statusI"));
+                ingredients.add(ingredient);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return ingredientes;
+        return ingredients;
       
     }
     
@@ -112,13 +112,13 @@ public class IngredientDao {
         }
     }
     
-    public void delete(Ingredient ingrediente) throws SQLException{
+    public void delete(Ingredient ingredient) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM ingredientes WHERE id_ingrediente = ?");
-            sql.setInt(1, ingrediente.getId());
+            sql = con.prepareStatement("DELETE FROM ingredients WHERE ingredienteI = ?");
+            sql.setInt(1, ingredient.getId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -134,29 +134,29 @@ public class IngredientDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Ingredient> ingredientes = new ArrayList<>();
+        List<Ingredient> ingredients = new ArrayList<>();
         try{
             sql = con.prepareStatement("SELECT * FROM ingredientes WHERE nome LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-               Ingredient ingrediente = new Ingredient();
-                ingrediente.setId(rs.getInt("id_ingrediente"));
-                ingrediente.setPrice(rs.getFloat("preco_i"));
-                ingrediente.setWeight(rs.getFloat("peso_i"));
-                ingrediente.setQuantity(rs.getInt("quantidade_i"));
-                ingrediente.setType(rs.getString("tipo_i"));
-                ingrediente.setToLocalDateTimeCreation(rs.getString("criacao_i"));
-                ingrediente.setToLocalDateTimeUpdate(rs.getString("atualizacao_i"));
-                ingrediente.setStatus(rs.getString("status_i"));
-                ingredientes.add(ingrediente);
+               Ingredient ingredient = new Ingredient();
+                ingredient.setId(rs.getInt("ingredientId"));
+                ingredient.setPrice(rs.getFloat("priceI"));
+                ingredient.setWeight(rs.getFloat("weightI"));
+                ingredient.setQuantity(rs.getInt("quantityI"));
+                ingredient.setType(rs.getString("typeI"));
+                ingredient.setToLocalDateTimeCreation(rs.getString("creationI"));
+                ingredient.setToLocalDateTimeUpdate(rs.getString("updateI"));
+                ingredient.setStatus(rs.getString("statusI"));
+                ingredients.add(ingredient);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return ingredientes; 
+        return ingredients; 
     }
 
     

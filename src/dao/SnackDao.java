@@ -23,22 +23,22 @@ import java.sql.SQLException;
  */
 public class SnackDao {
     
-    public void create(Snack lanche) throws SQLException{
+    public void create(Snack snack) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into lanches(nome_l, custo_l, preco_l, peso_l, criacao_l, atualizacao_l, q_minima_l, status_l) values (?,?,?,?,?,?,?,?);") ;
-            sql.setString(1, lanche.getName());
-            sql.setFloat(2, lanche.getCost());
-            sql.setFloat(3, lanche.getPrice());
-            sql.setFloat(4, lanche.getWeight());
-            sql.setString(5, lanche.getToStringCreation());
-            sql.setString(6, lanche.getToStringUpdate());
-            sql.setInt(7, lanche.getMinQuantity());
-            sql.setString(8, lanche.getStatus());
+         "insert into snacks(nameS, costS, priceS, weightS, creationS, updateS, whitS, statusS) values (?,?,?,?,?,?,?,?);") ;
+            sql.setString(1, snack.getName());
+            sql.setFloat(2, snack.getCost());
+            sql.setFloat(3, snack.getPrice());
+            sql.setFloat(4, snack.getWeight());
+            sql.setString(5, snack.getToStringCreation());
+            sql.setString(6, snack.getToStringUpdate());
+            sql.setInt(7, snack.getwhitS());
+            sql.setString(8, snack.getStatus());
             
             sql.executeUpdate();
             
@@ -61,20 +61,20 @@ public class SnackDao {
         
         List<Snack> lanches = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM lanches;");
+            sql = con.prepareStatement("SELECT * FROM snack;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Snack lanche = new Snack();
-                lanche.setId(rs.getInt("id_lanche"));
-                lanche.setName(rs.getString("nome"));
-                lanche.setCost(rs.getFloat("custo_l"));
-                lanche.setPrice(rs.getFloat("preco_l"));
-                lanche.setWeight(rs.getFloat("peso_l"));
-                lanche.setToLocalDateTimeCreation(rs.getString("criacao_l"));
-                lanche.setToLocalDateTimeUpdate(rs.getString("atualizacao_l"));
-                lanche.setMinQuantity(rs.getInt("q_minima_l"));
-                lanche.setStatus(rs.getString("status_l"));
-                lanches.add(lanche);
+                Snack snack = new Snack();
+                snack.setId(rs.getInt("id_snack"));
+                snack.setName(rs.getString("nameS"));
+                snack.setCost(rs.getFloat("costS"));
+                snack.setPrice(rs.getFloat("priceS"));
+                snack.setWeight(rs.getFloat("weightS"));
+                snack.setToLocalDateTimeCreation(rs.getString("creationS"));
+                snack.setToLocalDateTimeUpdate(rs.getString("updateS"));
+                snack.setMinQuantity(rs.getInt("whitS"));
+                snack.setStatus(rs.getString("statusS"));
+                snacks.add(snack);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
@@ -86,20 +86,20 @@ public class SnackDao {
     }
     
     
-    public void update(Snack lanche) throws SQLException{
+    public void update(Snack snack) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("UPDATE lanches SET nome_l, custo_l, preco_l, peso_l, criacao_l, atualizacao_l, q_minima_l, status_l where id_lanche = ?;");
-            sql.setString(1, lanche.getName());
-            sql.setFloat(2, lanche.getCost());
-            sql.setFloat(3, lanche.getPrice());
-            sql.setFloat(4, lanche.getWeight());
-            sql.setString(5, lanche.getToStringCreation());
-            sql.setString(6, lanche.getToStringUpdate());
-            sql.setInt(7, lanche.getMinQuantity());
-            sql.setString(8, lanche.getStatus());
+            sql = con.prepareStatement("UPDATE snacks SET nameS, costS, priceS, weightS, creationS, updateS, whitS, statusS where snackId = ?;");
+            sql.setString(1, snack.getName());
+            sql.setFloat(2, snack.getCost());
+            sql.setFloat(3, snack.getPrice());
+            sql.setFloat(4, snack.getWeight());
+            sql.setString(5, snack.getToStringCreation());
+            sql.setString(6, snack.getToStringUpdate());
+            sql.setInt(7, snack.getMinQuantity());
+            sql.setString(8, snack.getStatus());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -109,13 +109,13 @@ public class SnackDao {
         }
     }
     
-    public void delete(Snack lanche) throws SQLException{
+    public void delete(Snack snack) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM lanches WHERE id_lanche = ?");
-            sql.setInt(1, lanche.getId());
+            sql = con.prepareStatement("DELETE FROM snacks WHERE snackId = ?");
+            sql.setInt(1, snack.getId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -131,30 +131,30 @@ public class SnackDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Snack> lanches = new ArrayList<>();
+        List<Snack> snacks = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM lanches WHERE nome_l LIKE ?");
+            sql = con.prepareStatement("SELECT * FROM snacks WHERE nome_l LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                Snack lanche = new Snack();
-                lanche.setId(rs.getInt("id_lanche"));
-                lanche.setName(rs.getString("nome"));
-                lanche.setCost(rs.getFloat("custo_l"));
-                lanche.setPrice(rs.getFloat("preco_l"));
-                lanche.setWeight(rs.getFloat("peso_l"));
-                lanche.setToLocalDateTimeCreation(rs.getString("criacao_l"));
-                lanche.setToLocalDateTimeUpdate(rs.getString("atualizacao_l"));
-                lanche.setMinQuantity(rs.getInt("q_minima_l"));
-                lanche.setStatus(rs.getString("status_l"));
-                lanches.add(lanche);
+                Snack snack = new Snack();
+                snack.setId(rs.getInt("snackId"));
+                snack.setName(rs.getString("name"));
+                snack.setCost(rs.getFloat("costS"));
+                snack.setPrice(rs.getFloat("priceS"));
+                snack.setWeight(rs.getFloat("weightS"));
+                snack.setToLocalDateTimeCreation(rs.getString("creationS"));
+                snack.setToLocalDateTimeUpdate(rs.getString("updateS"));
+                snack.setMinQuantity(rs.getInt("whitS"));
+                snack.setStatus(rs.getString("statusS"));
+                snacks.add(snack);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return lanches; 
+        return snacks; 
     }
 
     

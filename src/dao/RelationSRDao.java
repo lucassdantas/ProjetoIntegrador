@@ -26,20 +26,20 @@ import models.RelationSR;
  */
 public class RelationSRDao {
     
-    public void create(RelationSR RelacoesPL) throws SQLException{
+    public void create(RelationSR relationSR) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into relacoes_l_i(id_lanche, id_ingrediente, peso_li, criacao_li, atualizacao_li, status) values (?,?,?,?,?,?,?);") ;
-            sql.setInt(1, relacoesLI.getId_lunch());
-            sql.setInt(2, relacoesLI.getId_ingredient());
-            sql.setFloat(3 relacoesLI.getWeight());
-            sql.setString(4, .valueOf(relacoesLI.getCreation()));
-            sql.setString(5, .valueOf(relacoesLI.getUpdate()));
-            sql.setString(6, relacoesLI.getStatus());
+         "insert into relationSR(snackId, ingredientId, weightSR, creationSR, updateSR, statusSR) values (?,?,?,?,?,?,?);") ;
+            sql.setInt(1, relationSR.getsnackId());
+            sql.setInt(2, relationSR.getingredientId());
+            sql.setFloat(3 relationSR.getWeight());
+            sql.setString(4, .valueOf(relationSR.getCreation()));
+            sql.setString(5, .valueOf(relationSR.getUpdate()));
+            sql.setString(6, relationSR.getStatus());
             
             sql.executeUpdate();
             
@@ -55,51 +55,51 @@ public class RelationSRDao {
     }
     
     
-    public List<RelationSI> read() throws SQLException{
+    public List<RelationSR> read() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<RelationSI> relacoes = new ArrayList<>();
+        List<RelationSR> relations = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM relacoes_l_i;");
+            sql = con.prepareStatement("SELECT * FROM relationSR;");
             rs = sql.executeQuery();
             while(rs.next()){
-                RelationSI relacao = new RelationSI();
-                relacao.setId_lunch(rs.getInt("id_lunch"));
-                relacao.setId_ingredient(rs.getInt("id_ingredient"));
-                relacao.setQuantity(rs.getInt("quantidade_li"));
-                relacao.setWeight(rs.getFloat("peso_li"));
-                relacao.setCreation(rs.getString("criacao_li").toLocalDateTime());
-                relacao.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
-                relacao.setStatus(rs.getString("status"));
-                relacoes.add(relacao);
+                RelationSR relation= new RelationSR();
+                relations.setsnackId(rs.getInt("snackId"));
+                relations.setingredientId(rs.getInt("ingredientId"));
+                relations.setQuantity(rs.getInt("quantitySR"));
+                relations.setWeight(rs.getFloat("weightSR"));
+                relations.setCreation(rs.getString("creationSR").toLocalDateTime());
+                relations.setUpdate(rs.getString("updateSR").toLocalDateTime());
+                relations.setStatus(rs.getString("statusSR"));
+                relations.add(relation);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return relacoes;
+        return relations;
       
     }
     
     
-    public void update(RelationSI relacoesLI) throws SQLException{
+    public void update(RelationSR relationSR) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("UPDATE relacoes_l_i SET id_lanche = ?, id_ingrediente = ?, quantidade_li = ?, peso_li = ?, criacao_li = ?, atualizacao_li = ?, status = ? where id_lanche = ? AND id_ingrediente = ?;");
-            sql.setInt(1, relacoesLI.getId_lunch());
-            sql.setInt(2, relacoesLI.getId_ingredient());
-            sql.setInt(3, relacoesLI.getQuantity());
-            sql.setFloat(4, relacoesLI.getWeight());
-            sql.setString(3, .valueOf(relacoesLI.getCreation()));
-            sql.setString(4, .valueOf(relacoesLI.getUpdate()));
-            sql.setString(5, relacoesLI.getStatus());
-            sql.setInt(6, relacoesLI.getId_lunch());
-            sql.setInt(7, relacoesLI.getId_ingredient());
+            sql = con.prepareStatement("UPDATE relationSR SET snackId = ?, ingredientId = ?, quantitySR = ?,  = ?, creationSR = ?, updateSR = ?, statusSR = ? where snackId = ? AND ingredientId = ?;");
+            sql.setInt(1, relationSR.getsnackId());
+            sql.setInt(2, relationSR.getingredientId());
+            sql.setInt(3, relationSR.getQuantity());
+            sql.setFloat(4, relationSR.getWeight());
+            sql.setString(3, .valueOf(relationSR.getCreation()));
+            sql.setString(4, .valueOf(relationSR.getUpdate()));
+            sql.setString(5, relationSR.getStatus());
+            sql.setInt(6, relationSR.getsnack());
+            sql.setInt(7, relationSR.getingredientId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -109,14 +109,14 @@ public class RelationSRDao {
         }
     }
     
-    public void delete(RelationSI pedido) throws SQLException{
+    public void delete(RelationSR request) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM relacoes_l_i WHERE id_lanche = ? AND id_ingrediente = ?");
-            sql.setInt(1, pedido.getId_lunch());
-            sql.setInt(2, pedido.getId_ingredient());
+            sql = con.prepareStatement("DELETE FROM relationsSI WHERE snackId = ? AND ingredientId = ?");
+            sql.setInt(1, request.getsnackId());
+            sql.setInt(2, request.getingredientId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -132,28 +132,28 @@ public class RelationSRDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<RelationSI> relacoes = new ArrayList<>();
+        List<RelationSI> relations = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM relacoes WHERE nome_l LIKE ?");
+            sql = con.prepareStatement("SELECT * FROM relations WHERE namel LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                RelationSI relacao = new RelationSI();
-                relacao.setId_lunch(rs.getInt("id_lunch"));
-                relacao.setId_ingredient(rs.getInt("id_ingredient"));
-                relacao.setQuantity(rs.getInt("quantidade_li"));
-                relacao.setWeight(rs.getFloat("peso_li"));
-                relacao.setCreation(rs.getString("criacao_li").toLocalDateTime());
-                relacao.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
-                relacao.setStatus(rs.getString("status"));
-                relacoes.add(relacao);
+                RelationSI relation = new RelationSI();
+                relation.setsnackId(rs.getInt("snackId"));
+                relation.setingredientId(rs.getInt("ingredientId"));
+                relation.setQuantity(rs.getInt("quantitySR"));
+                relation.setWeight(rs.getFloat("weightSR"));
+                relation.setCreation(rs.getString("creationSR").toLocalDateTime());
+                relation.setUpdate(rs.getString("updateSR").toLocalDateTime());
+                relation.setStatus(rs.getString("statusSR"));
+                relations.add(relation);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return relacoes; 
+        return relations; 
     }
 
     
