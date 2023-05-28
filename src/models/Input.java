@@ -10,20 +10,20 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Input extends Entity{
+public class Input extends EntityId{
     public Input(){}
     
     private float weight;
     private float cost;
     private int quantity;
-    private int id_ingredient;
+    private int ingredientId;
 
-    public Input(float weight, float cost, int quantity, int id_ingredient, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Input(float weight, float cost, int quantity, int ingredientId, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
         this.weight = weight;
         this.cost = cost;
         this.quantity = quantity;
-        this.id_ingredient = id_ingredient;
+        this.ingredientId = ingredientId;
     }
 
     public float getWeight() {
@@ -50,14 +50,13 @@ public class Input extends Entity{
         this.quantity = quantity;
     }
 
-    public int getId_ingredient() {
-        return id_ingredient;
+    public int getIngredientId() {
+        return ingredientId;
     }
 
-    public void setId_ingredient(int id_ingredient) {
-        this.id_ingredient = id_ingredient;
+    public void setIngredientId(int ingredientId) {
+        this.ingredientId = ingredientId;
     }
     
-  
     
 }

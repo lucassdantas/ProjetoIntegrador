@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class Snack extends Entity{
+public class Snack extends EntityId{
     public Snack(){}
     
     private String name;

@@ -9,28 +9,18 @@ import java.time.format.DateTimeFormatter;
 
 /**
  *
- * @author 42labinfo
+ * @author Lucas Dantas
  */
-abstract class Entity {
-    protected int id;
+abstract class EntityMultipleId {
     protected LocalDateTime creation;
     protected LocalDateTime update;
     protected String status;
     
-    public Entity() {}
-    public Entity(int id, LocalDateTime creation, LocalDateTime update, String status){
-        this.id= id;
+    EntityMultipleId(){};
+    EntityMultipleId(LocalDateTime creation, LocalDateTime update, String status){
         this.creation = creation;
         this.update = update;
         this.status = status;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
     public String timeToString(LocalDateTime time){
         DateTimeFormatter formatPattern = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
@@ -59,6 +49,7 @@ abstract class Entity {
     public void setToLocalDateTimeUpdate(String time){
         this.update = this.stringToTime(time);
     }
+    
     public LocalDateTime getCreation() {
         return creation;
     }
@@ -82,7 +73,4 @@ abstract class Entity {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-     
-            
 }

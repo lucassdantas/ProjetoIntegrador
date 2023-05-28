@@ -10,41 +10,37 @@ import java.time.LocalDateTime;
  *
  * @author 42labinfo
  */
-public class RelationSI extends Entity {
+public class RelationSI extends EntityMultipleId {
     public RelationSI(){};
     
-    private int id_lunch;
-    private int id_ingredient;
+    private int snackId;
+    private int ingredientId;
     private int quantity;
     private float weight;
-    private LocalDateTime creation;
-    private LocalDateTime update;
-    private String status;
+ 
 
-    public RelationSI(int id_lunch, int id_ingredient, int quantity, float weight, LocalDateTime creation, LocalDateTime update, String status) {
-        this.id_lunch = id_lunch;
-        this.id_ingredient = id_ingredient;
+    public RelationSI(int snackId, int ingredientId, int quantity, float weight, LocalDateTime creation, LocalDateTime update, String status) {
+        super(creation,update,status);
+        this.snackId = snackId;
+        this.ingredientId = ingredientId;
         this.quantity = quantity;
         this.weight = weight;
-        this.creation = creation;
-        this.update = update;
-        this.status = status;
     }
 
-    public int getId_lunch() {
-        return id_lunch;
+    public int getSnackId() {
+        return this.snackId;
     }
 
-    public void setId_lunch(int id_lunch) {
-        this.id_lunch = id_lunch;
+    public void setSnackId(int snackId) {
+        this.snackId = snackId;
     }
 
-    public int getId_ingredient() {
-        return id_ingredient;
+    public int getIngredientId() {
+        return ingredientId;
     }
 
-    public void setId_ingredient(int id_ingredient) {
-        this.id_ingredient = id_ingredient;
+    public void setIngredientId(int ingredientId) {
+        this.ingredientId = ingredientId;
     }
 
     public int getQuantity() {
@@ -62,29 +58,4 @@ public class RelationSI extends Entity {
     public void setWeight(float weight) {
         this.weight = weight;
     }
-
-    public LocalDateTime getCreation() {
-        return creation;
-    }
-
-    public void setCreation(LocalDateTime creation) {
-        this.creation = creation;
-    }
-
-    public LocalDateTime getUpdate() {
-        return update;
-    }
-
-    public void setUpdate(LocalDateTime update) {
-        this.update = update;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
 }
