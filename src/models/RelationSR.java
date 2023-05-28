@@ -13,30 +13,31 @@ import java.time.LocalDateTime;
 public class RelationSR extends EntityMultipleId{
     public RelationSR(){};
     
-    private int id_task;
-    private int id_lunch;
+    private int requestId;
+    private int snackId;
     
-    public RelationSR(int id_task, int id_lunch, LocalDateTime creation, LocalDateTime update, String status) {
+    public RelationSR(int requestId, int snackId, LocalDateTime creation, LocalDateTime update, String status) {
         super(creation, update, status);
-        this.id_task = id_task;
-        this.id_lunch = id_lunch;
+        this.requestId = requestId;
+        this.snackId = snackId;
       
     }
 
-    public int getId_task() {
-        return id_task;
+    public int getRequestId() {
+        return this.requestId;
+    }
+    
+    public void setRequestId(int requestId){
+        this.requestId = requestId;
+    }
+    public int getSnackId() {
+        return snackId;
     }
 
-    public void setId_task(int id_task) {
-        this.id_task = id_task;
+    public void setSnackId(int snackId) {
+        this.snackId = snackId;
     }
 
-    public int getId_lunch() {
-        return id_lunch;
-    }
-
-    public void setId_lunch(int id_lunch) {
-        this.id_lunch = id_lunch;
-    }
+  
 
 }

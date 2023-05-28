@@ -14,11 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import models.RelationSR;
 
-
-//=============================================ATENÇÃO =========================================
-//>>>>>>>>>> PRECISAMOS VER COMO FAZER CHAVE COMPOSTA PARA O MODEL DESSA ENTIDADE <<<<<<<<<<<<<<
 
 /**
  *
@@ -26,20 +22,20 @@ import models.RelationSR;
  */
 public class OutputDao {
     
-    public void create(Output saidas) throws SQLException{
+    public void create(Output output) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into saida(id_pedido, id_lanche, id_ingrediente, criacao_li, atualizacao_li, status) values (?,?,?,?,?,?);") ;
-         sql.setInt(1, saidas.getId_task());
-         sql.setInt(2, saidas.getId_lunch());
-         sql.setInt(3, saidas.getId_ingredient());
-         sql.setString(4, saidas.getToStringCreation());
-         sql.setString(5, saidas.getToStringUpdate());
-         sql.setString(6, saidas.getStatus());
+         "insert into output (requestId, snackId, ingredientId, creationOut, updateOut, statusOut) values (?,?,?,?,?,?);") ;
+         sql.setInt(1, output.getRequestId());
+         sql.setInt(2, output.getSnackId());
+         sql.setInt(3, output.getIngredientId());
+         sql.setString(4, output.getToStringCreation());
+         sql.setString(5, output.getToStringUpdate());
+         sql.setString(6, output.getStatus());
             
             sql.executeUpdate();
             
@@ -60,42 +56,42 @@ public class OutputDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Output> saidas = new ArrayList<>();
+        List<Output> outputs = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM saida;");
+            sql = con.prepareStatement("SELECT * FROM output;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Output saida = new Output();
-                saida.setId_lunch(rs.getInt("id_lunch"));
-                saida.setId_task(rs.getInt("id_task"));
-                saida.setId_ingredient(rs.getInt("id_ingredient"));
-                saida.setCreation(rs.getString("criacao_li").toLocalDateTime());
-                saida.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
-                saida.setStatus(rs.getString("status"));
-                saidas.add(saida);
+                Output output = new Output();
+                output.setSnackId(rs.getInt("snackId"));
+                output.setRequestId(rs.getInt("requestId"));
+                output.setIngredientId(rs.getInt("ingredientId"));
+                output.setToLocalDateTimeCreation(rs.getString("creationOut"));
+                output.setToLocalDateTimeUpdate(rs.getString("updateOut"));
+                output.setStatus(rs.getString("statusOut"));
+                outputs.add(output);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return saidas;
+        return outputs;
       
     }
     
     
-    public void update(Output saidas) throws SQLException{
+    public void update(Output outputs) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("UPDATE saida SET id_task =?, id_lanche = ?, id_ingrediente = ?, criacao_li = ?, atualizacao_li = ?, status = ? where id_lanche = ? AND id_ingrediente = ? AND id_pedido =?;");
-            sql.setInt(1, saidas.getId_task());
-            sql.setInt(2, saidas.getId_lunch());
-            sql.setInt(3,saidas.getId_ingredient());
-            sql.setString(4, .valueOf(saidas.getCreation()));
-            sql.setString5, .valueOf(saidas.getUpdate()));
-            sql.setString(6, saidas.getStatus());
+            sql = con.prepareStatement("UPDATE output SET requestId = ?, snackId = ?, ingredientId = ?, creationOut = ?, updateOut = ?, statusOut = ? where snackId = ? AND ingredientId = ? AND taskId =?;");
+            sql.setInt(1, outputs.getRequestId());
+            sql.setInt(2, outputs.getSnackId());
+            sql.setInt(3,outputs.getIngredientId());
+            sql.setString(4,outputs.getToStringCreation());
+            sql.setString(5, outputs.getToStringUpdate());
+            sql.setString(6, outputs.getStatus());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -105,15 +101,15 @@ public class OutputDao {
         }
     }
     
-    public void delete(Output saidas) throws SQLException{
+    public void delete(Output outputs) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM saida WHERE id_lanche = ? AND id_ingrediente = ? AND id_pedido =?;");
-            sql.setInt(1, saidas.getId_lunch());
-            sql.setInt(2, saidas.getId_ingredient());
-            sql.setInt(3, saidas.getId_task());
+            sql = con.prepareStatement("DELETE FROM output WHERE snackId = ? AND ingredientId = ? AND taskId =?;");
+            sql.setInt(1, outputs.getSnackId());
+            sql.setInt(2, outputs.getIngredientId());
+            sql.setInt(3, outputs.getRequestId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -129,28 +125,27 @@ public class OutputDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Output> saidas = new ArrayList<>();
+        List<Output> outputs = new ArrayList<>();
         try{
-            sql = con.prepareStatement("select saida_i.*, ingredientes.nome from saida_i INNER JOIN ingredientes ON saida_i.id_ingrediente = ingredientes.id_ingrediente INNER JOIN pedidos ON saida_i.id_pedido = pedidos.id_pedido INNER JOIN lanches ON saida_i.id_lanche = lanches.id_lanche;"); 
-            /*Corrigir, por Inner Join.  select saida_i.*, ingredientes.nome from saida_i INNER JOIN ingredientes ON saida_i.id_ingrediente = ingredientes.id_ingrediente INNER JOIN pedidos ON saida_i.id_pedido = pedidos.id_pedido INNER JOIN lanches ON saida_i.id_lanche = lanches.id_lanche;*/
+            sql = con.prepareStatement("select outputI.*, ingredientes.nome from outputI INNER JOIN ingredientes ON outputI.ingredientId = ingredientes.id_ingrediente INNER JOIN tanks ON outputI.tankId = tanks.tankId INNER JOIN snack ON outputId.snack = lunch.lunchId;"); 
 
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                Output saida = new Output();
-                saida.setId_lunch(rs.getInt("id_lunch"));
-                saida.setId_ingredient(rs.getInt("id_ingredient"));
-                saida.setCreation(rs.getString("criacao_li").toLocalDateTime());
-                saida.setUpdate(rs.getString("atualizacao_li").toLocalDateTime());
-                saida.setStatus(rs.getString("status"));
-                saidas.add(saida);
+                Output output = new Output();
+                output.setSnackId(rs.getInt("snackId"));
+                output.setIngredientId(rs.getInt("ingredientId"));
+                output.setToLocalDateTimeCreation(rs.getString("creationId"));
+                output.setToLocalDateTimeUpdate(rs.getString("updateId"));
+                output.setStatus(rs.getString("statusId"));
+                outputs.add(output);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return saidas; 
+        return outputs; 
     }
 
     

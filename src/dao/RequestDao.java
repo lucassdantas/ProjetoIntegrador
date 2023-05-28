@@ -23,19 +23,19 @@ import java.sql.SQLException;
  */
 public class RequestDao {
     
-    public void create(Request pedido) throws SQLException{
+    public void create(Request request) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into pedidos(nome_p, valor_p, criacao_p, atualizacao_p, status_p) values (?,?,?,?,?);") ;
-            sql.setString(1, pedido.getName());
-            sql.setFloat(2, pedido.getValue());
-            sql.setString(3, pedido.getToStringCreation());
-            sql.setString(4, pedido.getToStringUpdate());
-            sql.setString(5, pedido.getStatus());
+         "insert into s(nameR, valueR, creationR, updateR, statusR) values (?,?,?,?,?);") ;
+            sql.setString(1, request.getName());
+            sql.setFloat(2, request.getValue());
+            sql.setString(3, request.getToStringCreation());
+            sql.setString(4, request.getToStringUpdate());
+            sql.setString(5, request.getStatus());
             
             sql.executeUpdate();
             
@@ -56,42 +56,42 @@ public class RequestDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Request> pedidos = new ArrayList<>();
+        List<Request> requests = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM pedidos;");
+            sql = con.prepareStatement("SELECT * FROM requests;");
             rs = sql.executeQuery();
             while(rs.next()){
-                Request pedido = new Request();
-                pedido.setId(rs.getInt("id_pedido"));
-                pedido.setName(rs.getString("nome"));
-                pedido.setValue(rs.getFloat("valor_p"));
-                pedido.setToLocalDateTimeCreation(rs.getString("criacao_p"));
-                pedido.setToLocalDateTimeUpdate(rs.getString("atualizacao_p"));
-                pedido.setStatus(rs.getString("status_p"));
-                pedidos.add(pedido);
+                Request request = new Request();
+                request.setId(rs.getInt("requestId"));
+                request.setName(rs.getString("nameR"));
+                request.setValue(rs.getFloat("valueR"));
+                request.setToLocalDateTimeCreation(rs.getString("creationR"));
+                request.setToLocalDateTimeUpdate(rs.getString("updateR"));
+                request.setStatus(rs.getString("statusR"));
+                requests.add(request);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return pedidos;
+        return requests;
       
     }
     
     
-    public void update(Request pedido) throws SQLException{
+    public void update(Request resquest) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("UPDATE pedidos SET nome_p, valor_p, criacao_p, atualizacao_p, status_p where id_pedido = ?;");
-            sql.setString(1, pedido.getName());
-            sql.setFloat(2, pedido.getValue());
-            sql.setString(3, pedido.getToStringCreation());
-            sql.setString(4, pedido.getToStringUpdate());
-            sql.setString(5, pedido.getStatus());
-            sql.setInt(6, pedido.getId());
+            sql = con.prepareStatement("UPDATE resquests SET nameR, valueR, creationR, upadateR, statusR where resquestId = ?;");
+            sql.setString(1, resquest.getName());
+            sql.setFloat(2, resquest.getValue());
+            sql.setString(3, resquest.getToStringCreation());
+            sql.setString(4, resquest.getToStringUpdate());
+            sql.setString(5, resquest.getStatus());
+            sql.setInt(6, resquest.getId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -101,13 +101,13 @@ public class RequestDao {
         }
     }
     
-    public void delete(Request pedido) throws SQLException{
+    public void delete(Request request) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM pedidos WHERE id_pedido = ?");
-            sql.setInt(1, pedido.getId());
+            sql = con.prepareStatement("DELETE FROM requests WHERE requestId = ?");
+            sql.setInt(1, request.getId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -123,27 +123,27 @@ public class RequestDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Request> pedidos = new ArrayList<>();
+        List<Request> requests = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM pedidos WHERE nome_l LIKE ?");
+            sql = con.prepareStatement("SELECT * FROM request WHERE namel LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-                Request pedido = new Request();
-                pedido.setId(rs.getInt("id_pedido"));
-                pedido.setName(rs.getString("nome"));
-                pedido.setValue(rs.getFloat("valor_p"));
-                pedido.setToLocalDateTimeCreation(rs.getString("criacao_p"));
-                pedido.setToLocalDateTimeUpdate(rs.getString("atualizacao_p"));
-                pedido.setStatus(rs.getString("status_p"));
-                pedidos.add(pedido);
+                Request request = new Request();
+                request.setId(rs.getInt("requestId"));
+                request.setName(rs.getString("nameR"));
+                request.setValue(rs.getFloat("valueR"));
+                request.setToLocalDateTimeCreation(rs.getString("creationR"));
+                request.setToLocalDateTimeUpdate(rs.getString("updateR"));
+                request.setStatus(rs.getString("statusR"));
+                requests.add(request);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return pedidos; 
+        return requests; 
     }
 
     

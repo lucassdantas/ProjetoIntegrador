@@ -23,21 +23,21 @@ import java.sql.SQLException;
  */
 public class InputDao {
     
-    public void create(Input entrada) throws SQLException{
+    public void create(Input input) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into entradas(peso_e, custo_e, quantidade_e, criacao_e, atualizacao_e, status_e, id_ingrediente) values (?,?,?,?,?,?,?)") ;
-            sql.setFloat(1, entrada.getWeight());
-            sql.setFloat(2, entrada.getCost());
-            sql.setInt(3, entrada.getQuantity());
-            sql.setString(4, entrada.getToStringCreation());
-            sql.setString(5, entrada.getToStringUpdate());
-            sql.setString(6, entrada.getStatus());
-            sql.setInt(7, entrada.getId_ingredient());
+         "insert into inputs(weightI, costI, quantityI, creationI, updateI, statusI, ingredientId) values (?,?,?,?,?,?,?)") ;
+            sql.setFloat(1, input.getWeight());
+            sql.setFloat(2, input.getCost());
+            sql.setInt(3, input.getQuantity());
+            sql.setString(4, input.getToStringCreation());
+            sql.setString(5, input.getToStringUpdate());
+            sql.setString(6, input.getStatus());
+            sql.setInt(7, input.getIngredientId());
             sql.executeUpdate();
             
             JOptionPane.showMessageDialog(
@@ -57,45 +57,45 @@ public class InputDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Input> entradas = new ArrayList<>();
+        List<Input> inputs = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM entradas");
+            sql = con.prepareStatement("SELECT * FROM inputs");
             rs = sql.executeQuery();
             while(rs.next()){
-                Input entrada = new Input();
-                entrada.setId(rs.getInt("id_entrada"));
-                entrada.setWeight(rs.getFloat("peso_e"));
-                entrada.setCost(rs.getFloat("custo_e"));
-                entrada.setQuantity(rs.getInt("quantidade_e"));
-                entrada.setToLocalDateTimeCreation(rs.getString("criacao_e"));
-                entrada.setToLocalDateTimeUpdate(rs.getString("atualizacao_e"));
-                entrada.setStatus(rs.getString("status_e"));
-                entrada.setId_ingredient(rs.getInt("id_ingrediente"));
-                entradas.add(entrada);
+                Input input = new Input();
+                input.setId(rs.getInt("inputId"));
+                input.setWeight(rs.getFloat("weightI"));
+                input.setCost(rs.getFloat("costI"));
+                input.setQuantity(rs.getInt("quantityI"));
+                input.setToLocalDateTimeCreation(rs.getString("creationI"));
+                input.setToLocalDateTimeUpdate(rs.getString("updateI"));
+                input.setStatus(rs.getString("statusI"));
+                input.setIngredientId(rs.getInt("ingredienteId"));
+                inputs.add(input);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return entradas;
+        return inputs;
       
     }
     
     
-    public void update(Input entrada) throws SQLException{
+    public void update(Input input) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("update entradas set peso_e = ?, custo_e = ?, quantidade_e = ?, criacao_e = ?, atualizacao_e = ?, status_e = ?, id_ingrediente = ? where id = ?");
-            sql.setFloat(1, entrada.getWeight());
-            sql.setFloat(2, entrada.getCost());
-            sql.setInt(3, entrada.getQuantity());
-            sql.setString(4, entrada.getToStringCreation());
-            sql.setString(5, entrada.getToStringUpdate());
-            sql.setString(7, entrada.getStatus());
-            sql.setInt(8, entrada.getId_ingredient());
+            sql = con.prepareStatement("update inputs set weightI = ?, custI = ?, quantityI = ?, creationI = ?, updateI = ?, statusI = ?, ingredientId = ? where id = ?");
+            sql.setFloat(1, input.getWeight());
+            sql.setFloat(2, input.getCost());
+            sql.setInt(3, input.getQuantity());
+            sql.setString(4, input.getToStringCreation());
+            sql.setString(5, input.getToStringUpdate());
+            sql.setString(7, input.getStatus());
+            sql.setInt(8, input.getIngredientId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -105,13 +105,13 @@ public class InputDao {
         }
     }
     
-    public void delete(Input entradas) throws SQLException{
+    public void delete(Input inputs) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM entradas WHERE id = ?");
-            sql.setInt(1, entradas.getId());
+            sql = con.prepareStatement("DELETE FROM inputs WHERE id = ?");
+            sql.setInt(1, inputs.getId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -127,29 +127,29 @@ public class InputDao {
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<Input> entradas = new ArrayList<>();
+        List<Input> inputs = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT input.*, ingredients.nameI FROM snack INNER JOIN ingredients ON input.idIngredient = ingredients.ingredientId WHERE ingredients.nameI LIKE ?;");
+            sql = con.prepareStatement("SELECT input.*, ingredients.nameI FROM snack INNER JOIN ingredients ON input.ingredientId = ingredients.ingredientId WHERE ingredients.nameI LIKE ?;");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-               Input entrada = new Input();
-                entrada.setId(rs.getInt("id_entrada"));
-                entrada.setWeight(rs.getFloat("peso_e"));
-                entrada.setCost(rs.getFloat("custo_e"));
-                entrada.setQuantity(rs.getInt("quantidade_e"));
-                entrada.setToLocalDateTimeCreation(rs.getString("criacao_e"));
-                entrada.setToLocalDateTimeUpdate(rs.getString("atualizacao_e"));
-                entrada.setStatus(rs.getString("status_e"));
-                entrada.setId_ingredient(rs.getInt("id_ingrediente"));
-                entradas.add(entrada);
+               Input input = new Input();
+                input.setId(rs.getInt("inputId"));
+                input.setWeight(rs.getFloat("weightI"));
+                input.setCost(rs.getFloat("costI"));
+                input.setQuantity(rs.getInt("quantityId"));
+                input.setToLocalDateTimeCreation(rs.getString("creationI"));
+                input.setToLocalDateTimeUpdate(rs.getString("updateI"));
+                input.setStatus(rs.getString("statusI"));
+                input.setIngredientId(rs.getInt("ingredient"));
+                inputs.add(input);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return entradas; 
+        return inputs; 
     }
 
 }

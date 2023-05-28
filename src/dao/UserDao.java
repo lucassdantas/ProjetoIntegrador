@@ -13,22 +13,22 @@ import java.sql.SQLException;
 import models.User;
 public class UserDao {
     
-public void create(User usuario) throws SQLException{
+public void create(User user) throws SQLException{
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
             sql = con.prepareStatement(
-         "insert into usuarios (login, senha, tipo_u, nome_u, foto_u, criacao_u, atualizacao_u, status_u) values (?,?,?,?,?,?,?,?,?);") ;
-            sql.setString(1, usuario.getLogin());
-            sql.setString(2, usuario.getPassword());
-            sql.setString(3, usuario.getType());
-            sql.setString(4, usuario.getName());
-            sql.setString(5, usuario.getPhoto());
-            sql.setString(6, usuario.getToStringCreation());
-            sql.setString(7, usuario.getToStringUpdate());
-            sql.setString(8, usuario.getStatus());
+         "insert into users (login, password, type, nameU, photoU, creationU, updateU, statusU) values (?,?,?,?,?,?,?,?,?);") ;
+            sql.setString(1, user.getLogin());
+            sql.setString(2, user.getPassword());
+            sql.setString(3, user.getType());
+            sql.setString(4, user.getName());
+            sql.setString(5, user.getPhoto());
+            sql.setString(6, user.getToStringCreation());
+            sql.setString(7, user.getToStringUpdate());
+            sql.setString(8, user.getStatus());
             
             sql.executeUpdate();
             
@@ -49,46 +49,46 @@ public void create(User usuario) throws SQLException{
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<User> usuarios = new ArrayList<>();
+        List<User> users = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM usuario;");
+            sql = con.prepareStatement("SELECT * FROM user;");
             rs = sql.executeQuery();
             while(rs.next()){
-                User usuario = new User();
-                usuario.setId(rs.getInt("id_usuario"));
-                usuario.setLogin(rs.getString("login"));
-                usuario.setPassword(rs.getString("password"));
-                usuario.setType(rs.getString("type_u"));
-                usuario.setName(rs.getString("name_u"));
-                usuario.setPhoto(rs.getString("foto_u"));
-                usuario.setToLocalDateTimeCreation(rs.getString("craicao_u"));
-                usuario.setToLocalDateTimeUpdate(rs.getString("atualizacao_u"));
-                usuario.setStatus(rs.getString("status_u"));
-                usuarios.add(usuario);
+                User user = new User();
+                user.setId(rs.getInt("userId"));
+                user.setLogin(rs.getString("login"));
+                user.setPassword(rs.getString("password"));
+                user.setType(rs.getString("typeU"));
+                user.setName(rs.getString("nameU"));
+                user.setPhoto(rs.getString("photoU"));
+                user.setToLocalDateTimeCreation(rs.getString("creationU"));
+                user.setToLocalDateTimeUpdate(rs.getString("updateU"));
+                user.setStatus(rs.getString("statusU"));
+                users.add(user);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         }finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return usuarios;
+        return users;
     }
     
-    public void update(User usuario) throws SQLException{
+    public void update(User user) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
         try{
-            sql = con.prepareStatement("update usuarios set login = ?, senha = ?, tipo_u = ?, nome_u = ?, foto_u = ? criacao_u = ?, atualizacao_i = ?, status_i = ? where id = ?");
+            sql = con.prepareStatement("update users set login = ?, password = ?, typeU = ?, nameU = ?, photoU = ? creationU = ?, updateU = ?, statusU = ? where id = ?");
            
-            sql.setString(1, usuario.getLogin());
-            sql.setString(2, usuario.getPassword());
-            sql.setString(3, usuario.getType());
-            sql.setString(4, usuario.getName());
-            sql.setString(5, usuario.getPhoto());
-            sql.setString(6, usuario.getToStringCreation());
-            sql.setString(7, usuario.getToStringUpdate());
-            sql.setString(8, usuario.getStatus());
+            sql.setString(1, user.getLogin());
+            sql.setString(2, user.getPassword());
+            sql.setString(3, user.getType());
+            sql.setString(4, user.getName());
+            sql.setString(5, user.getPhoto());
+            sql.setString(6, user.getToStringCreation());
+            sql.setString(7, user.getToStringUpdate());
+            sql.setString(8, user.getStatus());
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
@@ -97,13 +97,13 @@ public void create(User usuario) throws SQLException{
         }
     }
     
-    public void delete(User usuario) throws SQLException{
+    public void delete(User user) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         
         try{
-            sql = con.prepareStatement("DELETE FROM usuarios WHERE id_usuario = ?");
-            sql.setInt(1, usuario.getId());
+            sql = con.prepareStatement("DELETE FROM users WHERE userId = ?");
+            sql.setInt(1, user.getId());
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "sucesso");
         }catch(SQLException e){
@@ -119,22 +119,22 @@ public void create(User usuario) throws SQLException{
         PreparedStatement sql = null;
         ResultSet rs = null;
         
-        List<User> usuarios = new ArrayList<>();
+        List<User> users = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM usuarios WHERE nome LIKE ?");
+            sql = con.prepareStatement("SELECT * FROM users WHERE nome LIKE ?");
             sql.setString(1, "%"+busca+"%");
             rs = sql.executeQuery();
             while(rs.next()){
-               User usuario = new User();
-                usuario.setId(rs.getInt("id_usuario"));
-                usuario.setLogin(rs.getString("login"));
-                usuario.setPassword(rs.getString("senha"));
-                usuario.setType(rs.getString("tipo_u"));
-                usuario.setName(rs.getString("nome_u"));
-                usuario.setToLocalDateTimeCreation(rs.getString("criacao_u"));
-                usuario.setToLocalDateTimeUpdate(rs.getString("atualizacao_u"));
-                usuario.setStatus(rs.getString("status_u"));
-                usuarios.add(usuario);
+               User user = new User();
+                user.setId(rs.getInt("userId"));
+                user.setLogin(rs.getString("login"));
+                user.setPassword(rs.getString("password"));
+                user.setType(rs.getString("typeU"));
+                user.setName(rs.getString("nameU"));
+                user.setToLocalDateTimeCreation(rs.getString("creationU"));
+                user.setToLocalDateTimeUpdate(rs.getString("updateU"));
+                user.setStatus(rs.getString("statusU"));
+                users.add(user);
            
                
             
@@ -144,7 +144,7 @@ public void create(User usuario) throws SQLException{
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
-        return usuarios; 
+        return users; 
     }
 
     

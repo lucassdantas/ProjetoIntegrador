@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Maio-2023 às 13:02
+-- Tempo de geração: 28-Maio-2023 às 22:47
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -32,6 +32,7 @@ CREATE TABLE `ingredient` (
   `nameI` varchar(25) NOT NULL,
   `priceI` float NOT NULL,
   `weightI` float NOT NULL,
+  `quantityI` int(11) NOT NULL,
   `typeI` enum('u','k','g','h') NOT NULL,
   `creationI` varchar(30) DEFAULT NULL,
   `updateI` varchar(30) DEFAULT NULL,
@@ -131,7 +132,7 @@ CREATE TABLE `snack` (
   `creationS` varchar(30) DEFAULT NULL,
   `updateS` varchar(30) DEFAULT NULL,
   `statusS` enum('a','s','e','d') NOT NULL,
-  `whitS` int(11) NOT NULL
+  `minQuantityS` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
