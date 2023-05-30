@@ -1,5 +1,6 @@
 package views;
 import AppPackage.AnimationClass;
+import dao.InputDao;
 import java.awt.Color;
 import java.awt.Component;
 import java.sql.SQLException;
@@ -9,19 +10,38 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import models.Input;
 
 public class StockViews extends javax.swing.JFrame {
 
 AnimationClass ac = new AnimationClass();
-    public StockViews() {
-        initComponents();
-        areaNovoPedido.setVisible(true);
-        areaVisualizarPedidos.setVisible(false);
-        painelMenu2.setVisible(false);
-        painelMenu3.setVisible(false);
+public StockViews() throws SQLException {
+    initComponents();
+    readJTable();
+    areaNovoPedido.setVisible(true);
+    areaVisualizarPedidos.setVisible(false);
+    painelMenu2.setVisible(false);
+    painelMenu3.setVisible(false);
+}
+
+public void readJTable() throws SQLException{
+        
+        DefaultTableModel modelo = (DefaultTableModel) table6.getModel();        
+        table6.setRowSorter(new TableRowSorter(modelo));
+        modelo.setNumRows(0);//utilizado para não duplicar as linhas
+        
+        InputDao inputDao = new InputDao();
+        
+        for (Input input: inputDao.read()){
+            modelo.addRow(new Object[]{
+                input.getId(),
+                input.getIngredientName(),
+                input.getIngredientId()
+            });
+        }       
     }
-
-
 public void limparCalculoPorcoes() {
     jTextField17.setText("");
     jTextField22.setText("");
@@ -782,6 +802,11 @@ public void limparCalculoPorcoes() {
         jTextField1.setName(""); // NOI18N
         jTextField1.setEditable(false);
         jTextField1.setOpaque(true);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         panelNP.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 102, 45));
 
         mybtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
@@ -2354,6 +2379,10 @@ public void limparCalculoPorcoes() {
         areaCalculoPorcoes.setVisible(false);
     }//GEN-LAST:event_buttonProdutosEstoqueActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2384,7 +2413,11 @@ public void limparCalculoPorcoes() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StockViews().setVisible(true);
+                try {
+                    new StockViews().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
