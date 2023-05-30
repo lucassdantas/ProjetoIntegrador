@@ -7,14 +7,14 @@ package views;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
-//import dao.LoginDao;
+import dao.LoginDao;
 
 public class TelaLogin extends javax.swing.JFrame {
 
     public TelaLogin() {
         initComponents();
-        txtSenhaVisivel.setVisible(false);
-        btn_passwordOcultar.setVisible(false);
+        //txtSenhaVisivel.setVisible(false);
+
     }
     
     public boolean checkLogin(String login, String senha){
@@ -28,12 +28,6 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        btn_passwordVisualizar = new javax.swing.JButton();
-        btn_passwordOcultar = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
         txtSenhaVisivel = new javax.swing.JTextField();
         txtLogin = new javax.swing.JTextField();
@@ -47,54 +41,6 @@ public class TelaLogin extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(445, 635));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user.png"))); // NOI18N
-        jLabel2.setToolTipText("");
-        jLabel2.setMaximumSize(new java.awt.Dimension(25, 25));
-        jLabel2.setMinimumSize(new java.awt.Dimension(25, 25));
-        jLabel2.setPreferredSize(new java.awt.Dimension(25, 25));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/password.png"))); // NOI18N
-        jLabel3.setMaximumSize(new java.awt.Dimension(25, 25));
-        jLabel3.setMinimumSize(new java.awt.Dimension(25, 25));
-        jLabel3.setPreferredSize(new java.awt.Dimension(25, 25));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 324, 20, 30));
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jPanel2.setMaximumSize(new java.awt.Dimension(38, 38));
-        jPanel2.setMinimumSize(new java.awt.Dimension(38, 38));
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 320, 38, 38));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jPanel1.setMaximumSize(new java.awt.Dimension(38, 38));
-        jPanel1.setMinimumSize(new java.awt.Dimension(38, 38));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 252, 38, 38));
-
-        btn_passwordVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/senha oculta - resized.png"))); // NOI18N
-        btn_passwordVisualizar.setBorderPainted(false);
-        btn_passwordVisualizar.setContentAreaFilled(false);
-        btn_passwordVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_passwordVisualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_passwordVisualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_passwordVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 324, 30, 30));
-
-        btn_passwordOcultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/senha visualizar - resized.png"))); // NOI18N
-        btn_passwordOcultar.setBorder(null);
-        btn_passwordOcultar.setBorderPainted(false);
-        btn_passwordOcultar.setContentAreaFilled(false);
-        btn_passwordOcultar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_passwordOcultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_passwordOcultarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_passwordOcultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 324, 30, 30));
 
         txtSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         txtSenha.setMaximumSize(new java.awt.Dimension(281, 38));
@@ -198,25 +144,6 @@ public class TelaLogin extends javax.swing.JFrame {
         txtSenhaVisivel.setText(txtSenha.getText());
     }//GEN-LAST:event_txtSenhaKeyPressed
 int controle = 0;
-    private void btn_passwordVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_passwordVisualizarActionPerformed
-       btn_passwordVisualizar.setVisible(false);
-       btn_passwordOcultar.setVisible(true);
-       
-       // Deixa a senha  visivel..
-        
-        if(controle == 0){
-            txtSenha.setVisible(false);
-            txtSenhaVisivel.setVisible(true);
-            controle = 1;
-        }
-        // Deixa a senha invisivel..
-        else{
-            txtSenha.setVisible(true);
-            txtSenhaVisivel.setVisible(false);
-            controle = 0;
-        }
-    }//GEN-LAST:event_btn_passwordVisualizarActionPerformed
-
     private void txtSenhaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyReleased
         // Senha visivel 
   
@@ -244,25 +171,6 @@ int controle = 0;
     private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
         entrar();
     }//GEN-LAST:event_btnEntrar1ActionPerformed
-
-    private void btn_passwordOcultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_passwordOcultarActionPerformed
-        btn_passwordOcultar.setVisible(false);        
-        btn_passwordVisualizar.setVisible(true);
-      
-        
-            if(controle == 0){
-            txtSenha.setVisible(false);
-            txtSenhaVisivel.setVisible(true);
-            
-            controle = 1;
-        }
-        // Deixa a senha invisivel..
-        else{
-            txtSenha.setVisible(true);
-            txtSenhaVisivel.setVisible(false);
-            controle = 0;
-        }
-    }//GEN-LAST:event_btn_passwordOcultarActionPerformed
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
         // TODO add your handling code here:
@@ -305,13 +213,7 @@ int controle = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar1;
-    private javax.swing.JButton btn_passwordOcultar;
-    private javax.swing.JButton btn_passwordVisualizar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtSenhaVisivel;

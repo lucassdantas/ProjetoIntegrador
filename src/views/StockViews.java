@@ -87,6 +87,8 @@ public void limparCalculoPorcoes() {
         btnVisualizarPedidos = new javax.swing.JButton();
         btnProdutos1 = new javax.swing.JButton();
         btnEstoque1 = new javax.swing.JButton();
+        lblVersion = new javax.swing.JLabel();
+        logoVersion = new javax.swing.JLabel();
         painelMenu2 = new javax.swing.JPanel();
         logo2 = new javax.swing.JLabel();
         buttonPedidos1 = new styles.MybtnMenu();
@@ -96,6 +98,8 @@ public void limparCalculoPorcoes() {
         buttonIngredientes = new styles.MybtnMenu2();
         buttonFichaTecnica = new styles.MybtnMenu2();
         buttonCalculoPorcoes = new styles.MybtnMenu2();
+        lblVersion1 = new javax.swing.JLabel();
+        logoVersion1 = new javax.swing.JLabel();
         painelMenu3 = new javax.swing.JPanel();
         logo3 = new javax.swing.JLabel();
         buttonPedidos3 = new styles.MybtnMenu();
@@ -103,6 +107,8 @@ public void limparCalculoPorcoes() {
         buttonEstoque3 = new styles.MybtnMenu();
         buttonEntradas = new styles.MybtnMenu2();
         buttonProdutosEstoque = new styles.MybtnMenu2();
+        lblVersion2 = new javax.swing.JLabel();
+        logoVersion2 = new javax.swing.JLabel();
         areaPrincipal = new javax.swing.JDesktopPane();
         rodapePainel = new javax.swing.JPanel();
         lblCopyright = new javax.swing.JLabel();
@@ -162,6 +168,9 @@ public void limparCalculoPorcoes() {
         jLabel16 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
+        colorBtn7 = new javax.swing.JPanel();
+        colorBtn8 = new javax.swing.JPanel();
+        colorBtn9 = new javax.swing.JPanel();
         mybtn23 = new styles.Mybtn2();
         mybtn5 = new styles.Mybtn();
         mybtn6 = new styles.Mybtn();
@@ -169,16 +178,16 @@ public void limparCalculoPorcoes() {
         jLabel17 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        colorBtn7 = new javax.swing.JPanel();
-        colorBtn8 = new javax.swing.JPanel();
-        colorBtn9 = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
         jScrollPane5 = new javax.swing.JScrollPane();
         table4 = new javaswingdev.swing.table.Table();
         areaFichaTecnica = new javax.swing.JInternalFrame();
-        panelIngredientes1 = new javax.swing.JPanel();
+        panelFichaTecnica = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jTextField19 = new javax.swing.JTextField();
+        colorBtn19 = new javax.swing.JPanel();
+        colorBtn20 = new javax.swing.JPanel();
+        colorBtn21 = new javax.swing.JPanel();
         mybtn24 = new styles.Mybtn2();
         mybtn8 = new styles.Mybtn();
         mybtn9 = new styles.Mybtn();
@@ -186,14 +195,11 @@ public void limparCalculoPorcoes() {
         jLabel36 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
-        colorBtn19 = new javax.swing.JPanel();
-        colorBtn20 = new javax.swing.JPanel();
-        colorBtn21 = new javax.swing.JPanel();
         jSeparator8 = new javax.swing.JSeparator();
         jScrollPane9 = new javax.swing.JScrollPane();
         table8 = new javaswingdev.swing.table.Table();
         areaCalculoPorcoes = new javax.swing.JInternalFrame();
-        panelPE1 = new javax.swing.JPanel();
+        panelCalculoPorcoes = new javax.swing.JPanel();
         jTextField17 = new javax.swing.JTextField();
         jTextField22 = new javax.swing.JTextField();
         jTextField23 = new javax.swing.JTextField();
@@ -253,6 +259,9 @@ public void limparCalculoPorcoes() {
         panelEntradas = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
+        colorBtn15 = new javax.swing.JPanel();
+        colorBtn16 = new javax.swing.JPanel();
+        colorBtn17 = new javax.swing.JPanel();
         mybtn25 = new styles.Mybtn2();
         mybtn13 = new styles.Mybtn();
         mybtn14 = new styles.Mybtn();
@@ -260,9 +269,6 @@ public void limparCalculoPorcoes() {
         jLabel27 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        colorBtn15 = new javax.swing.JPanel();
-        colorBtn16 = new javax.swing.JPanel();
-        colorBtn17 = new javax.swing.JPanel();
         jSeparator6 = new javax.swing.JSeparator();
         jScrollPane7 = new javax.swing.JScrollPane();
         table6 = new javaswingdev.swing.table.Table();
@@ -287,8 +293,8 @@ public void limparCalculoPorcoes() {
         jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1440, 900));
         setUndecorated(true);
-        setResizable(false);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1020));
         jPanel1.setMinimumSize(new java.awt.Dimension(1920, 1040));
@@ -296,9 +302,9 @@ public void limparCalculoPorcoes() {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         painelMenu1.setBackground(new java.awt.Color(217, 217, 217));
-        painelMenu1.setMaximumSize(new java.awt.Dimension(300, 1020));
-        painelMenu1.setMinimumSize(new java.awt.Dimension(300, 1020));
-        painelMenu1.setPreferredSize(new java.awt.Dimension(300, 1020));
+        painelMenu1.setMaximumSize(new java.awt.Dimension(300, 900));
+        painelMenu1.setMinimumSize(new java.awt.Dimension(300, 900));
+        painelMenu1.setPreferredSize(new java.awt.Dimension(300, 900));
         painelMenu1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo full.png"))); // NOI18N
@@ -429,12 +435,23 @@ public void limparCalculoPorcoes() {
         });
         painelMenu1.add(btnEstoque1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 505, 280, 70));
 
-        jPanel1.add(painelMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 1020));
+        lblVersion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        lblVersion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblVersion.setText("version 1.0");
+        lblVersion.setToolTipText("");
+        lblVersion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        painelMenu1.add(lblVersion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 854, 240, 50));
+
+        logoVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoVersion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Design sem nome (16) (1).png"))); // NOI18N
+        painelMenu1.add(logoVersion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 860, 30, 40));
+
+        jPanel1.add(painelMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 900));
 
         painelMenu2.setBackground(new java.awt.Color(217, 217, 217));
-        painelMenu2.setMaximumSize(new java.awt.Dimension(300, 1020));
-        painelMenu2.setMinimumSize(new java.awt.Dimension(300, 1020));
-        painelMenu2.setPreferredSize(new java.awt.Dimension(300, 1020));
+        painelMenu2.setMaximumSize(new java.awt.Dimension(300, 900));
+        painelMenu2.setMinimumSize(new java.awt.Dimension(300, 900));
+        painelMenu2.setPreferredSize(new java.awt.Dimension(300, 900));
         painelMenu2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo full.png"))); // NOI18N
@@ -516,12 +533,23 @@ public void limparCalculoPorcoes() {
         });
         painelMenu2.add(buttonCalculoPorcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 250, 70));
 
-        jPanel1.add(painelMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 1020));
+        lblVersion1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        lblVersion1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblVersion1.setText("version 1.0");
+        lblVersion1.setToolTipText("");
+        lblVersion1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        painelMenu2.add(lblVersion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 854, 240, 50));
+
+        logoVersion1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoVersion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Design sem nome (16) (1).png"))); // NOI18N
+        painelMenu2.add(logoVersion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 860, 30, 40));
+
+        jPanel1.add(painelMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 900));
 
         painelMenu3.setBackground(new java.awt.Color(217, 217, 217));
-        painelMenu3.setMaximumSize(new java.awt.Dimension(300, 1020));
-        painelMenu3.setMinimumSize(new java.awt.Dimension(300, 1020));
-        painelMenu3.setPreferredSize(new java.awt.Dimension(300, 1020));
+        painelMenu3.setMaximumSize(new java.awt.Dimension(300, 900));
+        painelMenu3.setMinimumSize(new java.awt.Dimension(300, 900));
+        painelMenu3.setPreferredSize(new java.awt.Dimension(300, 900));
         painelMenu3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo full.png"))); // NOI18N
@@ -581,8 +609,20 @@ public void limparCalculoPorcoes() {
         });
         painelMenu3.add(buttonProdutosEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 505, 250, 70));
 
-        jPanel1.add(painelMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 1020));
+        lblVersion2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        lblVersion2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblVersion2.setText("version 1.0");
+        lblVersion2.setToolTipText("");
+        lblVersion2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        painelMenu3.add(lblVersion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 854, 240, 50));
 
+        logoVersion2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoVersion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Design sem nome (16) (1).png"))); // NOI18N
+        painelMenu3.add(logoVersion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 860, 30, 40));
+
+        jPanel1.add(painelMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 900));
+
+        areaPrincipal.setPreferredSize(new java.awt.Dimension(1550, 910));
         areaPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rodapePainel.setBackground(new java.awt.Color(255, 255, 255));
@@ -597,7 +637,7 @@ public void limparCalculoPorcoes() {
         rodapePainelLayout.setHorizontalGroup(
             rodapePainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rodapePainelLayout.createSequentialGroup()
-                .addContainerGap(1034, Short.MAX_VALUE)
+                .addContainerGap(644, Short.MAX_VALUE)
                 .addComponent(lblCopyright, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
@@ -608,7 +648,7 @@ public void limparCalculoPorcoes() {
                 .addContainerGap())
         );
 
-        areaPrincipal.add(rodapePainel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 980, 1550, 50));
+        areaPrincipal.add(rodapePainel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 860, 1160, 50));
 
         bordaPainel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -635,23 +675,23 @@ public void limparCalculoPorcoes() {
             .addGroup(bordaPainelLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(btnSair)
-                .addContainerGap(969, Short.MAX_VALUE))
+                .addContainerGap(1045, Short.MAX_VALUE))
         );
 
-        areaPrincipal.add(bordaPainel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1460, 0, 90, 1020));
+        areaPrincipal.add(bordaPainel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 0, -1, -1));
 
         areaNovoPedido.setBackground(new java.awt.Color(255, 255, 255));
         areaNovoPedido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        areaNovoPedido.setMaximumSize(new java.awt.Dimension(1460, 1070));
-        areaNovoPedido.setMinimumSize(new java.awt.Dimension(1460, 1070));
-        areaNovoPedido.setPreferredSize(new java.awt.Dimension(1460, 1070));
+        areaNovoPedido.setMaximumSize(new java.awt.Dimension(1070, 900));
+        areaNovoPedido.setMinimumSize(new java.awt.Dimension(1070, 900));
+        areaNovoPedido.setPreferredSize(new java.awt.Dimension(1070, 900));
         areaNovoPedido.setVisible(true);
         areaNovoPedido.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelNP.setBackground(new java.awt.Color(255, 255, 255));
-        panelNP.setMaximumSize(new java.awt.Dimension(1460, 1020));
-        panelNP.setMinimumSize(new java.awt.Dimension(1460, 1020));
-        panelNP.setPreferredSize(new java.awt.Dimension(1460, 1020));
+        panelNP.setMaximumSize(new java.awt.Dimension(1160, 1020));
+        panelNP.setMinimumSize(new java.awt.Dimension(1160, 1020));
+        panelNP.setPreferredSize(new java.awt.Dimension(1160, 1020));
         panelNP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -671,7 +711,7 @@ public void limparCalculoPorcoes() {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        panelNP.add(colorBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 50, 10, 40));
+        panelNP.add(colorBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 50, 10, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 20)); // NOI18N
         jLabel6.setText("Ficha Técnica");
@@ -762,24 +802,24 @@ public void limparCalculoPorcoes() {
         mybtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
         mybtn1.setText("FINALIZAR");
         mybtn1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelNP.add(mybtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 50, 129, 40));
+        panelNP.add(mybtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
-        areaNovoPedido.getContentPane().add(panelNP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 1050));
+        areaNovoPedido.getContentPane().add(panelNP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
 
-        areaPrincipal.add(areaNovoPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1460, 1025));
+        areaPrincipal.add(areaNovoPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1070, 900));
 
         areaVisualizarPedidos.setBackground(new java.awt.Color(255, 255, 255));
         areaVisualizarPedidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        areaVisualizarPedidos.setMaximumSize(new java.awt.Dimension(1460, 1070));
-        areaVisualizarPedidos.setMinimumSize(new java.awt.Dimension(1460, 1070));
-        areaVisualizarPedidos.setPreferredSize(new java.awt.Dimension(1460, 1070));
+        areaVisualizarPedidos.setMaximumSize(new java.awt.Dimension(1070, 900));
+        areaVisualizarPedidos.setMinimumSize(new java.awt.Dimension(1070, 900));
+        areaVisualizarPedidos.setPreferredSize(new java.awt.Dimension(1070, 900));
         areaVisualizarPedidos.setVisible(true);
         areaVisualizarPedidos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelVP.setBackground(new java.awt.Color(255, 255, 255));
-        panelVP.setMaximumSize(new java.awt.Dimension(1690, 1020));
-        panelVP.setMinimumSize(new java.awt.Dimension(1690, 1020));
-        panelVP.setPreferredSize(new java.awt.Dimension(1690, 1020));
+        panelVP.setMaximumSize(new java.awt.Dimension(1160, 900));
+        panelVP.setMinimumSize(new java.awt.Dimension(1160, 900));
+        panelVP.setPreferredSize(new java.awt.Dimension(1690, 900));
         panelVP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -840,20 +880,20 @@ public void limparCalculoPorcoes() {
             table2.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        panelVP.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1160, 450));
+        panelVP.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
 
         mybtn21.setText("OK");
         panelVP.add(mybtn21, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
-        areaVisualizarPedidos.getContentPane().add(panelVP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 1000));
+        areaVisualizarPedidos.getContentPane().add(panelVP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
 
-        areaPrincipal.add(areaVisualizarPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1460, 1025));
+        areaPrincipal.add(areaVisualizarPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1070, 900));
 
         areaLanche.setBackground(new java.awt.Color(255, 255, 255));
         areaLanche.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        areaLanche.setMaximumSize(new java.awt.Dimension(1460, 1070));
-        areaLanche.setMinimumSize(new java.awt.Dimension(1460, 1070));
-        areaLanche.setPreferredSize(new java.awt.Dimension(1460, 1070));
+        areaLanche.setMaximumSize(new java.awt.Dimension(1460, 900));
+        areaLanche.setMinimumSize(new java.awt.Dimension(1460, 900));
+        areaLanche.setPreferredSize(new java.awt.Dimension(1460, 900));
         areaLanche.setVisible(true);
         areaLanche.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -940,7 +980,7 @@ public void limparCalculoPorcoes() {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        panelLanche.add(colorBtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 50, 10, 40));
+        panelLanche.add(colorBtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 50, 10, 40));
 
         colorBtn5.setBackground(new java.awt.Color(218, 151, 21));
 
@@ -955,7 +995,7 @@ public void limparCalculoPorcoes() {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        panelLanche.add(colorBtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 100, 10, 40));
+        panelLanche.add(colorBtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 100, 10, 40));
 
         colorBtn6.setBackground(new java.awt.Color(207, 131, 131));
 
@@ -970,7 +1010,7 @@ public void limparCalculoPorcoes() {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        panelLanche.add(colorBtn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 150, 10, 40));
+        panelLanche.add(colorBtn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
         panelLanche.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
         table1.fixTable(jScrollPane4);
@@ -1001,7 +1041,7 @@ public void limparCalculoPorcoes() {
             table3.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        panelLanche.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1160, 450));
+        panelLanche.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
 
         mybtn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
         mybtn2.setText("NOVO");
@@ -1011,7 +1051,7 @@ public void limparCalculoPorcoes() {
                 mybtn2ActionPerformed(evt);
             }
         });
-        panelLanche.add(mybtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 50, 129, 40));
+        panelLanche.add(mybtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
         mybtn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
         mybtn3.setText("EDITAR");
@@ -1021,29 +1061,29 @@ public void limparCalculoPorcoes() {
                 mybtn3ActionPerformed(evt);
             }
         });
-        panelLanche.add(mybtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 100, 129, 40));
+        panelLanche.add(mybtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
 
         mybtn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
         mybtn4.setText("EXCLUIR");
         mybtn4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelLanche.add(mybtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 150, 129, 40));
+        panelLanche.add(mybtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
-        areaLanche.getContentPane().add(panelLanche, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 1000));
+        areaLanche.getContentPane().add(panelLanche, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 900));
 
-        areaPrincipal.add(areaLanche, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1460, 1025));
+        areaPrincipal.add(areaLanche, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1070, 900));
 
         areaIngredientes.setBackground(new java.awt.Color(255, 255, 255));
         areaIngredientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        areaIngredientes.setMaximumSize(new java.awt.Dimension(1460, 1070));
-        areaIngredientes.setMinimumSize(new java.awt.Dimension(1460, 1070));
-        areaIngredientes.setPreferredSize(new java.awt.Dimension(1460, 1070));
+        areaIngredientes.setMaximumSize(new java.awt.Dimension(1460, 900));
+        areaIngredientes.setMinimumSize(new java.awt.Dimension(1460, 900));
+        areaIngredientes.setPreferredSize(new java.awt.Dimension(1460, 900));
         areaIngredientes.setVisible(true);
         areaIngredientes.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelIngredientes.setBackground(new java.awt.Color(255, 255, 255));
-        panelIngredientes.setMaximumSize(new java.awt.Dimension(1690, 1020));
-        panelIngredientes.setMinimumSize(new java.awt.Dimension(1690, 1020));
-        panelIngredientes.setPreferredSize(new java.awt.Dimension(1690, 1020));
+        panelIngredientes.setMaximumSize(new java.awt.Dimension(1690, 900));
+        panelIngredientes.setMinimumSize(new java.awt.Dimension(1690, 900));
+        panelIngredientes.setPreferredSize(new java.awt.Dimension(1690, 900));
         panelIngredientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
@@ -1081,6 +1121,51 @@ public void limparCalculoPorcoes() {
         jTextField7.setName(""); // NOI18N
         panelIngredientes.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
 
+        colorBtn7.setBackground(new java.awt.Color(90, 90, 90));
+
+        javax.swing.GroupLayout colorBtn7Layout = new javax.swing.GroupLayout(colorBtn7);
+        colorBtn7.setLayout(colorBtn7Layout);
+        colorBtn7Layout.setHorizontalGroup(
+            colorBtn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        colorBtn7Layout.setVerticalGroup(
+            colorBtn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        panelIngredientes.add(colorBtn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 50, 10, 40));
+
+        colorBtn8.setBackground(new java.awt.Color(218, 151, 21));
+
+        javax.swing.GroupLayout colorBtn8Layout = new javax.swing.GroupLayout(colorBtn8);
+        colorBtn8.setLayout(colorBtn8Layout);
+        colorBtn8Layout.setHorizontalGroup(
+            colorBtn8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        colorBtn8Layout.setVerticalGroup(
+            colorBtn8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        panelIngredientes.add(colorBtn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 100, 10, 40));
+
+        colorBtn9.setBackground(new java.awt.Color(207, 131, 131));
+
+        javax.swing.GroupLayout colorBtn9Layout = new javax.swing.GroupLayout(colorBtn9);
+        colorBtn9.setLayout(colorBtn9Layout);
+        colorBtn9Layout.setHorizontalGroup(
+            colorBtn9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        colorBtn9Layout.setVerticalGroup(
+            colorBtn9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        panelIngredientes.add(colorBtn9, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
+
         mybtn23.setText("OK");
         panelIngredientes.add(mybtn23, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
@@ -1092,7 +1177,7 @@ public void limparCalculoPorcoes() {
                 mybtn5ActionPerformed(evt);
             }
         });
-        panelIngredientes.add(mybtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 50, 129, 40));
+        panelIngredientes.add(mybtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
         mybtn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
         mybtn6.setText("EDITAR");
@@ -1102,12 +1187,12 @@ public void limparCalculoPorcoes() {
                 mybtn6ActionPerformed(evt);
             }
         });
-        panelIngredientes.add(mybtn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 100, 129, 40));
+        panelIngredientes.add(mybtn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
 
         mybtn7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
         mybtn7.setText("EXCLUIR");
         mybtn7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelIngredientes.add(mybtn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 150, 129, 40));
+        panelIngredientes.add(mybtn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel17.setText("id");
@@ -1123,51 +1208,6 @@ public void limparCalculoPorcoes() {
         jLabel18.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel18.setText("Ingrediente");
         panelIngredientes.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 180, 30));
-
-        colorBtn7.setBackground(new java.awt.Color(90, 90, 90));
-
-        javax.swing.GroupLayout colorBtn7Layout = new javax.swing.GroupLayout(colorBtn7);
-        colorBtn7.setLayout(colorBtn7Layout);
-        colorBtn7Layout.setHorizontalGroup(
-            colorBtn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        colorBtn7Layout.setVerticalGroup(
-            colorBtn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        panelIngredientes.add(colorBtn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 50, 10, 40));
-
-        colorBtn8.setBackground(new java.awt.Color(218, 151, 21));
-
-        javax.swing.GroupLayout colorBtn8Layout = new javax.swing.GroupLayout(colorBtn8);
-        colorBtn8.setLayout(colorBtn8Layout);
-        colorBtn8Layout.setHorizontalGroup(
-            colorBtn8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        colorBtn8Layout.setVerticalGroup(
-            colorBtn8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        panelIngredientes.add(colorBtn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 100, 10, 40));
-
-        colorBtn9.setBackground(new java.awt.Color(207, 131, 131));
-
-        javax.swing.GroupLayout colorBtn9Layout = new javax.swing.GroupLayout(colorBtn9);
-        colorBtn9.setLayout(colorBtn9Layout);
-        colorBtn9Layout.setHorizontalGroup(
-            colorBtn9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        colorBtn9Layout.setVerticalGroup(
-            colorBtn9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        panelIngredientes.add(colorBtn9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 150, 10, 40));
         panelIngredientes.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
         table1.fixTable(jScrollPane5);
@@ -1210,78 +1250,35 @@ public void limparCalculoPorcoes() {
             table4.getColumnModel().getColumn(5).setHeaderValue("Custo Unt.");
         }
 
-        panelIngredientes.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1160, 450));
+        panelIngredientes.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
 
-        areaIngredientes.getContentPane().add(panelIngredientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 1000));
+        areaIngredientes.getContentPane().add(panelIngredientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
 
-        areaPrincipal.add(areaIngredientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1460, 1025));
+        areaPrincipal.add(areaIngredientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1070, 900));
 
         areaFichaTecnica.setBackground(new java.awt.Color(255, 255, 255));
         areaFichaTecnica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        areaFichaTecnica.setMaximumSize(new java.awt.Dimension(1460, 1070));
-        areaFichaTecnica.setMinimumSize(new java.awt.Dimension(1460, 1070));
-        areaFichaTecnica.setPreferredSize(new java.awt.Dimension(1460, 1070));
+        areaFichaTecnica.setMaximumSize(new java.awt.Dimension(1460, 900));
+        areaFichaTecnica.setMinimumSize(new java.awt.Dimension(1460, 900));
+        areaFichaTecnica.setPreferredSize(new java.awt.Dimension(1460, 900));
         areaFichaTecnica.setVisible(true);
         areaFichaTecnica.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelIngredientes1.setBackground(new java.awt.Color(255, 255, 255));
-        panelIngredientes1.setMaximumSize(new java.awt.Dimension(1690, 1020));
-        panelIngredientes1.setMinimumSize(new java.awt.Dimension(1690, 1020));
-        panelIngredientes1.setPreferredSize(new java.awt.Dimension(1690, 1020));
-        panelIngredientes1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelFichaTecnica.setBackground(new java.awt.Color(255, 255, 255));
+        panelFichaTecnica.setMaximumSize(new java.awt.Dimension(1690, 900));
+        panelFichaTecnica.setMinimumSize(new java.awt.Dimension(1690, 900));
+        panelFichaTecnica.setPreferredSize(new java.awt.Dimension(1690, 900));
+        panelFichaTecnica.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel35.setBackground(new java.awt.Color(103, 103, 103));
         jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa 2.png"))); // NOI18N
         jLabel35.setOpaque(true);
-        panelIngredientes1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
+        panelFichaTecnica.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
 
         jTextField19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField19.setName(""); // NOI18N
-        panelIngredientes1.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
-
-        mybtn24.setText("OK");
-        panelIngredientes1.add(mybtn24, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
-
-        mybtn8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
-        mybtn8.setText("NOVO");
-        mybtn8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn8ActionPerformed(evt);
-            }
-        });
-        panelIngredientes1.add(mybtn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 50, 129, 40));
-
-        mybtn9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
-        mybtn9.setText("EDITAR");
-        mybtn9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn9ActionPerformed(evt);
-            }
-        });
-        panelIngredientes1.add(mybtn9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 100, 129, 40));
-
-        mybtn10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
-        mybtn10.setText("EXCLUIR");
-        mybtn10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelIngredientes1.add(mybtn10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 150, 129, 40));
-
-        jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel36.setText("id");
-        panelIngredientes1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
-
-        jTextField20.setEditable(false);
-        jTextField20.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField20.setName(""); // NOI18N
-        jTextField20.setOpaque(true);
-        panelIngredientes1.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 188, 45));
-
-        jLabel37.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel37.setText("Lanche");
-        panelIngredientes1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 180, 30));
+        panelFichaTecnica.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
 
         colorBtn19.setBackground(new java.awt.Color(90, 90, 90));
 
@@ -1296,7 +1293,7 @@ public void limparCalculoPorcoes() {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        panelIngredientes1.add(colorBtn19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 50, 10, 40));
+        panelFichaTecnica.add(colorBtn19, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 50, 10, 40));
 
         colorBtn20.setBackground(new java.awt.Color(218, 151, 21));
 
@@ -1311,7 +1308,7 @@ public void limparCalculoPorcoes() {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        panelIngredientes1.add(colorBtn20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 100, 10, 40));
+        panelFichaTecnica.add(colorBtn20, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 100, 10, 40));
 
         colorBtn21.setBackground(new java.awt.Color(207, 131, 131));
 
@@ -1326,8 +1323,51 @@ public void limparCalculoPorcoes() {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        panelIngredientes1.add(colorBtn21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 150, 10, 40));
-        panelIngredientes1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
+        panelFichaTecnica.add(colorBtn21, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
+
+        mybtn24.setText("OK");
+        panelFichaTecnica.add(mybtn24, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
+
+        mybtn8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
+        mybtn8.setText("NOVO");
+        mybtn8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        mybtn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mybtn8ActionPerformed(evt);
+            }
+        });
+        panelFichaTecnica.add(mybtn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
+
+        mybtn9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        mybtn9.setText("EDITAR");
+        mybtn9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        mybtn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mybtn9ActionPerformed(evt);
+            }
+        });
+        panelFichaTecnica.add(mybtn9, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
+
+        mybtn10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
+        mybtn10.setText("EXCLUIR");
+        mybtn10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelFichaTecnica.add(mybtn10, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
+        jLabel36.setText("id");
+        panelFichaTecnica.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
+
+        jTextField20.setEditable(false);
+        jTextField20.setBackground(new java.awt.Color(243, 243, 243));
+        jTextField20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        jTextField20.setName(""); // NOI18N
+        jTextField20.setOpaque(true);
+        panelFichaTecnica.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 188, 45));
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
+        jLabel37.setText("Lanche");
+        panelFichaTecnica.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 180, 30));
+        panelFichaTecnica.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
         table1.fixTable(jScrollPane9);
         table8.setModel(new javax.swing.table.DefaultTableModel(
@@ -1372,201 +1412,201 @@ public void limparCalculoPorcoes() {
             table8.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        panelIngredientes1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1160, 450));
+        panelFichaTecnica.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
 
-        areaFichaTecnica.getContentPane().add(panelIngredientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 1000));
+        areaFichaTecnica.getContentPane().add(panelFichaTecnica, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
 
-        areaPrincipal.add(areaFichaTecnica, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1460, 1025));
+        areaPrincipal.add(areaFichaTecnica, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1070, 900));
 
         areaCalculoPorcoes.setBackground(new java.awt.Color(255, 255, 255));
         areaCalculoPorcoes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        areaCalculoPorcoes.setMaximumSize(new java.awt.Dimension(1460, 1070));
-        areaCalculoPorcoes.setMinimumSize(new java.awt.Dimension(1460, 1070));
-        areaCalculoPorcoes.setPreferredSize(new java.awt.Dimension(1460, 1070));
+        areaCalculoPorcoes.setMaximumSize(new java.awt.Dimension(1460, 900));
+        areaCalculoPorcoes.setMinimumSize(new java.awt.Dimension(1460, 900));
+        areaCalculoPorcoes.setPreferredSize(new java.awt.Dimension(1460, 900));
         areaCalculoPorcoes.setVisible(true);
         areaCalculoPorcoes.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelPE1.setBackground(new java.awt.Color(255, 255, 255));
-        panelPE1.setMaximumSize(new java.awt.Dimension(1690, 1020));
-        panelPE1.setMinimumSize(new java.awt.Dimension(1690, 1020));
-        panelPE1.setPreferredSize(new java.awt.Dimension(1690, 1020));
-        panelPE1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelCalculoPorcoes.setBackground(new java.awt.Color(255, 255, 255));
+        panelCalculoPorcoes.setMaximumSize(new java.awt.Dimension(1690, 1020));
+        panelCalculoPorcoes.setMinimumSize(new java.awt.Dimension(1690, 1020));
+        panelCalculoPorcoes.setPreferredSize(new java.awt.Dimension(1690, 1020));
+        panelCalculoPorcoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextField17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField17.setName(""); // NOI18N
-        panelPE1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 100, 45));
+        panelCalculoPorcoes.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 100, 45));
 
         jTextField22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField22.setName(""); // NOI18N
-        panelPE1.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 320, 45));
+        panelCalculoPorcoes.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 320, 45));
 
         jTextField23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField23.setName(""); // NOI18N
-        panelPE1.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 100, 45));
+        panelCalculoPorcoes.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 100, 45));
 
         jTextField24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField24.setName(""); // NOI18N
-        panelPE1.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 100, 45));
+        panelCalculoPorcoes.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 100, 45));
 
         jTextField25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField25.setName(""); // NOI18N
-        panelPE1.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 365, 320, 45));
+        panelCalculoPorcoes.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 365, 320, 45));
 
         jTextField26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField26.setName(""); // NOI18N
-        panelPE1.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 365, 100, 45));
+        panelCalculoPorcoes.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 365, 100, 45));
 
         jTextField27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField27.setName(""); // NOI18N
-        panelPE1.add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 365, 100, 45));
+        panelCalculoPorcoes.add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 365, 100, 45));
 
         jTextField28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField28.setName(""); // NOI18N
-        panelPE1.add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 365, 100, 45));
+        panelCalculoPorcoes.add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 365, 100, 45));
 
         jTextField18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField18.setName(""); // NOI18N
-        panelPE1.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 140, 45));
+        panelCalculoPorcoes.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 140, 45));
 
         jTextField21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField21.setName(""); // NOI18N
-        panelPE1.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 240, 45));
+        panelCalculoPorcoes.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 240, 45));
 
         jTextField29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField29.setName(""); // NOI18N
-        panelPE1.add(jTextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 320, 45));
+        panelCalculoPorcoes.add(jTextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 320, 45));
 
         jTextField30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField30.setName(""); // NOI18N
-        panelPE1.add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 100, 45));
+        panelCalculoPorcoes.add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 100, 45));
 
         jTextField31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField31.setName(""); // NOI18N
-        panelPE1.add(jTextField31, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 100, 45));
+        panelCalculoPorcoes.add(jTextField31, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 100, 45));
 
         jTextField32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField32.setName(""); // NOI18N
-        panelPE1.add(jTextField32, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 100, 45));
+        panelCalculoPorcoes.add(jTextField32, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 100, 45));
 
         jTextField33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField33.setName(""); // NOI18N
-        panelPE1.add(jTextField33, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 475, 320, 45));
+        panelCalculoPorcoes.add(jTextField33, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 475, 320, 45));
 
         jTextField34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField34.setName(""); // NOI18N
-        panelPE1.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 475, 100, 45));
+        panelCalculoPorcoes.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 475, 100, 45));
 
         jTextField35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField35.setName(""); // NOI18N
-        panelPE1.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 475, 100, 45));
+        panelCalculoPorcoes.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 475, 100, 45));
 
         jTextField36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField36.setName(""); // NOI18N
-        panelPE1.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 475, 100, 45));
+        panelCalculoPorcoes.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 475, 100, 45));
 
         jTextField37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField37.setName(""); // NOI18N
-        panelPE1.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 320, 45));
+        panelCalculoPorcoes.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 320, 45));
 
         jTextField38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField38.setName(""); // NOI18N
-        panelPE1.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 100, 45));
+        panelCalculoPorcoes.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 100, 45));
 
         jTextField39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField39.setName(""); // NOI18N
-        panelPE1.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 100, 45));
+        panelCalculoPorcoes.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 100, 45));
 
         jTextField40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField40.setName(""); // NOI18N
-        panelPE1.add(jTextField40, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 585, 320, 45));
+        panelCalculoPorcoes.add(jTextField40, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 585, 320, 45));
 
         jTextField41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField41.setName(""); // NOI18N
-        panelPE1.add(jTextField41, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 585, 100, 45));
+        panelCalculoPorcoes.add(jTextField41, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 585, 100, 45));
 
         jTextField42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField42.setName(""); // NOI18N
-        panelPE1.add(jTextField42, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 585, 100, 45));
+        panelCalculoPorcoes.add(jTextField42, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 585, 100, 45));
 
         jTextField43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField43.setName(""); // NOI18N
-        panelPE1.add(jTextField43, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 585, 100, 45));
+        panelCalculoPorcoes.add(jTextField43, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 585, 100, 45));
 
         jTextField44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField44.setName(""); // NOI18N
-        panelPE1.add(jTextField44, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 100, 45));
+        panelCalculoPorcoes.add(jTextField44, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 100, 45));
 
         jTextField45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField45.setName(""); // NOI18N
-        panelPE1.add(jTextField45, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, 100, 45));
+        panelCalculoPorcoes.add(jTextField45, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, 100, 45));
 
         jTextField46.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField46.setName(""); // NOI18N
-        panelPE1.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, 100, 45));
+        panelCalculoPorcoes.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, 100, 45));
 
         jTextField47.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField47.setName(""); // NOI18N
-        panelPE1.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 640, 100, 45));
+        panelCalculoPorcoes.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 640, 100, 45));
 
         jTextField48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField48.setName(""); // NOI18N
-        panelPE1.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 320, 45));
+        panelCalculoPorcoes.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 320, 45));
 
         jTextField49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField49.setName(""); // NOI18N
-        panelPE1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 695, 320, 45));
+        panelCalculoPorcoes.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 695, 320, 45));
 
         jTextField50.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField50.setName(""); // NOI18N
-        panelPE1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 695, 100, 45));
+        panelCalculoPorcoes.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 695, 100, 45));
 
         jTextField51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField51.setName(""); // NOI18N
-        panelPE1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 695, 100, 45));
+        panelCalculoPorcoes.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 695, 100, 45));
 
         jTextField52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField52.setName(""); // NOI18N
-        panelPE1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 695, 100, 45));
+        panelCalculoPorcoes.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 695, 100, 45));
 
         jTextField53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField53.setName(""); // NOI18N
-        panelPE1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 750, 320, 45));
+        panelCalculoPorcoes.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 750, 320, 45));
 
         jTextField54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField54.setName(""); // NOI18N
-        panelPE1.add(jTextField54, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 750, 100, 45));
+        panelCalculoPorcoes.add(jTextField54, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 750, 100, 45));
 
         jTextField55.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField55.setName(""); // NOI18N
-        panelPE1.add(jTextField55, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 750, 100, 45));
+        panelCalculoPorcoes.add(jTextField55, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 750, 100, 45));
 
         jTextField56.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField56.setName(""); // NOI18N
-        panelPE1.add(jTextField56, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 750, 100, 45));
+        panelCalculoPorcoes.add(jTextField56, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 750, 100, 45));
 
         jTextField57.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField57.setName(""); // NOI18N
-        panelPE1.add(jTextField57, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 805, 320, 45));
+        panelCalculoPorcoes.add(jTextField57, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 805, 320, 45));
 
         jTextField58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField58.setName(""); // NOI18N
-        panelPE1.add(jTextField58, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 805, 100, 45));
+        panelCalculoPorcoes.add(jTextField58, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 805, 100, 45));
 
         jTextField59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField59.setName(""); // NOI18N
-        panelPE1.add(jTextField59, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 805, 100, 45));
+        panelCalculoPorcoes.add(jTextField59, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 805, 100, 45));
 
         jTextField61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField61.setName(""); // NOI18N
-        panelPE1.add(jTextField61, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 805, 100, 45));
+        panelCalculoPorcoes.add(jTextField61, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 805, 100, 45));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel32.setText("Produto/lanche");
-        panelPE1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 180, 30));
+        panelCalculoPorcoes.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 180, 30));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel33.setText("Qnt.");
-        panelPE1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 100, 30));
+        panelCalculoPorcoes.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 100, 30));
 
         colorBtn18.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -1581,7 +1621,7 @@ public void limparCalculoPorcoes() {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        panelPE1.add(colorBtn18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 100, 10, 40));
+        panelCalculoPorcoes.add(colorBtn18, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 100, 10, 40));
 
         colorBtn22.setBackground(new java.awt.Color(67, 0, 153));
 
@@ -1596,7 +1636,7 @@ public void limparCalculoPorcoes() {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        panelPE1.add(colorBtn22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 50, 10, 40));
+        panelCalculoPorcoes.add(colorBtn22, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 50, 10, 40));
 
         mybtn11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/calculadora.png"))); // NOI18N
         mybtn11.setText("CALCULAR");
@@ -1606,7 +1646,7 @@ public void limparCalculoPorcoes() {
                 mybtn11ActionPerformed(evt);
             }
         });
-        panelPE1.add(mybtn11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 50, 129, 40));
+        panelCalculoPorcoes.add(mybtn11, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
         mybtn12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpar.png"))); // NOI18N
         mybtn12.setText("LIMPAR");
@@ -1616,52 +1656,52 @@ public void limparCalculoPorcoes() {
                 mybtn12ActionPerformed(evt);
             }
         });
-        panelPE1.add(mybtn12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 100, 129, 40));
-        panelPE1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 1570, 30));
+        panelCalculoPorcoes.add(mybtn12, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
+        panelCalculoPorcoes.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 1570, 30));
 
         jTextField60.setEditable(false);
         jTextField60.setBackground(new java.awt.Color(243, 243, 243));
         jTextField60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField60.setName(""); // NOI18N
         jTextField60.setOpaque(true);
-        panelPE1.add(jTextField60, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 870, 210, 45));
+        panelCalculoPorcoes.add(jTextField60, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 210, 45));
 
         jLabel34.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel34.setText("Custo Total de Produção (R$):");
-        panelPE1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 870, 210, 45));
+        panelCalculoPorcoes.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 210, 45));
 
         jLabel38.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel38.setText("Itens");
-        panelPE1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 140, 30));
+        panelCalculoPorcoes.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 140, 30));
 
         jLabel39.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel39.setText("Und. Medida");
-        panelPE1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 100, 30));
+        panelCalculoPorcoes.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 100, 30));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel40.setText("Custo (R$)");
-        panelPE1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 100, 30));
+        panelCalculoPorcoes.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 100, 30));
 
         jLabel41.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel41.setText("Qnt. de porções");
-        panelPE1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 140, 30));
+        panelCalculoPorcoes.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 140, 30));
 
-        areaCalculoPorcoes.getContentPane().add(panelPE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 1000));
+        areaCalculoPorcoes.getContentPane().add(panelCalculoPorcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 1000));
 
-        areaPrincipal.add(areaCalculoPorcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1460, 1025));
+        areaPrincipal.add(areaCalculoPorcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1070, 900));
 
         areaEntradas.setBackground(new java.awt.Color(255, 255, 255));
         areaEntradas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        areaEntradas.setMaximumSize(new java.awt.Dimension(1460, 1070));
-        areaEntradas.setMinimumSize(new java.awt.Dimension(1460, 1070));
-        areaEntradas.setPreferredSize(new java.awt.Dimension(1460, 1070));
+        areaEntradas.setMaximumSize(new java.awt.Dimension(1460, 900));
+        areaEntradas.setMinimumSize(new java.awt.Dimension(1460, 900));
+        areaEntradas.setPreferredSize(new java.awt.Dimension(1460, 900));
         areaEntradas.setVisible(true);
         areaEntradas.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelEntradas.setBackground(new java.awt.Color(255, 255, 255));
-        panelEntradas.setMaximumSize(new java.awt.Dimension(1690, 1020));
-        panelEntradas.setMinimumSize(new java.awt.Dimension(1690, 1020));
-        panelEntradas.setPreferredSize(new java.awt.Dimension(1690, 1020));
+        panelEntradas.setMaximumSize(new java.awt.Dimension(1690, 900));
+        panelEntradas.setMinimumSize(new java.awt.Dimension(1690, 900));
+        panelEntradas.setPreferredSize(new java.awt.Dimension(1690, 900));
         panelEntradas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel26.setBackground(new java.awt.Color(103, 103, 103));
@@ -1674,6 +1714,51 @@ public void limparCalculoPorcoes() {
         jTextField13.setName(""); // NOI18N
         panelEntradas.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
 
+        colorBtn15.setBackground(new java.awt.Color(90, 90, 90));
+
+        javax.swing.GroupLayout colorBtn15Layout = new javax.swing.GroupLayout(colorBtn15);
+        colorBtn15.setLayout(colorBtn15Layout);
+        colorBtn15Layout.setHorizontalGroup(
+            colorBtn15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        colorBtn15Layout.setVerticalGroup(
+            colorBtn15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        panelEntradas.add(colorBtn15, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 50, 10, 40));
+
+        colorBtn16.setBackground(new java.awt.Color(218, 151, 21));
+
+        javax.swing.GroupLayout colorBtn16Layout = new javax.swing.GroupLayout(colorBtn16);
+        colorBtn16.setLayout(colorBtn16Layout);
+        colorBtn16Layout.setHorizontalGroup(
+            colorBtn16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        colorBtn16Layout.setVerticalGroup(
+            colorBtn16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        panelEntradas.add(colorBtn16, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 100, 10, 40));
+
+        colorBtn17.setBackground(new java.awt.Color(207, 131, 131));
+
+        javax.swing.GroupLayout colorBtn17Layout = new javax.swing.GroupLayout(colorBtn17);
+        colorBtn17.setLayout(colorBtn17Layout);
+        colorBtn17Layout.setHorizontalGroup(
+            colorBtn17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        colorBtn17Layout.setVerticalGroup(
+            colorBtn17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        panelEntradas.add(colorBtn17, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
+
         mybtn25.setText("OK");
         panelEntradas.add(mybtn25, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
@@ -1685,7 +1770,7 @@ public void limparCalculoPorcoes() {
                 mybtn13ActionPerformed(evt);
             }
         });
-        panelEntradas.add(mybtn13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 50, 129, 40));
+        panelEntradas.add(mybtn13, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
         mybtn14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
         mybtn14.setText("EDITAR");
@@ -1695,12 +1780,12 @@ public void limparCalculoPorcoes() {
                 mybtn14ActionPerformed(evt);
             }
         });
-        panelEntradas.add(mybtn14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 100, 129, 40));
+        panelEntradas.add(mybtn14, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
 
         mybtn15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
         mybtn15.setText("EXCLUIR");
         mybtn15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelEntradas.add(mybtn15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 150, 129, 40));
+        panelEntradas.add(mybtn15, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel27.setText("id");
@@ -1716,51 +1801,6 @@ public void limparCalculoPorcoes() {
         jLabel28.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel28.setText("Ingrediente");
         panelEntradas.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 180, 30));
-
-        colorBtn15.setBackground(new java.awt.Color(90, 90, 90));
-
-        javax.swing.GroupLayout colorBtn15Layout = new javax.swing.GroupLayout(colorBtn15);
-        colorBtn15.setLayout(colorBtn15Layout);
-        colorBtn15Layout.setHorizontalGroup(
-            colorBtn15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        colorBtn15Layout.setVerticalGroup(
-            colorBtn15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        panelEntradas.add(colorBtn15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 50, 10, 40));
-
-        colorBtn16.setBackground(new java.awt.Color(218, 151, 21));
-
-        javax.swing.GroupLayout colorBtn16Layout = new javax.swing.GroupLayout(colorBtn16);
-        colorBtn16.setLayout(colorBtn16Layout);
-        colorBtn16Layout.setHorizontalGroup(
-            colorBtn16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        colorBtn16Layout.setVerticalGroup(
-            colorBtn16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        panelEntradas.add(colorBtn16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 100, 10, 40));
-
-        colorBtn17.setBackground(new java.awt.Color(207, 131, 131));
-
-        javax.swing.GroupLayout colorBtn17Layout = new javax.swing.GroupLayout(colorBtn17);
-        colorBtn17.setLayout(colorBtn17Layout);
-        colorBtn17Layout.setHorizontalGroup(
-            colorBtn17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        colorBtn17Layout.setVerticalGroup(
-            colorBtn17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        panelEntradas.add(colorBtn17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1257, 150, 10, 40));
         panelEntradas.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
         table1.fixTable(jScrollPane7);
@@ -1799,7 +1839,7 @@ public void limparCalculoPorcoes() {
             table6.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        panelEntradas.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1160, 450));
+        panelEntradas.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
 
         jTextField16.setEditable(false);
         jTextField16.setBackground(new java.awt.Color(243, 243, 243));
@@ -1812,22 +1852,22 @@ public void limparCalculoPorcoes() {
         jLabel30.setText("Und. medida");
         panelEntradas.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 140, 30));
 
-        areaEntradas.getContentPane().add(panelEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 1000));
+        areaEntradas.getContentPane().add(panelEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
 
-        areaPrincipal.add(areaEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1460, 1025));
+        areaPrincipal.add(areaEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1070, 900));
 
         areaProdutoEstoque.setBackground(new java.awt.Color(255, 255, 255));
         areaProdutoEstoque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        areaProdutoEstoque.setMaximumSize(new java.awt.Dimension(1460, 1070));
-        areaProdutoEstoque.setMinimumSize(new java.awt.Dimension(1460, 1070));
-        areaProdutoEstoque.setPreferredSize(new java.awt.Dimension(1460, 1070));
+        areaProdutoEstoque.setMaximumSize(new java.awt.Dimension(1460, 900));
+        areaProdutoEstoque.setMinimumSize(new java.awt.Dimension(1460, 900));
+        areaProdutoEstoque.setPreferredSize(new java.awt.Dimension(1460, 900));
         areaProdutoEstoque.setVisible(true);
         areaProdutoEstoque.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelPE.setBackground(new java.awt.Color(255, 255, 255));
-        panelPE.setMaximumSize(new java.awt.Dimension(1690, 1020));
-        panelPE.setMinimumSize(new java.awt.Dimension(1690, 1020));
-        panelPE.setPreferredSize(new java.awt.Dimension(1690, 1020));
+        panelPE.setMaximumSize(new java.awt.Dimension(1690, 900));
+        panelPE.setMinimumSize(new java.awt.Dimension(1690, 900));
+        panelPE.setPreferredSize(new java.awt.Dimension(1690, 900));
         panelPE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
@@ -1934,7 +1974,7 @@ public void limparCalculoPorcoes() {
             table5.getColumnModel().getColumn(6).setHeaderValue("Status");
         }
 
-        panelPE.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1160, 450));
+        panelPE.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 930, 450));
 
         jTextField12.setEditable(false);
         jTextField12.setBackground(new java.awt.Color(243, 243, 243));
@@ -1947,22 +1987,22 @@ public void limparCalculoPorcoes() {
         jLabel24.setText("Und. medida");
         panelPE.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 140, 30));
 
-        areaProdutoEstoque.getContentPane().add(panelPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 1000));
+        areaProdutoEstoque.getContentPane().add(panelPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 900));
 
-        areaPrincipal.add(areaProdutoEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1460, 1025));
+        areaPrincipal.add(areaProdutoEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1070, 900));
 
-        jPanel1.add(areaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 1640, 1020));
+        jPanel1.add(areaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 1160, 900));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1830, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1440, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -2531,9 +2571,15 @@ public void limparCalculoPorcoes() {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblCopyright;
+    private javax.swing.JLabel lblVersion;
+    private javax.swing.JLabel lblVersion1;
+    private javax.swing.JLabel lblVersion2;
     private javax.swing.JLabel logo1;
     private javax.swing.JLabel logo2;
     private javax.swing.JLabel logo3;
+    private javax.swing.JLabel logoVersion;
+    private javax.swing.JLabel logoVersion1;
+    private javax.swing.JLabel logoVersion2;
     private styles.Mybtn mybtn1;
     private styles.Mybtn mybtn10;
     private styles.Mybtn mybtn11;
@@ -2558,13 +2604,13 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel painelMenu1;
     private javax.swing.JPanel painelMenu2;
     private javax.swing.JPanel painelMenu3;
+    private javax.swing.JPanel panelCalculoPorcoes;
     private javax.swing.JPanel panelEntradas;
+    private javax.swing.JPanel panelFichaTecnica;
     private javax.swing.JPanel panelIngredientes;
-    private javax.swing.JPanel panelIngredientes1;
     private javax.swing.JPanel panelLanche;
     private javax.swing.JPanel panelNP;
     private javax.swing.JPanel panelPE;
-    private javax.swing.JPanel panelPE1;
     private javax.swing.JPanel panelVP;
     private javax.swing.JPanel rodapePainel;
     private spinner.Spinner spinner2;
