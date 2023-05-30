@@ -18,6 +18,9 @@ public class Input extends EntityId{
     private int quantity;
     private int ingredientId;
 
+    //ingredientTable
+    private String ingredientName;
+
     public Input(float weight, float cost, int quantity, int ingredientId, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
         this.weight = weight;
@@ -58,5 +61,11 @@ public class Input extends EntityId{
         this.ingredientId = ingredientId;
     }
     
+    public void setIngredientName(String ingredientName){
+        this.ingredientName = ingredientName;
+    }
     
+    public String getIngredientName(){
+        return this.ingredientName;
+    }
 }
