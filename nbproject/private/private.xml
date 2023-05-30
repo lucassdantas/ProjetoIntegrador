@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/models/Output.java</file>
-            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/models/Input.java</file>
-            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/models/Ingredient.java</file>
-            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/dao/InputDao.java</file>
-            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/dao/OutputDao.java</file>
-            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/dao/RelationSRDao.java</file>
+            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/views/ProdLanches.java</file>
+            <file>file:/C:/Users/Lucas%20Dantas/Documents/NetBeansProjects/ProjetoIntegrador/src/controllers/InputController.java</file>
         </group>
     </open-files>
 </project-private>

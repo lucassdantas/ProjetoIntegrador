@@ -4,7 +4,7 @@
  */
 package dao;
 
-import conexao.ConnectionFactory;
+import ConnectionFactory.ConnectionFactory;
 import models.Login;
 
 import java.util.List;
