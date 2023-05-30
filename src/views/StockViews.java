@@ -122,8 +122,6 @@ public void limparCalculoPorcoes() {
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
-        combobox1 = new combobox.Combobox();
-        spinner2 = new spinner.Spinner();
         jScrollPane2 = new javax.swing.JScrollPane();
         table1 = new javaswingdev.swing.table.Table();
         fotoVP = new javax.swing.JPanel();
@@ -293,7 +291,6 @@ public void limparCalculoPorcoes() {
         jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1440, 900));
         setUndecorated(true);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1020));
@@ -443,7 +440,7 @@ public void limparCalculoPorcoes() {
         painelMenu1.add(lblVersion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 854, 240, 50));
 
         logoVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoVersion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Design sem nome (16) (1).png"))); // NOI18N
+        logoVersion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo icon.png"))); // NOI18N
         painelMenu1.add(logoVersion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 860, 30, 40));
 
         jPanel1.add(painelMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 900));
@@ -541,7 +538,7 @@ public void limparCalculoPorcoes() {
         painelMenu2.add(lblVersion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 854, 240, 50));
 
         logoVersion1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoVersion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Design sem nome (16) (1).png"))); // NOI18N
+        logoVersion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo icon.png"))); // NOI18N
         painelMenu2.add(logoVersion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 860, 30, 40));
 
         jPanel1.add(painelMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 900));
@@ -617,7 +614,7 @@ public void limparCalculoPorcoes() {
         painelMenu3.add(lblVersion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 854, 240, 50));
 
         logoVersion2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoVersion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Design sem nome (16) (1).png"))); // NOI18N
+        logoVersion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo icon.png"))); // NOI18N
         painelMenu3.add(logoVersion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 860, 30, 40));
 
         jPanel1.add(painelMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 900));
@@ -725,18 +722,6 @@ public void limparCalculoPorcoes() {
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel8.setText("Lanche");
         panelNP.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
-
-        combobox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        combobox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        combobox1.setSelectedIndex(-1);
-        combobox1.setSelectedItem(null);
-        combobox1.setLabeText("");
-        panelNP.add(combobox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 220, 40));
-
-        spinner2.setBackground(new java.awt.Color(51, 51, 255));
-        spinner2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        spinner2.setLabelText("");
-        panelNP.add(spinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 102, 45));
 
         table1.fixTable(jScrollPane2);
         table1.setModel(new javax.swing.table.DefaultTableModel(
@@ -2452,7 +2437,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel colorBtn7;
     private javax.swing.JPanel colorBtn8;
     private javax.swing.JPanel colorBtn9;
-    private combobox.Combobox combobox1;
     private javax.swing.JPanel fotoVP;
     private javax.swing.JPanel fotoVP1;
     private javax.swing.JPanel fotoVP2;
@@ -2613,7 +2597,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel panelPE;
     private javax.swing.JPanel panelVP;
     private javax.swing.JPanel rodapePainel;
-    private spinner.Spinner spinner2;
     private javaswingdev.swing.table.Table table1;
     private javaswingdev.swing.table.Table table2;
     private javaswingdev.swing.table.Table table3;
