@@ -90,29 +90,29 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         spinner2 = new spinner.Spinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 1025));
+        setPreferredSize(new java.awt.Dimension(1040, 900));
         setResizable(false);
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(900, 1025));
-        jPanel1.setMinimumSize(new java.awt.Dimension(900, 1025));
-        jPanel1.setPreferredSize(new java.awt.Dimension(900, 1025));
+        jPanel1.setMaximumSize(new java.awt.Dimension(900, 910));
+        jPanel1.setMinimumSize(new java.awt.Dimension(900, 910));
+        jPanel1.setPreferredSize(new java.awt.Dimension(900, 900));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(930, 1025));
+        jDesktopPane1.setPreferredSize(new java.awt.Dimension(1040, 910));
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         areaEntradas_entrada.setBackground(new java.awt.Color(255, 255, 255));
         areaEntradas_entrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         areaEntradas_entrada.setMaximumSize(new java.awt.Dimension(900, 1025));
         areaEntradas_entrada.setMinimumSize(new java.awt.Dimension(900, 1025));
-        areaEntradas_entrada.setPreferredSize(new java.awt.Dimension(900, 1025));
+        areaEntradas_entrada.setPreferredSize(new java.awt.Dimension(900, 910));
         areaEntradas_entrada.setVisible(true);
         areaEntradas_entrada.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelEntradas1.setBackground(new java.awt.Color(255, 255, 255));
-        panelEntradas1.setMaximumSize(new java.awt.Dimension(1690, 1025));
-        panelEntradas1.setMinimumSize(new java.awt.Dimension(1690, 1025));
-        panelEntradas1.setPreferredSize(new java.awt.Dimension(1690, 1025));
+        panelEntradas1.setMaximumSize(new java.awt.Dimension(1040, 900));
+        panelEntradas1.setMinimumSize(new java.awt.Dimension(1040, 900));
+        panelEntradas1.setPreferredSize(new java.awt.Dimension(1040, 900));
         panelEntradas1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextField17.setEditable(false);
@@ -131,14 +131,14 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         colorBtn19.setLayout(colorBtn19Layout);
         colorBtn19Layout.setHorizontalGroup(
             colorBtn19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         colorBtn19Layout.setVerticalGroup(
             colorBtn19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        panelEntradas1.add(colorBtn19, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 935, 10, 40));
+        panelEntradas1.add(colorBtn19, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 780, 10, 40));
 
         mybtn5.setText("CANCELAR");
         mybtn5.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class PorcoesCalcular extends javax.swing.JFrame {
                 mybtn5ActionPerformed(evt);
             }
         });
-        panelEntradas1.add(mybtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 935, 129, 40));
+        panelEntradas1.add(mybtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 780, 129, 40));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel35.setText("Qnt. de porções");
@@ -414,82 +414,89 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         jTextField62.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField62.setName(""); // NOI18N
         jTextField62.setOpaque(true);
-        panelEntradas1.add(jTextField62, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, 210, 45));
+        panelEntradas1.add(jTextField62, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, 210, 45));
 
         jLabel34.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel34.setText("Custo unt. produção (R$):");
-        panelEntradas1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 710, 260, 45));
-        panelEntradas1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 815, 30));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("Custo unt. produção (R$)");
+        jLabel34.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        panelEntradas1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 140, 210, 45));
+        panelEntradas1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 960, 30));
 
         jTextField63.setEditable(false);
         jTextField63.setBackground(new java.awt.Color(243, 243, 243));
         jTextField63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField63.setName(""); // NOI18N
         jTextField63.setOpaque(true);
-        panelEntradas1.add(jTextField63, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 765, 210, 45));
+        panelEntradas1.add(jTextField63, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 290, 210, 45));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel36.setText("Valor de venda (R$):");
-        panelEntradas1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 765, 260, 45));
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel36.setText("Valor de venda (R$)");
+        jLabel36.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        panelEntradas1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 210, 45));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel37.setText("Receita total \"x\" por porções (R$):");
-        panelEntradas1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 820, 260, 45));
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel37.setText("Receita total \"x\" por porções (R$)");
+        jLabel37.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        panelEntradas1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 360, -1, 45));
 
         jTextField64.setEditable(false);
         jTextField64.setBackground(new java.awt.Color(243, 243, 243));
         jTextField64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField64.setName(""); // NOI18N
         jTextField64.setOpaque(true);
-        panelEntradas1.add(jTextField64, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 820, 210, 45));
+        panelEntradas1.add(jTextField64, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 400, 210, 45));
 
         jTextField65.setEditable(false);
         jTextField65.setBackground(new java.awt.Color(243, 243, 243));
         jTextField65.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField65.setName(""); // NOI18N
         jTextField65.setOpaque(true);
-        panelEntradas1.add(jTextField65, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 875, 210, 45));
+        panelEntradas1.add(jTextField65, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 510, 210, 45));
 
         jLabel41.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel41.setText("Lucro (R$):");
-        panelEntradas1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 875, 260, 45));
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText("Lucro (R$)");
+        jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        panelEntradas1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, 210, 45));
 
         jLabel42.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel42.setText("Margem de Lucro (R$):");
-        panelEntradas1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 930, 260, 45));
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel42.setText("Margem de Lucro (R$)");
+        jLabel42.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        panelEntradas1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 580, 210, 45));
 
         jTextField66.setEditable(false);
         jTextField66.setBackground(new java.awt.Color(243, 243, 243));
         jTextField66.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField66.setName(""); // NOI18N
         jTextField66.setOpaque(true);
-        panelEntradas1.add(jTextField66, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 930, 210, 45));
+        panelEntradas1.add(jTextField66, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 620, 210, 45));
 
         spinner2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         spinner2.setLabelText("");
         panelEntradas1.add(spinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 102, 45));
 
-        areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 1030));
+        areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1040, 900));
 
-        jDesktopPane1.add(areaEntradas_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 940, -1));
+        jDesktopPane1.add(areaEntradas_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1060, 930));
 
-        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 990));
+        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 900));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 993, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
