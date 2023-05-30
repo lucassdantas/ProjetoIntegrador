@@ -59,7 +59,7 @@ public class InputDao {
         
         List<Input> inputs = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM inputs");
+            sql = con.prepareStatement("SELECT input.*, ingredient.nameI FROM input INNER JOIN ingredient ON input.ingredientId = ingredient.ingredientId");
             rs = sql.executeQuery();
             while(rs.next()){
                 Input input = new Input();
@@ -67,10 +67,15 @@ public class InputDao {
                 input.setWeight(rs.getFloat("weightI"));
                 input.setCost(rs.getFloat("costI"));
                 input.setQuantity(rs.getInt("quantityI"));
-                input.setToLocalDateTimeCreation(rs.getString("creationI"));
-                input.setToLocalDateTimeUpdate(rs.getString("updateI"));
+                //input.setToLocalDateTimeCreation(rs.getString("creationI"));
+                //input.setToLocalDateTimeUpdate(rs.getString("updateI"));
                 input.setStatus(rs.getString("statusI"));
-                input.setIngredientId(rs.getInt("ingredienteId"));
+                input.setIngredientId(rs.getInt("ingredientId"));
+                
+                //ingredientTable
+                input.setIngredientName(rs.getString("nameI"));
+                input.setIngredientPrice(rs.getFloat("priceI"));
+                input.setIngredientWeight(rs.getFloat(""));
                 inputs.add(input);
             }
         }catch(SQLException e){
