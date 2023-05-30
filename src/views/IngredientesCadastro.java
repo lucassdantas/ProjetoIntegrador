@@ -30,8 +30,8 @@ public class IngredientesCadastro extends javax.swing.JFrame {
         panelEntradas1 = new javax.swing.JPanel();
         jTextField17 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        mybtn4 = new styles.Mybtn();
-        mybtn5 = new styles.Mybtn();
+        mybtn4 = new views.styles.Mybtn();
+        mybtn5 = new views.styles.Mybtn();
         colorBtn19 = new javax.swing.JPanel();
         colorBtn20 = new javax.swing.JPanel();
         jTextField18 = new javax.swing.JTextField();
@@ -290,8 +290,8 @@ public class IngredientesCadastro extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
-    private styles.Mybtn mybtn4;
-    private styles.Mybtn mybtn5;
+    private views.styles.Mybtn mybtn4;
+    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,7 +30,7 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         jTextField17 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         colorBtn19 = new javax.swing.JPanel();
-        mybtn5 = new styles.Mybtn();
+        mybtn5 = new views.styles.Mybtn();
         jLabel35 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jTextField22 = new javax.swing.JTextField();
@@ -87,7 +87,7 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jTextField66 = new javax.swing.JTextField();
-        spinner2 = new spinner.Spinner();
+        spinner2 = new views.spinner.Spinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1040, 900));
@@ -669,8 +669,8 @@ public class PorcoesCalcular extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField64;
     private javax.swing.JTextField jTextField65;
     private javax.swing.JTextField jTextField66;
-    private styles.Mybtn mybtn5;
+    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
-    private spinner.Spinner spinner2;
+    private views.spinner.Spinner spinner2;
     // End of variables declaration//GEN-END:variables
 }

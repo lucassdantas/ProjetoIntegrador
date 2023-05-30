@@ -42,9 +42,9 @@ public class EstoqueEntrada extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jTextField21 = new javax.swing.JTextField();
-        mybtn5 = new styles.Mybtn();
-        mybtn4 = new styles.Mybtn();
-        mybtn21 = new styles.Mybtn2();
+        mybtn5 = new views.styles.Mybtn();
+        mybtn4 = new views.styles.Mybtn();
+        mybtn21 = new views.styles.Mybtn2();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -259,9 +259,9 @@ public class EstoqueEntrada extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
-    private styles.Mybtn2 mybtn21;
-    private styles.Mybtn mybtn4;
-    private styles.Mybtn mybtn5;
+    private views.styles.Mybtn2 mybtn21;
+    private views.styles.Mybtn mybtn4;
+    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
     // End of variables declaration//GEN-END:variables
 }

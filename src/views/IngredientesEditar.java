@@ -38,8 +38,8 @@ public class IngredientesEditar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        mybtn5 = new styles.Mybtn();
-        mybtn4 = new styles.Mybtn();
+        mybtn5 = new views.styles.Mybtn();
+        mybtn4 = new views.styles.Mybtn();
         jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
@@ -290,8 +290,8 @@ public class IngredientesEditar extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
-    private styles.Mybtn mybtn4;
-    private styles.Mybtn mybtn5;
+    private views.styles.Mybtn mybtn4;
+    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
     // End of variables declaration//GEN-END:variables
 }
