@@ -35,13 +35,13 @@ public class LanchesEditar extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        areaText1 = new text.area.AreaText();
+        areaText1 = new views.text.area.AreaText();
         fotoVP = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        mybtn5 = new styles.Mybtn();
-        mybtn4 = new styles.Mybtn();
+        mybtn5 = new views.styles.Mybtn();
+        mybtn4 = new views.styles.Mybtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -250,7 +250,7 @@ public class LanchesEditar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
-    private text.area.AreaText areaText1;
+    private views.text.area.AreaText areaText1;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
     private javax.swing.JPanel fotoVP;
@@ -265,8 +265,8 @@ public class LanchesEditar extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private styles.Mybtn mybtn4;
-    private styles.Mybtn mybtn5;
+    private views.styles.Mybtn mybtn4;
+    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
     // End of variables declaration//GEN-END:variables
 }

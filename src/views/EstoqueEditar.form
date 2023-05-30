@@ -378,7 +378,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn5">
+                    <Component class="views.styles.Mybtn" name="mybtn5">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="CANCELAR"/>
                       </Properties>
@@ -391,7 +391,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn4">
+                    <Component class="views.styles.Mybtn" name="mybtn4">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/check mark.png"/>

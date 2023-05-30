@@ -46,10 +46,10 @@ public class FichaEditar extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jTextField24 = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
-        spinner2 = new spinner.Spinner();
+        spinner2 = new views.spinner.Spinner();
         jSeparator8 = new javax.swing.JSeparator();
-        mybtn5 = new styles.Mybtn();
-        mybtn4 = new styles.Mybtn();
+        mybtn5 = new views.styles.Mybtn();
+        mybtn4 = new views.styles.Mybtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -300,9 +300,9 @@ public class FichaEditar extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
-    private styles.Mybtn mybtn4;
-    private styles.Mybtn mybtn5;
+    private views.styles.Mybtn mybtn4;
+    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
-    private spinner.Spinner spinner2;
+    private views.spinner.Spinner spinner2;
     // End of variables declaration//GEN-END:variables
 }

@@ -195,7 +195,7 @@
                         </DimensionLayout>
                       </Layout>
                     </Container>
-                    <Component class="styles.Mybtn" name="mybtn5">
+                    <Component class="views.styles.Mybtn" name="mybtn5">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="CANCELAR"/>
                       </Properties>
@@ -1396,7 +1396,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="spinner.Spinner" name="spinner2">
+                    <Component class="views.spinner.Spinner" name="spinner2">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">

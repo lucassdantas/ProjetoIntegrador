@@ -29,8 +29,8 @@ public class FichaEntrada extends javax.swing.JFrame {
         panelEntradas1 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
-        mybtn21 = new styles.Mybtn2();
-        mybtn22 = new styles.Mybtn2();
+        mybtn21 = new views.styles.Mybtn2();
+        mybtn22 = new views.styles.Mybtn2();
         jLabel31 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
@@ -50,10 +50,10 @@ public class FichaEntrada extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jTextField24 = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
-        spinner2 = new spinner.Spinner();
+        spinner2 = new views.spinner.Spinner();
         jSeparator8 = new javax.swing.JSeparator();
-        mybtn5 = new styles.Mybtn();
-        mybtn4 = new styles.Mybtn();
+        mybtn5 = new views.styles.Mybtn();
+        mybtn4 = new views.styles.Mybtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -316,11 +316,11 @@ public class FichaEntrada extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
-    private styles.Mybtn2 mybtn21;
-    private styles.Mybtn2 mybtn22;
-    private styles.Mybtn mybtn4;
-    private styles.Mybtn mybtn5;
+    private views.styles.Mybtn2 mybtn21;
+    private views.styles.Mybtn2 mybtn22;
+    private views.styles.Mybtn mybtn4;
+    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
-    private spinner.Spinner spinner2;
+    private views.spinner.Spinner spinner2;
     // End of variables declaration//GEN-END:variables
 }

@@ -260,7 +260,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="text.area.AreaText" name="areaText1">
+                        <Component class="views.text.area.AreaText" name="areaText1">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -365,7 +365,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn5">
+                    <Component class="views.styles.Mybtn" name="mybtn5">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="CANCELAR"/>
                       </Properties>
@@ -378,7 +378,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn4">
+                    <Component class="views.styles.Mybtn" name="mybtn4">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/check mark.png"/>

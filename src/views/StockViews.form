@@ -91,7 +91,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu" name="buttonPedidos">
+            <Component class="views.styles.MybtnMenu" name="buttonPedidos">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -109,7 +109,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu2" name="buttonNovoPedido">
+            <Component class="views.styles.MybtnMenu2" name="buttonNovoPedido">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -127,7 +127,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu2" name="buttonVisualizarPedidos">
+            <Component class="views.styles.MybtnMenu2" name="buttonVisualizarPedidos">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="d3" green="d3" red="d3" type="rgb"/>
@@ -145,7 +145,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu" name="buttonProdutos">
+            <Component class="views.styles.MybtnMenu" name="buttonProdutos">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/produtos.png"/>
@@ -162,7 +162,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu" name="buttonEstoque">
+            <Component class="views.styles.MybtnMenu" name="buttonEstoque">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/estoque.png"/>
@@ -399,7 +399,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu" name="buttonPedidos1">
+            <Component class="views.styles.MybtnMenu" name="buttonPedidos1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/compra.png"/>
@@ -416,7 +416,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu" name="buttonProdutos1">
+            <Component class="views.styles.MybtnMenu" name="buttonProdutos1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -437,7 +437,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu" name="buttonEstoque1">
+            <Component class="views.styles.MybtnMenu" name="buttonEstoque1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/estoque.png"/>
@@ -454,7 +454,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu2" name="buttonLanches">
+            <Component class="views.styles.MybtnMenu2" name="buttonLanches">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -472,7 +472,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu2" name="buttonIngredientes">
+            <Component class="views.styles.MybtnMenu2" name="buttonIngredientes">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -490,7 +490,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu2" name="buttonFichaTecnica">
+            <Component class="views.styles.MybtnMenu2" name="buttonFichaTecnica">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -508,7 +508,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu2" name="buttonCalculoPorcoes">
+            <Component class="views.styles.MybtnMenu2" name="buttonCalculoPorcoes">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -594,7 +594,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu" name="buttonPedidos3">
+            <Component class="views.styles.MybtnMenu" name="buttonPedidos3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/compra.png"/>
@@ -611,7 +611,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu" name="buttonProdutos3">
+            <Component class="views.styles.MybtnMenu" name="buttonProdutos3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/produtos.png"/>
@@ -628,7 +628,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu" name="buttonEstoque3">
+            <Component class="views.styles.MybtnMenu" name="buttonEstoque3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -649,7 +649,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu2" name="buttonEntradas">
+            <Component class="views.styles.MybtnMenu2" name="buttonEntradas">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -667,7 +667,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="styles.MybtnMenu2" name="buttonProdutosEstoque">
+            <Component class="views.styles.MybtnMenu2" name="buttonProdutosEstoque">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="c0" type="rgb"/>
@@ -981,7 +981,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javaswingdev.swing.table.Table" name="table1">
+                        <Component class="views.tables.Table" name="table1">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="3" rowCount="4">
@@ -1099,7 +1099,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn1">
+                    <Component class="views.styles.Mybtn" name="mybtn1">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/check mark.png"/>
@@ -1278,7 +1278,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javaswingdev.swing.table.Table" name="table2">
+                        <Component class="views.tables.Table" name="table2">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="7" rowCount="4">
@@ -1376,7 +1376,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="styles.Mybtn2" name="mybtn21">
+                    <Component class="views.styles.Mybtn2" name="mybtn21">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="OK"/>
                       </Properties>
@@ -1508,7 +1508,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn2" name="mybtn22">
+                    <Component class="views.styles.Mybtn2" name="mybtn22">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="OK"/>
                       </Properties>
@@ -1716,7 +1716,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javaswingdev.swing.table.Table" name="table3">
+                        <Component class="views.tables.Table" name="table3">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="4" rowCount="2">
@@ -1773,7 +1773,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="styles.Mybtn" name="mybtn2">
+                    <Component class="views.styles.Mybtn" name="mybtn2">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/adicionar.png"/>
@@ -1790,7 +1790,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn3">
+                    <Component class="views.styles.Mybtn" name="mybtn3">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/editar.png"/>
@@ -1807,7 +1807,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn4">
+                    <Component class="views.styles.Mybtn" name="mybtn4">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/excluir.png"/>
@@ -2035,7 +2035,7 @@
                         </DimensionLayout>
                       </Layout>
                     </Container>
-                    <Component class="styles.Mybtn2" name="mybtn23">
+                    <Component class="views.styles.Mybtn2" name="mybtn23">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="OK"/>
                       </Properties>
@@ -2045,7 +2045,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn5">
+                    <Component class="views.styles.Mybtn" name="mybtn5">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/adicionar.png"/>
@@ -2062,7 +2062,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn6">
+                    <Component class="views.styles.Mybtn" name="mybtn6">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/editar.png"/>
@@ -2079,7 +2079,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn7">
+                    <Component class="views.styles.Mybtn" name="mybtn7">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/excluir.png"/>
@@ -2162,7 +2162,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javaswingdev.swing.table.Table" name="table4">
+                        <Component class="views.tables.Table" name="table4">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="6" rowCount="8">
@@ -2444,7 +2444,7 @@
                         </DimensionLayout>
                       </Layout>
                     </Container>
-                    <Component class="styles.Mybtn2" name="mybtn24">
+                    <Component class="views.styles.Mybtn2" name="mybtn24">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="OK"/>
                       </Properties>
@@ -2454,7 +2454,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn8">
+                    <Component class="views.styles.Mybtn" name="mybtn8">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/adicionar.png"/>
@@ -2471,7 +2471,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn9">
+                    <Component class="views.styles.Mybtn" name="mybtn9">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/editar.png"/>
@@ -2488,7 +2488,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn10">
+                    <Component class="views.styles.Mybtn" name="mybtn10">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/excluir.png"/>
@@ -2571,7 +2571,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javaswingdev.swing.table.Table" name="table8">
+                        <Component class="views.tables.Table" name="table8">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="6" rowCount="16">
@@ -3582,7 +3582,7 @@
                         </DimensionLayout>
                       </Layout>
                     </Container>
-                    <Component class="styles.Mybtn" name="mybtn11">
+                    <Component class="views.styles.Mybtn" name="mybtn11">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/calculadora.png"/>
@@ -3599,7 +3599,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn12">
+                    <Component class="views.styles.Mybtn" name="mybtn12">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/limpar.png"/>
@@ -3883,7 +3883,7 @@
                         </DimensionLayout>
                       </Layout>
                     </Container>
-                    <Component class="styles.Mybtn2" name="mybtn25">
+                    <Component class="views.styles.Mybtn2" name="mybtn25">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="OK"/>
                       </Properties>
@@ -3893,7 +3893,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn13">
+                    <Component class="views.styles.Mybtn" name="mybtn13">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/adicionar.png"/>
@@ -3910,7 +3910,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn14">
+                    <Component class="views.styles.Mybtn" name="mybtn14">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/editar.png"/>
@@ -3927,7 +3927,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn" name="mybtn15">
+                    <Component class="views.styles.Mybtn" name="mybtn15">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/excluir.png"/>
@@ -4010,7 +4010,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javaswingdev.swing.table.Table" name="table6">
+                        <Component class="views.tables.Table" name="table6">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="6" rowCount="9">
@@ -4303,7 +4303,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="styles.Mybtn2" name="mybtn26">
+                    <Component class="views.styles.Mybtn2" name="mybtn26">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="OK"/>
                       </Properties>
@@ -4419,7 +4419,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javaswingdev.swing.table.Table" name="table5">
+                        <Component class="views.tables.Table" name="table5">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="7" rowCount="8">
