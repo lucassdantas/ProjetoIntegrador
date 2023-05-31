@@ -4,6 +4,7 @@
  */
 package dao;
 
+
 import ConnectionFactory.ConnectionFactory;
 import models.Login;
 
@@ -15,6 +16,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import views.StockViews;
 import views.TelaLogin;
 
 
@@ -24,6 +27,12 @@ import views.TelaLogin;
  */
 public class LoginDao {
     
+
+    private final TelaLogin view;
+  
+    public LoginDao(TelaLogin view){
+        this.view = view;
+    }
     public void create(Login usuario) throws SQLException{
          Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
@@ -77,43 +86,39 @@ public class LoginDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
         ResultSet rs = null;
+
+        String nomeUsuario = null;
+
+
         int achei = 0;
         
           try{
-            
             sql = con.prepareStatement("select * from usuario");
             rs = sql.executeQuery();
-          
-            
-           while(rs.next()){
+            while(rs.next()){
                String user = rs.getString("login");
                String password = rs.getString("senha");
-               
                if (login.equals(user) && senha.equals(password)){
-                   
                    // caso o login e senha estejam corretos, irá executar a ação abaixo.
-                   JOptionPane.showMessageDialog(null, "Usuário e senha corretos.");
-                   
-                   
+                   //JOptionPane.showMessageDialog(null, "Usuário e senha corretos.");
+                   new StockViews().setVisible(true);
+                   this.view.dispose();
                    /*
                    Aqui será o link que levará pra a tela após o login com sucesso.
                     new TelaPrincipal().setVisible(false);
                    */
-                   achei = 1;
-                   break;
                }   
-               }
-                   
-               if(achei == 0){
-                   JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos");
-               }
-   
-            }catch(SQLException ex){
-                      JOptionPane.showMessageDialog(null,"Erro ao acessar o Banco de Dados" + ex);
-        }finally{
-
+             }
+             if(achei == 0){
+              JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos");
+             } else {
+              JOptionPane.showMessageDialog(null, "Olá! Seja bem-vindo, " + nomeUsuario + "."); 
+             }
+          }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"Erro ao acessar o Banco de Dados" + ex);
+          }finally{
            ConnectionFactory.closeConnection(con, sql);
-        }
+          }
     }
 }
     
