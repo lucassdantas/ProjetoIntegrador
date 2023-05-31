@@ -58,7 +58,7 @@ public class OutputDao {
         
         List<Output> outputs = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM output;");
+            sql = con.prepareStatement("SELECT output.*, ingredient.*, request.*, snack.* FROM output INNER JOIN ingredient ON output.ingredientId = ingredient.ingredientId INNER JOIN request ON output.requestId = request.requestId  INNER JOIN snack ON output.snackId = snack.snackId");
             rs = sql.executeQuery();
             while(rs.next()){
                 Output output = new Output();
@@ -68,8 +68,38 @@ public class OutputDao {
                 output.setToLocalDateTimeCreation(rs.getString("creationOut"));
                 output.setToLocalDateTimeUpdate(rs.getString("updateOut"));
                 output.setStatus(rs.getString("statusOut"));
-                outputs.add(output);
-            }
+                
+                //ingredientTable
+                output.setIngredientName(rs.getString("nameI"));
+                output.setIngredientPrice(rs.getFloat("priceI"));
+                output.setIngredientWeight(rs.getFloat("weightI"));
+                output.setIngredientPrice(rs.getFloat("priceI"));
+                output.setIngredientQuantity(rs.getInt("QuantityI"));
+                output.setIngredientType(rs.getString("TypeI"));
+                //output.setIngredientCreation(rs.getString("creationI"));
+                //output.setIngredientUpdate(rs.getString("updeteI"));
+                output.setStatus(rs.getString("statusI")); 
+                
+                //requestTable
+                output.setRequestName(rs.getString("nameR"));
+                output.setRequestValue(rs.getFloat("valueR"));
+                //output.setRequestCreation(rs.getString("creationI"));
+                //output.setRequestUpdate(rs.getString("updeteI"));
+                output.setStatus(rs.getString("statusR"));
+                
+                //sanckTable
+                output.setSanckName(rs.getString("nameS"));
+                output.setCost(rs.getFloat("costI"));
+                output.setIngredientPrice(rs.getFloat("priceI"));
+                output.setIngredientWeight(rs.getFloat("weightI"));
+                output.setSanckValue(rs.getFloat("valueR"));
+                //output.setSanckCreation(rs.getString("creationI"));
+                //output.setSanckUpdate(rs.getString("updeteI"));
+                output.setStatus(rs.getString("statusR"));            
+                
+                
+                
+           
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{
