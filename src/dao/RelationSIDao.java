@@ -15,9 +15,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-//=============================================ATENÇÃO =========================================
-//>>>>>>>>>> PRECISAMOS VER COMO FAZER CHAVE COMPOSTA PARA O MODEL DESSA ENTIDADE <<<<<<<<<<<<<<
-
 /**
  *
  * @author 42labinfo
@@ -72,6 +69,27 @@ public class RelationSIDao {
                 relation.setToLocalDateTimeCreation(rs.getString("creationSI"));
                 relation.setToLocalDateTimeUpdate(rs.getString("updateSI"));
                 relation.setStatus(rs.getString("statusSI"));
+
+                 //ingredientTable
+                relation.setIngredientName(rs.getString("nameI"));
+                relation.setIngredientPrice(rs.getFloat("priceI"));
+                relation.setIngredientWeight(rs.getFloat("weightI"));
+                relation.setIngredientQuantity(rs.getInt("quantityI"));
+                relation.setIngredientType(rs.getString("typeI"));
+                //relation.setIngredientCreation(rs.getString("creationI"));
+                //relation.setIngredientUpdate(rs.getString("updeteI"));
+                relation.setStatus(rs.getString("statusI"));
+
+                //sanckTable
+                relation.setSanckName(rs.getString("nameS"));
+                relation.setSanckCost(rs.getFloat("costS"));
+                relation.setSanckPrice(rs.getFloat("priceS"));
+                relation.setSancktWeight(rs.getFloat("weightS"));
+                //relation.setSanckCreation(rs.getString("creationS"));
+                //relation.setSanckUpdate(rs.getString("updeteS"));
+                relation.setStatus(rs.getString("statuss"));            
+                relation.setSanckMinQuantity(rs.getFloat("minQuantityS"));
+
                 relations.add(relation);
             }
         }catch(SQLException e){

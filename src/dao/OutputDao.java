@@ -73,9 +73,8 @@ public class OutputDao {
                 output.setIngredientName(rs.getString("nameI"));
                 output.setIngredientPrice(rs.getFloat("priceI"));
                 output.setIngredientWeight(rs.getFloat("weightI"));
-                output.setIngredientPrice(rs.getFloat("priceI"));
-                output.setIngredientQuantity(rs.getInt("QuantityI"));
-                output.setIngredientType(rs.getString("TypeI"));
+                output.setIngredientQuantity(rs.getInt("quantityI"));
+                output.setIngredientType(rs.getString("typeI"));
                 //output.setIngredientCreation(rs.getString("creationI"));
                 //output.setIngredientUpdate(rs.getString("updeteI"));
                 output.setStatus(rs.getString("statusI")); 
@@ -83,22 +82,21 @@ public class OutputDao {
                 //requestTable
                 output.setRequestName(rs.getString("nameR"));
                 output.setRequestValue(rs.getFloat("valueR"));
-                //output.setRequestCreation(rs.getString("creationI"));
-                //output.setRequestUpdate(rs.getString("updeteI"));
+                //output.setRequestCreation(rs.getString("creationR"));
+                //output.setRequestUpdate(rs.getString("updeteR"));
                 output.setStatus(rs.getString("statusR"));
                 
                 //sanckTable
                 output.setSanckName(rs.getString("nameS"));
-                output.setCost(rs.getFloat("costI"));
-                output.setIngredientPrice(rs.getFloat("priceI"));
-                output.setIngredientWeight(rs.getFloat("weightI"));
-                output.setSanckValue(rs.getFloat("valueR"));
-                //output.setSanckCreation(rs.getString("creationI"));
-                //output.setSanckUpdate(rs.getString("updeteI"));
-                output.setStatus(rs.getString("statusR"));            
-                
-                
-                
+                output.setSanckCost(rs.getFloat("costS"));
+                output.setSanckPrice(rs.getFloat("priceS"));
+                output.setSancktWeight(rs.getFloat("weightS"));
+                //output.setSanckCreation(rs.getString("creationS"));
+                //output.setSanckUpdate(rs.getString("updeteS"));
+                output.setStatus(rs.getString("statuss"));            
+                output.setSanckMinQuantity(rs.getFloat("minQuantityS"));
+
+                outputs.add(output);   
            
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
