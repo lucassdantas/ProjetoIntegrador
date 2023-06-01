@@ -26,7 +26,7 @@ AnimationClass ac = new AnimationClass();
     }
 
     private void setIcon(){
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../img/logo icon white.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../img/logo icon program.png")));
     }
     
 public void limparCalculoPorcoes() {

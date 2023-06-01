@@ -13,7 +13,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
     public TelaLogin() {
         initComponents();
-        IconManager.setIcon(this);
         txtSenhaVisivel.setVisible(false);
         btn_passwordOcultar.setVisible(false);
     }
