@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import models.Ingredient;
+import views.IngredientesCadastro;
 
 /**
  *
@@ -20,22 +21,27 @@ public class IngredienteRegister {
     
     
     //Adicionar 
-    public class IngredienteRegisterterAdd(private javax.swing.JPanel) {
+    public void IngredienteRegisterterAdd(javax.swing.JTextField txtIngredientRegister, javax.swing.JTextField txtCostRegister, javax.swing.JTextField txtQuantityUnitRegister,javax.swing.JTextField txtQuantityMinRegister, javax.swing.JTextField txtMediumUnitRegister ) {
      if(!txtIngredientRegister.getText().isEmpty() && !txtCostRegister.getText().isEmpty() && !txtQuantityUnitRegister.getText().isEmpty() && !txtQuantityMinRegister.getText().isEmpty() && !txtMediumUnitRegister.getText().isEmpty()){
             
-            IngredientDao ingredient = new Ingredient();
+            //model
+            Ingredient ingredient = new Ingredient();
+            
+            //dao
             IngredientDao dao = new IngredientDao();
             
-            ingredient.setIngredientRegister(txtIngredientRegister.getText());
-            ingredient.setCostRegister(Float.parseFloat(txtCostiRegister.getText()));
-            ingredient.setIngredientRegister(txtQuantityUniRegister.getText());
-            ingredient.setIngredientRegister(txtQuantityMinRegister.getText());
-            ingredient.setIngredientRegister(txttxtMediumUnitRegister.getText());
+            //model
+            ingredient.setName(txtIngredientRegister.getText());
+            ingredient.setPrice(Float.parseFloat(txtCostRegister.getText()));
+            ingredient.setWeight(Float.parseFloat(txtQuantityUnitRegister.getText()));
+            ingredient.setQuantity(txtMediumUnitRegister.getText());
             
             
             try {
+                //dao
                 dao.create(ingredient);
             } catch (SQLException ex) {
+                //aviso de erro
                 Logger.getLogger(IngredientesCadastro.class.getName()).log(Level.SEVERE, null, ex);
             }
             
