@@ -64,25 +64,25 @@ public class InputDao {
             while(rs.next()){
                 Input input = new Input();
                 input.setId(rs.getInt("inputId"));
-                input.setWeight(rs.getFloat("weightI"));
-                input.setCost(rs.getFloat("costI"));
-                input.setQuantity(rs.getInt("quantityI"));
-                //input.setToLocalDateTimeCreation(rs.getString("creationI"));
-                //input.setToLocalDateTimeUpdate(rs.getString("updateI"));
-                input.setStatus(rs.getString("statusI"));
+                input.setWeight(rs.getFloat("weightIn"));
+                input.setCost(rs.getFloat("costIn"));
+                input.setQuantity(rs.getInt("quantityIn"));
+                //input.setToLocalDateTimeCreation(rs.getString("creationIn"));
+                //input.setToLocalDateTimeUpdate(rs.getString("updateIn"));
+                input.setStatus(rs.getString("statusIn"));
                 input.setIngredientId(rs.getInt("ingredientId"));
                 
                 //ingredientTable
                 input.setIngredientName(rs.getString("nameI"));
                 input.setIngredientPrice(rs.getFloat("priceI"));
                 input.setIngredientWeight(rs.getFloat("weightI"));
-                input.setIngredientPrice(rs.getFloat("priceI"));
-                input.setIngredientQuantity(rs.getInt("QuantityI"));
-                input.setIngredientType(rs.getString("TypeI"));
+                input.setIngredientQuantity(rs.getInt("quantityI"));
+                input.setIngredientType(rs.getString("typeI"));
                 //input.setIngredientCreation(rs.getString("creationI"));
                 //input.setIngredientUpdate(rs.getString("updeteI"));
                 input.setStatus(rs.getString("statusI"));                
                 inputs.add(input);
+                
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);

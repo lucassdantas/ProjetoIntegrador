@@ -69,6 +69,24 @@ public class RelationSRDao {
                 relation.setToLocalDateTimeCreation(rs.getString("creationSR"));
                 relation.setToLocalDateTimeUpdate(rs.getString("updateSR"));
                 relation.setStatus(rs.getString("statusSR"));
+
+                //requestTable
+                output.setRequestName(rs.getString("nameR"));
+                output.setRequestValue(rs.getFloat("valueR"));
+                //output.setRequestCreation(rs.getString("creationR"));
+                //output.setRequestUpdate(rs.getString("updeteR"));
+                output.setStatus(rs.getString("statusR"));
+                
+                //sanckTable
+                output.setSanckName(rs.getString("nameS"));
+                output.setSanckCost(rs.getFloat("costS"));
+                output.setSanckPrice(rs.getFloat("priceS"));
+                output.setSancktWeight(rs.getFloat("weightS"));
+                //output.setSanckCreation(rs.getString("creationS"));
+                //output.setSanckUpdate(rs.getString("updeteS"));
+                output.setStatus(rs.getString("statuss"));            
+                output.setSanckMinQuantity(rs.getFloat("minQuantityS")); 
+                
                 relations.add(relation);
             }
         }catch(SQLException e){

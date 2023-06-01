@@ -63,11 +63,22 @@ public class RequestDao {
             while(rs.next()){
                 Request request = new Request();
                 request.setId(rs.getInt("requestId"));
-                request.setName(rs.getString("nameR"));
+                request.setSnackId(rs.getInt("snackId"));
+                request.setRequestName(rs.getString("nameR"));
                 request.setValue(rs.getFloat("valueR"));
-                request.setToLocalDateTimeCreation(rs.getString("creationR"));
-                request.setToLocalDateTimeUpdate(rs.getString("updateR"));
+                //request.setToLocalDateTimeCreation(rs.getString("creationR"));
+                //request.setToLocalDateTimeUpdate(rs.getString("updateR"));
                 request.setStatus(rs.getString("statusR"));
+
+                //sanckTable
+                request.setSanckName(rs.getString("nameS"));
+                request.setSanckCost(rs.getFloat("costS"));
+                request.setSanckPrice(rs.getFloat("priceS"));
+                request.setSancktWeight(rs.getFloat("weightS"));
+                //request.setSanckCreation(rs.getString("creationS"));
+                //request.setSanckUpdate(rs.getString("updeteS"));
+                request.setStatus(rs.getString("statuss"));            
+                request.setSanckMinQuantity(rs.getFloat("minQuantityS"));
                 requests.add(request);
             }
         }catch(SQLException e){
