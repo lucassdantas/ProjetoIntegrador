@@ -2145,7 +2145,6 @@ public void limparCalculoPorcoes() {
 
     private void calcCleanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCleanBtnActionPerformed
         limparCalculoPorcoes();
-        calcController.fields.indexOf(1);
     }//GEN-LAST:event_calcCleanBtnActionPerformed
 
     private void mybtn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn13ActionPerformed
