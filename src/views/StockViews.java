@@ -1,21 +1,18 @@
 package views;
 import AppPackage.AnimationClass;
+import controllers.PortionCalcController;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Toolkit;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JInternalFrame;
-import javax.swing.JTextField;
+
 
 public class StockViews extends javax.swing.JFrame {
 
 AnimationClass ac = new AnimationClass();
+
+//portion calc contrller
+PortionCalcController calcController = new PortionCalcController();
+
     public StockViews() {
         initComponents();
         setIcon();
@@ -1441,10 +1438,35 @@ public void limparCalculoPorcoes() {
 
         jTextField17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField17.setName(""); // NOI18N
+        jTextField17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField17ActionPerformed(evt);
+            }
+        });
         panelPE1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 100, 45));
 
         jTextField22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         jTextField22.setName(""); // NOI18N
+        jTextField22.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                jTextField22CaretUpdate(evt);
+            }
+        });
+        jTextField22.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField22FocusLost(evt);
+            }
+        });
+        jTextField22.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jTextField22ComponentShown(evt);
+            }
+        });
+        jTextField22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField22ActionPerformed(evt);
+            }
+        });
         panelPE1.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 320, 45));
 
         jTextField23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -2118,10 +2140,12 @@ public void limparCalculoPorcoes() {
 
     private void mybtn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn11ActionPerformed
        new PorcoesCalcular().setVisible(true);
+       
     }//GEN-LAST:event_mybtn11ActionPerformed
 
     private void mybtn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn12ActionPerformed
         limparCalculoPorcoes();
+        calcController.fields.indexOf(1);
     }//GEN-LAST:event_mybtn12ActionPerformed
 
     private void mybtn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn13ActionPerformed
@@ -2375,6 +2399,26 @@ public void limparCalculoPorcoes() {
         areaFichaTecnica.setVisible(false);
         areaCalculoPorcoes.setVisible(false);
     }//GEN-LAST:event_buttonProdutosEstoqueActionPerformed
+
+    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
+
+    }//GEN-LAST:event_jTextField22ActionPerformed
+
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+     // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void jTextField22ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTextField22ComponentShown
+       // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField22ComponentShown
+
+    private void jTextField22CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField22CaretUpdate
+   // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField22CaretUpdate
+
+    private void jTextField22FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField22FocusLost
+        calcController.addField(jTextField22);      // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField22FocusLost
 
     /**
      * @param args the command line arguments
