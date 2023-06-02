@@ -58,28 +58,28 @@ public class RequestDao {
         
         List<Request> requests = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM requests;");
+            sql = con.prepareStatement("SELECT request.*, snack.* FROM request INNER JOIN snack ON request.snackId = snack.snackId  ;");
             rs = sql.executeQuery();
             while(rs.next()){
                 Request request = new Request();
                 request.setId(rs.getInt("requestId"));
                 request.setSnackId(rs.getInt("snackId"));
-                request.setRequestName(rs.getString("nameR"));
+                request.setName(rs.getString("nameR"));
                 request.setValue(rs.getFloat("valueR"));
                 //request.setToLocalDateTimeCreation(rs.getString("creationR"));
                 //request.setToLocalDateTimeUpdate(rs.getString("updateR"));
                 request.setStatus(rs.getString("statusR"));
 
-                //sanckTable
-                request.setSanckName(rs.getString("nameS"));
-                request.setSanckCost(rs.getFloat("costS"));
-                request.setSanckPrice(rs.getFloat("priceS"));
-                request.setSancktWeight(rs.getFloat("weightS"));
+                //snackTable
+                request.setSnackName(rs.getString("nameS"));
+                request.setSnackCost(rs.getFloat("costS"));
+                request.setSnackPrice(rs.getFloat("priceS"));
+                request.setSnackWeight(rs.getFloat("weightS"));
                 //request.setSanckCreation(rs.getString("creationS"));
                 //request.setSanckUpdate(rs.getString("updeteS"));
                 request.setStatus(rs.getString("statuss"));            
-                request.setSanckMinQuantity(rs.getFloat("minQuantityS"));
-                requests.add(request);
+                request.setSnackMinQuantity(rs.getInt("minQuantityS"));
+
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);

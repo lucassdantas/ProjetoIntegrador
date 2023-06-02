@@ -20,7 +20,13 @@ public class Input extends EntityId{
 
     //ingredientTable
     private String ingredientName;
-
+    private float ingredientPrice;
+    private float ingredientWeight;
+    private int ingredientQuantity;
+    private String ingredientType;
+    private String ingredientCreation;
+    private String ingredientCpdate;
+    
     public Input(float weight, float cost, int quantity, int ingredientId, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
         this.weight = weight;
@@ -68,4 +74,56 @@ public class Input extends EntityId{
     public String getIngredientName(){
         return this.ingredientName;
     }
+
+    public float getIngredientPrice() {
+        return ingredientPrice;
+    }
+
+    public void setIngredientPrice(float ingredientPrice) {
+        this.ingredientPrice = ingredientPrice;
+    }
+
+    public float getIngredientWeight() {
+        return ingredientWeight;
+    }
+
+    public void setIngredientWeight(float ingredientWeight) {
+        this.ingredientWeight = ingredientWeight;
+    }
+
+    public int getIngredientQuantity() {
+        return ingredientQuantity;
+    }
+
+    public void setIngredientQuantity(int ingredientQuantity) {
+        this.ingredientQuantity = ingredientQuantity;
+    }
+
+    public String getIngredientType() {
+        return ingredientType;
+    }
+
+    public void setIngredientType(String ingredientType) {
+        this.ingredientType = ingredientType;
+    }
+
+    public String getIngredientCreation() {
+        return ingredientCreation;
+    }
+
+    public void setIngredientCreation(String ingredientCreation) {
+        this.ingredientCreation = ingredientCreation;
+    }
+
+    public String getIngredientCpdate() {
+        return ingredientCpdate;
+    }
+
+    public void setIngredientCpdate(String ingredientCpdate) {
+        this.ingredientCpdate = ingredientCpdate;
+    }
+
+    
+      
+    
 }

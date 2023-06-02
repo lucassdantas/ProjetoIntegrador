@@ -16,9 +16,6 @@ import java.sql.SQLException;
 import models.RelationSR;
 
 
-//=============================================ATENÇÃO =========================================
-//>>>>>>>>>> PRECISAMOS VER COMO FAZER CHAVE COMPOSTA PARA O MODEL DESSA ENTIDADE <<<<<<<<<<<<<<
-
 /**
  *
  * @author 42labinfo
@@ -60,7 +57,7 @@ public class RelationSRDao {
         
         List<RelationSR> relations = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM relationSR;");
+            sql = con.prepareStatement("SELECT relationSR.*, request.*, snack.* FROM relationSR INNER JOIN request ON relationSR.requestId = request.requestId INNER JOIN snack ON relationSR.snackId = snack.snackId;");
             rs = sql.executeQuery();
             while(rs.next()){
                 RelationSR relation = new RelationSR();
@@ -71,21 +68,21 @@ public class RelationSRDao {
                 relation.setStatus(rs.getString("statusSR"));
 
                 //requestTable
-                output.setRequestName(rs.getString("nameR"));
-                output.setRequestValue(rs.getFloat("valueR"));
-                //output.setRequestCreation(rs.getString("creationR"));
-                //output.setRequestUpdate(rs.getString("updeteR"));
-                output.setStatus(rs.getString("statusR"));
+                relation.setRequestName(rs.getString("nameR"));
+                relation.setRequestValue(rs.getFloat("valueR"));
+                //relation.setRequestCreation(rs.getString("creationR"));
+                //relation.setRequestUpdate(rs.getString("updeteR"));
+                relation.setStatus(rs.getString("statusR"));
                 
-                //sanckTable
-                output.setSanckName(rs.getString("nameS"));
-                output.setSanckCost(rs.getFloat("costS"));
-                output.setSanckPrice(rs.getFloat("priceS"));
-                output.setSancktWeight(rs.getFloat("weightS"));
-                //output.setSanckCreation(rs.getString("creationS"));
-                //output.setSanckUpdate(rs.getString("updeteS"));
-                output.setStatus(rs.getString("statuss"));            
-                output.setSanckMinQuantity(rs.getFloat("minQuantityS")); 
+                //SnackTable
+                relation.setSnackName(rs.getString("nameS"));
+                relation.setSnackCost(rs.getFloat("costS"));
+                relation.setSnackPrice(rs.getFloat("priceS"));
+                relation.setSnackWeight(rs.getFloat("weightS"));
+                //relation.setSnackCreation(rs.getString("creationS"));
+                //relation.setSnackUpdate(rs.getString("updeteS"));
+                relation.setStatus(rs.getString("statuss"));            
+                relation.setSnackMinQuantity(rs.getInt("minQuantityS")); 
                 
                 relations.add(relation);
             }

@@ -15,11 +15,31 @@ public class Request extends EntityId{
     
     private String name;
     private float value;
-
-    public Request(String name, float value, int id, LocalDateTime creation, LocalDateTime update, String status) {
+   
+    //snackTable
+    private String snackName;
+    private float snackCost;
+    private float snackPrice;
+    private float snackWeight;
+    private String snackCreation;
+    private String snackUpdate;
+    private int snackMinQuantity;
+    private int snackId;
+    
+    public Request(String name, float value, int id, LocalDateTime creation, LocalDateTime update, String status, int snackId) {
         super(id, creation, update, status);
         this.name = name;
         this.value = value;
+        this.snackId = snackId;
+        
+    }
+
+    public int getSnackId() {
+        return this.snackId;
+    }
+
+    public void setSnackId(int snackid) {
+        this.snackId = snackid;
     }
 
     public String getName() {
@@ -38,7 +58,61 @@ public class Request extends EntityId{
         this.value = value;
     }
 
-    
+    public String getSnackName() {
+        return snackName;
+    }
+
+    public void setSnackName(String snackName) {
+        this.snackName = snackName;
+    }
+
+    public float getSnackCost() {
+        return snackCost;
+    }
+
+    public void setSnackCost(float snackCost) {
+        this.snackCost = snackCost;
+    }
+
+    public float getSnackPrice() {
+        return snackPrice;
+    }
+
+    public void setSnackPrice(float snackPrice) {
+        this.snackPrice = snackPrice;
+    }
+
+    public String getSnackCreation() {
+        return snackCreation;
+    }
+
+    public void setSnackCreation(String snackCreation) {
+        this.snackCreation = snackCreation;
+    }
+
+    public String getSnackUpdate() {
+        return snackUpdate;
+    }
+
+    public void setSnackUpdate(String snackUpdate) {
+        this.snackUpdate = snackUpdate;
+    }
+
+    public int getSnackMinQuantity() {
+        return snackMinQuantity;
+    }
+
+    public void setSnackMinQuantity(int snackMinQuantity) {
+        this.snackMinQuantity = snackMinQuantity;
+    }
+
+    public float getSnackWeight() {
+        return snackWeight;
+    }
+
+    public void setSnackWeight(float snackWeight) {
+        this.snackWeight = snackWeight;
+    }
     
     
 }
