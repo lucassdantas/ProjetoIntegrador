@@ -26,6 +26,6 @@ public class PortionCalcController {
     };
     
     public void rmField(String field){
-        
+        this.fields.remove(field);
     }
 }
