@@ -87,17 +87,17 @@ public class OutputDao {
                 output.setStatus(rs.getString("statusR"));
                 
                 //sanckTable
-                output.setSanckName(rs.getString("nameS"));
-                output.setSanckCost(rs.getFloat("costS"));
-                output.setSanckPrice(rs.getFloat("priceS"));
-                output.setSancktWeight(rs.getFloat("weightS"));
+                output.setSnackName(rs.getString("nameS"));
+                output.setSnackCost(rs.getFloat("costS"));
+                output.setSnackPrice(rs.getFloat("priceS"));
+                output.setSnackWeight(rs.getFloat("weightS"));
                 //output.setSanckCreation(rs.getString("creationS"));
                 //output.setSanckUpdate(rs.getString("updeteS"));
                 output.setStatus(rs.getString("statuss"));            
-                output.setSanckMinQuantity(rs.getFloat("minQuantityS"));
+                output.setsnackMinQuantity(rs.getInt("minQuantityS"));
 
                 outputs.add(output);   
-           
+            }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         } finally{

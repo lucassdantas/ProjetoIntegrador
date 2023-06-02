@@ -18,6 +18,8 @@ public class Ingredient extends EntityId{
     private float weight;
     private int quantity;
     private String type;
+    
+   
 
     public Ingredient(String name, float price, float weight, int quantity, String type, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
@@ -69,5 +71,18 @@ public class Ingredient extends EntityId{
     }
     
    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
    
 }

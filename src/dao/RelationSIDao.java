@@ -58,7 +58,7 @@ public class RelationSIDao {
         
         List<RelationSI> relations = new ArrayList<>();
         try{
-            sql = con.prepareStatement("SELECT * FROM relationSI;");
+            sql = con.prepareStatement("SELECT relationSI.*, ingredient.*, snack.* FROM relationSI INNER JOIN ingredient ON relationSI.ingredientId = ingredient.ingredientId INNER JOIN snack ON relationSI.snackId = snack.snackId;");
             rs = sql.executeQuery();
             while(rs.next()){
                 RelationSI relation = new RelationSI();
@@ -81,14 +81,15 @@ public class RelationSIDao {
                 relation.setStatus(rs.getString("statusI"));
 
                 //sanckTable
-                relation.setSanckName(rs.getString("nameS"));
-                relation.setSanckCost(rs.getFloat("costS"));
-                relation.setSanckPrice(rs.getFloat("priceS"));
-                relation.setSancktWeight(rs.getFloat("weightS"));
+                relation.setSnackName(rs.getString("nameS"));
+                relation.setSnackCost(rs.getFloat("costS"));
+                relation.setSnackPrice(rs.getFloat("priceS"));
+                relation.setSnackWeight(rs.getFloat("weightS"));
                 //relation.setSanckCreation(rs.getString("creationS"));
                 //relation.setSanckUpdate(rs.getString("updeteS"));
                 relation.setStatus(rs.getString("statuss"));            
-                relation.setSanckMinQuantity(rs.getFloat("minQuantityS"));
+                relation.setSnackMinQuantity(rs.getInt("minQuantityS"));
+
 
                 relations.add(relation);
             }

@@ -17,7 +17,26 @@ public class RelationSI extends EntityMultipleId {
     private int ingredientId;
     private int quantity;
     private float weight;
- 
+    
+    
+    //snackTable
+    private String snackName;
+    private float snackCost;
+    private float snackPrice;
+    private float snackWeight;
+    private String snackCreation;
+    private String snackUpdate;
+    private int snackMinQuantity;
+    
+    //ingredientTable
+    private String ingredientName;
+    private float ingredientPrice;
+    private float ingredientWeight;
+    private int ingredientQuantity;
+    private String ingredientType;
+    private String ingredientCreation;
+    private String ingredientUpdate;
+    
 
     public RelationSI(int snackId, int ingredientId, int quantity, float weight, LocalDateTime creation, LocalDateTime update, String status) {
         super(creation,update,status);
@@ -58,4 +77,118 @@ public class RelationSI extends EntityMultipleId {
     public void setWeight(float weight) {
         this.weight = weight;
     }
+
+    public String getSnackName() {
+        return snackName;
+    }
+
+    public void setSnackName(String snackName) {
+        this.snackName = snackName;
+    }
+
+    public float getSnackCost() {
+        return snackCost;
+    }
+
+    public void setSnackCost(float snackCost) {
+        this.snackCost = snackCost;
+    }
+
+    public float getSnackPrice() {
+        return snackPrice;
+    }
+
+    public void setSnackPrice(float snackPrice) {
+        this.snackPrice = snackPrice;
+    }
+
+    public float getSnackWeight() {
+        return snackWeight;
+    }
+
+    public void setSnackWeight(float snackWeight) {
+        this.snackWeight = snackWeight;
+    }
+
+    public String getSnackCreation() {
+        return snackCreation;
+    }
+
+    public void setSnackCreation(String snackCreation) {
+        this.snackCreation = snackCreation;
+    }
+
+    public String getSnackUpdate() {
+        return snackUpdate;
+    }
+
+    public void setSnackUpdate(String snackUpdate) {
+        this.snackUpdate = snackUpdate;
+    }
+
+    public int getSnackMinQuantity() {
+        return snackMinQuantity;
+    }
+
+    public void setSnackMinQuantity(int snackMinQuantity) {
+        this.snackMinQuantity = snackMinQuantity;
+    }
+
+    public String getIngredientName() {
+        return ingredientName;
+    }
+
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName = ingredientName;
+    }
+
+    public float getIngredientPrice() {
+        return ingredientPrice;
+    }
+
+    public void setIngredientPrice(float ingredientPrice) {
+        this.ingredientPrice = ingredientPrice;
+    }
+
+    public float getIngredientWeight() {
+        return ingredientWeight;
+    }
+
+    public void setIngredientWeight(float ingredientWeight) {
+        this.ingredientWeight = ingredientWeight;
+    }
+
+    public int getIngredientQuantity() {
+        return ingredientQuantity;
+    }
+
+    public void setIngredientQuantity(int ingredientQuantity) {
+        this.ingredientQuantity = ingredientQuantity;
+    }
+
+    public String getIngredientType() {
+        return ingredientType;
+    }
+
+    public void setIngredientType(String ingredientType) {
+        this.ingredientType = ingredientType;
+    }
+
+    public String getIngredientCreation() {
+        return ingredientCreation;
+    }
+
+    public void setIngredientCreation(String ingredientCreation) {
+        this.ingredientCreation = ingredientCreation;
+    }
+
+    public String getIngredientUpdate() {
+        return ingredientUpdate;
+    }
+
+    public void setIngredientUpdate(String ingredientUpdate) {
+        this.ingredientUpdate = ingredientUpdate;
+    }
+    
+       
 }
