@@ -4,6 +4,7 @@
  */
 package views;
 
+import java.util.ListIterator;
 import javax.swing.JFrame;
 
 /**
@@ -605,7 +606,18 @@ public class PorcoesCalcular extends javax.swing.JFrame {
             }
         });
     }
-
+    public void setItemField(ListIterator<String> ItemField){
+        PorcoesCalcularController.setItemField(ItemField);
+    }
+    public void setUnField(ListIterator<String> QntField){
+        PorcoesCalcularController.setQntField(QntField);
+    }
+    public void setQntField(ListIterator<String> UnityField){
+        PorcoesCalcularController.setUnityField(UnityField);
+    }
+    public void setCostField(ListIterator<String> CostField){
+        PorcoesCalcularController.setCostField(CostField);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
     private javax.swing.JPanel colorBtn19;

@@ -2139,8 +2139,57 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_mybtn9ActionPerformed
 
     private void calcCalcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCalcBtnActionPerformed
-       new PorcoesCalcular().setVisible(true);
-       
+        calcController.setItemField(calcItemField01.getText());
+        calcController.setItemField(calcItemField02.getText());
+        calcController.setItemField(calcItemField03.getText());
+        calcController.setItemField(calcItemField04.getText());
+        calcController.setItemField(calcItemField05.getText());
+        calcController.setItemField(calcItemField06.getText());
+        calcController.setItemField(calcItemField07.getText());
+        calcController.setItemField(calcItemField08.getText());
+        calcController.setItemField(calcItemField09.getText());
+        calcController.setItemField(calcItemField10.getText());
+
+        calcController.setQntField(calcQntField01.getText());
+        calcController.setQntField(calcQntField02.getText());
+        calcController.setQntField(calcQntField03.getText());
+        calcController.setQntField(calcQntField04.getText());
+        calcController.setQntField(calcQntField05.getText());
+        calcController.setQntField(calcQntField06.getText());
+        calcController.setQntField(calcQntField07.getText());
+        calcController.setQntField(calcQntField08.getText());
+        calcController.setQntField(calcQntField09.getText());
+        calcController.setQntField(calcQntField10.getText());
+
+        calcController.setUnityField(calcUnField01.getText());
+        calcController.setUnityField(calcUnField02.getText());
+        calcController.setUnityField(calcUnField03.getText());
+        calcController.setUnityField(calcUnField04.getText());
+        calcController.setUnityField(calcUnField05.getText());
+        calcController.setUnityField(calcUnField06.getText());
+        calcController.setUnityField(calcUnField07.getText());
+        calcController.setUnityField(calcUnField08.getText());
+        calcController.setUnityField(calcUnField09.getText());
+        calcController.setUnityField(calcUnField10.getText());
+        
+        calcController.setCostField(calcCostField01.getText());
+        calcController.setCostField(calcCostField02.getText());
+        calcController.setCostField(calcCostField03.getText());
+        calcController.setCostField(calcCostField04.getText());
+        calcController.setCostField(calcCostField05.getText());
+        calcController.setCostField(calcCostField06.getText());
+        calcController.setCostField(calcCostField07.getText());
+        calcController.setCostField(calcCostField08.getText());
+        calcController.setCostField(calcCostField09.getText());
+        calcController.setCostField(calcCostField10.getText());
+
+        PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
+        PorcoesCalcular.setItemField(calcController.getItemField());
+        PorcoesCalcular.setUnField(calcController.getQntField());
+        PorcoesCalcular.setQntField(calcController.getUnityField());
+        PorcoesCalcular.setCostField(calcController.getCostField());
+        PorcoesCalcular.setVisible(true);
+
     }//GEN-LAST:event_calcCalcBtnActionPerformed
 
     private void calcCleanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCleanBtnActionPerformed
