@@ -46,7 +46,6 @@ public class IngredientesCadastro extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jTextField21 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -198,10 +197,6 @@ public class IngredientesCadastro extends javax.swing.JFrame {
         jTextField21.setName(""); // NOI18N
         panelEntradas1.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 140, 45));
 
-        jTextField1.setText("jTextField1");
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelEntradas1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 130, 60));
-
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
         jDesktopPane1.add(areaEntradas_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 940, 710));
@@ -284,7 +279,6 @@ public class IngredientesCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
