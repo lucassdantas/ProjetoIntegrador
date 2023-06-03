@@ -4,6 +4,9 @@
  */
 package views;
 
+import controllers.PortionCalcController;
+import controllers.PortionResultController;
+import java.util.List;
 import java.util.ListIterator;
 import javax.swing.JFrame;
 
@@ -12,7 +15,7 @@ import javax.swing.JFrame;
  * @author Work.Studies
  */
 public class PorcoesCalcular extends javax.swing.JFrame {
-
+private PortionResultController resultController = new PortionResultController();
     /**
      * Creates new form EstoqueEntrada
      */
@@ -20,6 +23,7 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         initComponents();
     }
     
+    public PortionCalcController calcController;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -28,70 +32,69 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         areaEntradas_entrada = new javax.swing.JInternalFrame();
         panelEntradas1 = new javax.swing.JPanel();
-        jTextField17 = new javax.swing.JTextField();
+        resultSnackName = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         colorBtn19 = new javax.swing.JPanel();
         mybtn5 = new views.styles.Mybtn();
         jLabel35 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField25 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
-        jTextField33 = new javax.swing.JTextField();
-        jTextField37 = new javax.swing.JTextField();
-        jTextField40 = new javax.swing.JTextField();
-        jTextField48 = new javax.swing.JTextField();
-        jTextField49 = new javax.swing.JTextField();
-        jTextField53 = new javax.swing.JTextField();
-        jTextField57 = new javax.swing.JTextField();
-        jTextField58 = new javax.swing.JTextField();
-        jTextField54 = new javax.swing.JTextField();
-        jTextField50 = new javax.swing.JTextField();
-        jTextField47 = new javax.swing.JTextField();
-        jTextField41 = new javax.swing.JTextField();
-        jTextField38 = new javax.swing.JTextField();
-        jTextField34 = new javax.swing.JTextField();
-        jTextField30 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
+        resultItemField01 = new javax.swing.JTextField();
+        resultItemField02 = new javax.swing.JTextField();
+        resultItemField03 = new javax.swing.JTextField();
+        resultItemField04 = new javax.swing.JTextField();
+        resultItemField05 = new javax.swing.JTextField();
+        resultItemField06 = new javax.swing.JTextField();
+        resultItemField07 = new javax.swing.JTextField();
+        resultItemField08 = new javax.swing.JTextField();
+        resultItemField09 = new javax.swing.JTextField();
+        resultItemField10 = new javax.swing.JTextField();
+        resultQntField10 = new javax.swing.JTextField();
+        resultQntField09 = new javax.swing.JTextField();
+        resultQntField08 = new javax.swing.JTextField();
+        resultQntField07 = new javax.swing.JTextField();
+        resultQntField06 = new javax.swing.JTextField();
+        resultQntField05 = new javax.swing.JTextField();
+        resultQntField04 = new javax.swing.JTextField();
+        resultQntField03 = new javax.swing.JTextField();
+        resultQntField02 = new javax.swing.JTextField();
+        resultQntField01 = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jTextField24 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField31 = new javax.swing.JTextField();
-        jTextField35 = new javax.swing.JTextField();
-        jTextField39 = new javax.swing.JTextField();
-        jTextField42 = new javax.swing.JTextField();
-        jTextField46 = new javax.swing.JTextField();
-        jTextField51 = new javax.swing.JTextField();
-        jTextField55 = new javax.swing.JTextField();
-        jTextField59 = new javax.swing.JTextField();
-        jTextField61 = new javax.swing.JTextField();
-        jTextField56 = new javax.swing.JTextField();
-        jTextField52 = new javax.swing.JTextField();
-        jTextField45 = new javax.swing.JTextField();
-        jTextField43 = new javax.swing.JTextField();
-        jTextField44 = new javax.swing.JTextField();
-        jTextField36 = new javax.swing.JTextField();
-        jTextField32 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField60 = new javax.swing.JTextField();
+        resultUnField01 = new javax.swing.JTextField();
+        resultUnField02 = new javax.swing.JTextField();
+        resultUnField03 = new javax.swing.JTextField();
+        resultUnField04 = new javax.swing.JTextField();
+        resultUnField05 = new javax.swing.JTextField();
+        resultUnField06 = new javax.swing.JTextField();
+        resultUnField07 = new javax.swing.JTextField();
+        resultUnField08 = new javax.swing.JTextField();
+        resultUnField09 = new javax.swing.JTextField();
+        resultUnField10 = new javax.swing.JTextField();
+        resultCostField10 = new javax.swing.JTextField();
+        resultCostField09 = new javax.swing.JTextField();
+        resultCostField08 = new javax.swing.JTextField();
+        resultCostField07 = new javax.swing.JTextField();
+        resultCostField06 = new javax.swing.JTextField();
+        resultCostField05 = new javax.swing.JTextField();
+        resultCostField04 = new javax.swing.JTextField();
+        resultCostField03 = new javax.swing.JTextField();
+        resultCostField02 = new javax.swing.JTextField();
+        resultCostField01 = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
-        jTextField62 = new javax.swing.JTextField();
+        resultCostProductionField = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        jTextField63 = new javax.swing.JTextField();
+        resultSellValueField = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jTextField64 = new javax.swing.JTextField();
-        jTextField65 = new javax.swing.JTextField();
+        resultTotalPortionField = new javax.swing.JTextField();
+        resultGainField = new javax.swing.JTextField();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        jTextField66 = new javax.swing.JTextField();
-        spinner2 = new views.spinner.Spinner();
+        resultGainMarginField = new javax.swing.JTextField();
+        resultPortionQuantity = new views.spinner.Spinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1040, 900));
         setResizable(false);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(900, 910));
@@ -116,11 +119,11 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         panelEntradas1.setPreferredSize(new java.awt.Dimension(1040, 900));
         panelEntradas1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField17.setEditable(false);
-        jTextField17.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField17.setName(""); // NOI18N
-        panelEntradas1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 240, 45));
+        resultSnackName.setEditable(false);
+        resultSnackName.setBackground(new java.awt.Color(243, 243, 243));
+        resultSnackName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultSnackName.setName(""); // NOI18N
+        panelEntradas1.add(resultSnackName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 240, 45));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel32.setText("Produto/Lanche");
@@ -157,126 +160,131 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         jLabel38.setText("Itens");
         panelEntradas1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 140, 30));
 
-        jTextField22.setEditable(false);
-        jTextField22.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField22.setName(""); // NOI18N
-        panelEntradas1.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 320, 45));
+        resultItemField01.setEditable(false);
+        resultItemField01.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField01.setName(""); // NOI18N
+        resultItemField01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultItemField01ActionPerformed(evt);
+            }
+        });
+        panelEntradas1.add(resultItemField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 320, 45));
 
-        jTextField25.setEditable(false);
-        jTextField25.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField25.setName(""); // NOI18N
-        panelEntradas1.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 205, 320, 45));
+        resultItemField02.setEditable(false);
+        resultItemField02.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField02.setName(""); // NOI18N
+        panelEntradas1.add(resultItemField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 205, 320, 45));
 
-        jTextField29.setEditable(false);
-        jTextField29.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField29.setName(""); // NOI18N
-        panelEntradas1.add(jTextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 320, 45));
+        resultItemField03.setEditable(false);
+        resultItemField03.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField03.setName(""); // NOI18N
+        panelEntradas1.add(resultItemField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 320, 45));
 
-        jTextField33.setEditable(false);
-        jTextField33.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField33.setName(""); // NOI18N
-        panelEntradas1.add(jTextField33, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 315, 320, 45));
+        resultItemField04.setEditable(false);
+        resultItemField04.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField04.setName(""); // NOI18N
+        panelEntradas1.add(resultItemField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 315, 320, 45));
 
-        jTextField37.setEditable(false);
-        jTextField37.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField37.setName(""); // NOI18N
-        panelEntradas1.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 320, 45));
+        resultItemField05.setEditable(false);
+        resultItemField05.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField05.setName(""); // NOI18N
+        panelEntradas1.add(resultItemField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 320, 45));
 
-        jTextField40.setEditable(false);
-        jTextField40.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField40.setName(""); // NOI18N
-        panelEntradas1.add(jTextField40, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 425, 320, 45));
+        resultItemField06.setEditable(false);
+        resultItemField06.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField06.setName(""); // NOI18N
+        panelEntradas1.add(resultItemField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 425, 320, 45));
 
-        jTextField48.setEditable(false);
-        jTextField48.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField48.setName(""); // NOI18N
-        panelEntradas1.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 320, 45));
+        resultItemField07.setEditable(false);
+        resultItemField07.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField07.setName(""); // NOI18N
+        panelEntradas1.add(resultItemField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 320, 45));
 
-        jTextField49.setEditable(false);
-        jTextField49.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField49.setName(""); // NOI18N
-        panelEntradas1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 535, 320, 45));
+        resultItemField08.setEditable(false);
+        resultItemField08.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField08.setName(""); // NOI18N
+        panelEntradas1.add(resultItemField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 535, 320, 45));
 
-        jTextField53.setEditable(false);
-        jTextField53.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField53.setName(""); // NOI18N
-        panelEntradas1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 320, 45));
+        resultItemField09.setEditable(false);
+        resultItemField09.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField09.setName(""); // NOI18N
+        panelEntradas1.add(resultItemField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 320, 45));
 
-        jTextField57.setEditable(false);
-        jTextField57.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField57.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField57.setName(""); // NOI18N
-        panelEntradas1.add(jTextField57, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 645, 320, 45));
+        resultItemField10.setEditable(false);
+        resultItemField10.setBackground(new java.awt.Color(243, 243, 243));
+        resultItemField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultItemField10.setName(""); // NOI18N
+        panelEntradas1.add(resultItemField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 645, 320, 45));
 
-        jTextField58.setEditable(false);
-        jTextField58.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField58.setName(""); // NOI18N
-        panelEntradas1.add(jTextField58, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 645, 100, 45));
+        resultQntField10.setEditable(false);
+        resultQntField10.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField10.setName(""); // NOI18N
+        panelEntradas1.add(resultQntField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 645, 100, 45));
 
-        jTextField54.setEditable(false);
-        jTextField54.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField54.setName(""); // NOI18N
-        panelEntradas1.add(jTextField54, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 590, 100, 45));
+        resultQntField09.setEditable(false);
+        resultQntField09.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField09.setName(""); // NOI18N
+        panelEntradas1.add(resultQntField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 590, 100, 45));
 
-        jTextField50.setEditable(false);
-        jTextField50.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField50.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField50.setName(""); // NOI18N
-        panelEntradas1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 535, 100, 45));
+        resultQntField08.setEditable(false);
+        resultQntField08.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField08.setName(""); // NOI18N
+        panelEntradas1.add(resultQntField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 535, 100, 45));
 
-        jTextField47.setEditable(false);
-        jTextField47.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField47.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField47.setName(""); // NOI18N
-        panelEntradas1.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 100, 45));
+        resultQntField07.setEditable(false);
+        resultQntField07.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField07.setName(""); // NOI18N
+        panelEntradas1.add(resultQntField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 100, 45));
 
-        jTextField41.setEditable(false);
-        jTextField41.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField41.setName(""); // NOI18N
-        panelEntradas1.add(jTextField41, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 425, 100, 45));
+        resultQntField06.setEditable(false);
+        resultQntField06.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField06.setName(""); // NOI18N
+        panelEntradas1.add(resultQntField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 425, 100, 45));
 
-        jTextField38.setEditable(false);
-        jTextField38.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField38.setName(""); // NOI18N
-        panelEntradas1.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 100, 45));
+        resultQntField05.setEditable(false);
+        resultQntField05.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField05.setName(""); // NOI18N
+        panelEntradas1.add(resultQntField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 100, 45));
 
-        jTextField34.setEditable(false);
-        jTextField34.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField34.setName(""); // NOI18N
-        panelEntradas1.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 315, 100, 45));
+        resultQntField04.setEditable(false);
+        resultQntField04.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField04.setName(""); // NOI18N
+        panelEntradas1.add(resultQntField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 315, 100, 45));
 
-        jTextField30.setEditable(false);
-        jTextField30.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField30.setName(""); // NOI18N
-        panelEntradas1.add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 100, 45));
+        resultQntField03.setEditable(false);
+        resultQntField03.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField03.setName(""); // NOI18N
+        panelEntradas1.add(resultQntField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 100, 45));
 
-        jTextField26.setEditable(false);
-        jTextField26.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField26.setName(""); // NOI18N
-        panelEntradas1.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 205, 100, 45));
+        resultQntField02.setEditable(false);
+        resultQntField02.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField02.setName(""); // NOI18N
+        panelEntradas1.add(resultQntField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 205, 100, 45));
 
-        jTextField23.setEditable(false);
-        jTextField23.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField23.setName(""); // NOI18N
-        jTextField23.setOpaque(true);
-        panelEntradas1.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 100, 45));
+        resultQntField01.setEditable(false);
+        resultQntField01.setBackground(new java.awt.Color(243, 243, 243));
+        resultQntField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultQntField01.setName(""); // NOI18N
+        resultQntField01.setOpaque(true);
+        panelEntradas1.add(resultQntField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 100, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel33.setText("Qnt.");
@@ -286,136 +294,136 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         jLabel39.setText("Und. Medida");
         panelEntradas1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 100, 30));
 
-        jTextField24.setEditable(false);
-        jTextField24.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField24.setName(""); // NOI18N
-        panelEntradas1.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 100, 45));
+        resultUnField01.setEditable(false);
+        resultUnField01.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField01.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 100, 45));
 
-        jTextField27.setEditable(false);
-        jTextField27.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField27.setName(""); // NOI18N
-        panelEntradas1.add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 205, 100, 45));
+        resultUnField02.setEditable(false);
+        resultUnField02.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField02.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 205, 100, 45));
 
-        jTextField31.setEditable(false);
-        jTextField31.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField31.setName(""); // NOI18N
-        panelEntradas1.add(jTextField31, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 100, 45));
+        resultUnField03.setEditable(false);
+        resultUnField03.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField03.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 100, 45));
 
-        jTextField35.setEditable(false);
-        jTextField35.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField35.setName(""); // NOI18N
-        panelEntradas1.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 315, 100, 45));
+        resultUnField04.setEditable(false);
+        resultUnField04.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField04.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 315, 100, 45));
 
-        jTextField39.setEditable(false);
-        jTextField39.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField39.setName(""); // NOI18N
-        panelEntradas1.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 100, 45));
+        resultUnField05.setEditable(false);
+        resultUnField05.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField05.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 100, 45));
 
-        jTextField42.setEditable(false);
-        jTextField42.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField42.setName(""); // NOI18N
-        panelEntradas1.add(jTextField42, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 425, 100, 45));
+        resultUnField06.setEditable(false);
+        resultUnField06.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField06.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 425, 100, 45));
 
-        jTextField46.setEditable(false);
-        jTextField46.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField46.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField46.setName(""); // NOI18N
-        panelEntradas1.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 100, 45));
+        resultUnField07.setEditable(false);
+        resultUnField07.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField07.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 100, 45));
 
-        jTextField51.setEditable(false);
-        jTextField51.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField51.setName(""); // NOI18N
-        panelEntradas1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 535, 100, 45));
+        resultUnField08.setEditable(false);
+        resultUnField08.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField08.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 535, 100, 45));
 
-        jTextField55.setEditable(false);
-        jTextField55.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField55.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField55.setName(""); // NOI18N
-        panelEntradas1.add(jTextField55, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 590, 100, 45));
+        resultUnField09.setEditable(false);
+        resultUnField09.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField09.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 590, 100, 45));
 
-        jTextField59.setEditable(false);
-        jTextField59.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField59.setName(""); // NOI18N
-        panelEntradas1.add(jTextField59, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 645, 100, 45));
+        resultUnField10.setEditable(false);
+        resultUnField10.setBackground(new java.awt.Color(243, 243, 243));
+        resultUnField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultUnField10.setName(""); // NOI18N
+        panelEntradas1.add(resultUnField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 645, 100, 45));
 
-        jTextField61.setEditable(false);
-        jTextField61.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField61.setName(""); // NOI18N
-        panelEntradas1.add(jTextField61, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 645, 100, 45));
+        resultCostField10.setEditable(false);
+        resultCostField10.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField10.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 645, 100, 45));
 
-        jTextField56.setEditable(false);
-        jTextField56.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField56.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField56.setName(""); // NOI18N
-        panelEntradas1.add(jTextField56, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 100, 45));
+        resultCostField09.setEditable(false);
+        resultCostField09.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField09.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 100, 45));
 
-        jTextField52.setEditable(false);
-        jTextField52.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField52.setName(""); // NOI18N
-        panelEntradas1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 535, 100, 45));
+        resultCostField08.setEditable(false);
+        resultCostField08.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField08.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 535, 100, 45));
 
-        jTextField45.setEditable(false);
-        jTextField45.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField45.setName(""); // NOI18N
-        panelEntradas1.add(jTextField45, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 480, 100, 45));
+        resultCostField07.setEditable(false);
+        resultCostField07.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField07.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 480, 100, 45));
 
-        jTextField43.setEditable(false);
-        jTextField43.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField43.setName(""); // NOI18N
-        panelEntradas1.add(jTextField43, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 425, 100, 45));
+        resultCostField06.setEditable(false);
+        resultCostField06.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField06.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 425, 100, 45));
 
-        jTextField44.setEditable(false);
-        jTextField44.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField44.setName(""); // NOI18N
-        panelEntradas1.add(jTextField44, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 100, 45));
+        resultCostField05.setEditable(false);
+        resultCostField05.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField05.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 100, 45));
 
-        jTextField36.setEditable(false);
-        jTextField36.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField36.setName(""); // NOI18N
-        panelEntradas1.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 315, 100, 45));
+        resultCostField04.setEditable(false);
+        resultCostField04.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField04.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 315, 100, 45));
 
-        jTextField32.setEditable(false);
-        jTextField32.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField32.setName(""); // NOI18N
-        panelEntradas1.add(jTextField32, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 100, 45));
+        resultCostField03.setEditable(false);
+        resultCostField03.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField03.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 100, 45));
 
-        jTextField28.setEditable(false);
-        jTextField28.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField28.setName(""); // NOI18N
-        panelEntradas1.add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 205, 100, 45));
+        resultCostField02.setEditable(false);
+        resultCostField02.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField02.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 205, 100, 45));
 
-        jTextField60.setEditable(false);
-        jTextField60.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField60.setName(""); // NOI18N
-        panelEntradas1.add(jTextField60, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 100, 45));
+        resultCostField01.setEditable(false);
+        resultCostField01.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostField01.setName(""); // NOI18N
+        panelEntradas1.add(resultCostField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 100, 45));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel40.setText("Custo (R$)");
         panelEntradas1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 100, 30));
 
-        jTextField62.setEditable(false);
-        jTextField62.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField62.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField62.setName(""); // NOI18N
-        jTextField62.setOpaque(true);
-        panelEntradas1.add(jTextField62, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, 210, 45));
+        resultCostProductionField.setEditable(false);
+        resultCostProductionField.setBackground(new java.awt.Color(243, 243, 243));
+        resultCostProductionField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultCostProductionField.setName(""); // NOI18N
+        resultCostProductionField.setOpaque(true);
+        panelEntradas1.add(resultCostProductionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, 210, 45));
 
         jLabel34.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -424,12 +432,12 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         panelEntradas1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 140, 210, 45));
         panelEntradas1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 960, 30));
 
-        jTextField63.setEditable(false);
-        jTextField63.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField63.setName(""); // NOI18N
-        jTextField63.setOpaque(true);
-        panelEntradas1.add(jTextField63, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 290, 210, 45));
+        resultSellValueField.setEditable(false);
+        resultSellValueField.setBackground(new java.awt.Color(243, 243, 243));
+        resultSellValueField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultSellValueField.setName(""); // NOI18N
+        resultSellValueField.setOpaque(true);
+        panelEntradas1.add(resultSellValueField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 290, 210, 45));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -443,19 +451,19 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         jLabel37.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         panelEntradas1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 360, -1, 45));
 
-        jTextField64.setEditable(false);
-        jTextField64.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField64.setName(""); // NOI18N
-        jTextField64.setOpaque(true);
-        panelEntradas1.add(jTextField64, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 400, 210, 45));
+        resultTotalPortionField.setEditable(false);
+        resultTotalPortionField.setBackground(new java.awt.Color(243, 243, 243));
+        resultTotalPortionField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultTotalPortionField.setName(""); // NOI18N
+        resultTotalPortionField.setOpaque(true);
+        panelEntradas1.add(resultTotalPortionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 400, 210, 45));
 
-        jTextField65.setEditable(false);
-        jTextField65.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField65.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField65.setName(""); // NOI18N
-        jTextField65.setOpaque(true);
-        panelEntradas1.add(jTextField65, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 510, 210, 45));
+        resultGainField.setEditable(false);
+        resultGainField.setBackground(new java.awt.Color(243, 243, 243));
+        resultGainField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultGainField.setName(""); // NOI18N
+        resultGainField.setOpaque(true);
+        panelEntradas1.add(resultGainField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 510, 210, 45));
 
         jLabel41.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -469,16 +477,16 @@ public class PorcoesCalcular extends javax.swing.JFrame {
         jLabel42.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         panelEntradas1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 580, 210, 45));
 
-        jTextField66.setEditable(false);
-        jTextField66.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField66.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField66.setName(""); // NOI18N
-        jTextField66.setOpaque(true);
-        panelEntradas1.add(jTextField66, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 620, 210, 45));
+        resultGainMarginField.setEditable(false);
+        resultGainMarginField.setBackground(new java.awt.Color(243, 243, 243));
+        resultGainMarginField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultGainMarginField.setName(""); // NOI18N
+        resultGainMarginField.setOpaque(true);
+        panelEntradas1.add(resultGainMarginField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 620, 210, 45));
 
-        spinner2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        spinner2.setLabelText("");
-        panelEntradas1.add(spinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 102, 45));
+        resultPortionQuantity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        resultPortionQuantity.setLabelText("");
+        panelEntradas1.add(resultPortionQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 102, 45));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1040, 900));
 
@@ -508,6 +516,10 @@ public class PorcoesCalcular extends javax.swing.JFrame {
     private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
         dispose();
     }//GEN-LAST:event_mybtn5ActionPerformed
+
+    private void resultItemField01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultItemField01ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resultItemField01ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -606,17 +618,67 @@ public class PorcoesCalcular extends javax.swing.JFrame {
             }
         });
     }
-    public void setItemField(ListIterator<String> ItemField){
-        PorcoesCalcularController.setItemField(ItemField);
+    public void setItemField(List<String> itemField){
+        for(int i = 0; i< itemField.size(); i++){
+            resultController.setItemField(itemField.get(i))
+        }
     }
-    public void setUnField(ListIterator<String> QntField){
-        PorcoesCalcularController.setQntField(QntField);
+    public void setUnField(List<String> qntField){
+         for(int i = 0; i< qntField.size(); i++){
+            
+        }
     }
-    public void setQntField(ListIterator<String> UnityField){
-        PorcoesCalcularController.setUnityField(UnityField);
+    public void setQntField(List<String> unityField){
+        for(int i = 0; i< unityField.size(); i++){
+            
+        }
     }
-    public void setCostField(ListIterator<String> CostField){
-        PorcoesCalcularController.setCostField(CostField);
+    public void setCostField(List<String> costField){
+        for(int i = 0; i< costField.size(); i++){
+            
+        }
+    
+    }
+    void findItemFields() {
+        resultController.addItemField(resultItemField01);
+        resultController.addItemField(resultItemField02);
+        resultController.addItemField(resultItemField03);
+        resultController.addItemField(resultItemField04);
+        resultController.addItemField(resultItemField05);
+        resultController.addItemField(resultItemField06);
+        resultController.addItemField(resultItemField07);
+        resultController.addItemField(resultItemField08);
+        resultController.addItemField(resultItemField09);
+        resultController.addItemField(resultItemField10);
+    }
+
+    void findQntFields() {
+        resultController.addQntField(resultQntField01);
+        resultController.addQntField(resultQntField02);
+        resultController.addQntField(resultQntField03);
+        resultController.addQntField(resultQntField04);
+        resultController.addQntField(resultQntField05);
+        resultController.addQntField(resultQntField06);
+        resultController.addQntField(resultQntField07);
+        resultController.addQntField(resultQntField08);
+        resultController.addQntField(resultQntField09);
+        resultController.addQntField(resultQntField10);
+    }
+
+    void findUnityFields() {
+        resultController.addUnityField(resultUnField01);
+        resultController.addUnityField(resultUnField02);
+        resultController.addUnityField(resultUnField03);
+        resultController.addUnityField(resultUnField04);
+        resultController.addUnityField(resultUnField05);
+        resultController.addUnityField(resultUnField06);
+        resultController.addUnityField(resultUnField07);
+        resultController.addUnityField(resultUnField08);
+        resultController.addUnityField(resultUnField09);
+        resultController.addUnityField(resultUnField10);
+    }
+
+    void findCostFields() {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
@@ -635,54 +697,56 @@ public class PorcoesCalcular extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
-    private javax.swing.JTextField jTextField32;
-    private javax.swing.JTextField jTextField33;
-    private javax.swing.JTextField jTextField34;
-    private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField37;
-    private javax.swing.JTextField jTextField38;
-    private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField40;
-    private javax.swing.JTextField jTextField41;
-    private javax.swing.JTextField jTextField42;
-    private javax.swing.JTextField jTextField43;
-    private javax.swing.JTextField jTextField44;
-    private javax.swing.JTextField jTextField45;
-    private javax.swing.JTextField jTextField46;
-    private javax.swing.JTextField jTextField47;
-    private javax.swing.JTextField jTextField48;
-    private javax.swing.JTextField jTextField49;
-    private javax.swing.JTextField jTextField50;
-    private javax.swing.JTextField jTextField51;
-    private javax.swing.JTextField jTextField52;
-    private javax.swing.JTextField jTextField53;
-    private javax.swing.JTextField jTextField54;
-    private javax.swing.JTextField jTextField55;
-    private javax.swing.JTextField jTextField56;
-    private javax.swing.JTextField jTextField57;
-    private javax.swing.JTextField jTextField58;
-    private javax.swing.JTextField jTextField59;
-    private javax.swing.JTextField jTextField60;
-    private javax.swing.JTextField jTextField61;
-    private javax.swing.JTextField jTextField62;
-    private javax.swing.JTextField jTextField63;
-    private javax.swing.JTextField jTextField64;
-    private javax.swing.JTextField jTextField65;
-    private javax.swing.JTextField jTextField66;
     private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
-    private views.spinner.Spinner spinner2;
+    private javax.swing.JTextField resultCostField01;
+    private javax.swing.JTextField resultCostField02;
+    private javax.swing.JTextField resultCostField03;
+    private javax.swing.JTextField resultCostField04;
+    private javax.swing.JTextField resultCostField05;
+    private javax.swing.JTextField resultCostField06;
+    private javax.swing.JTextField resultCostField07;
+    private javax.swing.JTextField resultCostField08;
+    private javax.swing.JTextField resultCostField09;
+    private javax.swing.JTextField resultCostField10;
+    private javax.swing.JTextField resultCostProductionField;
+    private javax.swing.JTextField resultGainField;
+    private javax.swing.JTextField resultGainMarginField;
+    private javax.swing.JTextField resultItemField01;
+    private javax.swing.JTextField resultItemField02;
+    private javax.swing.JTextField resultItemField03;
+    private javax.swing.JTextField resultItemField04;
+    private javax.swing.JTextField resultItemField05;
+    private javax.swing.JTextField resultItemField06;
+    private javax.swing.JTextField resultItemField07;
+    private javax.swing.JTextField resultItemField08;
+    private javax.swing.JTextField resultItemField09;
+    private javax.swing.JTextField resultItemField10;
+    private views.spinner.Spinner resultPortionQuantity;
+    private javax.swing.JTextField resultQntField01;
+    private javax.swing.JTextField resultQntField02;
+    private javax.swing.JTextField resultQntField03;
+    private javax.swing.JTextField resultQntField04;
+    private javax.swing.JTextField resultQntField05;
+    private javax.swing.JTextField resultQntField06;
+    private javax.swing.JTextField resultQntField07;
+    private javax.swing.JTextField resultQntField08;
+    private javax.swing.JTextField resultQntField09;
+    private javax.swing.JTextField resultQntField10;
+    private javax.swing.JTextField resultSellValueField;
+    private javax.swing.JTextField resultSnackName;
+    private javax.swing.JTextField resultTotalPortionField;
+    private javax.swing.JTextField resultUnField01;
+    private javax.swing.JTextField resultUnField02;
+    private javax.swing.JTextField resultUnField03;
+    private javax.swing.JTextField resultUnField04;
+    private javax.swing.JTextField resultUnField05;
+    private javax.swing.JTextField resultUnField06;
+    private javax.swing.JTextField resultUnField07;
+    private javax.swing.JTextField resultUnField08;
+    private javax.swing.JTextField resultUnField09;
+    private javax.swing.JTextField resultUnField10;
     // End of variables declaration//GEN-END:variables
+
+    
 }

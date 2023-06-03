@@ -6,17 +6,16 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 /**
  *
  * @author 42labinfo
  */
 public class PortionCalcController {
-    private List<String> itemField = new ArrayList<String>();
-    private List<String> qntField = new ArrayList<String>();
-    private List<String> unityField = new ArrayList<String>();
-    private List<String> costField = new ArrayList<String>();
+    private List<String> itemFieldValue = new ArrayList<String>();
+    private List<String> qntFieldValue = new ArrayList<String>();
+    private List<String> unityFieldValue = new ArrayList<String>();
+    private List<String> costFieldValue = new ArrayList<String>();
     public PortionCalcController(){};
     
     public String checkField (String field){
@@ -27,36 +26,36 @@ public class PortionCalcController {
         }
     }
 
-    public ListIterator<String> getItemField() {
-        return qntField.listIterator();
+    public List<String> getItemFieldValue() {
+        return qntFieldValue;
     }
 
     public void setItemField(String itemField) {
-        this.itemField.add(itemField);
+        this.itemFieldValue.add(itemField);
     }
 
-    public ListIterator<String> getQntField() {
-        return qntField.listIterator();
+    public List<String> getQntFieldValue() {
+        return qntFieldValue;
     }
 
     public void setQntField(String qntField) {
-        this.qntField.add(qntField);
+        this.qntFieldValue.add(qntField);
     }
 
-    public ListIterator<String> getUnityField() {
-        return qntField.listIterator();
+    public List<String> getUnityFieldValue() {
+        return qntFieldValue;
     }
 
     public void setUnityField(String unityField) {
-        this.unityField.add(unityField);
+        this.unityFieldValue.add(unityField);
     }
 
-    public ListIterator<String> getCostField() {
-        return qntField.listIterator();
+    public List<String> getCostFieldValue() {
+        return qntFieldValue;
     }
 
     public void setCostField(String costField) {
-        this.costField.add(costField);
+        this.costFieldValue.add(costField);
     }
     
     

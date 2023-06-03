@@ -2184,10 +2184,14 @@ public void limparCalculoPorcoes() {
         calcController.setCostField(calcCostField10.getText());
 
         PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
-        PorcoesCalcular.setItemField(calcController.getItemField());
-        PorcoesCalcular.setUnField(calcController.getQntField());
-        PorcoesCalcular.setQntField(calcController.getUnityField());
-        PorcoesCalcular.setCostField(calcController.getCostField());
+        PorcoesCalcular.findItemFields();
+        PorcoesCalcular.findQntFields();
+        PorcoesCalcular.findUnityFields();
+        PorcoesCalcular.findCostFields();
+        PorcoesCalcular.setItemField(calcController.getItemFieldValue());
+        PorcoesCalcular.setUnField(calcController.getQntFieldValue());
+        PorcoesCalcular.setQntField(calcController.getUnityFieldValue());
+        PorcoesCalcular.setCostField(calcController.getCostFieldValue());
         PorcoesCalcular.setVisible(true);
 
     }//GEN-LAST:event_calcCalcBtnActionPerformed
