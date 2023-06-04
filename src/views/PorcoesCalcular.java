@@ -514,7 +514,6 @@ private PortionResultController resultController = new PortionResultController()
     }// </editor-fold>//GEN-END:initComponents
 
     private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
-        resultController.clear();
         dispose();
     }//GEN-LAST:event_mybtn5ActionPerformed
 
@@ -620,11 +619,14 @@ private PortionResultController resultController = new PortionResultController()
         });
     }
     
+    public void clearFields(){
+        //resultController.clear();
+    }
     public void setPortionQuantityFieldValue(int quantity){
         resultController.setPortionQuantity(quantity);
     }
     public void setItemFieldValue(List<String> itemField){
-        for(int i = 0; i< itemField.size(); i++){
+        for(int i = 0; i < itemField.size(); i++){
             resultController
             .getItemField()
             .get(i)
@@ -632,23 +634,34 @@ private PortionResultController resultController = new PortionResultController()
         }
     }
     public void setUnFieldValue(List<String> qntField){
-         for(int i = 0; i< qntField.size(); i++){
+        float result = 0; 
+        for(int i = 0; i< qntField.size(); i++){
+            result = resultController.ruleOfThree(Float.parseFloat(qntField.get(i)));
             resultController
-            .getItemField()
+            .getQntField()
             .get(i)
-            .setText(qntField.get(i));
+            .setText(Float.toString(result));
         }
     }
     public void setQntFieldValue(List<String> unityField){
+        float result = 0; 
         for(int i = 0; i< unityField.size(); i++){
-            
+            result = resultController.ruleOfThree(Float.parseFloat(unityField.get(i)));
+            resultController
+            .getUnityField()
+            .get(i)
+            .setText(Float.toString(result));
         }
     }
     public void setCostFieldValue(List<String> costField){
+        float result = 0; 
         for(int i = 0; i< costField.size(); i++){
-            
+            result = resultController.ruleOfThree(Float.parseFloat(costField.get(i)));
+            resultController
+            .getCostField()
+            .get(i)
+            .setText(Float.toString(result));
         }
-    
     }
    
     public void findItemFields() {

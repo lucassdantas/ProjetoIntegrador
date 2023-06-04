@@ -12,6 +12,7 @@ AnimationClass ac = new AnimationClass();
 
 //portion calc contrller
 PortionCalcController calcController = new PortionCalcController();
+PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
 
     public StockViews() {
         initComponents();
@@ -2144,16 +2145,16 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_mybtn9ActionPerformed
 
     private void calcCalcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCalcBtnActionPerformed
-        calcController.setItemField(calcItemField01.getText());
-        calcController.setItemField(calcItemField02.getText());
-        calcController.setItemField(calcItemField03.getText());
-        calcController.setItemField(calcItemField04.getText());
-        calcController.setItemField(calcItemField05.getText());
-        calcController.setItemField(calcItemField06.getText());
-        calcController.setItemField(calcItemField07.getText());
-        calcController.setItemField(calcItemField08.getText());
-        calcController.setItemField(calcItemField09.getText());
-        calcController.setItemField(calcItemField10.getText());
+        calcController.setItemField(calcItemField01);
+        calcController.setItemField(calcItemField02);
+        calcController.setItemField(calcItemField03);
+        calcController.setItemField(calcItemField04);
+        calcController.setItemField(calcItemField05);
+        calcController.setItemField(calcItemField06);
+        calcController.setItemField(calcItemField07);
+        calcController.setItemField(calcItemField08);
+        calcController.setItemField(calcItemField09);
+        calcController.setItemField(calcItemField10);
 
         calcController.setQntField(calcQntField01.getText());
         calcController.setQntField(calcQntField02.getText());
@@ -2187,10 +2188,8 @@ public void limparCalculoPorcoes() {
         calcController.setCostField(calcCostField08.getText());
         calcController.setCostField(calcCostField09.getText());
         calcController.setCostField(calcCostField10.getText());
-        
         calcController.setQuantityFieldValue(calcPortionField.getText());
-        PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
-
+        
         PorcoesCalcular.findItemFields();
         PorcoesCalcular.findQntFields();
         PorcoesCalcular.findUnityFields();
@@ -2202,7 +2201,7 @@ public void limparCalculoPorcoes() {
         PorcoesCalcular.setQntFieldValue(calcController.getUnityFieldValue());
         PorcoesCalcular.setCostFieldValue(calcController.getCostFieldValue());
         PorcoesCalcular.setVisible(true);
-
+        
     }//GEN-LAST:event_calcCalcBtnActionPerformed
 
     private void calcCleanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCleanBtnActionPerformed
