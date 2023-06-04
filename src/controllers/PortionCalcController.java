@@ -6,85 +6,60 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  *
  * @author 42labinfo
  */
 public class PortionCalcController {
-    private List<String> itemFieldValue = new ArrayList<String>();
-    private List<String> qntFieldValue = new ArrayList<String>();
-    private List<String> unityFieldValue = new ArrayList<String>();
-    private List<String> costFieldValue = new ArrayList<String>();
-    private int quantityFieldValue;
-    
+    private List<String> itemField = new ArrayList<String>();
+    private List<String> qntField = new ArrayList<String>();
+    private List<String> unityField = new ArrayList<String>();
+    private List<String> costField = new ArrayList<String>();
     public PortionCalcController(){};
-    public void clear(){
-        this.costFieldValue = new ArrayList<String>();
-        this.costFieldValue = new ArrayList<String>();
-        this.costFieldValue = new ArrayList<String>();
-        this.costFieldValue = new ArrayList<String>();
-        this.quantityFieldValue = 0;
-    }
     
-
-    public void setItemField(javax.swing.JTextField itemField) {
-        if(!itemField.getText().isEmpty()){
-            this.itemFieldValue.add(itemField.getText());
-        }else{
-            this.itemFieldValue.add("0");
+    public String checkField (String field){
+        if (!field.isEmpty()){
+            return field;
+        } else{
+            return "0";
         }
     }
-    
-    public List<String> getItemFieldValue() {
-        return itemFieldValue;
+
+    public ListIterator<String> getItemField() {
+        return qntField.listIterator();
     }
-    
-    public List<String> getQntFieldValue() {
-        return qntFieldValue;
+
+    public void setItemField(String itemField) {
+        this.itemField.add(itemField);
+    }
+
+    public ListIterator<String> getQntField() {
+        return qntField.listIterator();
     }
 
     public void setQntField(String qntField) {
-        if(!qntField.isEmpty()){
-            this.qntFieldValue.add(qntField);
-        }else{
-            this.qntFieldValue.add("0");
-        }
+        this.qntField.add(qntField);
     }
 
-    public List<String> getUnityFieldValue() {
-        return qntFieldValue;
+    public ListIterator<String> getUnityField() {
+        return qntField.listIterator();
     }
 
     public void setUnityField(String unityField) {
-        if(!unityField.isEmpty()){
-            this.unityFieldValue.add(unityField);
-        }else{
-            this.unityFieldValue.add("0");
-        }
+        this.unityField.add(unityField);
     }
 
-    public List<String> getCostFieldValue() {
-        return qntFieldValue;
+    public ListIterator<String> getCostField() {
+        return qntField.listIterator();
     }
 
     public void setCostField(String costField) {
-        if(!costField.isEmpty()){
-            this.costFieldValue.add(costField);
-        }else{
-            this.costFieldValue.add("0");
-        }
-    }
-    public void setQuantityFieldValue(String quantityFieldValue){
-        if(!quantityFieldValue.isEmpty()){
-            this.quantityFieldValue = Integer.parseInt(quantityFieldValue);
-        }else{
-            this.quantityFieldValue = 1;
-        }
+        this.costField.add(costField);
     }
     
-    public int getPortionQuantityFieldValue(){
-        return this.quantityFieldValue;
-    }
+    
+    
  
 }

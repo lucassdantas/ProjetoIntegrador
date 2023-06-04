@@ -34,7 +34,7 @@ public class IngredienteRegister {
             ingredient.setName(txtIngredientRegister.getText());
             ingredient.setPrice(Float.parseFloat(txtCostRegister.getText()));
             ingredient.setWeight(Float.parseFloat(txtQuantityUnitRegister.getText()));
-            ingredient.setQuantity(txtMediumUnitRegister.getText());
+            ingredient.setQuantity(Integer.parseInt(txtMediumUnitRegister.getText()));
             
             
             try {
