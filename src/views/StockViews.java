@@ -1495,6 +1495,11 @@ public void limparCalculoPorcoes() {
 
         calcPortionField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcPortionField.setName(""); // NOI18N
+        calcPortionField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcPortionFieldActionPerformed(evt);
+            }
+        });
         panelPE1.add(calcPortionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 140, 45));
 
         calcLunchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -2182,16 +2187,20 @@ public void limparCalculoPorcoes() {
         calcController.setCostField(calcCostField08.getText());
         calcController.setCostField(calcCostField09.getText());
         calcController.setCostField(calcCostField10.getText());
-
+        
+        calcController.setQuantityFieldValue(calcPortionField.getText());
         PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
+
         PorcoesCalcular.findItemFields();
         PorcoesCalcular.findQntFields();
         PorcoesCalcular.findUnityFields();
         PorcoesCalcular.findCostFields();
-        PorcoesCalcular.setItemField(calcController.getItemFieldValue());
-        PorcoesCalcular.setUnField(calcController.getQntFieldValue());
-        PorcoesCalcular.setQntField(calcController.getUnityFieldValue());
-        PorcoesCalcular.setCostField(calcController.getCostFieldValue());
+
+        PorcoesCalcular.setPortionQuantityFieldValue(calcController.getPortionQuantityFieldValue());
+        PorcoesCalcular.setItemFieldValue(calcController.getItemFieldValue());
+        PorcoesCalcular.setUnFieldValue(calcController.getQntFieldValue());
+        PorcoesCalcular.setQntFieldValue(calcController.getUnityFieldValue());
+        PorcoesCalcular.setCostFieldValue(calcController.getCostFieldValue());
         PorcoesCalcular.setVisible(true);
 
     }//GEN-LAST:event_calcCalcBtnActionPerformed
@@ -2470,6 +2479,10 @@ public void limparCalculoPorcoes() {
 
     private void calcItemField01FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_calcItemField01FocusLost
     }//GEN-LAST:event_calcItemField01FocusLost
+
+    private void calcPortionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcPortionFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calcPortionFieldActionPerformed
 
     /**
      * @param args the command line arguments

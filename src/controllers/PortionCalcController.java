@@ -16,6 +16,8 @@ public class PortionCalcController {
     private List<String> qntFieldValue = new ArrayList<String>();
     private List<String> unityFieldValue = new ArrayList<String>();
     private List<String> costFieldValue = new ArrayList<String>();
+    private int quantityFieldValue;
+    
     public PortionCalcController(){};
     
     public String checkField (String field){
@@ -57,8 +59,12 @@ public class PortionCalcController {
     public void setCostField(String costField) {
         this.costFieldValue.add(costField);
     }
+    public void setQuantityFieldValue(String quantityFieldValue){
+        this.quantityFieldValue = Integer.parseInt(quantityFieldValue);
+    }
     
-    
-    
+    public int getPortionQuantityFieldValue(){
+        return this.quantityFieldValue;
+    }
  
 }

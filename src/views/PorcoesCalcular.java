@@ -514,6 +514,7 @@ private PortionResultController resultController = new PortionResultController()
     }// </editor-fold>//GEN-END:initComponents
 
     private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
+        resultController.clear();
         dispose();
     }//GEN-LAST:event_mybtn5ActionPerformed
 
@@ -618,28 +619,39 @@ private PortionResultController resultController = new PortionResultController()
             }
         });
     }
-    public void setItemField(List<String> itemField){
+    
+    public void setPortionQuantityFieldValue(int quantity){
+        resultController.setPortionQuantity(quantity);
+    }
+    public void setItemFieldValue(List<String> itemField){
         for(int i = 0; i< itemField.size(); i++){
-            resultController.setItemField(itemField.get(i))
+            resultController
+            .getItemField()
+            .get(i)
+            .setText(itemField.get(i));
         }
     }
-    public void setUnField(List<String> qntField){
+    public void setUnFieldValue(List<String> qntField){
          for(int i = 0; i< qntField.size(); i++){
-            
+            resultController
+            .getItemField()
+            .get(i)
+            .setText(qntField.get(i));
         }
     }
-    public void setQntField(List<String> unityField){
+    public void setQntFieldValue(List<String> unityField){
         for(int i = 0; i< unityField.size(); i++){
             
         }
     }
-    public void setCostField(List<String> costField){
+    public void setCostFieldValue(List<String> costField){
         for(int i = 0; i< costField.size(); i++){
             
         }
     
     }
-    void findItemFields() {
+   
+    public void findItemFields() {
         resultController.addItemField(resultItemField01);
         resultController.addItemField(resultItemField02);
         resultController.addItemField(resultItemField03);
@@ -652,7 +664,7 @@ private PortionResultController resultController = new PortionResultController()
         resultController.addItemField(resultItemField10);
     }
 
-    void findQntFields() {
+    public void findQntFields() {
         resultController.addQntField(resultQntField01);
         resultController.addQntField(resultQntField02);
         resultController.addQntField(resultQntField03);
@@ -665,7 +677,7 @@ private PortionResultController resultController = new PortionResultController()
         resultController.addQntField(resultQntField10);
     }
 
-    void findUnityFields() {
+    public void findUnityFields() {
         resultController.addUnityField(resultUnField01);
         resultController.addUnityField(resultUnField02);
         resultController.addUnityField(resultUnField03);
@@ -678,7 +690,17 @@ private PortionResultController resultController = new PortionResultController()
         resultController.addUnityField(resultUnField10);
     }
 
-    void findCostFields() {
+    public void findCostFields() {
+        resultController.addCostField(resultCostField01);
+        resultController.addCostField(resultCostField02);
+        resultController.addCostField(resultCostField03);
+        resultController.addCostField(resultCostField04);
+        resultController.addCostField(resultCostField05);
+        resultController.addCostField(resultCostField06);
+        resultController.addCostField(resultCostField07);
+        resultController.addCostField(resultCostField08);
+        resultController.addCostField(resultCostField09);
+        resultController.addCostField(resultCostField10);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
