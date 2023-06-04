@@ -25,6 +25,7 @@ public class PortionResultController {
     private float cost;
     private int portionQuantity;
     private int currentPortionQuantity; 
+    
     public float ruleOfThree(float value){
         return value * this.portionQuantity / this.currentPortionQuantity;
     }
@@ -51,11 +52,15 @@ public class PortionResultController {
         this.unityField = new ArrayList<>();
         this.costField = new ArrayList<>();
         
-        
-        
+        this.itemQuantity = 0;
+        this.unityValue = "0";
+        this.cost = 0;
+        this.portionQuantity = 0;
+        this.currentPortionQuantity = 0; 
     }
     public float getItemQuantity() {
         return itemQuantity;
+        
     }
     
     public void setItemQuantityStringToInt(String itemQuantity){
@@ -87,42 +92,32 @@ public class PortionResultController {
         return itemField;
     }
 
-    public String getItemFieldValue(int index){
-        return this.itemField.get(index).getText();
-    }
-    
     public void addItemField(javax.swing.JTextField field) {
         itemField.add(field);
     }
 
-    public List<javax.swing.JTextField> getQntField(int index) {
+    public List<javax.swing.JTextField> getQntField() {
         return qntField;
     }
-    public String getQntFieldValue(int index){
-        return this.qntField.get(index).getText();
-    }
+   
     public void addQntField(javax.swing.JTextField field) {
         qntField.add(field);
     }
 
-    public List<javax.swing.JTextField> getUnityField(int index) {
+    public List<javax.swing.JTextField> getUnityField() {
         return unityField;
     }
     
-    public String getUnityFieldValue(int index){
-        return this.unityField.get(index).getText();
-    }
+   
     
     public void addUnityField(javax.swing.JTextField field) {
         unityField.add(field);
     }
 
-    public List<javax.swing.JTextField> getCostField(int index) {
+    public List<javax.swing.JTextField> getCostField() {
         return costField;
     }
-    public String getCostFieldValue(int index){
-        return this.costField.get(index).getText();
-    }
+   
     public void addCostField(javax.swing.JTextField field) {
         costField.add(field);
     }

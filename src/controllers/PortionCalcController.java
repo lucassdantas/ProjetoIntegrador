@@ -19,29 +19,37 @@ public class PortionCalcController {
     private int quantityFieldValue;
     
     public PortionCalcController(){};
+    public void clear(){
+        this.costFieldValue = new ArrayList<String>();
+        this.costFieldValue = new ArrayList<String>();
+        this.costFieldValue = new ArrayList<String>();
+        this.costFieldValue = new ArrayList<String>();
+        this.quantityFieldValue = 0;
+    }
     
-    public String checkField (String field){
-        if (!field.isEmpty()){
-            return field;
-        } else{
-            return "0";
+
+    public void setItemField(javax.swing.JTextField itemField) {
+        if(!itemField.getText().isEmpty()){
+            this.itemFieldValue.add(itemField.getText());
+        }else{
+            this.itemFieldValue.add("0");
         }
     }
-
+    
     public List<String> getItemFieldValue() {
-        return qntFieldValue;
+        return itemFieldValue;
     }
-
-    public void setItemField(String itemField) {
-        this.itemFieldValue.add(itemField);
-    }
-
+    
     public List<String> getQntFieldValue() {
         return qntFieldValue;
     }
 
     public void setQntField(String qntField) {
-        this.qntFieldValue.add(qntField);
+        if(!qntField.isEmpty()){
+            this.qntFieldValue.add(qntField);
+        }else{
+            this.qntFieldValue.add("0");
+        }
     }
 
     public List<String> getUnityFieldValue() {
@@ -49,7 +57,11 @@ public class PortionCalcController {
     }
 
     public void setUnityField(String unityField) {
-        this.unityFieldValue.add(unityField);
+        if(!unityField.isEmpty()){
+            this.unityFieldValue.add(unityField);
+        }else{
+            this.unityFieldValue.add("0");
+        }
     }
 
     public List<String> getCostFieldValue() {
@@ -57,10 +69,18 @@ public class PortionCalcController {
     }
 
     public void setCostField(String costField) {
-        this.costFieldValue.add(costField);
+        if(!costField.isEmpty()){
+            this.costFieldValue.add(costField);
+        }else{
+            this.costFieldValue.add("0");
+        }
     }
     public void setQuantityFieldValue(String quantityFieldValue){
-        this.quantityFieldValue = Integer.parseInt(quantityFieldValue);
+        if(!quantityFieldValue.isEmpty()){
+            this.quantityFieldValue = Integer.parseInt(quantityFieldValue);
+        }else{
+            this.quantityFieldValue = 1;
+        }
     }
     
     public int getPortionQuantityFieldValue(){
