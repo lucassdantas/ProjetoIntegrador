@@ -2195,10 +2195,11 @@ public void limparCalculoPorcoes() {
         PorcoesCalcular.findUnityFields();
         PorcoesCalcular.findCostFields();
 
+        PorcoesCalcular.setCurrentPortionQuantity(1);
         PorcoesCalcular.setPortionQuantityFieldValue(calcController.getPortionQuantityFieldValue());
         PorcoesCalcular.setItemFieldValue(calcController.getItemFieldValue());
-        PorcoesCalcular.setUnFieldValue(calcController.getQntFieldValue());
-        PorcoesCalcular.setQntFieldValue(calcController.getUnityFieldValue());
+        PorcoesCalcular.setUnFieldValue(calcController.getUnityFieldValue());
+        PorcoesCalcular.setQntFieldValue(calcController.getQntFieldValue());
         PorcoesCalcular.setCostFieldValue(calcController.getCostFieldValue());
         PorcoesCalcular.setVisible(true);
         
