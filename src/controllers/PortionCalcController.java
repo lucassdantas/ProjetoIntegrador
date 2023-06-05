@@ -53,7 +53,7 @@ public class PortionCalcController {
     }
 
     public List<String> getUnityFieldValue() {
-        return qntFieldValue;
+        return unityFieldValue;
     }
 
     public void setUnityField(String unityField) {

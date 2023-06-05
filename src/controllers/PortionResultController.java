@@ -27,7 +27,11 @@ public class PortionResultController {
     private int currentPortionQuantity; 
     
     public float ruleOfThree(float value){
-        return value * this.portionQuantity / this.currentPortionQuantity;
+        if (value == 0){
+            return 0;
+        }
+        float result = (value * this.portionQuantity) / this.currentPortionQuantity;
+        return result;
     }
 
     public int getCurrentPortionQuantity() {
@@ -35,7 +39,13 @@ public class PortionResultController {
     }
 
     public void setCurrentPortionQuantity(int currentPortionQuantity) {
-        this.currentPortionQuantity = currentPortionQuantity;
+        System.out.print(currentPortionQuantity);
+        if(currentPortionQuantity <= 0){
+            this.currentPortionQuantity = 1;
+        }
+        else{
+            this.currentPortionQuantity = currentPortionQuantity;
+        }
     }
     
     public int getPortionQuantity() {
