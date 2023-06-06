@@ -31,14 +31,16 @@ public class SnackDao {
         try{
             sql = con.prepareStatement(
          "insert into snacks(nameS, costS, priceS, weightS, creationS, updateS, minQuantityS, statusS) values (?,?,?,?,?,?,?,?);") ;
-            sql.setString(1, snack.getName());
-            sql.setFloat(2, snack.getCost());
-            sql.setFloat(3, snack.getPrice());
-            sql.setFloat(4, snack.getWeight());
-            sql.setString(5, snack.getToStringCreation());
-            sql.setString(6, snack.getToStringUpdate());
-            sql.setInt(7, snack.getMinQuantity());
-            sql.setString(8, snack.getStatus());
+            sql.setInt(1, snack.getSnackId());
+            sql.setString(2, snack.getSnackTitle());
+            sql.setFloat(3, snack.getSnackSellingPrice());
+            sql.setString(4, snack.getSnackDescription());
+            sql.setString(5, snack.getSnackImageUrl());
+            sql.setString(6, snack.getSnackStatus());
+            
+        
+
+            
             
             sql.executeUpdate();
             
@@ -65,16 +67,18 @@ public class SnackDao {
             rs = sql.executeQuery();
             while(rs.next()){
                 Snack snack = new Snack();
-                snack.setId(rs.getInt("id_snack"));
-                snack.setName(rs.getString("nameS"));
-                snack.setCost(rs.getFloat("costS"));
-                snack.setPrice(rs.getFloat("priceS"));
-                snack.setWeight(rs.getFloat("weightS"));
-                snack.setToLocalDateTimeCreation(rs.getString("creationS"));
-                snack.setToLocalDateTimeUpdate(rs.getString("updateS"));
-                snack.setMinQuantity(rs.getInt("whitS"));
-                snack.setStatus(rs.getString("statusS"));
+                snack.setId(rs.getInt("snackId"));
+                snack.setSnackTitle(rs.getString("snackTitle"));
+                snack.setSnackSellingPrice(rs.getFloat("nackSellingPrice"));
+                snack.setSnackDescription(rs.getString("snackDescription"));
+                snack.setSnackImageUrl(rs.getString("snackImageUrl"));
+                snack.setSnackStatus(rs.getString("snackStatus"));
                 snacks.add(snack);
+          
+           
+            
+            
+            
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
@@ -92,20 +96,22 @@ public class SnackDao {
         ResultSet rs = null;
         try{
             sql = con.prepareStatement("UPDATE snacks SET nameS, costS, priceS, weightS, creationS, updateS, whitS, statusS where snackId = ?;");
-            sql.setString(1, snack.getName());
-            sql.setFloat(2, snack.getCost());
-            sql.setFloat(3, snack.getPrice());
-            sql.setFloat(4, snack.getWeight());
-            sql.setString(5, snack.getToStringCreation());
-            sql.setString(6, snack.getToStringUpdate());
-            sql.setInt(7, snack.getMinQuantity());
-            sql.setString(8, snack.getStatus());
+            sql.setInt(1, snack.getSnackId());
+            sql.setString(2, snack.getSnackTitle());
+            sql.setFloat(3, snack.getSnackSellingPrice());
+            sql.setString(4, snack.getSnackDescription());
+            sql.setString(5, snack.getSnackImageUrl());
+            sql.setString(6, snack.getSnackStatus());
+            
+           
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         }finally{
             ConnectionFactory.closeConnection(con,sql,rs);
+    
+         
         }
     }
     
@@ -139,15 +145,13 @@ public class SnackDao {
             while(rs.next()){
                 Snack snack = new Snack();
                 snack.setId(rs.getInt("snackId"));
-                snack.setName(rs.getString("name"));
-                snack.setCost(rs.getFloat("costS"));
-                snack.setPrice(rs.getFloat("priceS"));
-                snack.setWeight(rs.getFloat("weightS"));
-                snack.setToLocalDateTimeCreation(rs.getString("creationS"));
-                snack.setToLocalDateTimeUpdate(rs.getString("updateS"));
-                snack.setMinQuantity(rs.getInt("whitS"));
-                snack.setStatus(rs.getString("statusS"));
+                snack.setSnackTitle(rs.getString("snackTitle"));
+                snack.setSnackSellingPrice(rs.getFloat("snackSellingPrice"));
+                snack.setSnackDescription(rs.getString("snackDescription"));
+                snack.setSnackImageUrl(rs.getString("snackImageUrl"));
+                snack.setSnackStatus(rs.getString("snackStatus"));
                 snacks.add(snack);
+ 
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);

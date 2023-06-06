@@ -32,16 +32,16 @@ public class IngredientDao {
         
         try{
             sql = con.prepareStatement(
-         "insert into ingredients(nameI, priceI, weightI, quantityI, typeI, creationI, updateI, statusI) values (?,?,?,?,?,?,?,?,);") ;
-            sql.setString(1, ingredient.getName());
-            sql.setFloat(2, ingredient.getPrice());
-            sql.setFloat(3, ingredient.getWeight());
-            sql.setFloat(3, ingredient.getQuantity());
-            sql.setString(4, ingredient.getType());
-            sql.setString(5, (ingredient.getToStringCreation()));
-            sql.setString(6, (ingredient.getToStringUpdate()));
-            sql.setString(7, ingredient.getStatus());
+         "insert into ingredients(name, prce, weght, quantty, type, creaton, update, status) values (?,?,?,?,?,?,?,?,);") ;
+            sql.setString(1, ingredient.getIngredientName());
+            sql.setFloat(2, ingredient.getIngredientMinQuantity());
+            sql.setString(3, ingredient.getIngredientUnitOfMeasure());
+            sql.setFloat(3, ingredient.getIngredientUnitCost());
+            sql.setString(4, ingredient.getIngredientStatus());
+            sql.setFloat(5, (ingredient.getIngredientStock()));
+            sql.setString(6, (ingredient.getIngredientStockStatus()));
             
+    
             sql.executeUpdate();
             
             JOptionPane.showMessageDialog(
@@ -68,18 +68,18 @@ public class IngredientDao {
             while(rs.next()){
                 Ingredient ingredient = new Ingredient();
                 ingredient.setId(rs.getInt("ingredientId"));
-                ingredient.setName(rs.getString("nameI"));
-                ingredient.setPrice(rs.getFloat("priceI"));
-                ingredient.setWeight(rs.getFloat("weightI"));
-                ingredient.setQuantity(rs.getInt("quantityI"));
-                ingredient.setType(rs.getString("typeI"));
-                ingredient.setToLocalDateTimeCreation(rs.getString("creationI"));
-                ingredient.setToLocalDateTimeUpdate(rs.getString("updateI"));
-                ingredient.setStatus(rs.getString("statusI"));
+                ingredient.setIngredientName(rs.getString("IngredientName"));
+                ingredient.setIngredientMinQuantity(rs.getFloat("IngredientMinQuantity"));
+                ingredient.setIngredientUnitOfMeasure(rs.getString("IngredientUnitOfMeasure"));
+                ingredient.setIngredientUnitCost(rs.getFloat("ingredientUnitCost"));
+                ingredient.setIngredientStatus(rs.getString("ingredientStatus"));
+                ingredient.setIngredientStock(rs.getFloat("ingredientStock"));
+                ingredient.setIngredientStockStatus(rs.getString("ingredientStockStatus"));
+                
                 ingredients.add(ingredient);
-            }
+            } 
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
+          JOptionPane.showMessageDialog(null, e);
         } finally{
             ConnectionFactory.closeConnection(con, sql, rs);
         }
@@ -94,15 +94,14 @@ public class IngredientDao {
         ResultSet rs = null;
         try{
             sql = con.prepareStatement("update ingredientes set nome = ?, preco_i = ?, peso_i = ?, quantidade_i = ?, tipo_i = ? criacao_i = ?, atualizacao_i = ?, status_i = ? where id = ?");
-            sql.setString(1, ingrediente.getName());
-            sql.setFloat(2, ingrediente.getPrice());
-            sql.setFloat(3, ingrediente.getWeight());
-            sql.setInt(4, ingrediente.getQuantity());
-            sql.setString(5, ingrediente.getType());
-            sql.setString(6, ingrediente.getToStringCreation());
-            sql.setString(7, ingrediente.getToStringUpdate());
-            sql.setString(8, ingrediente.getStatus());
-            sql.setString(9, ingrediente.getStatus());
+            sql.setString(1, ingrediente.getIngredientName());
+            sql.setFloat(2, ingrediente.getIngredientMinQuantity());
+            sql.setString(3, ingrediente.getIngredientUnitOfMeasure());
+            sql.setFloat(4, ingrediente.getIngredientUnitCost());
+            sql.setString(5, ingrediente.getIngredientStatus());
+            sql.setFloat(6, ingrediente.getIngredientStock());
+            sql.setString(7, ingrediente.getIngredientStockStatus());
+           
             sql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Sucesso");
         }catch(SQLException e){
@@ -142,14 +141,17 @@ public class IngredientDao {
             while(rs.next()){
                Ingredient ingredient = new Ingredient();
                 ingredient.setId(rs.getInt("ingredientId"));
-                ingredient.setPrice(rs.getFloat("priceI"));
-                ingredient.setWeight(rs.getFloat("weightI"));
-                ingredient.setQuantity(rs.getInt("quantityI"));
-                ingredient.setType(rs.getString("typeI"));
-                ingredient.setToLocalDateTimeCreation(rs.getString("creationI"));
-                ingredient.setToLocalDateTimeUpdate(rs.getString("updateI"));
-                ingredient.setStatus(rs.getString("statusI"));
+                ingredient.setIngredientName(rs.getString("IngredientName"));
+                ingredient.setIngredientMinQuantity(rs.getFloat("IngredientMinQuantity"));
+                ingredient.setIngredientUnitOfMeasure(rs.getString("ingredientUnitOfMeasure"));
+                ingredient.setIngredientUnitCost(rs.getFloat("ingredientUnitCost"));
+                ingredient.setIngredientStatus(rs.getString("ingredientStatus"));
+                ingredient.setIngredientStock(rs.getFloat(" ingredientStock"));
+                ingredient.setIngredientStockStatus(rs.getString("ingredientStockStatus"));
                 ingredients.add(ingredient);
+           
+ 
+            
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
