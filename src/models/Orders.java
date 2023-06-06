@@ -4,14 +4,13 @@
  */
 package models;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
  *
  * @author Lucas Dantas
  */
-public class Orders extends EntityMultipleId{
+public class Orders {
     private int orderId;
     private int orderSnackId;
     private int orderQuantity;
@@ -19,21 +18,10 @@ public class Orders extends EntityMultipleId{
     private float orderUnitPrice;
     private float orderTotalPrice;
     private Date orderDate;
-
-    public Orders() {
-    }
-
-    public Orders(int orderId, int orderSnackId, int orderQuantity, float orderCost, float orderUnitPrice, float orderTotalPrice, Date orderDate, LocalDateTime creation, LocalDateTime update, String status) {
-        super( creation, update, status);
-        this.orderId = orderId;
-        this.orderSnackId = orderSnackId;
-        this.orderQuantity = orderQuantity;
-        this.orderCost = orderCost;
-        this.orderUnitPrice = orderUnitPrice;
-        this.orderTotalPrice = orderTotalPrice;
-        this.orderDate = orderDate;
-    }
-
+    private Snack snack;
+    
+    public Orders(){};
+    
     public int getOrderId() {
         return orderId;
     }
@@ -89,6 +77,13 @@ public class Orders extends EntityMultipleId{
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
-    
-    
+
+    public Snack getSnack() {
+        return snack;
+    }
+
+    public void setSnack(Snack snack) {
+        this.snack = snack;
+    }
 }
+
