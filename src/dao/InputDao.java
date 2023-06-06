@@ -7,160 +7,91 @@ package dao;
 
 import ConnectionFactory.ConnectionFactory;
 import models.Input;
-import java.util.List;
+import java.sql.*;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
+public class InputDAO {
+    private final Connection connection;
 
-
-/**
- *
- * @author 42labinfo
- */
-public class InputDao {
-    
-    public void create(Input input) throws SQLException{
-        
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        
-        try{
-            sql = con.prepareStatement(
-         "insert into inputs(weightI, costI, quantityI, creationI, updateI, statusI, ingredientId) values (?,?,?,?,?,?,?)") ;
-            sql.setFloat(1, input.getWeight());
-            sql.setFloat(2, input.getCost());
-            sql.setInt(3, input.getQuantity());
-            sql.setString(4, input.getToStringCreation());
-            sql.setString(5, input.getToStringUpdate());
-            sql.setString(6, input.getStatus());
-            sql.setInt(7, input.getIngredientId());
-            sql.executeUpdate();
-            
-            JOptionPane.showMessageDialog(
-                    null, "Cadasdtrado com sucesso!");
-        }catch(SQLException ex){
-           JOptionPane.showMessageDialog(
-                   null, "Erro ao Cadastrar: " + ex);
-        }finally{
-            ConnectionFactory.closeConnection(con, sql);
-        }
-        
+    public InputDAO() throws SQLException {
+        this.connection = ConnectionFactory.getConnection();
     }
     
-    
-    public List<Input> read() throws SQLException{
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        ResultSet rs = null;
-        
+    public List<Input> selectAllInputs() throws SQLException {
         List<Input> inputs = new ArrayList<>();
-        try{
-            sql = con.prepareStatement("SELECT input.*, ingredient.* FROM input INNER JOIN ingredient ON input.ingredientId = ingredient.ingredientId");
-            rs = sql.executeQuery();
-            while(rs.next()){
+        String query = "SELECT * FROM input";
+        try (PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
                 Input input = new Input();
-                input.setId(rs.getInt("inputId"));
-                input.setWeight(rs.getFloat("weightIn"));
-                input.setCost(rs.getFloat("costIn"));
-                input.setQuantity(rs.getInt("quantityIn"));
-                //input.setToLocalDateTimeCreation(rs.getString("creationIn"));
-                //input.setToLocalDateTimeUpdate(rs.getString("updateIn"));
-                input.setStatus(rs.getString("statusIn"));
-                input.setIngredientId(rs.getInt("ingredientId"));
-                
-                //ingredientTable
-                input.setIngredientName(rs.getString("nameI"));
-                input.setIngredientPrice(rs.getFloat("priceI"));
-                input.setIngredientWeight(rs.getFloat("weightI"));
-                input.setIngredientQuantity(rs.getInt("quantityI"));
-                input.setIngredientType(rs.getString("typeI"));
-                //input.setIngredientCreation(rs.getString("creationI"));
-                //input.setIngredientUpdate(rs.getString("updeteI"));
-                input.setStatus(rs.getString("statusI"));                
+                input.setInputId(resultSet.getInt("inputId"));
+                input.setIngredientId(resultSet.getInt("ingredientId"));
+                input.setInputQuantity(resultSet.getInt("inputQuantity"));
+                input.setInputCost(resultSet.getFloat("inputCost"));
+                input.setInputDate(resultSet.getDate("inputDate"));
+                input.setInputStatus(resultSet.getString("inputStatus"));
                 inputs.add(input);
-                
             }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        } finally{
-            ConnectionFactory.closeConnection(con, sql, rs);
         }
         return inputs;
-      
-    }
-    
-    
-    public void update(Input input) throws SQLException{
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        ResultSet rs = null;
-        try{
-            sql = con.prepareStatement("update inputs set weightI = ?, custI = ?, quantityI = ?, creationI = ?, updateI = ?, statusI = ?, ingredientId = ? where id = ?");
-            sql.setFloat(1, input.getWeight());
-            sql.setFloat(2, input.getCost());
-            sql.setInt(3, input.getQuantity());
-            sql.setString(4, input.getToStringCreation());
-            sql.setString(5, input.getToStringUpdate());
-            sql.setString(7, input.getStatus());
-            sql.setInt(8, input.getIngredientId());
-            sql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Sucesso");
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }finally{
-            ConnectionFactory.closeConnection(con,sql,rs);
-        }
-    }
-    
-    public void delete(Input inputs) throws SQLException{
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        
-        try{
-            sql = con.prepareStatement("DELETE FROM inputs WHERE id = ?");
-            sql.setInt(1, inputs.getId());
-            sql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "sucesso");
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }finally{
-            ConnectionFactory.closeConnection(con,sql);
-        }
-    }
-    
-     
-    public List<Input> readBusca(String busca) throws SQLException{
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        ResultSet rs = null;
-        
-        List<Input> inputs = new ArrayList<>();
-        try{
-            sql = con.prepareStatement("SELECT input.*, ingredients.nameI FROM snack INNER JOIN ingredients ON input.ingredientId = ingredients.ingredientId WHERE ingredients.nameI LIKE ?;");
-            sql.setString(1, "%"+busca+"%");
-            rs = sql.executeQuery();
-            while(rs.next()){
-               Input input = new Input();
-                input.setId(rs.getInt("inputId"));
-                input.setWeight(rs.getFloat("weightI"));
-                input.setCost(rs.getFloat("costI"));
-                input.setQuantity(rs.getInt("quantityId"));
-                input.setToLocalDateTimeCreation(rs.getString("creationI"));
-                input.setToLocalDateTimeUpdate(rs.getString("updateI"));
-                input.setStatus(rs.getString("statusI"));
-                input.setIngredientId(rs.getInt("ingredient"));
-                inputs.add(input);
-            }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        } finally{
-            ConnectionFactory.closeConnection(con, sql, rs);
-        }
-        return inputs; 
     }
 
+    public List<Input> searchInputs(String searchTerm) throws SQLException {
+        List<Input> inputs = new ArrayList<>();
+        String query = "SELECT * FROM input WHERE ingredientId IN (SELECT ingredientId FROM ingredient WHERE ingredientName LIKE ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, "%" + searchTerm + "%");
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Input input = new Input();
+                    input.setInputId(resultSet.getInt("inputId"));
+                    input.setIngredientId(resultSet.getInt("ingredientId"));
+                    input.setInputQuantity(resultSet.getInt("inputQuantity"));
+                    input.setInputCost(resultSet.getFloat("inputCost"));
+                    input.setInputDate(resultSet.getDate("inputDate"));
+                    input.setInputStatus(resultSet.getString("inputStatus"));
+                    inputs.add(input);
+                }
+            }
+        }
+        return inputs;
+    }
+
+    public void addInput(Input input) throws SQLException {
+        String query = "INSERT INTO input (ingredientId, inputQuantity, inputCost, inputDate, inputStatus) " +
+                "VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, input.getIngredientId());
+            statement.setInt(2, input.getInputQuantity());
+            statement.setFloat(3, input.getInputCost());
+            statement.setDate(4, (Date) input.getInputDate());
+            statement.setString(5, input.getInputStatus());
+            statement.executeUpdate();
+        }
+    }
+
+    public void updateInput(Input input) throws SQLException {
+        String query = "UPDATE input SET ingredientId = ?, inputQuantity = ?, inputCost = ?, inputDate = ?, " +
+                "inputStatus = ? WHERE inputId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, input.getIngredientId());
+            statement.setInt(2, input.getInputQuantity());
+            statement.setFloat(3, input.getInputCost());
+            statement.setDate(4, (Date) input.getInputDate());
+            statement.setString(5, input.getInputStatus());
+            statement.setInt(6, input.getInputId());
+            statement.executeUpdate();
+        }
+    }
+
+    public void deleteInput(int inputId) throws SQLException {
+        String query = "DELETE FROM input WHERE inputId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, inputId);
+            statement.executeUpdate();
+        }
+    }
+
+    // Outras funções do DAO para buscar, adicionar, editar e excluir Input
 }

@@ -10,22 +10,15 @@ import java.time.LocalDateTime;
  *
  * @author Lucas Dantas
  */
-public class DataSheet extends EntityMultipleId{
+public class DataSheet extends EntityMultipleId {
     private int dsSnackId;
     private int dsIngredientId;
     private int dsQuantity;
     private float dsTotalCost;
     private String dsStatus;
-
-    public DataSheet() {}
-
-    public DataSheet(int dsSnackId, int dsIngredientId, int dsQuantity, float dsTotalCost, LocalDateTime creation, LocalDateTime update, String status) {
-        super(creation, update, status);
-        this.dsSnackId = dsSnackId;
-        this.dsIngredientId = dsIngredientId;
-        this.dsQuantity = dsQuantity;
-        this.dsTotalCost = dsTotalCost;
-    }
+    
+    private Snack snack;
+    private Ingredient ingredient;
 
     public int getDsSnackId() {
         return dsSnackId;
@@ -66,5 +59,21 @@ public class DataSheet extends EntityMultipleId{
     public void setDsStatus(String dsStatus) {
         this.dsStatus = dsStatus;
     }
-    
+
+    public Snack getSnack() {
+        return snack;
+    }
+
+    public void setSnack(Snack snack) {
+        this.snack = snack;
+    }
+
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
+    }
 }
+

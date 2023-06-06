@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
     //declaração de variaveis
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/projetointegrador";
+    private static final String URL = "jdbc:mysql://localhost:3306/novoprojetointegrador";
     private static final String USER = "root";
     private static final String PASS = "";
     
