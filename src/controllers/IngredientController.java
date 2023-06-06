@@ -6,6 +6,7 @@ package controllers;
 
 import dao.IngredientDAO;
 import java.sql.SQLException;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import models.Ingredient;
@@ -15,7 +16,7 @@ import models.Ingredient;
  * @author Lucas Dantas
  */
 public class IngredientController {
-        public void readJTable(javax.swing.JTable table) throws SQLException{
+    public void readJTable(javax.swing.JTable table) throws SQLException{
         
         DefaultTableModel modelo = (DefaultTableModel) table.getModel();        
         table.setRowSorter(new TableRowSorter(modelo));
@@ -59,27 +60,16 @@ public class IngredientController {
         }       
     }
 
-    public void limpar(){
-        
-        //limpar os campos
-        txtId.setText("");
-        txtDescricao.setText("");
-        txtValor.setText("");
-        txtBusca.setText("");
-        txtDescricao.grabFocus();
-        
-        btnAdicionar.setEnabled(true);
-        txtBusca.setEnabled(true);
-        btnBuscar.setEnabled(true);
-        
-        btnExcluir.setEnabled(false);
-        btnAtualizar.setEnabled(false);
-        
+    public void clean (List <javax.swing.JTextField> Fields,  javax.swing.JTable table){
+        Fields.forEach((field) -> {
+                field.setText("");
+        });
         try {
-            readJTable();
+            this.readJTable(table);
         } catch (SQLException ex) {
             System.out.println("Erro ao acessar o Banco de dador" + ex);
         }
-        
     }
+
+    public void add ()
 }

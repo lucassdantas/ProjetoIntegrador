@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
  * @author Lucas Dantas
  */
 public class Ingredient extends EntityId{
-    private int ingredientId;
     private String ingredientName;
     private float ingredientMinQuantity;
     private String ingredientUnitOfMeasure;
@@ -34,9 +33,7 @@ public class Ingredient extends EntityId{
         this.ingredientStockStatus = ingredientStockStatus;
     }
 
-    public void setIngredientId(int ingredientId) {
-        this.ingredientId = ingredientId;
-    }
+    
 
     public String getIngredientName() {
         return ingredientName;

@@ -63,7 +63,7 @@ public class DataSheetDAO {
                     snack.setSnackStatus(resultSet.getString("snackStatus"));
 
                     Ingredient ingredient = new Ingredient();
-                    ingredient.setIngredientId(resultSet.getInt("ingredientId"));
+                    ingredient.setId(resultSet.getInt("ingredientId"));
                     ingredient.setIngredientName(resultSet.getString("ingredientName"));
                     ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
                     ingredient.setIngredientUnitOfMeasure(resultSet.getString("ingredientUnitOfMeasure"));
