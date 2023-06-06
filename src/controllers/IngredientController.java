@@ -30,20 +30,19 @@ public class IngredientController {
             });
         }       
     }
-    /*
-    public void readJTableBusca(String busca) throws SQLException{
+    
+    public void readJTableBusca(String search,javax.swing.JTable table ) throws SQLException{
         
         DefaultTableModel modelo = (DefaultTableModel) table.getModel();        
         table.setRowSorter(new TableRowSorter(modelo));
-        modelo.setNumRows(0);//utilizado para não duplicar as linhas
+        modelo.setNumRows(0);
         
-        ServicoDao servicoDao = new ServicoDao();
+        IngredientDAO dao = new IngredientDAO();
         
-        for (Servico servico: servicoDao.readBusca(busca)){
+        for (Ingredient ingredient: dao.search(search)){
             modelo.addRow(new Object[]{
-                servico.getId(),
-                servico.getDescricao(),
-                servico.getValor()
+                ingredient.getId(),
+                ingredient.getIngredientName()
             });
         }       
     }
@@ -70,5 +69,5 @@ public class IngredientController {
             System.out.println("Erro ao acessar o Banco de dador" + ex);
         }
         
-    }*/
+    }
 }

@@ -35,7 +35,7 @@ public class DataSheetDAO {
         return dataSheets;
     }
 
-    public List<DataSheet> searchDataSheets(String searchTerm) throws SQLException {
+    public List<DataSheet> search(String searchTerm) throws SQLException {
         List<DataSheet> dataSheets = new ArrayList<>();
         String query = "SELECT datasheet.*, snack.*, ingredient.* " +
                 "FROM datasheet ds " +

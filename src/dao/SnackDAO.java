@@ -40,7 +40,7 @@ public class SnackDAO {
         return snacks;
     }
 
-    public List<Snack> searchSnacks(String searchTerm) throws SQLException {
+    public List<Snack> search(String searchTerm) throws SQLException {
         List<Snack> snacks = new ArrayList<>();
         String query = "SELECT * FROM snack WHERE snackTitle LIKE ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {

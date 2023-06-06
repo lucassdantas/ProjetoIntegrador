@@ -59,7 +59,7 @@ public class OrdersDAO {
         }
     }
 
-    public List<Orders> selectOrderBySnackName(String snackName) throws SQLException {
+    public List<Orders> search(String snackName) throws SQLException {
         List<Orders> orders = new ArrayList<>();
         String query = "SELECT o.orderId, o.orderSnackId, o.orderQuantity, o.orderCost, o.orderUnitPrice, " +
                 "o.orderTotalPrice, o.orderDate, s.snackTitle, s.snackSellingPrice, s.snackDescription, s.snackImageUrl, s.snackStatus " +
