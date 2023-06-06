@@ -7,159 +7,94 @@ package dao;
 
 import ConnectionFactory.ConnectionFactory;
 import models.Snack;
-import java.util.List;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+public class SnackDAO {
+    private final Connection connection;
 
-
-/**
- *
- * @author 42labinfo
- */
-public class SnackDao {
-    
-    public void create(Snack snack) throws SQLException{
-        
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        
-        try{
-            sql = con.prepareStatement(
-         "insert into snacks(nameS, costS, priceS, weightS, creationS, updateS, minQuantityS, statusS) values (?,?,?,?,?,?,?,?);") ;
-            sql.setInt(1, snack.getSnackId());
-            sql.setString(2, snack.getSnackTitle());
-            sql.setFloat(3, snack.getSnackSellingPrice());
-            sql.setString(4, snack.getSnackDescription());
-            sql.setString(5, snack.getSnackImageUrl());
-            sql.setString(6, snack.getSnackStatus());
-            
-        
-
-            
-            
-            sql.executeUpdate();
-            
-            JOptionPane.showMessageDialog(
-                    null, "Cadasdtrado com sucesso!");
-        }catch(SQLException ex){
-           JOptionPane.showMessageDialog(
-                   null, "Erro ao Cadastrar: " + ex);
-        }finally{
-            ConnectionFactory.closeConnection(con, sql);
-        }
-        
+    public SnackDAO() throws SQLException {
+        this.connection = ConnectionFactory.getConnection();
     }
-    
-    
-    public List<Snack> read() throws SQLException{
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        ResultSet rs = null;
-        
+
+    public List<Snack> selectAllSnacks() throws SQLException {
         List<Snack> snacks = new ArrayList<>();
-        try{
-            sql = con.prepareStatement("SELECT * FROM snack;");
-            rs = sql.executeQuery();
-            while(rs.next()){
+        String query = "SELECT * FROM snack";
+        try (PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
                 Snack snack = new Snack();
-                snack.setId(rs.getInt("snackId"));
-                snack.setSnackTitle(rs.getString("snackTitle"));
-                snack.setSnackSellingPrice(rs.getFloat("nackSellingPrice"));
-                snack.setSnackDescription(rs.getString("snackDescription"));
-                snack.setSnackImageUrl(rs.getString("snackImageUrl"));
-                snack.setSnackStatus(rs.getString("snackStatus"));
+                snack.setSnackId(resultSet.getInt("snackId"));
+                snack.setSnackTitle(resultSet.getString("snackTitle"));
+                snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
+                snack.setSnackDescription(resultSet.getString("snackDescription"));
+                snack.setSnackImageUrl(resultSet.getString("snackImageUrl"));
+                snack.setSnackStatus(resultSet.getString("snackStatus"));
                 snacks.add(snack);
-          
-           
-            
-            
-            
             }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        } finally{
-            ConnectionFactory.closeConnection(con, sql, rs);
         }
         return snacks;
-      
-    }
-    
-    
-    public void update(Snack snack) throws SQLException{
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        ResultSet rs = null;
-        try{
-            sql = con.prepareStatement("UPDATE snacks SET nameS, costS, priceS, weightS, creationS, updateS, whitS, statusS where snackId = ?;");
-            sql.setInt(1, snack.getSnackId());
-            sql.setString(2, snack.getSnackTitle());
-            sql.setFloat(3, snack.getSnackSellingPrice());
-            sql.setString(4, snack.getSnackDescription());
-            sql.setString(5, snack.getSnackImageUrl());
-            sql.setString(6, snack.getSnackStatus());
-            
-           
-            sql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Sucesso");
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }finally{
-            ConnectionFactory.closeConnection(con,sql,rs);
-    
-         
-        }
-    }
-    
-    public void delete(Snack snack) throws SQLException{
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        
-        try{
-            sql = con.prepareStatement("DELETE FROM snacks WHERE snackId = ?");
-            sql.setInt(1, snack.getId());
-            sql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "sucesso");
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }finally{
-            ConnectionFactory.closeConnection(con,sql);
-        }
-    }
-    
-     
-    public List<Snack> readBusca(String busca) throws SQLException{
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement sql = null;
-        ResultSet rs = null;
-        
-        List<Snack> snacks = new ArrayList<>();
-        try{
-            sql = con.prepareStatement("SELECT * FROM snacks WHERE nome_l LIKE ?");
-            sql.setString(1, "%"+busca+"%");
-            rs = sql.executeQuery();
-            while(rs.next()){
-                Snack snack = new Snack();
-                snack.setId(rs.getInt("snackId"));
-                snack.setSnackTitle(rs.getString("snackTitle"));
-                snack.setSnackSellingPrice(rs.getFloat("snackSellingPrice"));
-                snack.setSnackDescription(rs.getString("snackDescription"));
-                snack.setSnackImageUrl(rs.getString("snackImageUrl"));
-                snack.setSnackStatus(rs.getString("snackStatus"));
-                snacks.add(snack);
- 
-            }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        } finally{
-            ConnectionFactory.closeConnection(con, sql, rs);
-        }
-        return snacks; 
     }
 
-    
+    public List<Snack> searchSnacks(String searchTerm) throws SQLException {
+        List<Snack> snacks = new ArrayList<>();
+        String query = "SELECT * FROM snack WHERE snackTitle LIKE ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, "%" + searchTerm + "%");
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Snack snack = new Snack();
+                    snack.setSnackId(resultSet.getInt("snackId"));
+                    snack.setSnackTitle(resultSet.getString("snackTitle"));
+                    snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
+                    snack.setSnackDescription(resultSet.getString("snackDescription"));
+                    snack.setSnackImageUrl(resultSet.getString("snackImageUrl"));
+                    snack.setSnackStatus(resultSet.getString("snackStatus"));
+                    snacks.add(snack);
+                }
+            }
+        }
+        return snacks;
+    }
+
+    public void addSnack(Snack snack) throws SQLException {
+        String query = "INSERT INTO snack (snackTitle, snackSellingPrice, snackDescription, snackImageUrl, snackStatus) " +
+                "VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, snack.getSnackTitle());
+            statement.setFloat(2, snack.getSnackSellingPrice());
+            statement.setString(3, snack.getSnackDescription());
+            statement.setString(4, snack.getSnackImageUrl());
+            statement.setString(5, snack.getSnackStatus());
+            statement.executeUpdate();
+        }
+    }
+
+    public void updateSnack(Snack snack) throws SQLException {
+        String query = "UPDATE snack SET snackTitle = ?, snackSellingPrice = ?, snackDescription = ?, " +
+                "snackImageUrl = ?, snackStatus = ? WHERE snackId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, snack.getSnackTitle());
+            statement.setFloat(2, snack.getSnackSellingPrice());
+            statement.setString(3, snack.getSnackDescription());
+            statement.setString(4, snack.getSnackImageUrl());
+            statement.setString(5, snack.getSnackStatus());
+            statement.setInt(6, snack.getSnackId());
+            statement.executeUpdate();
+        }
+    }
+
+    public void deleteSnack(int snackId) throws SQLException {
+        String query = "DELETE FROM snack WHERE snackId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, snackId);
+            statement.executeUpdate();
+        }
+    }
+
+    // Outras funções do DAO para buscar, adicionar, editar e excluir Snack
 }
