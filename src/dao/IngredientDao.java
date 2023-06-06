@@ -14,6 +14,7 @@ import models.Ingredient;
 public class IngredientDAO {
     private final Connection connection;
 
+
     /**
      *
      * @throws SQLException
@@ -29,6 +30,7 @@ public class IngredientDAO {
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Ingredient ingredient = new Ingredient();
+
                 ingredient.setIngredientId(resultSet.getInt("ingredientId"));
                 ingredient.setIngredientName(resultSet.getString("ingredientName"));
                 ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
@@ -39,9 +41,11 @@ public class IngredientDAO {
                 ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
                 ingredients.add(ingredient);
             }
+               
         }
         return ingredients;
     }
+
 
     public List<Ingredient> searchIngredients(String searchTerm) throws SQLException {
         List<Ingredient> ingredients = new ArrayList<>();
@@ -79,6 +83,7 @@ public class IngredientDAO {
             statement.setFloat(6, ingredient.getIngredientStock());
             statement.setString(7, ingredient.getIngredientStockStatus());
             statement.executeUpdate();
+
         }
     }
 
@@ -98,14 +103,13 @@ public class IngredientDAO {
             statement.executeUpdate();
         }
     }
-
+  
     public void deleteIngredient(int ingredientId) throws SQLException {
         String query = "DELETE FROM ingredient WHERE ingredientId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, ingredientId);
             statement.executeUpdate();
+
         }
     }
-
-    // Outras funções do DAO para buscar, adicionar, editar e excluir Ingredient
 }
