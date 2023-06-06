@@ -37,7 +37,7 @@ public class InputDAO {
         return inputs;
     }
 
-    public List<Input> searchInputs(String searchTerm) throws SQLException {
+    public List<Input> search(String searchTerm) throws SQLException {
         List<Input> inputs = new ArrayList<>();
         String query = "SELECT * FROM input WHERE ingredientId IN (SELECT ingredientId FROM ingredient WHERE ingredientName LIKE ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {

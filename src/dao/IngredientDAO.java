@@ -47,7 +47,7 @@ public class IngredientDAO {
     }
 
 
-    public List<Ingredient> searchIngredients(String searchTerm) throws SQLException {
+    public List<Ingredient> search(String searchTerm) throws SQLException {
         List<Ingredient> ingredients = new ArrayList<>();
         String query = "SELECT * FROM ingredient WHERE ingredientName LIKE ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
