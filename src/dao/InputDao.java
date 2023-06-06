@@ -92,6 +92,4 @@ public class InputDAO {
             statement.executeUpdate();
         }
     }
-
-    // Outras funções do DAO para buscar, adicionar, editar e excluir Input
 }

@@ -106,6 +106,4 @@ public class IngredientDAO {
             statement.executeUpdate();
         }
     }
-
-    // Outras funções do DAO para buscar, adicionar, editar e excluir Ingredient
 }
