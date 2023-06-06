@@ -31,7 +31,7 @@ public class IngredientDAO {
             while (resultSet.next()) {
                 Ingredient ingredient = new Ingredient();
 
-                ingredient.setIngredientId(resultSet.getInt("ingredientId"));
+                ingredient.setId(resultSet.getInt("ingredientId"));
                 ingredient.setIngredientName(resultSet.getString("ingredientName"));
                 ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
                 ingredient.setIngredientUnitOfMeasure(resultSet.getString("ingredientUnitOfMeasure"));
@@ -55,7 +55,7 @@ public class IngredientDAO {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     Ingredient ingredient = new Ingredient();
-                    ingredient.setIngredientId(resultSet.getInt("ingredientId"));
+                    ingredient.setId(resultSet.getInt("ingredientId"));
                     ingredient.setIngredientName(resultSet.getString("ingredientName"));
                     ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
                     ingredient.setIngredientUnitOfMeasure(resultSet.getString("ingredientUnitOfMeasure"));
@@ -99,7 +99,7 @@ public class IngredientDAO {
             statement.setString(5, ingredient.getIngredientStatus());
             statement.setFloat(6, ingredient.getIngredientStock());
             statement.setString(7, ingredient.getIngredientStockStatus());
-            statement.setInt(8, ingredient.getIngredientId());
+            statement.setInt(8, ingredient.getId());
             statement.executeUpdate();
         }
     }
