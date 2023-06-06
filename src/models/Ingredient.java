@@ -8,81 +8,97 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author 42labinfo
+ * @author Lucas Dantas
  */
 public class Ingredient extends EntityId{
-    public Ingredient(){}
-    
-    private String name;
-    private float price;
-    private float weight;
-    private int quantity;
-    private String type;
-    
-   
+    private int ingredientId;
+    private String ingredientName;
+    private float ingredientMinQuantity;
+    private String ingredientUnitOfMeasure;
+    private float ingredientUnitCost;
+    private String ingredientStatus;
+    private float ingredientStock;
+    private String ingredientStockStatus;
 
-    public Ingredient(String name, float price, float weight, int quantity, String type, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Ingredient() {
+    }
+
+    public Ingredient(int ingredientId, String ingredientName, float ingredientMinQuantity, String ingredientUnitOfMeasure, float ingredientUnitCost, String ingredientStatus, float ingredientStock, String ingredientStockStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
-        this.name = name;
-        this.price = price;
-        this.weight = weight;
-        this.quantity = quantity;
-        this.type = type;
+        this.ingredientId = ingredientId;
+        this.ingredientName = ingredientName;
+        this.ingredientMinQuantity = ingredientMinQuantity;
+        this.ingredientUnitOfMeasure = ingredientUnitOfMeasure;
+        this.ingredientUnitCost = ingredientUnitCost;
+        this.ingredientStatus = ingredientStatus;
+        this.ingredientStock = ingredientStock;
+        this.ingredientStockStatus = ingredientStockStatus;
     }
 
-    public String getName() {
-        return name;
+    public int getIngredientId() {
+        return ingredientId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIngredientId(int ingredientId) {
+        this.ingredientId = ingredientId;
     }
 
-    public float getPrice() {
-        return price;
+    public String getIngredientName() {
+        return ingredientName;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName = ingredientName;
     }
 
-    public float getWeight() {
-        return weight;
+    public float getIngredientMinQuantity() {
+        return ingredientMinQuantity;
     }
 
-    public void setWeight(float weight) {
-        this.weight = weight;
+    public void setIngredientMinQuantity(float ingredientMinQuantity) {
+        this.ingredientMinQuantity = ingredientMinQuantity;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getIngredientUnitOfMeasure() {
+        return ingredientUnitOfMeasure;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setIngredientUnitOfMeasure(String ingredientUnitOfMeasure) {
+        this.ingredientUnitOfMeasure = ingredientUnitOfMeasure;
     }
 
-    public String getType() {
-        return type;
+    public float getIngredientUnitCost() {
+        return ingredientUnitCost;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setIngredientUnitCost(float ingredientUnitCost) {
+        this.ingredientUnitCost = ingredientUnitCost;
+    }
+
+    public String getIngredientStatus() {
+        return ingredientStatus;
+    }
+
+    public void setIngredientStatus(String ingredientStatus) {
+        this.ingredientStatus = ingredientStatus;
+    }
+
+    public float getIngredientStock() {
+        return ingredientStock;
+    }
+
+    public void setIngredientStock(float ingredientStock) {
+        this.ingredientStock = ingredientStock;
+    }
+
+    public String getIngredientStockStatus() {
+        return ingredientStockStatus;
+    }
+
+    public void setIngredientStockStatus(String ingredientStockStatus) {
+        this.ingredientStockStatus = ingredientStockStatus;
     }
     
    
-   
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
 }
