@@ -26,12 +26,18 @@ public class IngredientController {
         for (Ingredient ingredient: dao.readAll()){
             modelo.addRow(new Object[]{
                 ingredient.getId(),
-                ingredient.getIngredientName()
+                ingredient.getIngredientName(),
+                ingredient.getIngredientMinQuantity(),
+                ingredient.getIngredientUnitOfMeasure(),
+                ingredient.getIngredientUnitCost(),
+                ingredient.getIngredientStatus(),
+                ingredient.getIngredientStock(),
+                ingredient.getIngredientStockStatus()
             });
         }       
     }
     
-    public void readJTableBusca(String search,javax.swing.JTable table ) throws SQLException{
+    public void readJTableSearch(String search, javax.swing.JTable table ) throws SQLException{
         
         DefaultTableModel modelo = (DefaultTableModel) table.getModel();        
         table.setRowSorter(new TableRowSorter(modelo));
@@ -42,7 +48,13 @@ public class IngredientController {
         for (Ingredient ingredient: dao.search(search)){
             modelo.addRow(new Object[]{
                 ingredient.getId(),
-                ingredient.getIngredientName()
+                ingredient.getIngredientName(),
+                ingredient.getIngredientMinQuantity(),
+                ingredient.getIngredientUnitOfMeasure(),
+                ingredient.getIngredientUnitCost(),
+                ingredient.getIngredientStatus(),
+                ingredient.getIngredientStock(),
+                ingredient.getIngredientStockStatus()
             });
         }       
     }
