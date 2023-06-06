@@ -18,7 +18,7 @@ public class InputDAO {
         this.connection = ConnectionFactory.getConnection();
     }
     
-    public List<Input> selectAllInputs() throws SQLException {
+    public List<Input> readAll() throws SQLException {
         List<Input> inputs = new ArrayList<>();
         String query = "SELECT * FROM input";
         try (PreparedStatement statement = connection.prepareStatement(query);

@@ -95,7 +95,7 @@ public class OrdersDAO {
         return orders;
     }
 
-    public List<Orders> selectAllOrders() throws SQLException {
+    public List<Orders> readAll() throws SQLException {
         List<Orders> orders = new ArrayList<>();
         String query = "SELECT o.orderId, o.orderSnackId, o.orderQuantity, o.orderCost, o.orderUnitPrice, " +
                 "o.orderTotalPrice, o.orderDate, s.snackTitle, s.snackSellingPrice, s.snackDescription, s.snackImageUrl, s.snackStatus " +

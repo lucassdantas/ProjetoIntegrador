@@ -1,9 +1,13 @@
 package views;
 import AppPackage.AnimationClass;
+import controllers.IngredientController;
 import controllers.PortionCalcController;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class StockViews extends javax.swing.JFrame {
@@ -14,13 +18,17 @@ AnimationClass ac = new AnimationClass();
 PortionCalcController calcController = new PortionCalcController();
 PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
 
-    public StockViews() {
+    public StockViews() throws SQLException {
         initComponents();
         setIcon();
         areaNovoPedido.setVisible(true);
         areaVisualizarPedidos.setVisible(false);
         painelMenu2.setVisible(false);
         painelMenu3.setVisible(false);
+        
+        //ingredients
+        IngredientController ingredientController = new IngredientController();
+        ingredientController.readJTable(ingredientTable);
     }
 
     private void setIcon(){
@@ -185,7 +193,7 @@ public void limparCalculoPorcoes() {
         jLabel18 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jScrollPane5 = new javax.swing.JScrollPane();
-        table4 = new views.tables.Table();
+        ingredientTable = new views.tables.Table();
         areaFichaTecnica = new javax.swing.JInternalFrame();
         panelIngredientes1 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
@@ -1216,7 +1224,7 @@ public void limparCalculoPorcoes() {
         panelIngredientes.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
         table1.fixTable(jScrollPane5);
-        table4.setModel(new javax.swing.table.DefaultTableModel(
+        ingredientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "pao de hamburguer", "20", "1", "un", "1,00"},
                 {"2", "hamburguer", "20", "1", "un", "1,52"},
@@ -1239,20 +1247,20 @@ public void limparCalculoPorcoes() {
                 return canEdit [columnIndex];
             }
         });
-        table4.setShowGrid(true);
-        jScrollPane5.setViewportView(table4);
-        if (table4.getColumnModel().getColumnCount() > 0) {
-            table4.getColumnModel().getColumn(0).setResizable(false);
-            table4.getColumnModel().getColumn(1).setResizable(false);
-            table4.getColumnModel().getColumn(1).setHeaderValue("Ingrediente");
-            table4.getColumnModel().getColumn(2).setResizable(false);
-            table4.getColumnModel().getColumn(2).setHeaderValue("Qnt. Minima");
-            table4.getColumnModel().getColumn(3).setResizable(false);
-            table4.getColumnModel().getColumn(3).setHeaderValue("Qnt. Unt");
-            table4.getColumnModel().getColumn(4).setResizable(false);
-            table4.getColumnModel().getColumn(4).setHeaderValue("Und. Medida");
-            table4.getColumnModel().getColumn(5).setResizable(false);
-            table4.getColumnModel().getColumn(5).setHeaderValue("Custo Unt.");
+        ingredientTable.setShowGrid(true);
+        jScrollPane5.setViewportView(ingredientTable);
+        if (ingredientTable.getColumnModel().getColumnCount() > 0) {
+            ingredientTable.getColumnModel().getColumn(0).setResizable(false);
+            ingredientTable.getColumnModel().getColumn(1).setResizable(false);
+            ingredientTable.getColumnModel().getColumn(1).setHeaderValue("Ingrediente");
+            ingredientTable.getColumnModel().getColumn(2).setResizable(false);
+            ingredientTable.getColumnModel().getColumn(2).setHeaderValue("Qnt. Minima");
+            ingredientTable.getColumnModel().getColumn(3).setResizable(false);
+            ingredientTable.getColumnModel().getColumn(3).setHeaderValue("Qnt. Unt");
+            ingredientTable.getColumnModel().getColumn(4).setResizable(false);
+            ingredientTable.getColumnModel().getColumn(4).setHeaderValue("Und. Medida");
+            ingredientTable.getColumnModel().getColumn(5).setResizable(false);
+            ingredientTable.getColumnModel().getColumn(5).setHeaderValue("Custo Unt.");
         }
 
         panelIngredientes.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
@@ -2513,8 +2521,13 @@ public void limparCalculoPorcoes() {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new StockViews().setVisible(true);
+                try {
+                    new StockViews().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -2617,6 +2630,7 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel fotoVP1;
     private javax.swing.JPanel fotoVP2;
     private javax.swing.JPanel fotoVP3;
+    private views.tables.Table ingredientTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2732,7 +2746,6 @@ public void limparCalculoPorcoes() {
     private views.tables.Table table1;
     private views.tables.Table table2;
     private views.tables.Table table3;
-    private views.tables.Table table4;
     private views.tables.Table table5;
     private views.tables.Table table6;
     private views.tables.Table table8;

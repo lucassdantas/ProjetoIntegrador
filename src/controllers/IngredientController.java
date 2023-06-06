@@ -4,7 +4,8 @@
  */
 package controllers;
 
-import dao.IngredientDao;
+import dao.IngredientDAO;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import models.Ingredient;
@@ -14,36 +15,60 @@ import models.Ingredient;
  * @author Lucas Dantas
  */
 public class IngredientController {
-    public static void readJTable(javax.swing.JTable tblEstoque) throws java.sql.SQLException{
-        DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
-        tblEstoque.setRowSorter(new TableRowSorter(modelo));
+        public void readJTable(javax.swing.JTable table) throws SQLException{
+        
+        DefaultTableModel modelo = (DefaultTableModel) table.getModel();        
+        table.setRowSorter(new TableRowSorter(modelo));
         modelo.setNumRows(0);
-        IngredientDao ingredientesDao = new IngredientDao();
-        for (Ingredient ingredientes: ingredientesDao.read()){
+        
+        IngredientDAO dao = new IngredientDAO();
+        
+        for (Ingredient ingredient: dao.readAll()){
             modelo.addRow(new Object[]{
-                ingredientes.getId(),
-                ingredientes.getName(),
-                ingredientes.getPrice(),
-                ingredientes.getWeight(),
-                ingredientes.getQuantity(),
-                ingredientes.getType(),
+                ingredient.getId(),
+                ingredient.getIngredientName()
             });
-        }
+        }       
     }
-    
-    public static void readJTablePesquisar(String pesquisar, javax.swing.JTable tblEstoque) throws java.sql.SQLException{
-        DefaultTableModel modelo = (DefaultTableModel) tblEstoque.getModel();
-        tblEstoque.setRowSorter(new TableRowSorter(modelo));
-        modelo.setNumRows(0);
-        IngredientDao ingredientesDao = new IngredientDao();
-        for (Ingredient ingredientes: ingredientesDao.readBusca(pesquisar)){
+    /*
+    public void readJTableBusca(String busca) throws SQLException{
+        
+        DefaultTableModel modelo = (DefaultTableModel) table.getModel();        
+        table.setRowSorter(new TableRowSorter(modelo));
+        modelo.setNumRows(0);//utilizado para não duplicar as linhas
+        
+        ServicoDao servicoDao = new ServicoDao();
+        
+        for (Servico servico: servicoDao.readBusca(busca)){
             modelo.addRow(new Object[]{
-                ingredientes.getId(),
-                ingredientes.getName(),
-                ingredientes.getPrice(),
-                ingredientes.getToStringCreation(),
-                ingredientes.getToStringUpdate()
+                servico.getId(),
+                servico.getDescricao(),
+                servico.getValor()
             });
+        }       
+    }
+
+    public void limpar(){
+        
+        //limpar os campos
+        txtId.setText("");
+        txtDescricao.setText("");
+        txtValor.setText("");
+        txtBusca.setText("");
+        txtDescricao.grabFocus();
+        
+        btnAdicionar.setEnabled(true);
+        txtBusca.setEnabled(true);
+        btnBuscar.setEnabled(true);
+        
+        btnExcluir.setEnabled(false);
+        btnAtualizar.setEnabled(false);
+        
+        try {
+            readJTable();
+        } catch (SQLException ex) {
+            System.out.println("Erro ao acessar o Banco de dador" + ex);
         }
-    }  
+        
+    }*/
 }
