@@ -21,7 +21,7 @@ public class SnackDAO {
         this.connection = ConnectionFactory.getConnection();
     }
 
-    public List<Snack> selectAllSnacks() throws SQLException {
+    public List<Snack> readAll() throws SQLException {
         List<Snack> snacks = new ArrayList<>();
         String query = "SELECT * FROM snack";
         try (PreparedStatement statement = connection.prepareStatement(query);
@@ -95,6 +95,4 @@ public class SnackDAO {
             statement.executeUpdate();
         }
     }
-
-    // Outras funções do DAO para buscar, adicionar, editar e excluir Snack
 }

@@ -23,7 +23,7 @@ public class IngredientDAO {
         this.connection = ConnectionFactory.getConnection();
     }
 
-    public List<Ingredient> selectAllIngredients() throws SQLException {
+    public List<Ingredient> readAll() throws SQLException {
         List<Ingredient> ingredients = new ArrayList<>();
         String query = "SELECT * FROM ingredient";
         try (PreparedStatement statement = connection.prepareStatement(query);
