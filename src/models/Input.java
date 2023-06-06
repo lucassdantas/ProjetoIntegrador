@@ -5,58 +5,39 @@
 package models;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  *
- * @author 42labinfo
+ * @author Lucas Dantas
  */
 public class Input extends EntityId{
-    public Input(){}
-    
-    private float weight;
-    private float cost;
-    private int quantity;
+    private int inputId;
     private int ingredientId;
+    private int inputQuantity;
+    private float inputCost;
+    private Date inputDate;
+    private String inputStatus;
 
-    //ingredientTable
-    private String ingredientName;
-    private float ingredientPrice;
-    private float ingredientWeight;
-    private int ingredientQuantity;
-    private String ingredientType;
-    private String ingredientCreation;
-    private String ingredientCpdate;
-    
-    public Input(float weight, float cost, int quantity, int ingredientId, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Input() {
+    }
+
+    public Input(int inputId, int ingredientId, int inputQuantity, float inputCost, Date inputDate, String inputStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
-        this.weight = weight;
-        this.cost = cost;
-        this.quantity = quantity;
+        this.inputId = inputId;
         this.ingredientId = ingredientId;
+        this.inputQuantity = inputQuantity;
+        this.inputCost = inputCost;
+        this.inputDate = inputDate;
+        this.inputStatus = inputStatus;
     }
 
-    public float getWeight() {
-        return weight;
+    public int getInputId() {
+        return inputId;
     }
 
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-    public float getCost() {
-        return cost;
-    }
-
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setInputId(int inputId) {
+        this.inputId = inputId;
     }
 
     public int getIngredientId() {
@@ -66,64 +47,37 @@ public class Input extends EntityId{
     public void setIngredientId(int ingredientId) {
         this.ingredientId = ingredientId;
     }
-    
-    public void setIngredientName(String ingredientName){
-        this.ingredientName = ingredientName;
-    }
-    
-    public String getIngredientName(){
-        return this.ingredientName;
+
+    public int getInputQuantity() {
+        return inputQuantity;
     }
 
-    public float getIngredientPrice() {
-        return ingredientPrice;
+    public void setInputQuantity(int inputQuantity) {
+        this.inputQuantity = inputQuantity;
     }
 
-    public void setIngredientPrice(float ingredientPrice) {
-        this.ingredientPrice = ingredientPrice;
+    public float getInputCost() {
+        return inputCost;
     }
 
-    public float getIngredientWeight() {
-        return ingredientWeight;
+    public void setInputCost(float inputCost) {
+        this.inputCost = inputCost;
     }
 
-    public void setIngredientWeight(float ingredientWeight) {
-        this.ingredientWeight = ingredientWeight;
+    public Date getInputDate() {
+        return inputDate;
     }
 
-    public int getIngredientQuantity() {
-        return ingredientQuantity;
+    public void setInputDate(Date inputDate) {
+        this.inputDate = inputDate;
     }
 
-    public void setIngredientQuantity(int ingredientQuantity) {
-        this.ingredientQuantity = ingredientQuantity;
+    public String getInputStatus() {
+        return inputStatus;
     }
 
-    public String getIngredientType() {
-        return ingredientType;
+    public void setInputStatus(String inputStatus) {
+        this.inputStatus = inputStatus;
     }
-
-    public void setIngredientType(String ingredientType) {
-        this.ingredientType = ingredientType;
-    }
-
-    public String getIngredientCreation() {
-        return ingredientCreation;
-    }
-
-    public void setIngredientCreation(String ingredientCreation) {
-        this.ingredientCreation = ingredientCreation;
-    }
-
-    public String getIngredientCpdate() {
-        return ingredientCpdate;
-    }
-
-    public void setIngredientCpdate(String ingredientCpdate) {
-        this.ingredientCpdate = ingredientCpdate;
-    }
-
-    
-      
     
 }

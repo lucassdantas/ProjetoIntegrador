@@ -8,74 +8,76 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author 42labinfo
+ * @author Lucas Dantas
  */
 public class Snack extends EntityId{
-    public Snack(){}
-    
-    private String name;
-    private float cost;
-    private float price;
-    private float weight;
-    private int minQuantity;
-    private String type;
+    private int snackId;
+    private String snackTitle;
+    private float snackSellingPrice;
+    private String snackDescription;
+    private String snackImageUrl;
+    private String snackStatus;
 
-    public Snack(String name, float cost, float price, float weight, int minQuantity, String type, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Snack() {
+    }
+
+    public Snack(int snackId, String snackTitle, float snackSellingPrice, String snackDescription, String snackImageUrl, String snackStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
-        this.name = name;
-        this.cost = cost;
-        this.price = price;
-        this.weight = weight;
-        this.minQuantity = minQuantity;
-        this.type = type;
+        this.snackId = snackId;
+        this.snackTitle = snackTitle;
+        this.snackSellingPrice = snackSellingPrice;
+        this.snackDescription = snackDescription;
+        this.snackImageUrl = snackImageUrl;
+        this.snackStatus = snackStatus;
     }
 
-    public String getName() {
-        return name;
+    public int getSnackId() {
+        return snackId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSnackId(int snackId) {
+        this.snackId = snackId;
     }
 
-    public float getCost() {
-        return cost;
+    public String getSnackTitle() {
+        return snackTitle;
     }
 
-    public void setCost(float cost) {
-        this.cost = cost;
+    public void setSnackTitle(String snackTitle) {
+        this.snackTitle = snackTitle;
     }
 
-    public float getPrice() {
-        return price;
+    public float getSnackSellingPrice() {
+        return snackSellingPrice;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setSnackSellingPrice(float snackSellingPrice) {
+        this.snackSellingPrice = snackSellingPrice;
     }
 
-    public float getWeight() {
-        return weight;
+    public String getSnackDescription() {
+        return snackDescription;
     }
 
-    public void setWeight(float weight) {
-        this.weight = weight;
+    public void setSnackDescription(String snackDescription) {
+        this.snackDescription = snackDescription;
     }
 
-    public int getMinQuantity() {
-        return minQuantity;
+    public String getSnackImageUrl() {
+        return snackImageUrl;
     }
 
-    public void setMinQuantity(int minQuantity) {
-        this.minQuantity = minQuantity;
+    public void setSnackImageUrl(String snackImageUrl) {
+        this.snackImageUrl = snackImageUrl;
     }
 
-    public String getType() {
-        return type;
+    public String getSnackStatus() {
+        return snackStatus;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setSnackStatus(String snackStatus) {
+        this.snackStatus = snackStatus;
     }
+    
     
 }
