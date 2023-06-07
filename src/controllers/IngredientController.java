@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -81,8 +83,8 @@ public class IngredientController {
         }       
     }
 
-    public void clean (List <javax.swing.JTextField> Fields,  javax.swing.JTable table){
-        Fields.forEach((field) -> {
+    public void clean (List <javax.swing.JTextField> fields){
+        fields.forEach((field) -> {
                 field.setText("");
         });
         try {
@@ -93,30 +95,89 @@ public class IngredientController {
         }
     }
 
-    public void add (List <javax.swing.JTextField> Fields) throws SQLException{
-        final boolean isEmpty = false;
-        Fields.forEach((field) -> {
-            if(field.getText().isEmpty()){
+    public boolean add (List <javax.swing.JTextField> fields) throws SQLException{
+        boolean isEmpty = false;
+        for(int i = 0; i > fields.size(); i++){
+            if(fields.get(i).getText().isEmpty()){
                 isEmpty = true;
+                break;
             }
-        });
+        }
         if(!isEmpty){
-            
+            return false;
+        } else{
             Ingredient ingredient = new Ingredient();
             IngredientDAO dao = new IngredientDAO();
             
-            ingredient.setIngredientName(Fields.get(0).getText());
-            ingredient.setIngredientUnitCost(Float.parseFloat(Fields.get(1).getText()));
-            ingredient.setIngredientUnitQuantity(Float.parseFloat(Fields.get(2).getText()));
-            ingredient.setIngredientMinQuantity(Float.parseFloat(Fields.get(3).getText()));
-            ingredient.setIngredientUnitOfMeasure(Fields.get(4).getText());
-            
+            ingredient.setIngredientName(fields.get(0).getText());
+            ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText()));
+            ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText()));
+            ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText()));
+            ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
             
             try {
                 dao.addIngredient(ingredient);
+                return true;
             } catch (SQLException ex) {
                 System.out.print(ex);
+                return false;
             }
+        }
+    }
+    
+    //need alter update
+    public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
+        boolean isEmpty = false;
+        for(int i = 0; i > fields.size(); i++){
+            if(fields.get(i).getText().isEmpty()){
+                isEmpty = true;
+                break;
+            }
+        }
+        if(!isEmpty){
+            return false;
+        } else{
+            Ingredient ingredient = new Ingredient();
+            IngredientDAO dao = new IngredientDAO();
+            
+            ingredient.setIngredientName(fields.get(0).getText());
+            ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText()));
+            ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText()));
+            ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText()));
+            ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
+            
+            try {
+                dao.addIngredient(ingredient);
+                return true;
+            } catch (SQLException ex) {
+                System.out.print(ex);
+                return false;
+            }
+        }
+    }
+    public void delete(int id) throws SQLException{
+        if (this.table.getSelectedRow() != -1){
+            int answer = JOptionPane.showConfirmDialog(null,
+                    "Confirma a Exclusão do Registro?", 
+                    "Exclusão de Registro",OK_CANCEL_OPTION);
+            if(answer == 0){
+                Ingredient ingredient = new Ingredient();
+                IngredientDAO dao = new IngredientDAO();                
+                ingredient.setId((int) this.table.getValueAt(
+                        this.table.getSelectedRow(), 0));
+                
+                try {
+                    dao.deleteIngredient(ingredient.getId());
+                } catch (SQLException ex) {
+                    System.out.print(ex);
+                }
+                
+                this.readJTable();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,
+                    "Selecione um serviço na tabela abaixo!");
         }
     }
 }
