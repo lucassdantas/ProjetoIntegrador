@@ -27,8 +27,10 @@ IngredientController ingredientController = new IngredientController();
         painelMenu2.setVisible(false);
         painelMenu3.setVisible(false);
         
-        //ingredients
-        ingredientController.readJTable(ingredientTable);
+        //ingredientController
+        ingredientController.setJTable(ingredientTable);
+        
+        ingredientController.readJTable();
     }
 
     private void setIcon(){
@@ -2499,7 +2501,7 @@ public void limparCalculoPorcoes() {
 
     private void ingredientSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientSearchButtonActionPerformed
         try {
-            ingredientController.readJTableSearch(ingredientSearchField.getText(), ingredientTable);
+            ingredientController.readJTableSearch(ingredientSearchField.getText());
         } catch (SQLException ex) {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
