@@ -18,11 +18,12 @@ public class Ingredient extends EntityId{
     private String ingredientStatus;
     private float ingredientStock;
     private String ingredientStockStatus;
+    private float ingredientUnitQuantity;
 
     public Ingredient() {
     }
 
-    public Ingredient( String ingredientName, float ingredientMinQuantity, String ingredientUnitOfMeasure, float ingredientUnitCost, String ingredientStatus, float ingredientStock, String ingredientStockStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Ingredient( String ingredientName, float ingredientMinQuantity, String ingredientUnitOfMeasure, float ingredientUnitCost, String ingredientStatus, float ingredientStock, String ingredientStockStatus, float ingredientUnitQuantity, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
         this.ingredientName = ingredientName;
         this.ingredientMinQuantity = ingredientMinQuantity;
@@ -31,6 +32,7 @@ public class Ingredient extends EntityId{
         this.ingredientStatus = ingredientStatus;
         this.ingredientStock = ingredientStock;
         this.ingredientStockStatus = ingredientStockStatus;
+        this.ingredientUnitQuantity = ingredientUnitQuantity;
     }
 
     
@@ -91,6 +93,13 @@ public class Ingredient extends EntityId{
         this.ingredientStockStatus = ingredientStockStatus;
     }
     
+    public float getIngredientUnitQuantity(){
+        return this.ingredientUnitQuantity;
+    }
+    
+    public void setIngredientUnitQuantity(float ingredientUnitQuantity){
+        this.ingredientUnitQuantity = ingredientUnitQuantity;
+    }
    
     
 }
