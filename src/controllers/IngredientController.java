@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import models.Ingredient;
@@ -18,16 +20,33 @@ import models.Ingredient;
  * @author Lucas Dantas
  */
 public class IngredientController {
-    public void readJTable(javax.swing.JTable table) throws SQLException{
+    
+    private JTable table;
+    private List<JTextField> fields;
+    
+    public void setJTable(JTable table){
+        this.table = table;
+    }
+    public void setFields(JTextField field){
+        this.fields.add(field);
+    }
+    
+    public JTable getTable(){
+        return this.table;
+    }
+    public List<JTextField> getFields(){
+        return this.fields;
+    }
+    public void readJTable() throws SQLException{
         
-        DefaultTableModel modelo = (DefaultTableModel) table.getModel();        
-        table.setRowSorter(new TableRowSorter(modelo));
-        modelo.setNumRows(0);
+        DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
+        this.table.setRowSorter(new TableRowSorter(model));
+        model.setNumRows(0);
         
         IngredientDAO dao = new IngredientDAO();
         
         for (Ingredient ingredient: dao.readAll()){
-            modelo.addRow(new Object[]{
+            model.addRow(new Object[]{
                 ingredient.getId(),
                 ingredient.getIngredientName(),
                 ingredient.getIngredientMinQuantity(),
@@ -40,16 +59,16 @@ public class IngredientController {
         }       
     }
     
-    public void readJTableSearch(String search, javax.swing.JTable table ) throws SQLException{
+    public void readJTableSearch(String search) throws SQLException{
         
-        DefaultTableModel modelo = (DefaultTableModel) table.getModel();        
-        table.setRowSorter(new TableRowSorter(modelo));
-        modelo.setNumRows(0);
+        DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
+        this.table.setRowSorter(new TableRowSorter(model));
+        model.setNumRows(0);
         
         IngredientDAO dao = new IngredientDAO();
         
         for (Ingredient ingredient: dao.search(search)){
-            modelo.addRow(new Object[]{
+            model.addRow(new Object[]{
                 ingredient.getId(),
                 ingredient.getIngredientName(),
                 ingredient.getIngredientMinQuantity(),
@@ -67,8 +86,7 @@ public class IngredientController {
                 field.setText("");
         });
         try {
-            
-            this.readJTable(table);
+            this.readJTable();
             
         } catch (SQLException ex) {
             System.out.println("Erro ao acessar o Banco de dador" + ex);
