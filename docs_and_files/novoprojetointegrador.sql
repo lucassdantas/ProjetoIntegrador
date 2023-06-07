@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Jun-2023 às 04:40
+-- Tempo de geração: 07-Jun-2023 às 12:05
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -52,6 +52,14 @@ CREATE TABLE `ingredient` (
   `ingredientStock` decimal(10,2) DEFAULT NULL,
   `ingredientStockStatus` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `ingredient`
+--
+
+INSERT INTO `ingredient` (`ingredientId`, `ingredientName`, `ingredientMinQuantity`, `ingredientUnitQuantity`, `ingredientUnitOfMeasure`, `ingredientUnitCost`, `ingredientStatus`, `ingredientStock`, `ingredientStockStatus`) VALUES
+(1, 'teste', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'a', '1.00', '1.00', '1', '1.00', '1', '1.00', '1');
 
 -- --------------------------------------------------------
 
@@ -144,7 +152,19 @@ ALTER TABLE `snack`
 -- AUTO_INCREMENT de tabela `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `input`
+--
+ALTER TABLE `input`
+  MODIFY `inputId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `snack`
