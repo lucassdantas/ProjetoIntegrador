@@ -32,13 +32,13 @@ public class IngredientController {
     public void setFields(JTextField field){
         this.fields.add(field);
     }
-    
     public JTable getTable(){
         return this.table;
     }
     public List<JTextField> getFields(){
         return this.fields;
     }
+    
     public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -125,10 +125,11 @@ public class IngredientController {
         }
     }
     
-    //need alter update
     public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
         boolean isEmpty = false;
         for(int i = 0; i > fields.size(); i++){
+            
+            fields.get(i).setText((String) this.table.getValueAt(this.table.getSelectedRow(), i));
             if(fields.get(i).getText().isEmpty()){
                 isEmpty = true;
                 break;
@@ -155,6 +156,7 @@ public class IngredientController {
             }
         }
     }
+    
     public void delete(int id) throws SQLException{
         if (this.table.getSelectedRow() != -1){
             int answer = JOptionPane.showConfirmDialog(null,

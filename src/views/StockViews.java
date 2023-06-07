@@ -187,9 +187,9 @@ public void limparCalculoPorcoes() {
         colorBtn8 = new javax.swing.JPanel();
         colorBtn9 = new javax.swing.JPanel();
         ingredientSearchButton = new views.styles.Mybtn2();
-        mybtn5 = new views.styles.Mybtn();
-        mybtn6 = new views.styles.Mybtn();
-        mybtn7 = new views.styles.Mybtn();
+        ingredientAddButton = new views.styles.Mybtn();
+        ingredientEditButton = new views.styles.Mybtn();
+        ingredientDeleteButton = new views.styles.Mybtn();
         jLabel17 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -1189,30 +1189,30 @@ public void limparCalculoPorcoes() {
         });
         panelIngredientes.add(ingredientSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
-        mybtn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
-        mybtn5.setText("NOVO");
-        mybtn5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn5.addActionListener(new java.awt.event.ActionListener() {
+        ingredientAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
+        ingredientAddButton.setText("NOVO");
+        ingredientAddButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ingredientAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn5ActionPerformed(evt);
+                ingredientAddButtonActionPerformed(evt);
             }
         });
-        panelIngredientes.add(mybtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
+        panelIngredientes.add(ingredientAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
-        mybtn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
-        mybtn6.setText("EDITAR");
-        mybtn6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn6.addActionListener(new java.awt.event.ActionListener() {
+        ingredientEditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        ingredientEditButton.setText("EDITAR");
+        ingredientEditButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ingredientEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn6ActionPerformed(evt);
+                ingredientEditButtonActionPerformed(evt);
             }
         });
-        panelIngredientes.add(mybtn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
+        panelIngredientes.add(ingredientEditButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
 
-        mybtn7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
-        mybtn7.setText("EXCLUIR");
-        mybtn7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelIngredientes.add(mybtn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
+        ingredientDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
+        ingredientDeleteButton.setText("EXCLUIR");
+        ingredientDeleteButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelIngredientes.add(ingredientDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel17.setText("id");
@@ -2143,13 +2143,17 @@ public void limparCalculoPorcoes() {
         new LanchesEditar().setVisible(true);
     }//GEN-LAST:event_mybtn3ActionPerformed
 
-    private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
+    private void ingredientAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientAddButtonActionPerformed
        new IngredientesCadastro().setVisible(true);
-    }//GEN-LAST:event_mybtn5ActionPerformed
+    }//GEN-LAST:event_ingredientAddButtonActionPerformed
 
-    private void mybtn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn6ActionPerformed
-       new IngredientesEditar().setVisible(true);
-    }//GEN-LAST:event_mybtn6ActionPerformed
+    private void ingredientEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientEditButtonActionPerformed
+       
+        IngredientEdit ingredientEdit = new IngredientEdit();
+        ingredientEdit.setJTable(ingredientTable);
+        ingredientEdit.setFields();
+        ingredientEdit.setVisible(true);
+    }//GEN-LAST:event_ingredientEditButtonActionPerformed
 
     private void mybtn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn8ActionPerformed
        new FichaEntrada().setVisible(true);
@@ -2645,6 +2649,9 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel fotoVP1;
     private javax.swing.JPanel fotoVP2;
     private javax.swing.JPanel fotoVP3;
+    private views.styles.Mybtn ingredientAddButton;
+    private views.styles.Mybtn ingredientDeleteButton;
+    private views.styles.Mybtn ingredientEditButton;
     private views.styles.Mybtn2 ingredientSearchButton;
     private javax.swing.JTextField ingredientSearchField;
     private views.tables.Table ingredientTable;
@@ -2740,9 +2747,6 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn2 mybtn26;
     private views.styles.Mybtn mybtn3;
     private views.styles.Mybtn mybtn4;
-    private views.styles.Mybtn mybtn5;
-    private views.styles.Mybtn mybtn6;
-    private views.styles.Mybtn mybtn7;
     private views.styles.Mybtn mybtn8;
     private views.styles.Mybtn mybtn9;
     private javax.swing.JPanel painelMenu1;

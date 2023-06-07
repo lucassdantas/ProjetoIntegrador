@@ -4,21 +4,39 @@
  */
 package views;
 
+import controllers.IngredientController;
+import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Work.Studies
  */
-public class IngredientesEditar extends javax.swing.JFrame {
+public class IngredientEdit extends javax.swing.JFrame {
 
     /**
      * Creates new form EstoqueEntrada
      */
-    public IngredientesEditar() {
+    private IngredientController ingredientController;
+    private List<JTextField> fields;
+    public IngredientEdit() {
         initComponents();
+        ingredientController = new IngredientController();
     }
-
+    public void setJTable(JTable table){
+        this.ingredientController.setJTable(table);
+    }
+    public void setFields(){
+        
+        this.ingredientController.setFields(ingredientNameField);
+        this.ingredientController.setFields(ingredientCostField);
+        this.ingredientController.setFields(ingredientUnityQuantityField);
+        this.ingredientController.setFields(ingredientMinQuantityField);
+        this.ingredientController.setFields(ingredientMediaField);
+        
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -27,11 +45,11 @@ public class IngredientesEditar extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         areaEntradas_entrada = new javax.swing.JInternalFrame();
         panelEntradas1 = new javax.swing.JPanel();
-        jTextField17 = new javax.swing.JTextField();
+        ingredientNameField = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         colorBtn19 = new javax.swing.JPanel();
         colorBtn20 = new javax.swing.JPanel();
-        jTextField18 = new javax.swing.JTextField();
+        ingredientCostField = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         fotoVP = new javax.swing.JPanel();
@@ -40,11 +58,11 @@ public class IngredientesEditar extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         mybtn5 = new views.styles.Mybtn();
         mybtn4 = new views.styles.Mybtn();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
+        ingredientUnityQuantityField = new javax.swing.JTextField();
+        ingredientMinQuantityField = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
+        ingredientMediaField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -70,9 +88,9 @@ public class IngredientesEditar extends javax.swing.JFrame {
         panelEntradas1.setPreferredSize(new java.awt.Dimension(1690, 1020));
         panelEntradas1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField17.setName(""); // NOI18N
-        panelEntradas1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 45));
+        ingredientNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        ingredientNameField.setName(""); // NOI18N
+        panelEntradas1.add(ingredientNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 45));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel32.setText("Ingrediente");
@@ -108,9 +126,9 @@ public class IngredientesEditar extends javax.swing.JFrame {
 
         panelEntradas1.add(colorBtn20, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 570, 10, 40));
 
-        jTextField18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField18.setName(""); // NOI18N
-        panelEntradas1.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
+        ingredientCostField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        ingredientCostField.setName(""); // NOI18N
+        panelEntradas1.add(ingredientCostField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(126, 126, 126));
@@ -175,13 +193,13 @@ public class IngredientesEditar extends javax.swing.JFrame {
         mybtn4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         panelEntradas1.add(mybtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
 
-        jTextField19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField19.setName(""); // NOI18N
-        panelEntradas1.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 140, 45));
+        ingredientUnityQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        ingredientUnityQuantityField.setName(""); // NOI18N
+        panelEntradas1.add(ingredientUnityQuantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 140, 45));
 
-        jTextField20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField20.setName(""); // NOI18N
-        panelEntradas1.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 140, 45));
+        ingredientMinQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        ingredientMinQuantityField.setName(""); // NOI18N
+        panelEntradas1.add(ingredientMinQuantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 140, 45));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel36.setText("Qnt. Mínima");
@@ -191,9 +209,9 @@ public class IngredientesEditar extends javax.swing.JFrame {
         jLabel37.setText("Und. Medida");
         panelEntradas1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 140, 30));
 
-        jTextField21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField21.setName(""); // NOI18N
-        panelEntradas1.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 140, 45));
+        ingredientMediaField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        ingredientMediaField.setName(""); // NOI18N
+        panelEntradas1.add(ingredientMediaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 140, 45));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
@@ -215,7 +233,7 @@ public class IngredientesEditar extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
         dispose();
     }//GEN-LAST:event_mybtn5ActionPerformed
@@ -237,14 +255,30 @@ public class IngredientesEditar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IngredientesEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IngredientEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IngredientesEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IngredientEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IngredientesEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IngredientEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IngredientesEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IngredientEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -265,16 +299,20 @@ public class IngredientesEditar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IngredientesEditar().setVisible(true);
+                new IngredientEdit().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
     private javax.swing.JPanel fotoVP;
+    private javax.swing.JTextField ingredientCostField;
+    private javax.swing.JTextField ingredientMediaField;
+    private javax.swing.JTextField ingredientMinQuantityField;
+    private javax.swing.JTextField ingredientNameField;
+    private javax.swing.JTextField ingredientUnityQuantityField;
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
@@ -285,11 +323,6 @@ public class IngredientesEditar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
     private views.styles.Mybtn mybtn4;
     private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
