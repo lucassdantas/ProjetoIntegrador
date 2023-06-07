@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
  * @author Lucas Dantas
  */
 public class Ingredient extends EntityId{
-    private int ingredientId;
     private String ingredientName;
     private float ingredientMinQuantity;
     private String ingredientUnitOfMeasure;
@@ -23,9 +22,8 @@ public class Ingredient extends EntityId{
     public Ingredient() {
     }
 
-    public Ingredient(int ingredientId, String ingredientName, float ingredientMinQuantity, String ingredientUnitOfMeasure, float ingredientUnitCost, String ingredientStatus, float ingredientStock, String ingredientStockStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Ingredient( String ingredientName, float ingredientMinQuantity, String ingredientUnitOfMeasure, float ingredientUnitCost, String ingredientStatus, float ingredientStock, String ingredientStockStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
-        this.ingredientId = ingredientId;
         this.ingredientName = ingredientName;
         this.ingredientMinQuantity = ingredientMinQuantity;
         this.ingredientUnitOfMeasure = ingredientUnitOfMeasure;
@@ -35,13 +33,7 @@ public class Ingredient extends EntityId{
         this.ingredientStockStatus = ingredientStockStatus;
     }
 
-    public int getIngredientId() {
-        return ingredientId;
-    }
-
-    public void setIngredientId(int ingredientId) {
-        this.ingredientId = ingredientId;
-    }
+    
 
     public String getIngredientName() {
         return ingredientName;

@@ -17,6 +17,7 @@ AnimationClass ac = new AnimationClass();
 //portion calc contrller
 PortionCalcController calcController = new PortionCalcController();
 PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
+IngredientController ingredientController = new IngredientController();
 
     public StockViews() throws SQLException {
         initComponents();
@@ -27,7 +28,6 @@ PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
         painelMenu3.setVisible(false);
         
         //ingredients
-        IngredientController ingredientController = new IngredientController();
         ingredientController.readJTable(ingredientTable);
     }
 
@@ -180,11 +180,11 @@ public void limparCalculoPorcoes() {
         fotoVP2 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        ingredientSearchField = new javax.swing.JTextField();
         colorBtn7 = new javax.swing.JPanel();
         colorBtn8 = new javax.swing.JPanel();
         colorBtn9 = new javax.swing.JPanel();
-        mybtn23 = new views.styles.Mybtn2();
+        ingredientSearchButton = new views.styles.Mybtn2();
         mybtn5 = new views.styles.Mybtn();
         mybtn6 = new views.styles.Mybtn();
         mybtn7 = new views.styles.Mybtn();
@@ -1130,9 +1130,9 @@ public void limparCalculoPorcoes() {
         jLabel10.setOpaque(true);
         panelIngredientes.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
 
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField7.setName(""); // NOI18N
-        panelIngredientes.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
+        ingredientSearchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        ingredientSearchField.setName(""); // NOI18N
+        panelIngredientes.add(ingredientSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
 
         colorBtn7.setBackground(new java.awt.Color(90, 90, 90));
 
@@ -1179,8 +1179,13 @@ public void limparCalculoPorcoes() {
 
         panelIngredientes.add(colorBtn9, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
 
-        mybtn23.setText("OK");
-        panelIngredientes.add(mybtn23, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
+        ingredientSearchButton.setText("OK");
+        ingredientSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingredientSearchButtonActionPerformed(evt);
+            }
+        });
+        panelIngredientes.add(ingredientSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
         mybtn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
         mybtn5.setText("NOVO");
@@ -2492,6 +2497,14 @@ public void limparCalculoPorcoes() {
         // TODO add your handling code here:
     }//GEN-LAST:event_calcPortionFieldActionPerformed
 
+    private void ingredientSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientSearchButtonActionPerformed
+        try {
+            ingredientController.readJTableSearch(ingredientSearchField.getText(), ingredientTable);
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ingredientSearchButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2630,6 +2643,8 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel fotoVP1;
     private javax.swing.JPanel fotoVP2;
     private javax.swing.JPanel fotoVP3;
+    private views.styles.Mybtn2 ingredientSearchButton;
+    private javax.swing.JTextField ingredientSearchField;
     private views.tables.Table ingredientTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2698,7 +2713,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblCopyright;
@@ -2719,7 +2733,6 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn mybtn2;
     private views.styles.Mybtn2 mybtn21;
     private views.styles.Mybtn2 mybtn22;
-    private views.styles.Mybtn2 mybtn23;
     private views.styles.Mybtn2 mybtn24;
     private views.styles.Mybtn2 mybtn25;
     private views.styles.Mybtn2 mybtn26;
