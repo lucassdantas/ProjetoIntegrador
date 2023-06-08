@@ -125,12 +125,11 @@ public class IngredientController {
         }
     }
     
-    public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
+    public boolean update(List <String> fields) throws SQLException{
         boolean isEmpty = false;
         for(int i = 0; i > fields.size(); i++){
-            
-            fields.get(i).setText((String) this.table.getValueAt(this.table.getSelectedRow(), i));
-            if(fields.get(i).getText().isEmpty()){
+           // fields.get(i).setText((String) this.table.getValueAt(this.table.getSelectedRow(), i));
+            if(fields.get(i).isEmpty()){
                 isEmpty = true;
                 break;
             }
@@ -141,11 +140,11 @@ public class IngredientController {
             Ingredient ingredient = new Ingredient();
             IngredientDAO dao = new IngredientDAO();
             
-            ingredient.setIngredientName(fields.get(0).getText());
-            ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText()));
-            ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText()));
-            ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText()));
-            ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
+            ingredient.setIngredientName(fields.get(0));
+            ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1)));
+            ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2)));
+            ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3)));
+            ingredient.setIngredientUnitOfMeasure(fields.get(4));
             
             try {
                 dao.addIngredient(ingredient);

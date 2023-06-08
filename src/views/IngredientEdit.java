@@ -5,7 +5,10 @@
 package views;
 
 import controllers.IngredientController;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -19,24 +22,34 @@ public class IngredientEdit extends javax.swing.JFrame {
     /**
      * Creates new form EstoqueEntrada
      */
-    private IngredientController ingredientController;
-    private List<JTextField> fields;
+    private final IngredientController ingredientController;
+    private List<String> fieldsValue;
+    private JTable table;
     public IngredientEdit() {
         initComponents();
         ingredientController = new IngredientController();
     }
     public void setJTable(JTable table){
+        this.table = table;
         this.ingredientController.setJTable(table);
     }
-    public void setFields(){
+
+    public void setFieldsValue(){
+        ingredientNameField.setText(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+        ingredientCostField.setText((String) table.getValueAt(table.getSelectedRow(), 1));
+        ingredientUnityQuantityField.setText(String.valueOf( table.getValueAt(table.getSelectedRow(),2)));
+        ingredientMinQuantityField.setText((String) table.getValueAt(table.getSelectedRow(),3));
+        ingredientMediaField.setText(String.valueOf(table.getValueAt(table.getSelectedRow(), 4)));
         
-        this.ingredientController.setFields(ingredientNameField);
-        this.ingredientController.setFields(ingredientCostField);
-        this.ingredientController.setFields(ingredientUnityQuantityField);
-        this.ingredientController.setFields(ingredientMinQuantityField);
-        this.ingredientController.setFields(ingredientMediaField);
+        this.fieldsValue.add(ingredientNameField.getText());
+        this.fieldsValue.add(ingredientCostField.getText());
+        this.fieldsValue.add(ingredientUnityQuantityField.getText());
+        this.fieldsValue.add(ingredientMinQuantityField.getText());
+        this.fieldsValue.add(ingredientMediaField.getText());
+        
         
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -56,8 +69,8 @@ public class IngredientEdit extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        mybtn5 = new views.styles.Mybtn();
-        mybtn4 = new views.styles.Mybtn();
+        ingredientEditCancelButton = new views.styles.Mybtn();
+        ingredientEditSaveButton = new views.styles.Mybtn();
         ingredientUnityQuantityField = new javax.swing.JTextField();
         ingredientMinQuantityField = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
@@ -90,6 +103,11 @@ public class IngredientEdit extends javax.swing.JFrame {
 
         ingredientNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         ingredientNameField.setName(""); // NOI18N
+        ingredientNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingredientNameFieldActionPerformed(evt);
+            }
+        });
         panelEntradas1.add(ingredientNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 45));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -179,19 +197,24 @@ public class IngredientEdit extends javax.swing.JFrame {
         jButton1.setOpaque(true);
         panelEntradas1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 320, 120, 23));
 
-        mybtn5.setText("CANCELAR");
-        mybtn5.addActionListener(new java.awt.event.ActionListener() {
+        ingredientEditCancelButton.setText("CANCELAR");
+        ingredientEditCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn5ActionPerformed(evt);
+                ingredientEditCancelButtonActionPerformed(evt);
             }
         });
-        panelEntradas1.add(mybtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 129, 40));
+        panelEntradas1.add(ingredientEditCancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 129, 40));
 
-        mybtn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
-        mybtn4.setText("SALVAR");
-        mybtn4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        panelEntradas1.add(mybtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
+        ingredientEditSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
+        ingredientEditSaveButton.setText("SALVAR");
+        ingredientEditSaveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ingredientEditSaveButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ingredientEditSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingredientEditSaveButtonActionPerformed(evt);
+            }
+        });
+        panelEntradas1.add(ingredientEditSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
 
         ingredientUnityQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         ingredientUnityQuantityField.setName(""); // NOI18N
@@ -234,9 +257,21 @@ public class IngredientEdit extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
+    private void ingredientEditCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientEditCancelButtonActionPerformed
         dispose();
-    }//GEN-LAST:event_mybtn5ActionPerformed
+    }//GEN-LAST:event_ingredientEditCancelButtonActionPerformed
+
+    private void ingredientNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingredientNameFieldActionPerformed
+
+    private void ingredientEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientEditSaveButtonActionPerformed
+        try {
+            ingredientController.update(this.fieldsValue);   // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ingredientEditSaveButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,6 +344,8 @@ public class IngredientEdit extends javax.swing.JFrame {
     private javax.swing.JPanel colorBtn20;
     private javax.swing.JPanel fotoVP;
     private javax.swing.JTextField ingredientCostField;
+    private views.styles.Mybtn ingredientEditCancelButton;
+    private views.styles.Mybtn ingredientEditSaveButton;
     private javax.swing.JTextField ingredientMediaField;
     private javax.swing.JTextField ingredientMinQuantityField;
     private javax.swing.JTextField ingredientNameField;
@@ -323,8 +360,6 @@ public class IngredientEdit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JPanel jPanel1;
-    private views.styles.Mybtn mybtn4;
-    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
     // End of variables declaration//GEN-END:variables
 }
