@@ -260,6 +260,7 @@ public class IngredientEdit extends javax.swing.JFrame {
     private void ingredientEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientEditSaveButtonActionPerformed
         try {
             ingredientController.update(ingredientController.getFields());
+            dispose();
         } catch (SQLException ex) {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
