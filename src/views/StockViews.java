@@ -1212,6 +1212,11 @@ public void limparCalculoPorcoes() {
         ingredientDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
         ingredientDeleteButton.setText("EXCLUIR");
         ingredientDeleteButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ingredientDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingredientDeleteButtonActionPerformed(evt);
+            }
+        });
         panelIngredientes.add(ingredientDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -2144,7 +2149,10 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_mybtn3ActionPerformed
 
     private void ingredientAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientAddButtonActionPerformed
-       new IngredientesCadastro().setVisible(true);
+       IngredientAdd ingredientAdd = new IngredientAdd();
+       ingredientAdd.setJTable(ingredientTable);
+       ingredientAdd.searchFields();
+       ingredientAdd.setVisible(true);
     }//GEN-LAST:event_ingredientAddButtonActionPerformed
 
     private void ingredientEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientEditButtonActionPerformed
@@ -2512,6 +2520,15 @@ public void limparCalculoPorcoes() {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ingredientSearchButtonActionPerformed
+
+    private void ingredientDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientDeleteButtonActionPerformed
+        ingredientController.setJTable(ingredientTable);
+    try {   
+        ingredientController.delete();
+    } catch (SQLException ex) {
+        Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_ingredientDeleteButtonActionPerformed
 
     /**
      * @param args the command line arguments

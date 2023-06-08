@@ -110,11 +110,12 @@ public class IngredientController {
         boolean isEmpty = false;
         for(int i = 0; i > fields.size(); i++){
             if(fields.get(i).getText().isEmpty()){
+                System.out.print("the field "+i+" is empty");
                 isEmpty = true;
                 break;
             }
         }
-        if(!isEmpty){
+        if(isEmpty){
             return false;
         } else{
             Ingredient ingredient = new Ingredient();
@@ -128,6 +129,8 @@ public class IngredientController {
             
             try {
                 dao.addIngredient(ingredient);
+                this.clean(this.fields);
+                this.readJTable();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);
@@ -137,7 +140,6 @@ public class IngredientController {
     }
     
     public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
-        System.out.print("enter in update");
         boolean isEmpty = false;
         for(int i = 0; i > fields.size(); i++){
            // fields.get(i).setText((String) this.table.getValueAt(this.table.getSelectedRow(), i));
@@ -171,7 +173,7 @@ public class IngredientController {
         }
     }
     
-    public void delete(int id) throws SQLException{
+    public void delete() throws SQLException{
         if (this.table.getSelectedRow() != -1){
             int answer = JOptionPane.showConfirmDialog(null,
                     "Confirma a Exclusão do Registro?", 
