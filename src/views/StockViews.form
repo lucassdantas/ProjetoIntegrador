@@ -2244,15 +2244,15 @@
                                   <Data value="batata palha"/>
                                   <Data value="embalagens p/ hamburguer"/>
                                 </Column>
-                                <Column editable="false" title="Qnt. Minima" type="java.lang.Object">
-                                  <Data value="20"/>
-                                  <Data value="20"/>
-                                  <Data value="20"/>
-                                  <Data value="0,2"/>
-                                  <Data value="0,2"/>
-                                  <Data value="0,6"/>
-                                  <Data value="0,2"/>
-                                  <Data value="20"/>
+                                <Column editable="false" title="Custo Unt." type="java.lang.Object">
+                                  <Data value="1,00"/>
+                                  <Data value="1,52"/>
+                                  <Data value="0,83"/>
+                                  <Data value="0,38"/>
+                                  <Data value="0,36"/>
+                                  <Data value="0,18"/>
+                                  <Data value="0,28"/>
+                                  <Data value="1,05"/>
                                 </Column>
                                 <Column editable="false" title="Qnt. Unt" type="java.lang.Object">
                                   <Data value="1"/>
@@ -2264,6 +2264,16 @@
                                   <Data value="0,01"/>
                                   <Data value="10"/>
                                 </Column>
+                                <Column editable="false" title="Qnt. Minima" type="java.lang.Object">
+                                  <Data value="20"/>
+                                  <Data value="20"/>
+                                  <Data value="20"/>
+                                  <Data value="0,2"/>
+                                  <Data value="0,2"/>
+                                  <Data value="0,6"/>
+                                  <Data value="0,2"/>
+                                  <Data value="20"/>
+                                </Column>
                                 <Column editable="false" title="Und. Medida" type="java.lang.Object">
                                   <Data value="un"/>
                                   <Data value="un"/>
@@ -2273,16 +2283,6 @@
                                   <Data value="pes"/>
                                   <Data value="kg"/>
                                   <Data value="un"/>
-                                </Column>
-                                <Column editable="false" title="Custo Unt." type="java.lang.Object">
-                                  <Data value="1,00"/>
-                                  <Data value="1,52"/>
-                                  <Data value="0,83"/>
-                                  <Data value="0,38"/>
-                                  <Data value="0,36"/>
-                                  <Data value="0,18"/>
-                                  <Data value="0,28"/>
-                                  <Data value="1,05"/>
                                 </Column>
                               </Table>
                             </Property>
