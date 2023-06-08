@@ -4,6 +4,7 @@
  */
 package views;
 
+import java.util.List;
 import javax.swing.JFrame;
 
 /**
@@ -233,7 +234,9 @@ public class FichaEditar extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    public void setButtonsValues(List<String> values){
+        
+    };
     private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
         dispose();
     }//GEN-LAST:event_mybtn5ActionPerformed
