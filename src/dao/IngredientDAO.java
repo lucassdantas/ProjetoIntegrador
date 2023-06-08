@@ -94,7 +94,7 @@ public class IngredientDAO {
     public void updateIngredient(Ingredient ingredient) throws SQLException {
         String query = "UPDATE ingredient SET ingredientName = ?, ingredientMinQuantity = ?, " +
                 "ingredientUnitOfMeasure = ?, ingredientUnitCost = ?, ingredientStatus = ?, " +
-                "ingredientStock = ?, ingredientStockStatus = ?, ingredientMinQuantity = ? WHERE ingredientId = ?";
+                "ingredientStock = ?, ingredientStockStatus = ?, ingredientUnitQuantity = ? WHERE ingredientId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, ingredient.getIngredientName());
             statement.setFloat(2, ingredient.getIngredientMinQuantity());
