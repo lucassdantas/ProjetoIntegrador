@@ -2151,6 +2151,7 @@ public void limparCalculoPorcoes() {
        
         IngredientEdit ingredientEdit = new IngredientEdit();
         ingredientEdit.setJTable(ingredientTable);
+        ingredientEdit.searchFields();
         ingredientEdit.setFieldsValue();
         ingredientEdit.setVisible(true);
     }//GEN-LAST:event_ingredientEditButtonActionPerformed

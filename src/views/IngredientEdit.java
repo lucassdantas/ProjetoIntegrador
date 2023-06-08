@@ -6,6 +6,7 @@ package views;
 
 import controllers.IngredientController;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,31 +24,22 @@ public class IngredientEdit extends javax.swing.JFrame {
      * Creates new form EstoqueEntrada
      */
     private final IngredientController ingredientController;
-    private List<String> fieldsValue;
-    private JTable table;
     public IngredientEdit() {
         initComponents();
         ingredientController = new IngredientController();
     }
     public void setJTable(JTable table){
-        this.table = table;
         this.ingredientController.setJTable(table);
     }
-
+    public void searchFields(){
+        this.ingredientController.setFields(ingredientNameField);
+        this.ingredientController.setFields(ingredientCostField);
+        this.ingredientController.setFields(ingredientUnityQuantityField);
+        this.ingredientController.setFields(ingredientMinQuantityField);
+        this.ingredientController.setFields(ingredientMediaField);
+    }
     public void setFieldsValue(){
-        ingredientNameField.setText(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
-        ingredientCostField.setText((String) table.getValueAt(table.getSelectedRow(), 1));
-        ingredientUnityQuantityField.setText(String.valueOf( table.getValueAt(table.getSelectedRow(),2)));
-        ingredientMinQuantityField.setText((String) table.getValueAt(table.getSelectedRow(),3));
-        ingredientMediaField.setText(String.valueOf(table.getValueAt(table.getSelectedRow(), 4)));
-        
-        this.fieldsValue.add(ingredientNameField.getText());
-        this.fieldsValue.add(ingredientCostField.getText());
-        this.fieldsValue.add(ingredientUnityQuantityField.getText());
-        this.fieldsValue.add(ingredientMinQuantityField.getText());
-        this.fieldsValue.add(ingredientMediaField.getText());
-        
-        
+        this.ingredientController.setFieldsValue();
     }
     
     @SuppressWarnings("unchecked")
@@ -267,7 +259,7 @@ public class IngredientEdit extends javax.swing.JFrame {
 
     private void ingredientEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientEditSaveButtonActionPerformed
         try {
-            ingredientController.update(this.fieldsValue);   // TODO add your handling code here:
+            ingredientController.update(ingredientController.getFields());
         } catch (SQLException ex) {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
