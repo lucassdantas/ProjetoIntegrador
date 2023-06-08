@@ -2245,14 +2245,14 @@
                                   <Data value="embalagens p/ hamburguer"/>
                                 </Column>
                                 <Column editable="false" title="Custo Unt." type="java.lang.Object">
-                                  <Data value="1,00"/>
-                                  <Data value="1,52"/>
-                                  <Data value="0,83"/>
-                                  <Data value="0,38"/>
-                                  <Data value="0,36"/>
-                                  <Data value="0,18"/>
-                                  <Data value="0,28"/>
-                                  <Data value="1,05"/>
+                                  <Data value="un"/>
+                                  <Data value="un"/>
+                                  <Data value="un"/>
+                                  <Data value="kg"/>
+                                  <Data value="kg"/>
+                                  <Data value="pes"/>
+                                  <Data value="kg"/>
+                                  <Data value="un"/>
                                 </Column>
                                 <Column editable="false" title="Qnt. Unt" type="java.lang.Object">
                                   <Data value="1"/>
@@ -2265,6 +2265,16 @@
                                   <Data value="10"/>
                                 </Column>
                                 <Column editable="false" title="Qnt. Minima" type="java.lang.Object">
+                                  <Data value="1,00"/>
+                                  <Data value="1,52"/>
+                                  <Data value="0,83"/>
+                                  <Data value="0,38"/>
+                                  <Data value="0,36"/>
+                                  <Data value="0,18"/>
+                                  <Data value="0,28"/>
+                                  <Data value="1,05"/>
+                                </Column>
+                                <Column editable="false" title="Und. Medida" type="java.lang.Object">
                                   <Data value="20"/>
                                   <Data value="20"/>
                                   <Data value="20"/>
@@ -2273,16 +2283,6 @@
                                   <Data value="0,6"/>
                                   <Data value="0,2"/>
                                   <Data value="20"/>
-                                </Column>
-                                <Column editable="false" title="Und. Medida" type="java.lang.Object">
-                                  <Data value="un"/>
-                                  <Data value="un"/>
-                                  <Data value="un"/>
-                                  <Data value="kg"/>
-                                  <Data value="kg"/>
-                                  <Data value="pes"/>
-                                  <Data value="kg"/>
-                                  <Data value="un"/>
                                 </Column>
                               </Table>
                             </Property>
@@ -2294,27 +2294,27 @@
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title value="Ingrediente"/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title value="Qnt. Minima"/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title value="Qnt. Unt"/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title value="Und. Medida"/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title value="Custo Unt."/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
@@ -2327,6 +2327,7 @@
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="table1.fixTable(jScrollPane5);"/>
+                            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="StockViews_ingredientTable"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
