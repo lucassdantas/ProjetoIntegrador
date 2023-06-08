@@ -120,7 +120,7 @@
                     <Property name="useNullLayout" type="boolean" value="false"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="jTextField17">
+                    <Component class="javax.swing.JTextField" name="ingredientNameField">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -129,9 +129,11 @@
                             </LineBorder>
                           </Border>
                         </Property>
-                        <Property name="focusable" type="boolean" value="false"/>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ingredientNameFieldActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="60" y="100" width="300" height="45"/>
@@ -151,7 +153,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="views.styles.Mybtn" name="mybtn4">
+                    <Component class="views.styles.Mybtn" name="ingredientAddSaveButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/check mark.png"/>
@@ -160,18 +162,21 @@
                         <Property name="horizontalAlignment" type="int" value="2"/>
                         <Property name="horizontalTextPosition" type="int" value="4"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ingredientAddSaveButtonActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="730" y="570" width="129" height="40"/>
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="views.styles.Mybtn" name="mybtn5">
+                    <Component class="views.styles.Mybtn" name="ingredientAddCancelButton">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="CANCELAR"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mybtn5ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ingredientAddCancelButtonActionPerformed"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -229,7 +234,7 @@
                         </DimensionLayout>
                       </Layout>
                     </Container>
-                    <Component class="javax.swing.JTextField" name="jTextField18">
+                    <Component class="javax.swing.JTextField" name="ingredientCostField">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -361,7 +366,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField19">
+                    <Component class="javax.swing.JTextField" name="ingredientUnityQuantityField">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -378,7 +383,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField20">
+                    <Component class="javax.swing.JTextField" name="ingredientMinQuantityField">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -421,7 +426,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField21">
+                    <Component class="javax.swing.JTextField" name="ingredientMediaField">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
