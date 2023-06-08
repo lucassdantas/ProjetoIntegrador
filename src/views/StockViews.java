@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class StockViews extends javax.swing.JFrame {
@@ -1238,17 +1239,17 @@ public void limparCalculoPorcoes() {
         table1.fixTable(jScrollPane5);
         ingredientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "pao de hamburguer", "20", "1", "un", "1,00"},
-                {"2", "hamburguer", "20", "1", "un", "1,52"},
-                {"3", "ovo", "20", "1", "un", "0,83"},
-                {"4", "queijo fatiado", "0,2", "0,01", "kg", "0,38"},
-                {"5", "bacon fatiado", "0,2", "0,01", "kg", "0,36"},
-                {"6", "alface", "0,6", "0,03", "pes", "0,18"},
-                {"7", "batata palha", "0,2", "0,01", "kg", "0,28"},
-                {"8", "embalagens p/ hamburguer", "20", "10", "un", "1,05"}
+                {"1", "pao de hamburguer", "1,00", "1", "20", "un"},
+                {"2", "hamburguer", "1,52", "1", "20", "un"},
+                {"3", "ovo", "0,83", "1", "20", "un"},
+                {"4", "queijo fatiado", "0,38", "0,01", "0,2", "kg"},
+                {"5", "bacon fatiado", "0,36", "0,01", "0,2", "kg"},
+                {"6", "alface", "0,18", "0,03", "0,6", "pes"},
+                {"7", "batata palha", "0,28", "0,01", "0,2", "kg"},
+                {"8", "embalagens p/ hamburguer", "1,05", "10", "20", "un"}
             },
             new String [] {
-                "id ", "Ingrediente", "Qnt. Minima", "Qnt. Unt", "Und. Medida", "Custo Unt."
+                "id ", "Ingrediente", "Custo Unt.", "Qnt. Unt", "Qnt. Minima", "Und. Medida"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -2156,12 +2157,16 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_ingredientAddButtonActionPerformed
 
     private void ingredientEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientEditButtonActionPerformed
-       
+
         IngredientEdit ingredientEdit = new IngredientEdit();
         ingredientEdit.setJTable(ingredientTable);
-        ingredientEdit.searchFields();
-        ingredientEdit.setFieldsValue();
-        ingredientEdit.setVisible(true);
+        if(ingredientTable.getSelectedRow() != -1){
+            ingredientEdit.searchFields();
+            ingredientEdit.setFieldsValue();
+            ingredientEdit.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um item da tabela!");
+        }
     }//GEN-LAST:event_ingredientEditButtonActionPerformed
 
     private void dataSheetAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSheetAddButtonActionPerformed
