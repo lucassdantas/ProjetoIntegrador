@@ -35,6 +35,7 @@ public class IngredientEdit extends javax.swing.JFrame {
         this.ingredientController.setFields(ingredientUnityQuantityField);
         this.ingredientController.setFields(ingredientMinQuantityField);
         this.ingredientController.setFields(ingredientMediaField);
+        this.fields = this.ingredientController.getFields();
         
     }
     @SuppressWarnings("unchecked")
