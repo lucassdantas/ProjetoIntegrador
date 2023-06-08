@@ -6,6 +6,7 @@ package controllers;
 
 import dao.IngredientDAO;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,12 +25,16 @@ import models.Ingredient;
 public class IngredientController {
     
     private JTable table;
-    private List<JTextField> fields;
+    private final List<JTextField> fields;
+
+    public IngredientController() {
+        this.fields = new ArrayList<JTextField>();
+    }
     
     public void setJTable(JTable table){
         this.table = table;
     }
-    public void setFields(JTextField field){
+    public void setFields(javax.swing.JTextField field){
         this.fields.add(field);
     }
     public JTable getTable(){
@@ -39,6 +44,12 @@ public class IngredientController {
         return this.fields;
     }
     
+     public void setFieldsValue(){
+        for (int i = 0; i < this.fields.size(); i++){
+            fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
+        }
+    }
+     
     public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -125,29 +136,33 @@ public class IngredientController {
         }
     }
     
-    public boolean update(List <String> fields) throws SQLException{
+    public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
+        System.out.print("enter in update");
         boolean isEmpty = false;
         for(int i = 0; i > fields.size(); i++){
            // fields.get(i).setText((String) this.table.getValueAt(this.table.getSelectedRow(), i));
-            if(fields.get(i).isEmpty()){
+            if(fields.get(i).getText().isEmpty()){
+                System.out.print("the field "+i+" is empty");
                 isEmpty = true;
                 break;
             }
         }
-        if(!isEmpty){
+        if(isEmpty){
             return false;
         } else{
             Ingredient ingredient = new Ingredient();
             IngredientDAO dao = new IngredientDAO();
             
-            ingredient.setIngredientName(fields.get(0));
-            ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1)));
-            ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2)));
-            ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3)));
-            ingredient.setIngredientUnitOfMeasure(fields.get(4));
+            ingredient.setId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
+            ingredient.setIngredientName(fields.get(0).getText());
+            ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText()));
+            ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText()));
+            ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText()));
+            ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
             
             try {
-                dao.addIngredient(ingredient);
+                dao.updateIngredient(ingredient);
+                this.readJTable();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);
