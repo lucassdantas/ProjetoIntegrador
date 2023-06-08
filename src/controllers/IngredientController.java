@@ -28,7 +28,7 @@ public class IngredientController {
     private final List<JTextField> fields;
 
     public IngredientController() {
-        this.fields = new ArrayList<JTextField>();
+        this.fields = new ArrayList<>();
     }
     
     public void setJTable(JTable table){
@@ -138,7 +138,7 @@ public class IngredientController {
     public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
             boolean isEmpty = false;
             for(int i = 0; i > fields.size(); i++){
-               // fields.get(i).setText((String) this.table.getValueAt(this.table.getSelectedRow(), i));
+                System.out.print(fields.get(i));
                 if(fields.get(i).getText().isEmpty()){
                     System.out.print("the field "+i+" is empty");
                     isEmpty = true;

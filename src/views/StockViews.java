@@ -1239,14 +1239,14 @@ public void limparCalculoPorcoes() {
         table1.fixTable(jScrollPane5);
         ingredientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "pao de hamburguer", "1,00", "1", "20", "un"},
-                {"2", "hamburguer", "1,52", "1", "20", "un"},
-                {"3", "ovo", "0,83", "1", "20", "un"},
-                {"4", "queijo fatiado", "0,38", "0,01", "0,2", "kg"},
-                {"5", "bacon fatiado", "0,36", "0,01", "0,2", "kg"},
-                {"6", "alface", "0,18", "0,03", "0,6", "pes"},
-                {"7", "batata palha", "0,28", "0,01", "0,2", "kg"},
-                {"8", "embalagens p/ hamburguer", "1,05", "10", "20", "un"}
+                {"1", "pao de hamburguer", "un", "1", "1,00", "20"},
+                {"2", "hamburguer", "un", "1", "1,52", "20"},
+                {"3", "ovo", "un", "1", "0,83", "20"},
+                {"4", "queijo fatiado", "kg", "0,01", "0,38", "0,2"},
+                {"5", "bacon fatiado", "kg", "0,01", "0,36", "0,2"},
+                {"6", "alface", "pes", "0,03", "0,18", "0,6"},
+                {"7", "batata palha", "kg", "0,01", "0,28", "0,2"},
+                {"8", "embalagens p/ hamburguer", "un", "10", "1,05", "20"}
             },
             new String [] {
                 "id ", "Ingrediente", "Custo Unt.", "Qnt. Unt", "Qnt. Minima", "Und. Medida"
@@ -1265,15 +1265,10 @@ public void limparCalculoPorcoes() {
         if (ingredientTable.getColumnModel().getColumnCount() > 0) {
             ingredientTable.getColumnModel().getColumn(0).setResizable(false);
             ingredientTable.getColumnModel().getColumn(1).setResizable(false);
-            ingredientTable.getColumnModel().getColumn(1).setHeaderValue("Ingrediente");
             ingredientTable.getColumnModel().getColumn(2).setResizable(false);
-            ingredientTable.getColumnModel().getColumn(2).setHeaderValue("Qnt. Minima");
             ingredientTable.getColumnModel().getColumn(3).setResizable(false);
-            ingredientTable.getColumnModel().getColumn(3).setHeaderValue("Qnt. Unt");
             ingredientTable.getColumnModel().getColumn(4).setResizable(false);
-            ingredientTable.getColumnModel().getColumn(4).setHeaderValue("Und. Medida");
             ingredientTable.getColumnModel().getColumn(5).setResizable(false);
-            ingredientTable.getColumnModel().getColumn(5).setHeaderValue("Custo Unt.");
         }
 
         panelIngredientes.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
