@@ -2,13 +2,17 @@ package views;
 import AppPackage.AnimationClass;
 import controllers.IngredientController;
 import controllers.PortionCalcController;
+import dao.IngredientDAO;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
+import models.Ingredient;
 
 
 public class StockViews extends javax.swing.JFrame {
@@ -1261,6 +1265,22 @@ public void limparCalculoPorcoes() {
             }
         });
         ingredientTable.setShowGrid(true);
+        ingredientTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingredientTableMouseClicked(evt);
+            }
+        });
+        ingredientTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ingredientTableKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ingredientTableKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ingredientTableKeyTyped(evt);
+            }
+        });
         jScrollPane5.setViewportView(ingredientTable);
         if (ingredientTable.getColumnModel().getColumnCount() > 0) {
             ingredientTable.getColumnModel().getColumn(0).setResizable(false);
@@ -2529,6 +2549,32 @@ public void limparCalculoPorcoes() {
         Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_ingredientDeleteButtonActionPerformed
+
+    private void ingredientTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingredientTableMouseClicked
+        ingredientNameField.setText(ingredientTable.getValueAt(ingredientTable.getSelectedRow(), 1).toString());
+    }//GEN-LAST:event_ingredientTableMouseClicked
+
+    private void ingredientTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ingredientTableKeyReleased
+        ingredientNameField.setText(ingredientTable.getValueAt(ingredientTable.getSelectedRow(), 1).toString());
+    }//GEN-LAST:event_ingredientTableKeyReleased
+
+    private void ingredientTableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ingredientTableKeyTyped
+  
+    }//GEN-LAST:event_ingredientTableKeyTyped
+
+    private void ingredientTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ingredientTableKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            IngredientEdit ingredientEdit = new IngredientEdit();
+            ingredientEdit.setJTable(ingredientTable);
+            if(ingredientTable.getSelectedRow() != -1){
+                ingredientEdit.searchFields();
+                ingredientEdit.setFieldsValue();
+                ingredientEdit.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null,"Selecione um item da tabela!");
+            }
+        }
+    }//GEN-LAST:event_ingredientTableKeyPressed
 
     /**
      * @param args the command line arguments
