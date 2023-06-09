@@ -79,7 +79,7 @@ public class OrdersDAO {
                     order.setOrderDate(resultSet.getDate("orderDate"));
 
                     Snack snack = new Snack();
-                    snack.setSnackId(resultSet.getInt("orderSnackId"));
+                    snack.setId(resultSet.getInt("orderSnackId"));
                     snack.setSnackTitle(resultSet.getString("snackTitle"));
                     snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
                     snack.setSnackDescription(resultSet.getString("snackDescription"));
@@ -113,7 +113,7 @@ public class OrdersDAO {
                 order.setOrderDate(resultSet.getDate("orderDate"));
 
                 Snack snack = new Snack();
-                snack.setSnackId(resultSet.getInt("orderSnackId"));
+                snack.setId(resultSet.getInt("orderSnackId"));
                 snack.setSnackTitle(resultSet.getString("snackTitle"));
                 snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
                 snack.setSnackDescription(resultSet.getString("snackDescription"));

@@ -2157,7 +2157,7 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_btnSairMouseClicked
 
     private void mybtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn2ActionPerformed
-        new LanchesCadastro().setVisible(true);
+        new snackAdd().setVisible(true);
     }//GEN-LAST:event_mybtn2ActionPerformed
 
     private void mybtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn3ActionPerformed

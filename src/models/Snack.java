@@ -11,19 +11,16 @@ import java.time.LocalDateTime;
  * @author Lucas Dantas
  */
 public class Snack extends EntityId{
-    private int snackId;
     private String snackTitle;
     private float snackSellingPrice;
     private String snackDescription;
     private String snackImageUrl;
     private String snackStatus;
-
     public Snack() {
     }
 
-    public Snack(int snackId, String snackTitle, float snackSellingPrice, String snackDescription, String snackImageUrl, String snackStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Snack( String snackTitle, float snackSellingPrice, String snackDescription, String snackImageUrl, String snackStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
         super(id, creation, update, status);
-        this.snackId = snackId;
         this.snackTitle = snackTitle;
         this.snackSellingPrice = snackSellingPrice;
         this.snackDescription = snackDescription;
@@ -31,13 +28,6 @@ public class Snack extends EntityId{
         this.snackStatus = snackStatus;
     }
 
-    public int getSnackId() {
-        return snackId;
-    }
-
-    public void setSnackId(int snackId) {
-        this.snackId = snackId;
-    }
 
     public String getSnackTitle() {
         return snackTitle;
