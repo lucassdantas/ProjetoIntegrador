@@ -55,7 +55,7 @@ public class DataSheetDAO {
                     dataSheet.setDsStatus(resultSet.getString("dsStatus"));
 
                     Snack snack = new Snack();
-                    snack.setSnackId(resultSet.getInt("snackId"));
+                    snack.setId(resultSet.getInt("snackId"));
                     snack.setSnackTitle(resultSet.getString("snackTitle"));
                     snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
                     snack.setSnackDescription(resultSet.getString("snackDescription"));
@@ -117,7 +117,4 @@ public class DataSheetDAO {
             statement.executeUpdate();
         }
     }
-
-
-    // Outras funções do DAO para pesquisar, exibir resultados, selecionar, etc.
 }

@@ -28,7 +28,7 @@ public class SnackDAO {
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Snack snack = new Snack();
-                snack.setSnackId(resultSet.getInt("snackId"));
+                snack.setId(resultSet.getInt("snackId"));
                 snack.setSnackTitle(resultSet.getString("snackTitle"));
                 snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
                 snack.setSnackDescription(resultSet.getString("snackDescription"));
@@ -48,7 +48,7 @@ public class SnackDAO {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     Snack snack = new Snack();
-                    snack.setSnackId(resultSet.getInt("snackId"));
+                    snack.setId(resultSet.getInt("snackId"));
                     snack.setSnackTitle(resultSet.getString("snackTitle"));
                     snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
                     snack.setSnackDescription(resultSet.getString("snackDescription"));
@@ -83,7 +83,7 @@ public class SnackDAO {
             statement.setString(3, snack.getSnackDescription());
             statement.setString(4, snack.getSnackImageUrl());
             statement.setString(5, snack.getSnackStatus());
-            statement.setInt(6, snack.getSnackId());
+            statement.setInt(6, snack.getId());
             statement.executeUpdate();
         }
     }
