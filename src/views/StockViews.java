@@ -1,5 +1,6 @@
 package views;
 import AppPackage.AnimationClass;
+import controllers.DataSheetController;
 import controllers.IngredientController;
 import controllers.PortionCalcController;
 import controllers.SnackController;
@@ -25,7 +26,7 @@ PortionCalcController calcController = new PortionCalcController();
 PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
 IngredientController ingredientController = new IngredientController();
 SnackController snackController = new SnackController();
-
+DataSheetController dataSheetController = new DataSheetController();
     public StockViews() throws SQLException {
         initComponents();
         setIcon();
@@ -40,6 +41,9 @@ SnackController snackController = new SnackController();
         
         snackController.setJTable(snackTable);
         snackController.readJTable();
+        
+        dataSheetController.setJTable(dataSheetTable);
+        dataSheetController.readJTable();
     }
 
     private void setIcon(){
@@ -208,16 +212,16 @@ public void limparCalculoPorcoes() {
         areaFichaTecnica = new javax.swing.JInternalFrame();
         panelIngredientes1 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        dataSheetSearchField = new javax.swing.JTextField();
         colorBtn19 = new javax.swing.JPanel();
         colorBtn20 = new javax.swing.JPanel();
         colorBtn21 = new javax.swing.JPanel();
-        mybtn24 = new views.styles.Mybtn2();
+        dataSheetSearchButton = new views.styles.Mybtn2();
         dataSheetAddButton = new views.styles.Mybtn();
         dataSheetEditButton = new views.styles.Mybtn();
-        mybtn10 = new views.styles.Mybtn();
+        dataSheetDeleteButton = new views.styles.Mybtn();
         jLabel36 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        dataFieldSnackField = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -1343,9 +1347,9 @@ public void limparCalculoPorcoes() {
         jLabel35.setOpaque(true);
         panelIngredientes1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
 
-        jTextField19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField19.setName(""); // NOI18N
-        panelIngredientes1.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
+        dataSheetSearchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        dataSheetSearchField.setName(""); // NOI18N
+        panelIngredientes1.add(dataSheetSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
 
         colorBtn19.setBackground(new java.awt.Color(90, 90, 90));
 
@@ -1392,8 +1396,13 @@ public void limparCalculoPorcoes() {
 
         panelIngredientes1.add(colorBtn21, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
 
-        mybtn24.setText("OK");
-        panelIngredientes1.add(mybtn24, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
+        dataSheetSearchButton.setText("OK");
+        dataSheetSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataSheetSearchButtonActionPerformed(evt);
+            }
+        });
+        panelIngredientes1.add(dataSheetSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
         dataSheetAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
         dataSheetAddButton.setText("NOVO");
@@ -1415,21 +1424,21 @@ public void limparCalculoPorcoes() {
         });
         panelIngredientes1.add(dataSheetEditButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
 
-        mybtn10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
-        mybtn10.setText("EXCLUIR");
-        mybtn10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelIngredientes1.add(mybtn10, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
+        dataSheetDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
+        dataSheetDeleteButton.setText("EXCLUIR");
+        dataSheetDeleteButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelIngredientes1.add(dataSheetDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel36.setText("id");
         panelIngredientes1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
-        jTextField20.setEditable(false);
-        jTextField20.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField20.setName(""); // NOI18N
-        jTextField20.setOpaque(true);
-        panelIngredientes1.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 188, 45));
+        dataFieldSnackField.setEditable(false);
+        dataFieldSnackField.setBackground(new java.awt.Color(243, 243, 243));
+        dataFieldSnackField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        dataFieldSnackField.setName(""); // NOI18N
+        dataFieldSnackField.setOpaque(true);
+        panelIngredientes1.add(dataFieldSnackField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 188, 45));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel37.setText("Lanche");
@@ -2655,6 +2664,14 @@ public void limparCalculoPorcoes() {
         }
     }//GEN-LAST:event_snackSearchButtonActionPerformed
 
+    private void dataSheetSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSheetSearchButtonActionPerformed
+        try {
+            dataSheetController.readJTableSearch(dataSheetSearchField.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataSheetSearchButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2789,8 +2806,12 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel colorBtn8;
     private javax.swing.JPanel colorBtn9;
     private views.combobox.Combobox combobox1;
+    private javax.swing.JTextField dataFieldSnackField;
     private views.styles.Mybtn dataSheetAddButton;
+    private views.styles.Mybtn dataSheetDeleteButton;
     private views.styles.Mybtn dataSheetEditButton;
+    private views.styles.Mybtn2 dataSheetSearchButton;
+    private javax.swing.JTextField dataSheetSearchField;
     private views.tables.Table dataSheetTable;
     private javax.swing.JPanel fotoVP;
     private javax.swing.JPanel fotoVP1;
@@ -2863,9 +2884,7 @@ public void limparCalculoPorcoes() {
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblCopyright;
@@ -2879,12 +2898,10 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel logoVersion1;
     private javax.swing.JLabel logoVersion2;
     private views.styles.Mybtn mybtn1;
-    private views.styles.Mybtn mybtn10;
     private views.styles.Mybtn mybtn13;
     private views.styles.Mybtn mybtn14;
     private views.styles.Mybtn mybtn15;
     private views.styles.Mybtn2 mybtn21;
-    private views.styles.Mybtn2 mybtn24;
     private views.styles.Mybtn2 mybtn25;
     private views.styles.Mybtn2 mybtn26;
     private javax.swing.JPanel painelMenu1;

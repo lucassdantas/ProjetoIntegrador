@@ -19,7 +19,7 @@ public class DataSheetDAO {
         List<DataSheet> dataSheets = new ArrayList<>();
         String query = "SELECT datasheet.*, snack.*, ingredient.* FROM datasheet" + 
                 "INNER JOIN snack ON datasheet.dsSnackId = snack.snackId " +
-                "INNER JOIN ingredient ON ds.dsIngredientId = ingredient.ingredientId";
+                "INNER JOIN ingredient ON datasheet.dsIngredientId = ingredient.ingredientId";
         try (Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query)) {
             while (resultSet.next()) {

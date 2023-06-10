@@ -77,10 +77,11 @@ public class DataSheetController {
         for (DataSheet dataSheet: dao.search(search)){
             model.addRow(new Object[]{
                 dataSheet.getDsSnackId(),
-                dataSheet.getDsIngredientId(),
+                dataSheet.getSnack().getSnackTitle(),
+                dataSheet.getIngredient().getIngredientName(),
                 dataSheet.getDsQuantity(),
-                dataSheet.getDsTotalCost(),
-                dataSheet.getDsStatus(),
+                dataSheet.getIngredient().getIngredientUnitOfMeasure(),
+                dataSheet.getDsTotalCost()
             });
         }       
     }
