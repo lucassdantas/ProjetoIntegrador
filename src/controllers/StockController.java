@@ -4,14 +4,18 @@
  */
 package controllers;
 
+import dao.IngredientDAO;
 import dao.InputDAO;
 import dao.SnackDAO;
 import java.sql.SQLException;
 import java.util.List;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import models.Ingredient;
 import models.Input;
 import models.Snack;
 
@@ -38,7 +42,12 @@ public class StockController {
         return this.fields;
     }   
     
-    
+     public void setFieldsValue(){
+        for (int i = 0; i < this.fields.size(); i++){
+            fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
+        }
+     }
+     
  public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -125,8 +134,72 @@ public class StockController {
             }
         }
     }
-             
-  }       
+   public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
+            boolean isEmpty = false;
+            for(int i = 0; i > fields.size(); i++){
+                System.out.print(fields.get(i));
+                if(fields.get(i).getText().isEmpty()){
+                    System.out.print("the field "+i+" is empty");
+                    isEmpty = true;
+                    break;
+                }
+            }
+            if(isEmpty){
+                 JOptionPane.showMessageDialog(null,
+                        "Preencha todos os campos");
+                return false;
+            } else{
+                Input input = new Input();
+                InputDAO dao = new InputDAO();
+
+                input.setId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
+                input.setInputQuantity(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(),1))));
+                input.setInputCost(Float.parseFloat(fields.get(2).getText()));
+             // input.setInputDate(Float.parseFloat(fields.get(3).getText()));
+                input.setInputStatus(fields.get(3).getText());
+            
+
+                try {
+                    dao.updateInput(input);
+                    this.readJTable();
+                    return true;
+                } catch (SQLException ex) {
+                    System.out.print(ex);
+                    return false;
+                }
+            }
+        
+        
+    }
+    
+    public void delete() throws SQLException{
+        if (this.table.getSelectedRow() != -1){
+            int answer = JOptionPane.showConfirmDialog(null,
+                    "Confirma a Exclusão do Registro?", 
+                    "Exclusão de Registro",OK_CANCEL_OPTION);
+            if(answer == 0){
+                Input input = new Input();
+                InputDAO dao = new InputDAO();                
+                input.setId((int) this.table.getValueAt(
+                        this.table.getSelectedRow(), 0));
+                
+                try {
+                    dao.deleteInput(input.getId());
+                } catch (SQLException ex) {
+                    System.out.print(ex);
+                }
+                
+                this.readJTable();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,
+                    "Selecione um serviço na tabela abaixo!");
+        }
+    }           
+  
+
+}       
     
 
    
