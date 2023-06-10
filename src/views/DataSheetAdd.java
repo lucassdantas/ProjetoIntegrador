@@ -177,8 +177,8 @@ public class DataSheetAdd extends javax.swing.JFrame {
         jLabel36.setText("Custo (R$)");
         panelEntradas1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 140, 30));
 
-        dsTotalCostField.setEditable(true);
-        dsTotalCostField.setBackground(new java.awt.Color(255, 255, 255));
+        dsTotalCostField.setEditable(false);
+        dsTotalCostField.setBackground(new java.awt.Color(243, 243, 243));
         dsTotalCostField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         dsTotalCostField.setName(""); // NOI18N
         dsTotalCostField.setOpaque(true);
@@ -230,6 +230,18 @@ public class DataSheetAdd extends javax.swing.JFrame {
 
         dsIngredientUnityQuantitySpinner.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         dsIngredientUnityQuantitySpinner.setLabelText("");
+        dsIngredientUnityQuantitySpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                dsIngredientUnityQuantitySpinnerStateChanged(evt);
+            }
+        });
+        dsIngredientUnityQuantitySpinner.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                dsIngredientUnityQuantitySpinnerInputMethodTextChanged(evt);
+            }
+        });
         panelEntradas1.add(dsIngredientUnityQuantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 140, 45));
         panelEntradas1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 830, 30));
 
@@ -314,6 +326,14 @@ public class DataSheetAdd extends javax.swing.JFrame {
             Logger.getLogger(DataSheetAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dsIngredientSearchButtonActionPerformed
+
+    private void dsIngredientUnityQuantitySpinnerInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_dsIngredientUnityQuantitySpinnerInputMethodTextChanged
+        dsController.calcTotalValue();
+    }//GEN-LAST:event_dsIngredientUnityQuantitySpinnerInputMethodTextChanged
+
+    private void dsIngredientUnityQuantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_dsIngredientUnityQuantitySpinnerStateChanged
+        dsController.calcTotalValue();
+    }//GEN-LAST:event_dsIngredientUnityQuantitySpinnerStateChanged
 
     /**
      * @param args the command line arguments

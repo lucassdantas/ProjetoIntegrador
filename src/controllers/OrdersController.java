@@ -64,10 +64,6 @@ public class OrdersController {
                 orders.getOrderTotalPrice(),
                 orders.getOrderDate(),
                 orders.getSnack(),
-          
-
-
-            
             });
         }       
     }
@@ -193,13 +189,13 @@ public class OrdersController {
                OrdersDAO dao = new OrdersDAO();                
                 orders.setOrderId((int) this.table.getValueAt(
                         this.table.getSelectedRow(), 0));
-                
+              /*  
                 try {
-                    dao.deleteOrder(orders.getOrder());
+                    dao.deleteOrder(orders.getId);
                 } catch (SQLException ex) {
                     System.out.print(ex);
                 }
-                
+                */
                 this.readJTable();
             }
         }

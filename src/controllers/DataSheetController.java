@@ -99,8 +99,14 @@ public class DataSheetController {
         this.getIngredientFields().get(1).setText(String.valueOf(ingredient.getIngredientUnitQuantity()));
         this.getIngredientFields().get(2).setText(String.valueOf(ingredient.getIngredientUnitOfMeasure()));
         this.getIngredientFields().get(3).setText(String.valueOf(ingredient.getIngredientUnitCost()));
-        
-        
+    }
+    public float calcTotalValue(){
+        float spinnerValue = Float.parseFloat(String.valueOf(this.dsQuantitySpinner.getValue()));
+        float ingredientCost = Float.parseFloat((String) this.ingredientFields.get(3).getText());
+        float unityQuantity = Float.parseFloat((String) this.ingredientFields.get(1).getText());
+        float result = (spinnerValue * ingredientCost) / unityQuantity;
+        this.totalValueField.setText(String.valueOf(result));
+        return result;
     }
     public void readJTable() throws SQLException, java.sql.SQLException{
         
@@ -171,9 +177,7 @@ public class DataSheetController {
             return false;
         } else{
             DataSheetDAO dao = new DataSheetDAO();
-            this.snack.setId(Integer.parseInt(snackFields.get(0).getText()));
-            this.ingredient.setId(Integer.parseInt(ingredientFields.get(0).getText()));
-            this.dataSheet.setDsQuantity(Integer.parseInt((String) spinner.getValue()));
+            this.dataSheet.setDsQuantity(Integer.parseInt(String.valueOf(spinner.getValue())));
             this.dataSheet.setDsTotalCost(Float.parseFloat(totalValueField.getText()));
             this.dataSheet.setSnack(this.snack);
             this.dataSheet.setIngredient(this.ingredient);
