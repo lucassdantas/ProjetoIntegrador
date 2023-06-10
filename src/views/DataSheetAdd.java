@@ -98,6 +98,11 @@ public class DataSheetAdd extends javax.swing.JFrame {
         panelEntradas1.add(dsSnackIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 160, 45));
 
         dsSnackIdSearchButton.setText("OK");
+        dsSnackIdSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dsSnackIdSearchButtonActionPerformed(evt);
+            }
+        });
         panelEntradas1.add(dsSnackIdSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 50, 47, 45));
 
         dsIngredientSearchButton.setText("OK");
@@ -286,6 +291,15 @@ public class DataSheetAdd extends javax.swing.JFrame {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dsSaveButtonActionPerformed
+
+    private void dsSnackIdSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsSnackIdSearchButtonActionPerformed
+        try {
+            dsController.searchSnack(Integer.parseInt(dsSnackIdField.getText()));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DataSheetAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dsSnackIdSearchButtonActionPerformed
 
     /**
      * @param args the command line arguments

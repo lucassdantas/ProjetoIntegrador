@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  */
 public class Snack extends EntityId{
     private String snackTitle;
-    private float snackSellingPrice;
+    private float  snackSellingPrice;
     private String snackDescription;
     private String snackImageUrl;
     private String snackStatus;

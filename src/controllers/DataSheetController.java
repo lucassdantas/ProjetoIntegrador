@@ -5,6 +5,8 @@
 package controllers;
 
 import dao.DataSheetDAO;
+import dao.IngredientDAO;
+import dao.SnackDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTable;
@@ -75,13 +77,26 @@ public class DataSheetController {
     public List<JTextField> getSnackFields(){
         return this.snackFields;
     }
-    
-     public void setIngredientFieldsValue(){
+   
+    public void setIngredientFieldsValue(){
         for (int i = 0; i < this.ingredientFields.size(); i++){
             ingredientFields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
         }
     }
-     public void readJTable() throws SQLException, java.sql.SQLException{
+    public void searchSnack(int id) throws SQLException{
+        
+        SnackDAO dao = new SnackDAO();
+        List<Snack> snacks = dao.searchById(id);
+        this.snack = snacks.get(0);
+        this.getSnackFields().get(0).setText(String.valueOf(snack.getSnackTitle()));
+    }
+     public void searchIngredient(int id) throws SQLException{
+        
+        IngredientDAO dao = new IngredientDAO();
+        this.ingredient = (Ingredient) dao.searchById(id);
+        
+    }
+    public void readJTable() throws SQLException, java.sql.SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
         this.table.setRowSorter(new TableRowSorter(model));
@@ -119,7 +134,7 @@ public class DataSheetController {
             });
         }       
     }
-     public void clean (List <javax.swing.JTextField> fields){
+    public void clean (List <javax.swing.JTextField> fields){
         fields.forEach((field) -> {
                 field.setText("");
         });
@@ -130,7 +145,7 @@ public class DataSheetController {
             System.out.println("Erro ao acessar o Banco de dador" + ex);
         }
     }
-     public boolean add (List <javax.swing.JTextField> ingredientFields, List<javax.swing.JTextField> snackFields, JTextField totalValueField, views.spinner.Spinner spinner  ) throws SQLException{
+    public boolean add (List <javax.swing.JTextField> ingredientFields, List<javax.swing.JTextField> snackFields, JTextField totalValueField, views.spinner.Spinner spinner  ) throws SQLException{
         boolean isEmpty = false;
         for(int i = 0; i > ingredientFields.size(); i++){
             if(ingredientFields.get(i).getText().isEmpty()){
@@ -169,40 +184,38 @@ public class DataSheetController {
         }
     }
      
- public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
-            boolean isEmpty = false;
-            for(int i = 0; i > fields.size(); i++){
-                System.out.print(fields.get(i));
-                if(fields.get(i).getText().isEmpty()){
-                    System.out.print("the field "+i+" is empty");
-                    isEmpty = true;
-                    break;
-                }
+    public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
+        boolean isEmpty = false;
+        for(int i = 0; i > fields.size(); i++){
+            System.out.print(fields.get(i));
+            if(fields.get(i).getText().isEmpty()){
+                System.out.print("the field "+i+" is empty");
+                isEmpty = true;
+                break;
             }
-            if(isEmpty){
-                 JOptionPane.showMessageDialog(null,
-                        "Preencha todos os campos");
+        }
+        if(isEmpty){
+             JOptionPane.showMessageDialog(null,
+                    "Preencha todos os campos");
+            return false;
+        } else{
+            DataSheet dataSheet = new DataSheet();
+            DataSheetDAO dao = new DataSheetDAO();
+
+            dataSheet.setDsSnackId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
+            dataSheet.setDsIngredientId(Integer.parseInt(fields.get(1).getText()));
+            dataSheet.setDsQuantity(Integer.parseInt(fields.get(2).getText()));
+            dataSheet.setDsTotalCost(Float.parseFloat(fields.get(3).getText()));
+
+            try {
+                dao.updateDataSheet(dataSheet);
+                this.readJTable();
+                return true;
+            } catch (SQLException ex) {
+                System.out.print(ex);
                 return false;
-            } else{
-                DataSheet dataSheet = new DataSheet();
-                DataSheetDAO dao = new DataSheetDAO();
-
-                dataSheet.setDsSnackId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
-                dataSheet.setDsIngredientId(Integer.parseInt(fields.get(1).getText()));
-                dataSheet.setDsQuantity(Integer.parseInt(fields.get(2).getText()));
-                dataSheet.setDsTotalCost(Float.parseFloat(fields.get(3).getText()));
-
-                try {
-                    dao.updateDataSheet(dataSheet);
-                    this.readJTable();
-                    return true;
-                } catch (SQLException ex) {
-                    System.out.print(ex);
-                    return false;
-                }
             }
-        
-        
+        }
     }
     
     public void delete() throws SQLException{
