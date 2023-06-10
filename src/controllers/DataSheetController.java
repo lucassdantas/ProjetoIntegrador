@@ -23,28 +23,44 @@ import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 public class DataSheetController {
 
     private JTable table;
-    private final List<JTextField> fields;
+    private final List<JTextField> ingredientFields;
+    private final List<JTextField> snackFields;
+    private Snack snack;
+    private Ingredient ingredient;
+    private DataSheet dataSheet 
+    private JTextField resultField;
     
     public DataSheetController() {
-        this.fields = new ArrayList<>();
+        this.ingredientFields = new ArrayList<>();
+        this.snackFields = new ArrayList<>();
+        this.Snack snack = new Snack();
+        this.Ingredient ingredient = new Ingredient();
+        this.dataSheet = new DataSheet();
     }
     
     public void setJTable(JTable table){
         this.table = table;
     }
-    public void setFields(javax.swing.JTextField field){
-        this.fields.add(field);
+    public void setIngredientFields(javax.swing.JTextField field){
+        this.ingredientFields.add(field);
     }
+    public void setSnackFields(javax.swing.JTextField field){
+        this.snackFields.add(field);
+    }
+    
     public JTable getTable(){
         return this.table;
     }
-    public List<JTextField> getFields(){
-        return this.fields;
+    public List<JTextField> getIngredientFields(){
+        return this.ingredientFields;
+    }
+    public List<JTextField> getSnackFields(){
+        return this.snackFields;
     }
     
-     public void setFieldsValue(){
-        for (int i = 0; i < this.fields.size(); i++){
-            fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
+     public void setIngredientFieldsValue(){
+        for (int i = 0; i < this.ingredientFields.size(); i++){
+            ingredientFields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
         }
     }
      public void readJTable() throws SQLException, java.sql.SQLException{
@@ -96,10 +112,17 @@ public class DataSheetController {
             System.out.println("Erro ao acessar o Banco de dador" + ex);
         }
     }
-     public boolean add (List <javax.swing.JTextField> fields) throws SQLException{
+     public boolean add (List <javax.swing.JTextField> ingredientFields,L ist <javax.swing.JTextField> snackFields  ) throws SQLException{
         boolean isEmpty = false;
-        for(int i = 0; i > fields.size(); i++){
-            if(fields.get(i).getText().isEmpty()){
+        for(int i = 0; i > ingredientFields.size(); i++){
+            if(ingredientFields.get(i).getText().isEmpty()){
+                System.out.print("the field "+i+" is empty");
+                isEmpty = true;
+                break;
+            }
+        }
+        for(int i = 0; i > snackFields.size(); i++){
+            if(snackFields.get(i).getText().isEmpty()){
                 System.out.print("the field "+i+" is empty");
                 isEmpty = true;
                 break;
@@ -108,17 +131,16 @@ public class DataSheetController {
         if(isEmpty){
             return false;
         } else{
-            DataSheet dataSheet = new DataSheet();
             DataSheetDAO dao = new DataSheetDAO();
-           
-            dataSheet.setDsSnackId(Integer.parseInt(fields.get(0).getText()));
-            dataSheet.setDsIngredientId(Integer.parseInt(fields.get(1).getText()));
-            dataSheet.setDsQuantity(Integer.parseInt(fields.get(2).getText()));
-            dataSheet.setDsTotalCost(Float.parseFloat(fields.get(3).getText()));
+            this.snack.getId(Integer.parseInt(snackFields.get(0).getText()));
+            this.ingredient.getId(Integer.parseInt(ingredientFields.get(0).getText()));
+            this.dataSheet.setDsQuantity(Integer.parseInt(ingredientFields.get(1).getText()));
+            this.dataSheet.set
             
             try {
                 dao.addDataSheet(dataSheet);
-                this.clean(this.fields);
+                this.clean(this.ingredientFields);
+                this.clean(this.snackFields);
                 this.readJTable();
                 return true;
             } catch (SQLException ex) {

@@ -2232,7 +2232,7 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_ingredientEditButtonActionPerformed
 
     private void dataSheetAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSheetAddButtonActionPerformed
-       new FichaEntrada().setVisible(true);
+       new DataSheetAdd().setVisible(true);
     }//GEN-LAST:event_dataSheetAddButtonActionPerformed
 
     private void dataSheetEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSheetEditButtonActionPerformed

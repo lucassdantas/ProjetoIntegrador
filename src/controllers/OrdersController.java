@@ -195,7 +195,7 @@ public class OrdersController {
                         this.table.getSelectedRow(), 0));
                 
                 try {
-                    dao.deleteOrder(orders.OrdersId());
+                    dao.deleteOrder(orders.getOrder());
                 } catch (SQLException ex) {
                     System.out.print(ex);
                 }
