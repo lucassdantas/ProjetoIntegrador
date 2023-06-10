@@ -22,11 +22,7 @@ import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
  */
 public class DataSheetController {
 
-    public DataSheetController(java.util.List<javax.swing.JTextField> fields) {
-        this.fields = fields;
-    }
-    
-     private JTable table;
+    private JTable table;
     private final List<JTextField> fields;
     
     public DataSheetController() {
@@ -62,10 +58,11 @@ public class DataSheetController {
         for (DataSheet dataSheet: dao.readAll()){
             model.addRow(new Object[]{
                 dataSheet.getDsSnackId(),
-                dataSheet.getDsIngredientId(),
+                dataSheet.getSnack().getSnackTitle(),
+                dataSheet.getIngredient().getIngredientName(),
                 dataSheet.getDsQuantity(),
-                dataSheet.getDsTotalCost(),
-                dataSheet.getDsStatus(), 
+                dataSheet.getIngredient().getIngredientUnitOfMeasure(),
+                dataSheet.getDsTotalCost()
             });
         }       
     }
@@ -172,13 +169,13 @@ public class DataSheetController {
                     "Confirma a Exclusão do Registro?", 
                     "Exclusão de Registro",OK_CANCEL_OPTION);
             if(answer == 0){
-               DataSheet dataSheet = new DataSheet();
+                DataSheet dataSheet = new DataSheet();
                 DataSheetDAO dao = new DataSheetDAO();                
-                dsSnackId.setId((int) this.table.getValueAt(
+                dataSheet.setDsSnackId((int) this.table.getValueAt(
                         this.table.getSelectedRow(), 0));
                 
                 try {
-                    dao.deleteIngredient(dsSnackId.getId());
+                    dao.deleteDataSheet(dataSheet.getDsSnackId(), dataSheet.getDsIngredientId());
                 } catch (SQLException ex) {
                     System.out.print(ex);
                 }
