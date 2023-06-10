@@ -959,6 +959,11 @@ public void limparCalculoPorcoes() {
         panelLanche.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
 
         snackSearchButton.setText("OK");
+        snackSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                snackSearchButtonActionPerformed(evt);
+            }
+        });
         panelLanche.add(snackSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
         snackSearchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1056,6 +1061,11 @@ public void limparCalculoPorcoes() {
             }
         });
         snackTable.setShowGrid(true);
+        snackTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                snackTableMouseClicked(evt);
+            }
+        });
         snackTable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 snackTableKeyPressed(evt);
@@ -2614,7 +2624,8 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_snackDeleteButtonActionPerformed
 
     private void snackTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_snackTableKeyReleased
-        // TODO add your handling code here:
+        snackTitleField.setText(snackTable.getValueAt(snackTable.getSelectedRow(), 1).toString());
+        snackPriceOfSellingField.setText(snackTable.getValueAt(snackTable.getSelectedRow(), 2).toString());
     }//GEN-LAST:event_snackTableKeyReleased
 
     private void snackTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_snackTableKeyPressed
@@ -2630,6 +2641,19 @@ public void limparCalculoPorcoes() {
             }
         }
     }//GEN-LAST:event_snackTableKeyPressed
+
+    private void snackTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_snackTableMouseClicked
+        snackTitleField.setText(snackTable.getValueAt(snackTable.getSelectedRow(), 1).toString());
+        snackPriceOfSellingField.setText(snackTable.getValueAt(snackTable.getSelectedRow(), 2).toString());
+    }//GEN-LAST:event_snackTableMouseClicked
+
+    private void snackSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackSearchButtonActionPerformed
+        try {
+            snackController.readJTableSearch(snackSearchField.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_snackSearchButtonActionPerformed
 
     /**
      * @param args the command line arguments
