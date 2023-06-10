@@ -271,14 +271,16 @@ public class DataSheetAdd extends javax.swing.JFrame {
         this.dsController.setIngredientFields(dsIngredientUnityQuantityField);
         this.dsController.setIngredientFields(dsUnityOfMeauseField);
         this.dsController.setIngredientFields(dsUnityCostField);
+        this.dsController.setTotalValueField(dsTotalCostField);
+        this.dsController.setDsQuantitySpinner(dsIngredientUnityQuantitySpinner);
     }
     private void dsCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsCancelButtonActionPerformed
         dispose();
     }//GEN-LAST:event_dsCancelButtonActionPerformed
 
     private void dsSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsSaveButtonActionPerformed
-         try {
-            dsController.add(dsController.getIngredientFields(), dsController.getSnackFields());
+        try {
+            dsController.add(dsController.getIngredientFields(), dsController.getSnackFields(), dsController.getTotalValueField(), dsController.getDsQuantitySpinner());
             dispose();
         } catch (SQLException ex) {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);

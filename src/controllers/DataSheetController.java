@@ -15,6 +15,8 @@ import models.DataSheet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
+import models.Ingredient;
+import models.Snack;
 
 /**
  *
@@ -25,16 +27,18 @@ public class DataSheetController {
     private JTable table;
     private final List<JTextField> ingredientFields;
     private final List<JTextField> snackFields;
+    private JTextField totalValueField;
+    private views.spinner.Spinner dsQuantitySpinner;
     private Snack snack;
     private Ingredient ingredient;
-    private DataSheet dataSheet 
+    private DataSheet dataSheet;
     private JTextField resultField;
     
     public DataSheetController() {
         this.ingredientFields = new ArrayList<>();
         this.snackFields = new ArrayList<>();
-        this.Snack snack = new Snack();
-        this.Ingredient ingredient = new Ingredient();
+        this.snack = new Snack();
+        this.ingredient = new Ingredient();
         this.dataSheet = new DataSheet();
     }
     
@@ -46,6 +50,20 @@ public class DataSheetController {
     }
     public void setSnackFields(javax.swing.JTextField field){
         this.snackFields.add(field);
+    }
+    public void setDsQuantitySpinner(views.spinner.Spinner spinner){
+        this.dsQuantitySpinner = spinner;
+    }
+    
+    public void setTotalValueField(JTextField field){
+        this.totalValueField = field;
+    }
+    
+    public views.spinner.Spinner getDsQuantitySpinner(){
+        return this.dsQuantitySpinner;
+    }
+    public JTextField getTotalValueField (){
+        return this.totalValueField;
     }
     
     public JTable getTable(){
@@ -112,7 +130,7 @@ public class DataSheetController {
             System.out.println("Erro ao acessar o Banco de dador" + ex);
         }
     }
-     public boolean add (List <javax.swing.JTextField> ingredientFields,L ist <javax.swing.JTextField> snackFields  ) throws SQLException{
+     public boolean add (List <javax.swing.JTextField> ingredientFields, List<javax.swing.JTextField> snackFields, JTextField totalValueField, views.spinner.Spinner spinner  ) throws SQLException{
         boolean isEmpty = false;
         for(int i = 0; i > ingredientFields.size(); i++){
             if(ingredientFields.get(i).getText().isEmpty()){
@@ -132,11 +150,12 @@ public class DataSheetController {
             return false;
         } else{
             DataSheetDAO dao = new DataSheetDAO();
-            this.snack.getId(Integer.parseInt(snackFields.get(0).getText()));
-            this.ingredient.getId(Integer.parseInt(ingredientFields.get(0).getText()));
-            this.dataSheet.setDsQuantity(Integer.parseInt(ingredientFields.get(1).getText()));
-            this.dataSheet.set
-            
+            this.snack.setId(Integer.parseInt(snackFields.get(0).getText()));
+            this.ingredient.setId(Integer.parseInt(ingredientFields.get(0).getText()));
+            this.dataSheet.setDsQuantity(Integer.parseInt((String) spinner.getValue()));
+            this.dataSheet.setDsTotalCost(Float.parseFloat(totalValueField.getText()));
+            this.dataSheet.setSnack(this.snack);
+            this.dataSheet.setIngredient(this.ingredient);
             try {
                 dao.addDataSheet(dataSheet);
                 this.clean(this.ingredientFields);
