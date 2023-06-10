@@ -17,7 +17,7 @@ public class DataSheetDAO {
 
     public List<DataSheet> readAll() throws SQLException {
         List<DataSheet> dataSheets = new ArrayList<>();
-        String query = "SELECT datasheet.*, snack.*, ingredient.* FROM datasheet" + 
+        String query = "SELECT datasheet.*, snack.*, ingredient.* FROM datasheet " + 
                 "INNER JOIN snack ON datasheet.dsSnackId = snack.snackId " +
                 "INNER JOIN ingredient ON datasheet.dsIngredientId = ingredient.ingredientId";
         try (Statement statement = connection.createStatement();
