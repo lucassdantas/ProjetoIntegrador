@@ -67,7 +67,6 @@ public class DataSheetController {
     public JTextField getTotalValueField (){
         return this.totalValueField;
     }
-    
     public JTable getTable(){
         return this.table;
     }
@@ -77,11 +76,28 @@ public class DataSheetController {
     public List<JTextField> getSnackFields(){
         return this.snackFields;
     }
-   
+    public void setFieldsValue(){
+        this.setIngredientFieldsValue();
+        this.setSnackFieldsValue();
+        this.setTotalValue();
+        this.setSpinnerValue();
+                    
+    }
     public void setIngredientFieldsValue(){
         for (int i = 0; i < this.ingredientFields.size(); i++){
-            ingredientFields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
+            ingredientFields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i)));
         }
+    }
+    public void setSnackFieldsValue(){
+        for (int i = 0; i < this.snackFields.size(); i++){
+            snackFields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i)));
+        }
+    }
+    public void setSpinnerValue(){
+        this.dsQuantitySpinner.setValue(table.getValueAt(table.getSelectedRow(), 2));
+    }
+    public void setTotalValue(){
+        this.totalValueField.setText(String.valueOf(table.getValueAt(table.getSelectedRow(), 4)));
     }
     public void searchSnack(int id) throws SQLException{
         
@@ -90,7 +106,7 @@ public class DataSheetController {
         this.snack = snacks.get(0);
         this.getSnackFields().get(0).setText(String.valueOf(snack.getSnackTitle()));
     }
-     public void searchIngredient(int id) throws SQLException{
+    public void searchIngredient(int id) throws SQLException{
         
         IngredientDAO dao = new IngredientDAO();
         List<Ingredient> ingredients = dao.searchById(id);
@@ -100,6 +116,7 @@ public class DataSheetController {
         this.getIngredientFields().get(2).setText(String.valueOf(ingredient.getIngredientUnitOfMeasure()));
         this.getIngredientFields().get(3).setText(String.valueOf(ingredient.getIngredientUnitCost()));
     }
+    
     public float calcTotalValue(){
         float spinnerValue = Float.parseFloat(String.valueOf(this.dsQuantitySpinner.getValue()));
         float ingredientCost = Float.parseFloat((String) this.ingredientFields.get(3).getText());
@@ -108,6 +125,7 @@ public class DataSheetController {
         this.totalValueField.setText(String.valueOf(result));
         return result;
     }
+    
     public void readJTable() throws SQLException, java.sql.SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -146,6 +164,7 @@ public class DataSheetController {
             });
         }       
     }
+    
     public void clean (List <javax.swing.JTextField> fields){
         fields.forEach((field) -> {
                 field.setText("");
@@ -157,6 +176,7 @@ public class DataSheetController {
             System.out.println("Erro ao acessar o Banco de dador" + ex);
         }
     }
+    
     public boolean add (List <javax.swing.JTextField> ingredientFields, List<javax.swing.JTextField> snackFields, JTextField totalValueField, views.spinner.Spinner spinner  ) throws SQLException{
         boolean isEmpty = false;
         for(int i = 0; i > ingredientFields.size(); i++){

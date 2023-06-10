@@ -2239,8 +2239,11 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_dataSheetAddButtonActionPerformed
 
     private void dataSheetEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSheetEditButtonActionPerformed
-        String value = (String) dataSheetTable.getValueAt(dataSheetTable.getSelectedRow(), 0);
-        FichaEditar editDataSheet = new FichaEditar();
+        DataSheetEdit editDataSheet = new DataSheetEdit();
+        editDataSheet.setJTable(dataSheetTable);
+        editDataSheet.searchFields();
+        editDataSheet.setFieldsValue();
+        editDataSheet.setVisible(true);
     }//GEN-LAST:event_dataSheetEditButtonActionPerformed
 
     private void calcCalcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCalcBtnActionPerformed
