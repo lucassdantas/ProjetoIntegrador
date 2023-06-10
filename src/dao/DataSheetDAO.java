@@ -21,7 +21,7 @@ public class DataSheetDAO {
                 "INNER JOIN snack ON datasheet.dsSnackId = snack.snackId " +
                 "INNER JOIN ingredient ON ds.dsIngredientId = ingredient.ingredientId";
         try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(query)) {
+            ResultSet resultSet = statement.executeQuery(query)) {
             while (resultSet.next()) {
                 DataSheet dataSheet = new DataSheet();
                 dataSheet.setDsSnackId(resultSet.getInt("dsSnackId"));
@@ -29,6 +29,28 @@ public class DataSheetDAO {
                 dataSheet.setDsQuantity(resultSet.getInt("dsQuantity"));
                 dataSheet.setDsTotalCost(resultSet.getFloat("dsTotalCost"));
                 dataSheet.setDsStatus(resultSet.getString("dsStatus"));
+                
+                Snack snack = new Snack();
+                snack.setId(resultSet.getInt("snackId"));
+                snack.setSnackTitle(resultSet.getString("snackTitle"));
+                snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
+                snack.setSnackDescription(resultSet.getString("snackDescription"));
+                snack.setSnackImageUrl(resultSet.getString("snackImageUrl"));
+                snack.setSnackStatus(resultSet.getString("snackStatus"));
+                
+                Ingredient ingredient = new Ingredient();
+                ingredient.setId(resultSet.getInt("ingredientId"));
+                ingredient.setIngredientName(resultSet.getString("ingredientName"));
+                ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
+                ingredient.setIngredientUnitOfMeasure(resultSet.getString("ingredientUnitOfMeasure"));
+                ingredient.setIngredientUnitCost(resultSet.getFloat("ingredientUnitCost"));
+                ingredient.setIngredientStatus(resultSet.getString("ingredientStatus"));
+                ingredient.setIngredientStock(resultSet.getFloat("ingredientStock"));
+                ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
+                ingredient.setIngredientUnitQuantity(resultSet.getFloat("ingredientUnitQuantity"));
+                
+                dataSheet.setSnack(snack);
+                dataSheet.setIngredient(ingredient);
                 dataSheets.add(dataSheet);
             }
         }
