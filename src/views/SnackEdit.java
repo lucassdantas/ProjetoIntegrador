@@ -4,21 +4,40 @@
  */
 package views;
 
+import controllers.IngredientController;
+import controllers.SnackController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JTable;
 
 /**
  *
  * @author Work.Studies
  */
-public class LanchesEditar extends javax.swing.JFrame {
+public class SnackEdit extends javax.swing.JFrame {
 
     /**
      * Creates new form EstoqueEntrada
      */
-    public LanchesEditar() {
+    private final SnackController snackController;
+    public SnackEdit() {
         initComponents();
+        snackController = new SnackController();
+    }
+    public void setJTable(JTable table){
+        this.snackController.setJTable(table);
     }
     
+    public void searchFields(){
+        this.snackController.setFields(ingredientEditTitleField);
+        this.snackController.setFields(ingredientEditPriceField);
+        this.snackController.setTextArea(ingredientEditDescriptionTextArea);
+    }
+    public void setFieldsValue(){
+        this.snackController.setFieldsValue();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -27,21 +46,21 @@ public class LanchesEditar extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         areaEntradas_entrada = new javax.swing.JInternalFrame();
         panelEntradas1 = new javax.swing.JPanel();
-        jTextField17 = new javax.swing.JTextField();
+        ingredientEditTitleField = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         colorBtn19 = new javax.swing.JPanel();
         colorBtn20 = new javax.swing.JPanel();
-        jTextField18 = new javax.swing.JTextField();
+        ingredientEditPriceField = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        areaText1 = new views.text.area.AreaText();
+        ingredientEditDescriptionTextArea = new views.text.area.AreaText();
         fotoVP = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        mybtn5 = new views.styles.Mybtn();
-        mybtn4 = new views.styles.Mybtn();
+        snackEditCancelButton = new views.styles.Mybtn();
+        snackEditSaveButton = new views.styles.Mybtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -67,9 +86,9 @@ public class LanchesEditar extends javax.swing.JFrame {
         panelEntradas1.setPreferredSize(new java.awt.Dimension(1690, 1020));
         panelEntradas1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField17.setName(""); // NOI18N
-        panelEntradas1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 45));
+        ingredientEditTitleField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        ingredientEditTitleField.setName(""); // NOI18N
+        panelEntradas1.add(ingredientEditTitleField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 45));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel32.setText("Produtos/lanche");
@@ -105,9 +124,9 @@ public class LanchesEditar extends javax.swing.JFrame {
 
         panelEntradas1.add(colorBtn20, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 570, 10, 40));
 
-        jTextField18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField18.setName(""); // NOI18N
-        panelEntradas1.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
+        ingredientEditPriceField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        ingredientEditPriceField.setName(""); // NOI18N
+        panelEntradas1.add(ingredientEditPriceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(126, 126, 126));
@@ -120,12 +139,12 @@ public class LanchesEditar extends javax.swing.JFrame {
         jLabel34.setText("Descrição");
         panelEntradas1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 140, 30));
 
-        areaText1.fixTextArea(jScrollPane1);
-        areaText1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        areaText1.setColumns(20);
-        areaText1.setRows(5);
-        areaText1.setMaximumSize(new java.awt.Dimension(232, 18));
-        jScrollPane1.setViewportView(areaText1);
+        ingredientEditDescriptionTextArea.fixTextArea(jScrollPane1);
+        ingredientEditDescriptionTextArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        ingredientEditDescriptionTextArea.setColumns(20);
+        ingredientEditDescriptionTextArea.setRows(5);
+        ingredientEditDescriptionTextArea.setMaximumSize(new java.awt.Dimension(232, 18));
+        jScrollPane1.setViewportView(ingredientEditDescriptionTextArea);
 
         panelEntradas1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 450, 120));
 
@@ -167,19 +186,24 @@ public class LanchesEditar extends javax.swing.JFrame {
         jButton1.setOpaque(true);
         panelEntradas1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 320, 120, 23));
 
-        mybtn5.setText("CANCELAR");
-        mybtn5.addActionListener(new java.awt.event.ActionListener() {
+        snackEditCancelButton.setText("CANCELAR");
+        snackEditCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn5ActionPerformed(evt);
+                snackEditCancelButtonActionPerformed(evt);
             }
         });
-        panelEntradas1.add(mybtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 129, 40));
+        panelEntradas1.add(snackEditCancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 129, 40));
 
-        mybtn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
-        mybtn4.setText("SALVAR");
-        mybtn4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        panelEntradas1.add(mybtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
+        snackEditSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
+        snackEditSaveButton.setText("SALVAR");
+        snackEditSaveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        snackEditSaveButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        snackEditSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                snackEditSaveButtonActionPerformed(evt);
+            }
+        });
+        panelEntradas1.add(snackEditSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
@@ -202,10 +226,19 @@ public class LanchesEditar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
+    private void snackEditCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackEditCancelButtonActionPerformed
         dispose();
-    }//GEN-LAST:event_mybtn5ActionPerformed
+    }//GEN-LAST:event_snackEditCancelButtonActionPerformed
 
+    private void snackEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackEditSaveButtonActionPerformed
+       try {
+            snackController.update(snackController.getFields(), snackController.getTextArea());
+            dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_snackEditSaveButtonActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -223,14 +256,38 @@ public class LanchesEditar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LanchesEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SnackEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LanchesEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SnackEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LanchesEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SnackEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LanchesEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SnackEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -243,17 +300,19 @@ public class LanchesEditar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LanchesEditar().setVisible(true);
+                new SnackEdit().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
-    private views.text.area.AreaText areaText1;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
     private javax.swing.JPanel fotoVP;
+    private views.text.area.AreaText ingredientEditDescriptionTextArea;
+    private javax.swing.JTextField ingredientEditPriceField;
+    private javax.swing.JTextField ingredientEditTitleField;
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
@@ -263,10 +322,8 @@ public class LanchesEditar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private views.styles.Mybtn mybtn4;
-    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
+    private views.styles.Mybtn snackEditCancelButton;
+    private views.styles.Mybtn snackEditSaveButton;
     // End of variables declaration//GEN-END:variables
 }

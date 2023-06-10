@@ -2,6 +2,7 @@ package views;
 import AppPackage.AnimationClass;
 import controllers.IngredientController;
 import controllers.PortionCalcController;
+import controllers.SnackController;
 import dao.IngredientDAO;
 import java.awt.Color;
 import java.awt.Component;
@@ -23,6 +24,7 @@ AnimationClass ac = new AnimationClass();
 PortionCalcController calcController = new PortionCalcController();
 PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
 IngredientController ingredientController = new IngredientController();
+SnackController snackController = new SnackController();
 
     public StockViews() throws SQLException {
         initComponents();
@@ -34,8 +36,10 @@ IngredientController ingredientController = new IngredientController();
         
         //ingredientController
         ingredientController.setJTable(ingredientTable);
-        
         ingredientController.readJTable();
+        
+        snackController.setJTable(snackTable);
+        snackController.readJTable();
     }
 
     private void setIcon(){
@@ -166,22 +170,22 @@ public void limparCalculoPorcoes() {
         fotoVP1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        mybtn22 = new views.styles.Mybtn2();
-        jTextField4 = new javax.swing.JTextField();
+        snackSearchButton = new views.styles.Mybtn2();
+        snackSearchField = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        snackTitleField = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        snackPriceOfSellingField = new javax.swing.JTextField();
         colorBtn4 = new javax.swing.JPanel();
         colorBtn5 = new javax.swing.JPanel();
         colorBtn6 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
         jScrollPane4 = new javax.swing.JScrollPane();
-        table3 = new views.tables.Table();
-        mybtn2 = new views.styles.Mybtn();
-        mybtn3 = new views.styles.Mybtn();
-        mybtn4 = new views.styles.Mybtn();
+        snackTable = new views.tables.Table();
+        snackAddButton = new views.styles.Mybtn();
+        snackEditButton = new views.styles.Mybtn();
+        snackDeleteButton = new views.styles.Mybtn();
         areaIngredientes = new javax.swing.JInternalFrame();
         panelIngredientes = new javax.swing.JPanel();
         fotoVP2 = new javax.swing.JPanel();
@@ -954,23 +958,23 @@ public void limparCalculoPorcoes() {
         jLabel4.setOpaque(true);
         panelLanche.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
 
-        mybtn22.setText("OK");
-        panelLanche.add(mybtn22, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
+        snackSearchButton.setText("OK");
+        panelLanche.add(snackSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField4.setName(""); // NOI18N
-        panelLanche.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
+        snackSearchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        snackSearchField.setName(""); // NOI18N
+        panelLanche.add(snackSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel13.setText("id");
         panelLanche.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField5.setName(""); // NOI18N
-        jTextField5.setOpaque(true);
-        panelLanche.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 188, 45));
+        snackTitleField.setEditable(false);
+        snackTitleField.setBackground(new java.awt.Color(243, 243, 243));
+        snackTitleField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        snackTitleField.setName(""); // NOI18N
+        snackTitleField.setOpaque(true);
+        panelLanche.add(snackTitleField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 188, 45));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel14.setText("Produto/Lanche");
@@ -980,12 +984,12 @@ public void limparCalculoPorcoes() {
         jLabel15.setText("Preço de venda (R$)");
         panelLanche.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 180, 30));
 
-        jTextField6.setEditable(false);
-        jTextField6.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField6.setName(""); // NOI18N
-        jTextField6.setOpaque(true);
-        panelLanche.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 140, 45));
+        snackPriceOfSellingField.setEditable(false);
+        snackPriceOfSellingField.setBackground(new java.awt.Color(243, 243, 243));
+        snackPriceOfSellingField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        snackPriceOfSellingField.setName(""); // NOI18N
+        snackPriceOfSellingField.setOpaque(true);
+        panelLanche.add(snackPriceOfSellingField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 140, 45));
 
         colorBtn4.setBackground(new java.awt.Color(90, 90, 90));
 
@@ -1034,13 +1038,13 @@ public void limparCalculoPorcoes() {
         panelLanche.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
         table1.fixTable(jScrollPane4);
-        table3.setModel(new javax.swing.table.DefaultTableModel(
+        snackTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "hamburguer", "11,00", "..."},
                 {"2", "x-burguer duplo", "16,00", "..."}
             },
             new String [] {
-                "id ", "Lanche", "Preço Venda", "Descrição"
+                "Id", "Lanche", "Preço Venda", "Descrição"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1051,42 +1055,54 @@ public void limparCalculoPorcoes() {
                 return canEdit [columnIndex];
             }
         });
-        table3.setShowGrid(true);
-        jScrollPane4.setViewportView(table3);
-        if (table3.getColumnModel().getColumnCount() > 0) {
-            table3.getColumnModel().getColumn(0).setResizable(false);
-            table3.getColumnModel().getColumn(0).setHeaderValue("id_AI");
-            table3.getColumnModel().getColumn(1).setResizable(false);
-            table3.getColumnModel().getColumn(2).setResizable(false);
-            table3.getColumnModel().getColumn(3).setResizable(false);
+        snackTable.setShowGrid(true);
+        snackTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                snackTableKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                snackTableKeyReleased(evt);
+            }
+        });
+        jScrollPane4.setViewportView(snackTable);
+        if (snackTable.getColumnModel().getColumnCount() > 0) {
+            snackTable.getColumnModel().getColumn(0).setResizable(false);
+            snackTable.getColumnModel().getColumn(1).setResizable(false);
+            snackTable.getColumnModel().getColumn(2).setResizable(false);
+            snackTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
         panelLanche.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
 
-        mybtn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
-        mybtn2.setText("NOVO");
-        mybtn2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn2.addActionListener(new java.awt.event.ActionListener() {
+        snackAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
+        snackAddButton.setText("NOVO");
+        snackAddButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        snackAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn2ActionPerformed(evt);
+                snackAddButtonActionPerformed(evt);
             }
         });
-        panelLanche.add(mybtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
+        panelLanche.add(snackAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
-        mybtn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
-        mybtn3.setText("EDITAR");
-        mybtn3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn3.addActionListener(new java.awt.event.ActionListener() {
+        snackEditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        snackEditButton.setText("EDITAR");
+        snackEditButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        snackEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn3ActionPerformed(evt);
+                snackEditButtonActionPerformed(evt);
             }
         });
-        panelLanche.add(mybtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
+        panelLanche.add(snackEditButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
 
-        mybtn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
-        mybtn4.setText("EXCLUIR");
-        mybtn4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelLanche.add(mybtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
+        snackDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
+        snackDeleteButton.setText("EXCLUIR");
+        snackDeleteButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        snackDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                snackDeleteButtonActionPerformed(evt);
+            }
+        });
+        panelLanche.add(snackDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         areaLanche.getContentPane().add(panelLanche, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 900));
 
@@ -2156,13 +2172,25 @@ public void limparCalculoPorcoes() {
         System.exit(0);
     }//GEN-LAST:event_btnSairMouseClicked
 
-    private void mybtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn2ActionPerformed
-        new snackAdd().setVisible(true);
-    }//GEN-LAST:event_mybtn2ActionPerformed
+    private void snackAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackAddButtonActionPerformed
+        SnackAdd snackAdd = new SnackAdd();
+        snackAdd.setJTable(snackTable);
+        snackAdd.searchFields();
+        snackAdd.setVisible(true);
+    }//GEN-LAST:event_snackAddButtonActionPerformed
 
-    private void mybtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn3ActionPerformed
-        new LanchesEditar().setVisible(true);
-    }//GEN-LAST:event_mybtn3ActionPerformed
+    private void snackEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackEditButtonActionPerformed
+        SnackEdit snackEdit = new SnackEdit();
+        snackEdit.setJTable(snackTable);
+        if(snackTable.getSelectedRow() != -1){
+            snackEdit.searchFields();
+            snackEdit.setFieldsValue();
+            snackEdit.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um item da tabela!");
+        }
+        
+    }//GEN-LAST:event_snackEditButtonActionPerformed
 
     private void ingredientAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientAddButtonActionPerformed
        IngredientAdd ingredientAdd = new IngredientAdd();
@@ -2543,11 +2571,11 @@ public void limparCalculoPorcoes() {
 
     private void ingredientDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientDeleteButtonActionPerformed
         ingredientController.setJTable(ingredientTable);
-    try {   
-        ingredientController.delete();
-    } catch (SQLException ex) {
-        Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        try {   
+            ingredientController.delete();
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ingredientDeleteButtonActionPerformed
 
     private void ingredientTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingredientTableMouseClicked
@@ -2575,6 +2603,33 @@ public void limparCalculoPorcoes() {
             }
         }
     }//GEN-LAST:event_ingredientTableKeyPressed
+
+    private void snackDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackDeleteButtonActionPerformed
+        snackController.setJTable(snackTable);
+        try {   
+            snackController.delete();
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_snackDeleteButtonActionPerformed
+
+    private void snackTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_snackTableKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_snackTableKeyReleased
+
+    private void snackTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_snackTableKeyPressed
+         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            SnackEdit snackEdit = new SnackEdit();
+            snackEdit.setJTable(snackTable);
+            if(snackTable.getSelectedRow() != -1){
+                snackEdit.searchFields();
+                snackEdit.setFieldsValue();
+                snackEdit.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null,"Selecione um item da tabela!");
+            }
+        }
+    }//GEN-LAST:event_snackTableKeyPressed
 
     /**
      * @param args the command line arguments
@@ -2788,9 +2843,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblCopyright;
     private javax.swing.JLabel lblVersion;
@@ -2807,14 +2859,10 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn mybtn13;
     private views.styles.Mybtn mybtn14;
     private views.styles.Mybtn mybtn15;
-    private views.styles.Mybtn mybtn2;
     private views.styles.Mybtn2 mybtn21;
-    private views.styles.Mybtn2 mybtn22;
     private views.styles.Mybtn2 mybtn24;
     private views.styles.Mybtn2 mybtn25;
     private views.styles.Mybtn2 mybtn26;
-    private views.styles.Mybtn mybtn3;
-    private views.styles.Mybtn mybtn4;
     private javax.swing.JPanel painelMenu1;
     private javax.swing.JPanel painelMenu2;
     private javax.swing.JPanel painelMenu3;
@@ -2827,10 +2875,17 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel panelPE1;
     private javax.swing.JPanel panelVP;
     private javax.swing.JPanel rodapePainel;
+    private views.styles.Mybtn snackAddButton;
+    private views.styles.Mybtn snackDeleteButton;
+    private views.styles.Mybtn snackEditButton;
+    private javax.swing.JTextField snackPriceOfSellingField;
+    private views.styles.Mybtn2 snackSearchButton;
+    private javax.swing.JTextField snackSearchField;
+    private views.tables.Table snackTable;
+    private javax.swing.JTextField snackTitleField;
     private views.spinner.Spinner spinner2;
     private views.tables.Table table1;
     private views.tables.Table table2;
-    private views.tables.Table table3;
     private views.tables.Table table5;
     private views.tables.Table table6;
     // End of variables declaration//GEN-END:variables

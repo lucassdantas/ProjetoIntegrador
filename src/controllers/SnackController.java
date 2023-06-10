@@ -53,6 +53,8 @@ public class SnackController {
         for (int i = 0; i < this.fields.size(); i++){
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
         }
+        this.textArea.setText(String.valueOf(table.getValueAt(table.getSelectedRow(), 3)));
+        
     }
      
     public void readJTable() throws SQLException{
@@ -68,7 +70,7 @@ public class SnackController {
                 snack.getId(),
                 snack.getSnackTitle(),
                 snack.getSnackSellingPrice(),
-                snack.getSnackDescription(),
+                snack.getSnackDescription()
             });
         }       
     }
@@ -86,7 +88,7 @@ public class SnackController {
                 snack.getId(),
                 snack.getSnackTitle(),
                 snack.getSnackSellingPrice(),
-                snack.getSnackDescription(),
+                snack.getSnackDescription()
             });
         }       
     }
