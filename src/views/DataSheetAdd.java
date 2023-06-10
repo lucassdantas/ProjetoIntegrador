@@ -106,6 +106,11 @@ public class DataSheetAdd extends javax.swing.JFrame {
         panelEntradas1.add(dsSnackIdSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 50, 47, 45));
 
         dsIngredientSearchButton.setText("OK");
+        dsIngredientSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dsIngredientSearchButtonActionPerformed(evt);
+            }
+        });
         panelEntradas1.add(dsIngredientSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 190, 47, 45));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -172,8 +177,8 @@ public class DataSheetAdd extends javax.swing.JFrame {
         jLabel36.setText("Custo (R$)");
         panelEntradas1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 140, 30));
 
-        dsTotalCostField.setEditable(false);
-        dsTotalCostField.setBackground(new java.awt.Color(243, 243, 243));
+        dsTotalCostField.setEditable(true);
+        dsTotalCostField.setBackground(new java.awt.Color(255, 255, 255));
         dsTotalCostField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         dsTotalCostField.setName(""); // NOI18N
         dsTotalCostField.setOpaque(true);
@@ -300,6 +305,15 @@ public class DataSheetAdd extends javax.swing.JFrame {
             Logger.getLogger(DataSheetAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dsSnackIdSearchButtonActionPerformed
+
+    private void dsIngredientSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsIngredientSearchButtonActionPerformed
+        try {
+            dsController.searchIngredient(Integer.parseInt(dsIngredientSearchIdField.getText()));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DataSheetAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dsIngredientSearchButtonActionPerformed
 
     /**
      * @param args the command line arguments
