@@ -260,6 +260,7 @@ public class DataSheetController {
             DataSheetDAO dao = new DataSheetDAO();
             this.dataSheet.setDsQuantity(Integer.parseInt(String.valueOf(spinner.getValue())));
             this.dataSheet.setDsTotalCost(Float.parseFloat(String.valueOf(totalValueField.getText().replace(",", "."))));
+            
             this.dataSheet.setSnack(this.snack);
             this.dataSheet.setIngredient(this.ingredient);
             try {
