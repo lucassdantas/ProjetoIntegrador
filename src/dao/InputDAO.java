@@ -8,6 +8,8 @@ package dao;
 import ConnectionFactory.ConnectionFactory;
 import models.Input;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import models.Ingredient;
@@ -28,7 +30,7 @@ public class InputDAO {
                 Input input = new Input();
                 input.setInputId(resultSet.getInt("inputId"));
                 input.setIngredientId(resultSet.getInt("ingredientId"));
-                input.setInputQuantity(resultSet.getInt("inputQuantity"));
+                input.setInputQuantity(resultSet.getFloat("inputQuantity"));
                 input.setInputCost(resultSet.getFloat("inputCost"));
                 input.setInputDate(resultSet.getDate("inputDate"));
                 input.setInputStatus(resultSet.getString("inputStatus"));
@@ -61,7 +63,7 @@ public class InputDAO {
                     Input input = new Input();
                     input.setInputId(resultSet.getInt("inputId"));
                     input.setIngredientId(resultSet.getInt("ingredientId"));
-                    input.setInputQuantity(resultSet.getInt("inputQuantity"));
+                    input.setInputQuantity(resultSet.getFloat("inputQuantity"));
                     input.setInputCost(resultSet.getFloat("inputCost"));
                     input.setInputDate(resultSet.getDate("inputDate"));
                     input.setInputStatus(resultSet.getString("inputStatus"));
@@ -85,14 +87,14 @@ public class InputDAO {
         return inputs;
     }
 
-    public void addInput(Input input) throws SQLException {
+    public void addInput(Input input) throws SQLException, ParseException {
         String query = "INSERT INTO input (ingredientId, inputQuantity, inputCost, inputDate, inputStatus) " +
                 "VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, input.getIngredientId());
-            statement.setInt(2, input.getInputQuantity());
+            statement.setInt(1, input.getIngredient().getId());
+            statement.setFloat(2, input.getInputQuantity());
             statement.setFloat(3, input.getInputCost());
-            statement.setDate(4, (Date) input.getInputDate());
+            statement.setDate(4, new java.sql.Date(input.getInputDate().getTime()));
             statement.setString(5, input.getInputStatus());
             statement.executeUpdate();
         }
@@ -102,8 +104,8 @@ public class InputDAO {
         String query = "UPDATE input SET ingredientId = ?, inputQuantity = ?, inputCost = ?, inputDate = ?, " +
                 "inputStatus = ? WHERE inputId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, input.getIngredientId());
-            statement.setInt(2, input.getInputQuantity());
+            statement.setInt(1, input.getIngredient().getId());
+            statement.setFloat(2, input.getInputQuantity());
             statement.setFloat(3, input.getInputCost());
             statement.setDate(4, (Date) input.getInputDate());
             statement.setString(5, input.getInputStatus());

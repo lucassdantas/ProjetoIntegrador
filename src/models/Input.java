@@ -4,6 +4,7 @@
  */
 package models;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import java.util.Date;
 public class Input extends EntityId{
     private int inputId;
     private int ingredientId;
-    private int inputQuantity;
+    private float inputQuantity;
     private float inputCost;
     private Date inputDate;
     private String inputStatus;
@@ -49,11 +50,11 @@ public class Input extends EntityId{
         this.ingredientId = ingredientId;
     }
 
-    public int getInputQuantity() {
+    public float getInputQuantity() {
         return inputQuantity;
     }
 
-    public void setInputQuantity(int inputQuantity) {
+    public void setInputQuantity(float inputQuantity) {
         this.inputQuantity = inputQuantity;
     }
 
@@ -64,7 +65,12 @@ public class Input extends EntityId{
     public void setInputCost(float inputCost) {
         this.inputCost = inputCost;
     }
-
+    public String getStringDate(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String stringDate = String.valueOf(formatter.format(this.inputDate));
+        return stringDate;
+    }
+    
     public Date getInputDate() {
         return inputDate;
     }

@@ -8,6 +8,7 @@ import dao.IngredientDAO;
 import dao.InputDAO;
 import dao.SnackDAO;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -122,7 +123,9 @@ public class InputController {
 
     public void clean (List <javax.swing.JTextField> fields){
         fields.forEach((field) -> {
+            if(!"inputAddDateField".equals(field.getName()) ){
                 field.setText("");
+            }
         });
         try {
             this.readJTable();
@@ -132,7 +135,7 @@ public class InputController {
         }
     }
 
-    public boolean add (List <javax.swing.JTextField> fields) throws SQLException{
+    public boolean add (List <javax.swing.JTextField> fields) throws SQLException, ParseException{
         boolean isEmpty = false;
         for(int i = 0; i > fields.size(); i++){
             if(fields.get(i).getText().isEmpty()){
@@ -140,20 +143,25 @@ public class InputController {
                 break;
             }
         }
-        if(!isEmpty){
+        if(isEmpty){
             return false;
         } else{
             Input input = new Input();
             InputDAO dao = new InputDAO();
             
-            input.setIngredientId(Integer. parseInt(fields.get(0).getText()));
-            input.setInputQuantity(Integer. parseInt(fields.get(1).getText()));
-            input.setInputCost(Float.parseFloat(fields.get(2).getText()));
-           //input.setInputDate((fields.get(3).getText()));
-            input.setInputStatus(fields.get(3).getText());
+            Date inputDate = new SimpleDateFormat("yyyy/MM/dd").parse(fields.get(5).getText());
             
+            this.ingredient.setId(Integer. parseInt(fields.get(0).getText()));
+            this.ingredient.setIngredientName(String.valueOf(fields.get(1).getText()));
+            this.ingredient.setIngredientUnitOfMeasure(String.valueOf(fields.get(3).getText()));
+            input.setInputQuantity(Float.parseFloat(fields.get(2).getText()));
+            input.setInputCost(Float.parseFloat(fields.get(4).getText()));
+            input.setInputDate(inputDate);
+            input.setIngredient(this.ingredient);
             try {
+                System.out.println(this.ingredient.getId());
                 dao.addInput(input);
+                this.clean(this.fields);
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);

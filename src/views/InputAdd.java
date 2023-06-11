@@ -7,6 +7,7 @@ package views;
 import controllers.IngredientController;
 import controllers.InputController;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -243,7 +244,14 @@ public class InputAdd extends javax.swing.JFrame {
     }//GEN-LAST:event_inputAddCancelButtonActionPerformed
 
     private void inputAddSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddSaveButtonActionPerformed
-        
+        try {
+            this.inputController.add(inputController.getFields());
+        } catch (SQLException ex) {
+            Logger.getLogger(InputAdd.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(InputAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_inputAddSaveButtonActionPerformed
 
     private void inputAddSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddSearchButtonActionPerformed
