@@ -73,6 +73,31 @@ public class IngredientDAO {
         return ingredients;
     }
 
+    public List<Ingredient> searchById(int id) throws SQLException {
+        List<Ingredient> ingredients = new ArrayList<>();
+        String query = "SELECT * FROM ingredient WHERE ingredientId= ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Ingredient ingredient = new Ingredient();
+                    ingredient.setId(resultSet.getInt("ingredientId"));
+                    ingredient.setIngredientName(resultSet.getString("ingredientName"));
+                    ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
+                    ingredient.setIngredientUnitOfMeasure(resultSet.getString("ingredientUnitOfMeasure"));
+                    ingredient.setIngredientUnitCost(resultSet.getFloat("ingredientUnitCost"));
+                    ingredient.setIngredientStatus(resultSet.getString("ingredientStatus"));
+                    ingredient.setIngredientStock(resultSet.getFloat("ingredientStock"));
+                    ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
+                    ingredient.setIngredientUnitQuantity(resultSet.getFloat("ingredientUnitQuantity"));
+
+                    ingredients.add(ingredient);
+                }
+            }
+        }
+        return ingredients;
+    }
+    
     public void addIngredient(Ingredient ingredient) throws SQLException {
         String query = "INSERT INTO ingredient (ingredientName, ingredientMinQuantity, ingredientUnitOfMeasure, " +
                 "ingredientUnitCost, ingredientStatus, ingredientStock, ingredientStockStatus, ingredientUnitQuantity) " +

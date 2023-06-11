@@ -39,12 +39,32 @@ public class SnackDAO {
         }
         return snacks;
     }
-
+    
     public List<Snack> search(String searchTerm) throws SQLException {
         List<Snack> snacks = new ArrayList<>();
         String query = "SELECT * FROM snack WHERE snackTitle LIKE ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, "%" + searchTerm + "%");
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Snack snack = new Snack();
+                    snack.setId(resultSet.getInt("snackId"));
+                    snack.setSnackTitle(resultSet.getString("snackTitle"));
+                    snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
+                    snack.setSnackDescription(resultSet.getString("snackDescription"));
+                    snack.setSnackImageUrl(resultSet.getString("snackImageUrl"));
+                    snack.setSnackStatus(resultSet.getString("snackStatus"));
+                    snacks.add(snack);
+                }
+            }
+        }
+        return snacks;
+    }
+    public List<Snack> searchById(int id) throws SQLException {
+        List<Snack> snacks = new ArrayList<>();
+        String query = "SELECT * FROM snack WHERE snackId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     Snack snack = new Snack();

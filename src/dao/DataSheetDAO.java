@@ -17,7 +17,7 @@ public class DataSheetDAO {
 
     public List<DataSheet> readAll() throws SQLException {
         List<DataSheet> dataSheets = new ArrayList<>();
-        String query = "SELECT datasheet.*, snack.*, ingredient.* FROM datasheet" + 
+        String query = "SELECT datasheet.*, snack.*, ingredient.* FROM datasheet " + 
                 "INNER JOIN snack ON datasheet.dsSnackId = snack.snackId " +
                 "INNER JOIN ingredient ON datasheet.dsIngredientId = ingredient.ingredientId";
         try (Statement statement = connection.createStatement();
@@ -107,8 +107,8 @@ public class DataSheetDAO {
         String query = "INSERT INTO datasheet (dsSnackId, dsIngredientId, dsQuantity, dsTotalCost, dsStatus) " +
                 "VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, dataSheet.getDsSnackId());
-            statement.setInt(2, dataSheet.getDsIngredientId());
+            statement.setInt(1, dataSheet.getSnack().getId());
+            statement.setInt(2, dataSheet.getIngredient().getId());
             statement.setInt(3, dataSheet.getDsQuantity());
             statement.setFloat(4, dataSheet.getDsTotalCost());
             statement.setString(5, dataSheet.getDsStatus());
@@ -120,8 +120,8 @@ public class DataSheetDAO {
         String query = "UPDATE datasheet SET dsSnackId = ?, dsIngredientId = ?, dsQuantity = ?, " +
                 "dsTotalCost = ?, dsStatus = ? WHERE dsSnackId = ? AND dsIngredientId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, dataSheet.getDsSnackId());
-            statement.setInt(2, dataSheet.getDsIngredientId());
+            statement.setInt(1, dataSheet.getSnack().getId());
+            statement.setInt(2, dataSheet.getIngredient().getId());
             statement.setInt(3, dataSheet.getDsQuantity());
             statement.setFloat(4, dataSheet.getDsTotalCost());
             statement.setString(5, dataSheet.getDsStatus());
