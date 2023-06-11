@@ -122,6 +122,7 @@ public class DataSheetController {
         
         IngredientDAO dao = new IngredientDAO();
         List<Ingredient> ingredients = dao.searchById(id);
+        System.out.print(ingredients);
         this.ingredient = ingredients.get(0);
         this.getIngredientFields().get(0).setText(String.valueOf(ingredient.getIngredientName()));
         this.getIngredientFields().get(1).setText(String.valueOf(ingredient.getIngredientUnitQuantity()));
@@ -173,8 +174,10 @@ public class DataSheetController {
         model.setNumRows(0);
         
         DataSheetDAO dao = new DataSheetDAO();
-        
+       
         for (DataSheet dataSheet: dao.search(search)){
+            this.snacksList.add(dataSheet.getSnack());
+            this.ingredientsList.add(dataSheet.getIngredient());
             model.addRow(new Object[]{
                // dataSheet.getDsSnackId(),
                 dataSheet.getSnack().getSnackTitle(),
@@ -219,7 +222,7 @@ public class DataSheetController {
         } else{
             DataSheetDAO dao = new DataSheetDAO();
             this.dataSheet.setDsQuantity(Integer.parseInt(String.valueOf(spinner.getValue())));
-            this.dataSheet.setDsTotalCost(Float.parseFloat(totalValueField.getText()));
+            this.dataSheet.setDsTotalCost(Float.parseFloat(String.valueOf(totalValueField.getText().replace(",", "."))));
             this.dataSheet.setSnack(this.snack);
             this.dataSheet.setIngredient(this.ingredient);
             try {
@@ -256,7 +259,8 @@ public class DataSheetController {
         } else{
             DataSheetDAO dao = new DataSheetDAO();
             this.dataSheet.setDsQuantity(Integer.parseInt(String.valueOf(spinner.getValue())));
-            this.dataSheet.setDsTotalCost(Float.parseFloat(totalValueField.getText()));
+            this.dataSheet.setDsTotalCost(Float.parseFloat(String.valueOf(totalValueField.getText().replace(",", "."))));
+            
             this.dataSheet.setSnack(this.snack);
             this.dataSheet.setIngredient(this.ingredient);
             try {

@@ -320,7 +320,8 @@ public class DataSheetAdd extends javax.swing.JFrame {
     private void dsIngredientSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsIngredientSearchButtonActionPerformed
         try {
             dsController.searchIngredient(Integer.parseInt(dsIngredientSearchIdField.getText()));
-            
+            dsController.calcTotalValue();
+
         } catch (SQLException ex) {
             Logger.getLogger(DataSheetAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
