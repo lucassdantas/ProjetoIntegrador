@@ -1885,6 +1885,11 @@ public void limparCalculoPorcoes() {
         panelEntradas.add(colorBtn17, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
 
         inputSearchButton.setText("OK");
+        inputSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputSearchButtonActionPerformed(evt);
+            }
+        });
         panelEntradas.add(inputSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
         inputAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
@@ -1959,6 +1964,11 @@ public void limparCalculoPorcoes() {
             }
         });
         inputTable.setShowGrid(true);
+        inputTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inputTableMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(inputTable);
         if (inputTable.getColumnModel().getColumnCount() > 0) {
             inputTable.getColumnModel().getColumn(0).setResizable(false);
@@ -2353,11 +2363,13 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_inputAddButtonActionPerformed
 
     private void inputEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEditButtonActionPerformed
+            System.out.println(inputController.getIngredients().size());
         if(inputTable.getSelectedRow() != -1){
             InputEdit inputEdit = new InputEdit();
+            inputEdit.setController(inputController);
             inputEdit.setJTable(inputTable);
-            inputEdit.setIngredientModel(inputController.getIngredients().get(dataSheetTable.getSelectedRow()));
-            
+            inputEdit.setIngredientModel();
+            inputEdit.setInputModel();
             inputEdit.searchFields();
             inputEdit.setFieldsValue();
             
@@ -2751,6 +2763,24 @@ public void limparCalculoPorcoes() {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_inputDeleteButtonActionPerformed
+
+    private void inputSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSearchButtonActionPerformed
+        inputController.setJTable(inputTable);
+        try {   
+            inputController.readJTableSearch(inputSearchField.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_inputSearchButtonActionPerformed
+
+    private void inputTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputTableMouseClicked
+        InputEdit inputEdit = new InputEdit();
+        inputEdit.setController(inputController);
+        inputEdit.setJTable(inputTable);
+        inputEdit.setIngredientModel();
+        inputEdit.setInputModel();
+        
+    }//GEN-LAST:event_inputTableMouseClicked
 
     /**
      * @param args the command line arguments

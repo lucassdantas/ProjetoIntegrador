@@ -5,9 +5,14 @@
 package views;
 
 import controllers.InputController;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import models.Ingredient;
+import models.Input;
 import models.Snack;
 
 /**
@@ -19,9 +24,8 @@ public class InputEdit extends javax.swing.JFrame {
     /**
      * Creates new form EstoqueEntrada
      */
-    InputController inputController;
+    private InputController inputController;
     public InputEdit() {
-        this.inputController = new InputController();
         initComponents();
         
     }
@@ -177,6 +181,11 @@ public class InputEdit extends javax.swing.JFrame {
         inputEditSaveButton.setText("SALVAR");
         inputEditSaveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         inputEditSaveButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        inputEditSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputEditSaveButtonActionPerformed(evt);
+            }
+        });
         panelEntradas1.add(inputEditSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
@@ -203,11 +212,27 @@ public class InputEdit extends javax.swing.JFrame {
     private void inputEditCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEditCancelButtonActionPerformed
         dispose();
     }//GEN-LAST:event_inputEditCancelButtonActionPerformed
+    public void setController(InputController inputController){
+        this.inputController = inputController;
+    }
+    private void inputEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEditSaveButtonActionPerformed
+        try {
+            this.inputController.update(this.inputController.getFields());
+            dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(InputEdit.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(InputEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_inputEditSaveButtonActionPerformed
     public void setJTable(JTable table){
         this.inputController.setJTable(table);
     }
-    public void setIngredientModel(Ingredient ingredient){
-        this.inputController.setIngredients(ingredient);
+    public void setIngredientModel(){
+        this.inputController.setIngredient(inputController.getIngredients().get(inputController.getTable().getSelectedRow()));
+    }
+    public void setInputModel(){
+        this.inputController.setInputModel(inputController.getInputs().get(inputController.getTable().getSelectedRow()));
     }
     public void searchFields(){
         this.inputController.setFields(inputEditIdField);

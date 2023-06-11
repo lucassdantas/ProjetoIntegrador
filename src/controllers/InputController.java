@@ -44,6 +44,9 @@ public class InputController {
         this.inputs = new ArrayList<>();
         
     }
+    public void setIngredient(Ingredient ingredient){
+        this.ingredient = ingredient;
+    }
     public void setIngredients(Ingredient ingredient){
         this.ingredients.add(ingredient);
     }
@@ -53,6 +56,23 @@ public class InputController {
     public void setFields(JTextField field){
         this.fields.add(field);
     }
+    public void setInputModel(Input input){
+        this.inputModel = input;
+    }
+    public void setInputs(Input input){
+        this.inputs.add(input);
+    }
+    public void setFieldsValue(){
+        for (int i = 0; i < (this.fields.size()-1); i++){
+            fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i)));
+        }
+    }
+    public void setDateField(){
+        LocalDate time = LocalDate.now();
+        String stringDate = String.valueOf(time.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        fields.get(fields.size()-1).setText(stringDate);
+    }
+
     public JTable getTable(){
         return this.table;
     }
@@ -62,17 +82,11 @@ public class InputController {
     public List<JTextField> getFields(){
         return this.fields;
     }   
-    
-    public void setFieldsValue(){
-        for (int i = 0; i < this.fields.size(); i++){
-            fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i)));
-        }
+    public Input getInputModel(){
+        return this.inputModel;
     }
-    
-    public void setDateField(){
-        LocalDate time = LocalDate.now();
-        String stringDate = String.valueOf(time.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        fields.get(fields.size()-1).setText(stringDate);
+    public List<Input> getInputs(){
+        return this.inputs;
     }
      
     public void searcIngredient(int id) throws SQLException {
@@ -93,17 +107,17 @@ public class InputController {
         
         InputDAO dao = new InputDAO();
             for (Input input: dao.readAll()){
-                this.ingredients.add(input.getIngredient());
-                this.inputs.add(input);
+                setIngredients(input.getIngredient());
+                setInputs(input);
                 model.addRow(new Object[]{
-                input.getIngredient().getId(),
-                input.getIngredient().getIngredientName(),
-                input.getInputQuantity(),
-                input.getIngredient().getIngredientUnitOfMeasure(),
-                input.getInputCost(),
-                input.getInputDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-            });
-        }       
+                    input.getIngredient().getId(),
+                    input.getIngredient().getIngredientName(),
+                    input.getInputQuantity(),
+                    input.getIngredient().getIngredientUnitOfMeasure(),
+                    input.getInputCost(),
+                    input.getInputDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                });
+            }       
     }
     
     public void readJTableSearch(String search) throws SQLException{
@@ -116,8 +130,8 @@ public class InputController {
         this.ingredients = new ArrayList<>();
         this.inputs = new ArrayList<>();
         for (Input input: dao.search(search)){
-            this.ingredients.add(input.getIngredient());
-            this.inputs.add(input);
+            setIngredients(input.getIngredient());
+            setInputs(input);
 
             model.addRow(new Object[]{
                 input.getIngredient().getId(),
@@ -157,8 +171,7 @@ public class InputController {
             InputDAO dao = new InputDAO();
             
             LocalDate inputDate = LocalDate.parse(fields.get(5).getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy") );
-            System.out.print(inputDate);
-            this.ingredient.setId(Integer. parseInt(fields.get(0).getText()));
+            this.ingredient.setId(Integer.parseInt(fields.get(0).getText()));
             this.ingredient.setIngredientName(String.valueOf(fields.get(1).getText()));
             this.ingredient.setIngredientUnitOfMeasure(String.valueOf(fields.get(3).getText()));
             input.setInputQuantity(Float.parseFloat(fields.get(2).getText()));
@@ -167,6 +180,8 @@ public class InputController {
             input.setIngredient(this.ingredient);
             try {
                 dao.addInput(input);
+                this.inputs.add(input);
+                this.ingredients.add(input.getIngredient());
                 this.clean(this.fields);
                 this.setDateField();
                 this.readJTable();
@@ -180,7 +195,6 @@ public class InputController {
     public boolean update(List <javax.swing.JTextField> fields) throws SQLException, ParseException{
             boolean isEmpty = false;
             for(int i = 0; i > fields.size(); i++){
-                System.out.print(fields.get(i));
                 if(fields.get(i).getText().isEmpty()){
                     System.out.print("the field "+i+" is empty");
                     isEmpty = true;
@@ -191,21 +205,17 @@ public class InputController {
                 JOptionPane.showMessageDialog(null,"Preencha todos os campos");
                 return false;
             } else{
-                Input input = new Input();
                 InputDAO dao = new InputDAO();
-
-               // Date inputDate = new SimpleDateFormat("yyyy/MM/dd").parse(fields.get(5).getText());
+                Input input = new Input();
+                Ingredient ingredientEdit = new Ingredient();
+                input.setIngredient(ingredientEdit);
                 LocalDate inputDate = LocalDate.parse(fields.get(5).getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
-                this.ingredient.setId(Integer. parseInt(fields.get(0).getText()));
-                this.ingredient.setIngredientName(String.valueOf(fields.get(1).getText()));
-                this.ingredient.setIngredientUnitOfMeasure(String.valueOf(fields.get(3).getText()));
+                
+                input.getIngredient().setId(Integer.parseInt(fields.get(0).getText()));
                 input.setInputQuantity(Float.parseFloat(fields.get(2).getText()));
                 input.setInputCost(Float.parseFloat(fields.get(4).getText()));
                 input.setInputDate(inputDate);
-                input.setIngredient(this.ingredient);
-
-
+                input.setId(inputs.get(table.getSelectedRow()).getId());
                 try {
                     dao.updateInput(input);
                     this.readJTable();

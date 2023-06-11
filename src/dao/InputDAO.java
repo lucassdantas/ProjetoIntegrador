@@ -32,7 +32,7 @@ public class InputDAO {
                 input.setIngredientId(resultSet.getInt("ingredientId"));
                 input.setInputQuantity(resultSet.getFloat("inputQuantity"));
                 input.setInputCost(resultSet.getFloat("inputCost"));
-                input.setInputDate(resultSet.getDate("inputDate").toLocalDate());
+                input.setInputDate((resultSet.getDate("inputDate")).toLocalDate());
                 input.setInputStatus(resultSet.getString("inputStatus"));
                 
                 Ingredient ingredient = new Ingredient();
@@ -101,7 +101,7 @@ public class InputDAO {
     }
 
     public void updateInput(Input input) throws SQLException {
-        String query = "UPDATE input SET ingredientId = ?, inputQuantity = ?, inputCost = ?, inputDate = ?, " +
+        String query = "UPDATE input SET inputIngredientId = ?, inputQuantity = ?, inputCost = ?, inputDate = ?, " +
                 "inputStatus = ? WHERE inputId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, input.getIngredient().getId());
