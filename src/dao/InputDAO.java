@@ -88,7 +88,7 @@ public class InputDAO {
     }
 
     public void addInput(Input input) throws SQLException, ParseException {
-        String query = "INSERT INTO input (ingredientId, inputQuantity, inputCost, inputDate, inputStatus) " +
+        String query = "INSERT INTO input (inputIngredientId, inputQuantity, inputCost, inputDate, inputStatus) " +
                 "VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, input.getIngredient().getId());

@@ -159,9 +159,9 @@ public class InputController {
             input.setInputDate(inputDate);
             input.setIngredient(this.ingredient);
             try {
-                System.out.println(this.ingredient.getId());
                 dao.addInput(input);
                 this.clean(this.fields);
+                this.readJTable();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);
