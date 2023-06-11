@@ -282,11 +282,9 @@ public class DataSheetController {
             if(answer == 0){
                 DataSheet dataSheet = new DataSheet();
                 DataSheetDAO dao = new DataSheetDAO();                
-                dataSheet.setDsSnackId((int) this.table.getValueAt(
-                        this.table.getSelectedRow(), 0));
                 
                 try {
-                    dao.deleteDataSheet(this.snack.getId(), this.ingredient.getId());
+                    dao.deleteDataSheet(this.snacksList.get(this.table.getSelectedRow()).getId(), this.ingredientsList.get(this.table.getSelectedRow()).getId());
                 } catch (SQLException ex) {
                     System.out.print(ex);
                 }

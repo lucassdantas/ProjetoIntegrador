@@ -60,10 +60,10 @@ public class DataSheetDAO {
     public List<DataSheet> search(String searchTerm) throws SQLException {
         List<DataSheet> dataSheets = new ArrayList<>();
         String query = "SELECT datasheet.*, snack.*, ingredient.* " +
-                "FROM datasheet ds " +
-                "INNER JOIN snack s ON datasheet.dsSnackId = s.snackId " +
-                "INNER JOIN ingredient i ON ds.dsIngredientId = i.ingredientId " +
-                "WHERE s.snackTitle LIKE ? OR i.ingredientName LIKE ?";
+                "FROM datasheet " +
+                "INNER JOIN snack ON datasheet.dsSnackId = snack.snackId " +
+                "INNER JOIN ingredient ON datasheet.dsIngredientId = ingredient.ingredientId " +
+                "WHERE snack.snackTitle LIKE ? OR ingredient.ingredientName LIKE ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, "%" + searchTerm + "%");
             statement.setString(2, "%" + searchTerm + "%");
@@ -125,8 +125,8 @@ public class DataSheetDAO {
             statement.setInt(3, dataSheet.getDsQuantity());
             statement.setFloat(4, dataSheet.getDsTotalCost());
             statement.setString(5, dataSheet.getDsStatus());
-            statement.setInt(6, dataSheet.getDsSnackId());
-            statement.setInt(7, dataSheet.getDsIngredientId());
+            statement.setInt(6, dataSheet.getSnack().getId());
+            statement.setInt(7, dataSheet.getIngredient().getId());
             statement.executeUpdate();
         }
     }

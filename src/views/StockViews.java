@@ -1483,6 +1483,16 @@ public void limparCalculoPorcoes() {
             }
         });
         dataSheetTable.setShowGrid(true);
+        dataSheetTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataSheetTableMouseClicked(evt);
+            }
+        });
+        dataSheetTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dataSheetTableKeyReleased(evt);
+            }
+        });
         jScrollPane9.setViewportView(dataSheetTable);
         if (dataSheetTable.getColumnModel().getColumnCount() > 0) {
             dataSheetTable.getColumnModel().getColumn(0).setResizable(false);
@@ -2699,6 +2709,14 @@ public void limparCalculoPorcoes() {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataSheetDeleteButtonActionPerformed
+
+    private void dataSheetTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataSheetTableKeyReleased
+        dataFieldSnackField.setText(String.valueOf(dataSheetTable.getValueAt(dataSheetTable.getSelectedRow(), 0)));
+    }//GEN-LAST:event_dataSheetTableKeyReleased
+
+    private void dataSheetTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataSheetTableMouseClicked
+        dataFieldSnackField.setText(String.valueOf(dataSheetTable.getValueAt(dataSheetTable.getSelectedRow(), 0)));
+    }//GEN-LAST:event_dataSheetTableMouseClicked
 
     /**
      * @param args the command line arguments
