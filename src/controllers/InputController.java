@@ -8,8 +8,11 @@ import dao.IngredientDAO;
 import dao.InputDAO;
 import dao.SnackDAO;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
@@ -32,6 +35,11 @@ public class InputController {
     private List<JTextField> fields;
     private List<Ingredient> ingredients;
     private Ingredient ingredient;
+    public InputController(){
+        this.fields = new ArrayList<>();
+        this.ingredients = new ArrayList<>();
+        
+    }
     public void setIngredients(Ingredient ingredient){
         this.ingredients.add(ingredient);
     }
@@ -58,19 +66,18 @@ public class InputController {
     }
     
     public void setDateField(){
-        LocalDate time = LocalDate.now();  
- 
-        String stringDate = String.valueOf(time);
+        Date time = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String stringDate = String.valueOf(formatter.format(time));
         fields.get(fields.size()-1).setText(stringDate);
     }
      
-     
     public void searcIngredient(int id) throws SQLException {
         IngredientDAO dao = new IngredientDAO();
-        this.ingredients.add((Ingredient) dao.searchById(id));
+        this.ingredients = dao.searchById(id);
         this.ingredient = ingredients.get(ingredients.size()-1);
         this.getFields().get(1).setText(String.valueOf(ingredient.getIngredientName()));
-        this.getFields().get(2).setText(String.valueOf(ingredient.getIngredientUnitOfMeasure()));
+        this.getFields().get(3).setText(String.valueOf(ingredient.getIngredientUnitOfMeasure()));
     }
     public void readJTable() throws SQLException{
         
@@ -101,14 +108,14 @@ public class InputController {
         InputDAO dao = new InputDAO();
         
         for (Input input: dao.search(search)){
+            this.ingredients.add(input.getIngredient());
             model.addRow(new Object[]{
-                input.getId(),
-                input.getIngredientId(),
+                input.getIngredient().getId(),
+                input.getIngredient().getIngredientName(),
                 input.getInputQuantity(),
+                input.getIngredient().getIngredientUnitOfMeasure(),
                 input.getInputCost(),
-                input.getInputDate(),
-                input.getInputStatus(),
-               
+                input.getInputDate()
             });
         }       
     }

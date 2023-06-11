@@ -25,6 +25,7 @@ public class InputAdd extends javax.swing.JFrame {
     InputController inputController;
     public InputAdd() {
         this.inputController = new InputController();
+
         initComponents();
     }
     
@@ -222,9 +223,6 @@ public class InputAdd extends javax.swing.JFrame {
     public void setJTable(JTable table){
         this.inputController.setJTable(table);
     }
-    public void setIngredientModel(Ingredient ingredient){
-        this.inputController.setIngredients(ingredient);
-    }
     public void searchFields(){
         this.inputController.setFields(inputAddSearchField);
         this.inputController.setFields(inputAddIngredientNameField);
@@ -233,20 +231,27 @@ public class InputAdd extends javax.swing.JFrame {
         this.inputController.setFields(inputAddCostField);
         this.inputController.setFields(inputAddDateField);
     }
+    public void setDateField(){
+        this.inputController.setDateField();
+    }
+    public void setIngredientModel(Ingredient ingredient){
+        this.inputController.setIngredients(ingredient);
+    }
+    
     private void inputAddCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddCancelButtonActionPerformed
        dispose();
     }//GEN-LAST:event_inputAddCancelButtonActionPerformed
 
     private void inputAddSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddSaveButtonActionPerformed
+        
+    }//GEN-LAST:event_inputAddSaveButtonActionPerformed
+
+    private void inputAddSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddSearchButtonActionPerformed
         try {
             inputController.searcIngredient(Integer.parseInt(inputAddSearchField.getText()));
         } catch (SQLException ex) {
             Logger.getLogger(DataSheetAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_inputAddSaveButtonActionPerformed
-
-    private void inputAddSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddSearchButtonActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputAddSearchButtonActionPerformed
 
     /**

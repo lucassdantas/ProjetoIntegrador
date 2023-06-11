@@ -2345,7 +2345,11 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_calcCleanBtnActionPerformed
 
     private void inputAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddButtonActionPerformed
-       new InputAdd().setVisible(true);
+       InputAdd inputAdd = new InputAdd();
+       inputAdd.setJTable(inputTable);
+       inputAdd.searchFields();
+       inputAdd.setDateField();
+       inputAdd.setVisible(true);
     }//GEN-LAST:event_inputAddButtonActionPerformed
 
     private void inputEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEditButtonActionPerformed
