@@ -32,7 +32,7 @@ public class InputDAO {
                 input.setIngredientId(resultSet.getInt("ingredientId"));
                 input.setInputQuantity(resultSet.getFloat("inputQuantity"));
                 input.setInputCost(resultSet.getFloat("inputCost"));
-                input.setInputDate(resultSet.getDate("inputDate"));
+                input.setInputDate(resultSet.getDate("inputDate").toLocalDate());
                 input.setInputStatus(resultSet.getString("inputStatus"));
                 
                 Ingredient ingredient = new Ingredient();
@@ -65,7 +65,7 @@ public class InputDAO {
                     input.setIngredientId(resultSet.getInt("ingredientId"));
                     input.setInputQuantity(resultSet.getFloat("inputQuantity"));
                     input.setInputCost(resultSet.getFloat("inputCost"));
-                    input.setInputDate(resultSet.getDate("inputDate"));
+                    input.setInputDate(resultSet.getDate("inputDate").toLocalDate());
                     input.setInputStatus(resultSet.getString("inputStatus"));
                     
                     Ingredient ingredient = new Ingredient();
@@ -94,7 +94,7 @@ public class InputDAO {
             statement.setInt(1, input.getIngredient().getId());
             statement.setFloat(2, input.getInputQuantity());
             statement.setFloat(3, input.getInputCost());
-            statement.setDate(4, new java.sql.Date(input.getInputDate().getTime()));
+            statement.setDate(4, Date.valueOf(input.getInputDate()));
             statement.setString(5, input.getInputStatus());
             statement.executeUpdate();
         }
@@ -107,7 +107,7 @@ public class InputDAO {
             statement.setInt(1, input.getIngredient().getId());
             statement.setFloat(2, input.getInputQuantity());
             statement.setFloat(3, input.getInputCost());
-            statement.setDate(4, (Date) input.getInputDate());
+            statement.setDate(4, Date.valueOf( input.getInputDate()));
             statement.setString(5, input.getInputStatus());
             statement.setInt(6, input.getId());
             statement.executeUpdate();

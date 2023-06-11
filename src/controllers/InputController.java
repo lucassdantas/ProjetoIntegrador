@@ -70,9 +70,8 @@ public class InputController {
     }
     
     public void setDateField(){
-        Date time = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String stringDate = String.valueOf(formatter.format(time));
+        LocalDate time = LocalDate.now();
+        String stringDate = String.valueOf(time.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         fields.get(fields.size()-1).setText(stringDate);
     }
      
@@ -102,7 +101,7 @@ public class InputController {
                 input.getInputQuantity(),
                 input.getIngredient().getIngredientUnitOfMeasure(),
                 input.getInputCost(),
-                input.getInputDate()
+                input.getInputDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
             });
         }       
     }
@@ -126,7 +125,7 @@ public class InputController {
                 input.getInputQuantity(),
                 input.getIngredient().getIngredientUnitOfMeasure(),
                 input.getInputCost(),
-                input.getInputDate()
+                input.getInputDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
             });
         }       
     }
@@ -157,8 +156,8 @@ public class InputController {
             Input input = new Input();
             InputDAO dao = new InputDAO();
             
-            Date inputDate = new SimpleDateFormat("yyyy/MM/dd").parse(fields.get(5).getText());
-            
+            LocalDate inputDate = LocalDate.parse(fields.get(5).getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy") );
+            System.out.print(inputDate);
             this.ingredient.setId(Integer. parseInt(fields.get(0).getText()));
             this.ingredient.setIngredientName(String.valueOf(fields.get(1).getText()));
             this.ingredient.setIngredientUnitOfMeasure(String.valueOf(fields.get(3).getText()));
@@ -189,14 +188,14 @@ public class InputController {
                 }
             }
             if(isEmpty){
-                 JOptionPane.showMessageDialog(null,
-                        "Preencha todos os campos");
+                JOptionPane.showMessageDialog(null,"Preencha todos os campos");
                 return false;
             } else{
                 Input input = new Input();
                 InputDAO dao = new InputDAO();
 
-                Date inputDate = new SimpleDateFormat("yyyy/MM/dd").parse(fields.get(5).getText());
+               // Date inputDate = new SimpleDateFormat("yyyy/MM/dd").parse(fields.get(5).getText());
+                LocalDate inputDate = LocalDate.parse(fields.get(5).getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
                 this.ingredient.setId(Integer. parseInt(fields.get(0).getText()));
                 this.ingredient.setIngredientName(String.valueOf(fields.get(1).getText()));
@@ -219,7 +218,6 @@ public class InputController {
         
         
     }
-    
     public void delete() throws SQLException{
         if (this.table.getSelectedRow() != -1){
             int answer = JOptionPane.showConfirmDialog(null,
@@ -229,8 +227,6 @@ public class InputController {
             InputDAO dao = new InputDAO();                
 
             try {
-                System.out.println(inputs.get(1));
-                System.out.println(inputs.get(this.table.getSelectedRow()).getId());
                 dao.deleteInput(inputs.get(this.table.getSelectedRow()).getId());
             } catch (SQLException ex) {
                 System.out.print(ex);
