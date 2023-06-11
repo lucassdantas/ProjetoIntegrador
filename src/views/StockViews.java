@@ -2,6 +2,7 @@ package views;
 import AppPackage.AnimationClass;
 import controllers.DataSheetController;
 import controllers.IngredientController;
+import controllers.InputController;
 import controllers.PortionCalcController;
 import controllers.SnackController;
 import dao.IngredientDAO;
@@ -27,6 +28,7 @@ PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
 IngredientController ingredientController = new IngredientController();
 SnackController snackController = new SnackController();
 DataSheetController dataSheetController = new DataSheetController();
+InputController inputController = new InputController();
     public StockViews() throws SQLException {
         initComponents();
         setIcon();
@@ -44,6 +46,9 @@ DataSheetController dataSheetController = new DataSheetController();
         
         dataSheetController.setJTable(dataSheetTable);
         dataSheetController.readJTable();
+        
+        inputController.setJTable(inputTable);
+        inputController.readJTable();
     }
 
     private void setIcon(){
@@ -286,21 +291,21 @@ public void limparCalculoPorcoes() {
         areaEntradas = new javax.swing.JInternalFrame();
         panelEntradas = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        inputSearchField = new javax.swing.JTextField();
         colorBtn15 = new javax.swing.JPanel();
         colorBtn16 = new javax.swing.JPanel();
         colorBtn17 = new javax.swing.JPanel();
-        mybtn25 = new views.styles.Mybtn2();
-        mybtn13 = new views.styles.Mybtn();
-        mybtn14 = new views.styles.Mybtn();
-        mybtn15 = new views.styles.Mybtn();
+        inputSearchButton = new views.styles.Mybtn2();
+        inputAddButton = new views.styles.Mybtn();
+        inputEditButton = new views.styles.Mybtn();
+        inputDeleteButton = new views.styles.Mybtn();
         jLabel27 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        inputIngredientNameField = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jScrollPane7 = new javax.swing.JScrollPane();
-        table6 = new views.tables.Table();
-        jTextField16 = new javax.swing.JTextField();
+        inputTable = new views.tables.Table();
+        inputIngredientUnityOfMeasureField = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         areaProdutoEstoque = new javax.swing.JInternalFrame();
         panelPE = new javax.swing.JPanel();
@@ -1830,9 +1835,9 @@ public void limparCalculoPorcoes() {
         jLabel26.setOpaque(true);
         panelEntradas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
 
-        jTextField13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField13.setName(""); // NOI18N
-        panelEntradas.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
+        inputSearchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputSearchField.setName(""); // NOI18N
+        panelEntradas.add(inputSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
 
         colorBtn15.setBackground(new java.awt.Color(90, 90, 90));
 
@@ -1879,44 +1884,49 @@ public void limparCalculoPorcoes() {
 
         panelEntradas.add(colorBtn17, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
 
-        mybtn25.setText("OK");
-        panelEntradas.add(mybtn25, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
+        inputSearchButton.setText("OK");
+        panelEntradas.add(inputSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
-        mybtn13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
-        mybtn13.setText("NOVO");
-        mybtn13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn13.addActionListener(new java.awt.event.ActionListener() {
+        inputAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
+        inputAddButton.setText("NOVO");
+        inputAddButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        inputAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn13ActionPerformed(evt);
+                inputAddButtonActionPerformed(evt);
             }
         });
-        panelEntradas.add(mybtn13, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
+        panelEntradas.add(inputAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
-        mybtn14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
-        mybtn14.setText("EDITAR");
-        mybtn14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn14.addActionListener(new java.awt.event.ActionListener() {
+        inputEditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        inputEditButton.setText("EDITAR");
+        inputEditButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        inputEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn14ActionPerformed(evt);
+                inputEditButtonActionPerformed(evt);
             }
         });
-        panelEntradas.add(mybtn14, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
+        panelEntradas.add(inputEditButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
 
-        mybtn15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
-        mybtn15.setText("EXCLUIR");
-        mybtn15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelEntradas.add(mybtn15, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
+        inputDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
+        inputDeleteButton.setText("EXCLUIR");
+        inputDeleteButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        inputDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputDeleteButtonActionPerformed(evt);
+            }
+        });
+        panelEntradas.add(inputDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel27.setText("id");
         panelEntradas.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
-        jTextField14.setEditable(false);
-        jTextField14.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField14.setName(""); // NOI18N
-        jTextField14.setOpaque(true);
-        panelEntradas.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 350, 45));
+        inputIngredientNameField.setEditable(false);
+        inputIngredientNameField.setBackground(new java.awt.Color(243, 243, 243));
+        inputIngredientNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputIngredientNameField.setName(""); // NOI18N
+        inputIngredientNameField.setOpaque(true);
+        panelEntradas.add(inputIngredientNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 350, 45));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel28.setText("Ingrediente");
@@ -1924,7 +1934,7 @@ public void limparCalculoPorcoes() {
         panelEntradas.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
         table1.fixTable(jScrollPane7);
-        table6.setModel(new javax.swing.table.DefaultTableModel(
+        inputTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "pao de hamburguer", "100", "un", "99,80", "01/05/2023"},
                 {"2", "hamburguer", "100", "un", "152,00", "01/05/2023"},
@@ -1948,25 +1958,25 @@ public void limparCalculoPorcoes() {
                 return canEdit [columnIndex];
             }
         });
-        table6.setShowGrid(true);
-        jScrollPane7.setViewportView(table6);
-        if (table6.getColumnModel().getColumnCount() > 0) {
-            table6.getColumnModel().getColumn(0).setResizable(false);
-            table6.getColumnModel().getColumn(1).setResizable(false);
-            table6.getColumnModel().getColumn(2).setResizable(false);
-            table6.getColumnModel().getColumn(3).setResizable(false);
-            table6.getColumnModel().getColumn(4).setResizable(false);
-            table6.getColumnModel().getColumn(5).setResizable(false);
+        inputTable.setShowGrid(true);
+        jScrollPane7.setViewportView(inputTable);
+        if (inputTable.getColumnModel().getColumnCount() > 0) {
+            inputTable.getColumnModel().getColumn(0).setResizable(false);
+            inputTable.getColumnModel().getColumn(1).setResizable(false);
+            inputTable.getColumnModel().getColumn(2).setResizable(false);
+            inputTable.getColumnModel().getColumn(3).setResizable(false);
+            inputTable.getColumnModel().getColumn(4).setResizable(false);
+            inputTable.getColumnModel().getColumn(5).setResizable(false);
         }
 
         panelEntradas.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
 
-        jTextField16.setEditable(false);
-        jTextField16.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField16.setName(""); // NOI18N
-        jTextField16.setOpaque(true);
-        panelEntradas.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 140, 45));
+        inputIngredientUnityOfMeasureField.setEditable(false);
+        inputIngredientUnityOfMeasureField.setBackground(new java.awt.Color(243, 243, 243));
+        inputIngredientUnityOfMeasureField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputIngredientUnityOfMeasureField.setName(""); // NOI18N
+        inputIngredientUnityOfMeasureField.setOpaque(true);
+        panelEntradas.add(inputIngredientUnityOfMeasureField, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 140, 45));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel30.setText("Und. medida");
@@ -2334,13 +2344,24 @@ public void limparCalculoPorcoes() {
         limparCalculoPorcoes();
     }//GEN-LAST:event_calcCleanBtnActionPerformed
 
-    private void mybtn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn13ActionPerformed
+    private void inputAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddButtonActionPerformed
        new EstoqueEntrada().setVisible(true);
-    }//GEN-LAST:event_mybtn13ActionPerformed
+    }//GEN-LAST:event_inputAddButtonActionPerformed
 
-    private void mybtn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn14ActionPerformed
-       new EstoqueEditar().setVisible(true);
-    }//GEN-LAST:event_mybtn14ActionPerformed
+    private void inputEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEditButtonActionPerformed
+        if(inputTable.getSelectedRow() != -1){
+            InputEdit inputEdit = new InputEdit();
+            inputEdit.setJTable(inputTable);
+            inputEdit.setIngredientModel(inputController.getIngredients().get(dataSheetTable.getSelectedRow()));
+            
+            inputEdit.searchFields();
+            inputEdit.setFieldsValue();
+            
+            inputEdit.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um item da tabela!");
+        }
+    }//GEN-LAST:event_inputEditButtonActionPerformed
 
     private void buttonNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNovoPedidoActionPerformed
         buttonNovoPedido.setBackground(Color.decode("#C0C0C0"));
@@ -2718,6 +2739,15 @@ public void limparCalculoPorcoes() {
         dataFieldSnackField.setText(String.valueOf(dataSheetTable.getValueAt(dataSheetTable.getSelectedRow(), 0)));
     }//GEN-LAST:event_dataSheetTableMouseClicked
 
+    private void inputDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDeleteButtonActionPerformed
+        inputController.setJTable(dataSheetTable);
+        try {   
+            dataSheetController.delete();
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_inputDeleteButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2870,6 +2900,14 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn2 ingredientSearchButton;
     private javax.swing.JTextField ingredientSearchField;
     private views.tables.Table ingredientTable;
+    private views.styles.Mybtn inputAddButton;
+    private views.styles.Mybtn inputDeleteButton;
+    private views.styles.Mybtn inputEditButton;
+    private javax.swing.JTextField inputIngredientNameField;
+    private javax.swing.JTextField inputIngredientUnityOfMeasureField;
+    private views.styles.Mybtn2 inputSearchButton;
+    private javax.swing.JTextField inputSearchField;
+    private views.tables.Table inputTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2927,9 +2965,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField9;
@@ -2944,11 +2979,7 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel logoVersion1;
     private javax.swing.JLabel logoVersion2;
     private views.styles.Mybtn mybtn1;
-    private views.styles.Mybtn mybtn13;
-    private views.styles.Mybtn mybtn14;
-    private views.styles.Mybtn mybtn15;
     private views.styles.Mybtn2 mybtn21;
-    private views.styles.Mybtn2 mybtn25;
     private views.styles.Mybtn2 mybtn26;
     private javax.swing.JPanel painelMenu1;
     private javax.swing.JPanel painelMenu2;
@@ -2974,6 +3005,5 @@ public void limparCalculoPorcoes() {
     private views.tables.Table table1;
     private views.tables.Table table2;
     private views.tables.Table table5;
-    private views.tables.Table table6;
     // End of variables declaration//GEN-END:variables
 }

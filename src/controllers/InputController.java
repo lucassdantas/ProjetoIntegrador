@@ -23,12 +23,16 @@ import models.Snack;
  *
  * @author 42labinfo
  */
-public class StockController {
+public class InputController {
 
   
     private JTable table;
     private List<JTextField> fields;
-    
+    private List<Ingredient> ingredients;
+    private Ingredient ingredient;
+    public void setIngredients(Ingredient ingredient){
+        this.ingredients.add(ingredient);
+    }
     public void setJTable(JTable table){
         this.table = table;
     }
@@ -38,13 +42,16 @@ public class StockController {
     public JTable getTable(){
         return this.table;
     }
+    public List<Ingredient> getIngredients(){
+        return this.ingredients;
+    }
     public List<JTextField> getFields(){
         return this.fields;
     }   
     
      public void setFieldsValue(){
         for (int i = 0; i < this.fields.size(); i++){
-            fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
+            fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i)));
         }
      }
      
@@ -57,17 +64,13 @@ public class StockController {
         InputDAO dao = new InputDAO();
         
             for (Input input: dao.readAll()){
-                 model.addRow(new Object[]{
+                model.addRow(new Object[]{
                 input.getId(),
                 input.getIngredientId(),
                 input.getInputQuantity(),
                 input.getInputCost(),
                 input.getInputDate(),
                 input.getInputStatus(),
-            
- 
-            
-            
             });
         }       
     }
