@@ -303,7 +303,6 @@ public class DataSheetAdd extends javax.swing.JFrame {
     private void dsSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsSaveButtonActionPerformed
         try {
             dsController.add(dsController.getIngredientFields(), dsController.getSnackFields(), dsController.getTotalValueField(), dsController.getDsQuantitySpinner());
-            dispose();
         } catch (SQLException ex) {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }

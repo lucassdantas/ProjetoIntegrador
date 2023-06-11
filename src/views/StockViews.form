@@ -2575,6 +2575,9 @@
                         <Property name="text" type="java.lang.String" value="EXCLUIR"/>
                         <Property name="horizontalAlignment" type="int" value="2"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataSheetDeleteButtonActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="930" y="150" width="129" height="40"/>
@@ -2653,25 +2656,7 @@
                         <Component class="views.tables.Table" name="dataSheetTable">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="6" rowCount="16">
-                                <Column editable="false" title="id_lanche" type="java.lang.Object">
-                                  <Data value="1"/>
-                                  <Data value="1"/>
-                                  <Data value="1"/>
-                                  <Data value="1"/>
-                                  <Data value="1"/>
-                                  <Data value="1"/>
-                                  <Data value="1"/>
-                                  <Data value="1"/>
-                                  <Data value="2"/>
-                                  <Data value="2"/>
-                                  <Data value="2"/>
-                                  <Data value="2"/>
-                                  <Data value="2"/>
-                                  <Data value="2"/>
-                                  <Data value="2"/>
-                                  <Data value="2"/>
-                                </Column>
+                              <Table columnCount="5" rowCount="16">
                                 <Column editable="false" title="Lanche" type="java.lang.Object">
                                   <Data value="hamburguer"/>
                                   <Data value="hamburguer"/>
@@ -2766,11 +2751,6 @@
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>

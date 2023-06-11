@@ -5,9 +5,14 @@
 package views;
 
 import controllers.DataSheetController;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import models.Ingredient;
+import models.Snack;
 
 /**
  *
@@ -54,7 +59,7 @@ public class DataSheetEdit extends javax.swing.JFrame {
         dsIngredientUnityQuantitySpinner = new views.spinner.Spinner();
         jSeparator8 = new javax.swing.JSeparator();
         dsEditCancelButton = new views.styles.Mybtn();
-        dsSaveButton = new views.styles.Mybtn();
+        dsEditSaveButton = new views.styles.Mybtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -201,6 +206,11 @@ public class DataSheetEdit extends javax.swing.JFrame {
 
         dsIngredientUnityQuantitySpinner.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         dsIngredientUnityQuantitySpinner.setLabelText("");
+        dsIngredientUnityQuantitySpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                dsIngredientUnityQuantitySpinnerStateChanged(evt);
+            }
+        });
         panelEntradas1.add(dsIngredientUnityQuantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 140, 45));
         panelEntradas1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 830, 30));
 
@@ -212,11 +222,16 @@ public class DataSheetEdit extends javax.swing.JFrame {
         });
         panelEntradas1.add(dsEditCancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 129, 40));
 
-        dsSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
-        dsSaveButton.setText("SALVAR");
-        dsSaveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        dsSaveButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        panelEntradas1.add(dsSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
+        dsEditSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
+        dsEditSaveButton.setText("SALVAR");
+        dsEditSaveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        dsEditSaveButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        dsEditSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dsEditSaveButtonActionPerformed(evt);
+            }
+        });
+        panelEntradas1.add(dsEditSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
@@ -238,8 +253,14 @@ public class DataSheetEdit extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-     public void setJTable(JTable table){
+    public void setJTable(JTable table){
         this.dsController.setJTable(table);
+    }
+    public void setSnackModel(Snack snack){
+        this.dsController.setSnackModel(snack);
+    }
+    public void setIngredientModel(Ingredient ingredient){
+        this.dsController.setIngredientModel(ingredient);
     }
     public void searchFields(){
         this.dsController.setSnackFields(dsSnackIdField);
@@ -259,6 +280,19 @@ public class DataSheetEdit extends javax.swing.JFrame {
     private void dsEditCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsEditCancelButtonActionPerformed
         dispose();
     }//GEN-LAST:event_dsEditCancelButtonActionPerformed
+
+    private void dsIngredientUnityQuantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_dsIngredientUnityQuantitySpinnerStateChanged
+       this.dsController.calcTotalValueEditView();
+    }//GEN-LAST:event_dsIngredientUnityQuantitySpinnerStateChanged
+
+    private void dsEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsEditSaveButtonActionPerformed
+       try {
+            dsController.update(dsController.getIngredientFields(), dsController.getSnackFields(), dsController.getTotalValueField(), dsController.getDsQuantitySpinner());
+            dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dsEditSaveButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,11 +341,11 @@ public class DataSheetEdit extends javax.swing.JFrame {
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
     private views.styles.Mybtn dsEditCancelButton;
+    private views.styles.Mybtn dsEditSaveButton;
     private javax.swing.JTextField dsIngredientIdField;
     private javax.swing.JTextField dsIngredientNameField;
     private javax.swing.JTextField dsIngredientUnityQuantityField;
     private views.spinner.Spinner dsIngredientUnityQuantitySpinner;
-    private views.styles.Mybtn dsSaveButton;
     private javax.swing.JTextField dsSnackIdField;
     private javax.swing.JTextField dsSnackNameField;
     private javax.swing.JTextField dsTotalCostField;

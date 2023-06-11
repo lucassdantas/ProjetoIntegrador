@@ -1427,6 +1427,11 @@ public void limparCalculoPorcoes() {
         dataSheetDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
         dataSheetDeleteButton.setText("EXCLUIR");
         dataSheetDeleteButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        dataSheetDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataSheetDeleteButtonActionPerformed(evt);
+            }
+        });
         panelIngredientes1.add(dataSheetDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -1448,29 +1453,29 @@ public void limparCalculoPorcoes() {
         table1.fixTable(jScrollPane9);
         dataSheetTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "hamburguer", "pao de hamburguer", "1", "un", "1,00"},
-                {"1", "hamburguer", "hamburguer", "1", "un", "1,52"},
-                {"1", "hamburguer", "ovo", "1", "un", "0,83"},
-                {"1", "hamburguer", "queijo fatiado", "0,01", "kg", "0,38"},
-                {"1", "hamburguer", "bacon fatiado", "0,01", "kg", "0,36"},
-                {"1", "hamburguer", "alface", "0,03", "pes", "0,18"},
-                {"1", "hamburguer", "batata palha", "0,01", "kg", "0,28"},
-                {"1", "hamburguer", "embalagens p/ hamburguer", "1", "un", "1,05"},
-                {"2", "x-burguer duplo", "pao de hamburguer", "1", "un", "1,00"},
-                {"2", "x-burguer duplo", "hambuguer", "2", "un", "3,04"},
-                {"2", "x-burguer duplo", "ovo", "2", "un", "1,67"},
-                {"2", "x-burguer duplo", "queijo fatiado", "0,02", "kg", "0,77"},
-                {"2", "x-burguer duplo", "bacon fatiado", "0,02", "kg", "0,71"},
-                {"2", "x-burguer duplo", "alface", "0,03", "pes", "0,18"},
-                {"2", "x-burguer duplo", "batata palha", "0,01", "kg", "0,28"},
-                {"2", "x-burguer duplo", "embalagens p/ hamburguer", "1", "un", "1,05"}
+                {"hamburguer", "pao de hamburguer", "1", "un", "1,00"},
+                {"hamburguer", "hamburguer", "1", "un", "1,52"},
+                {"hamburguer", "ovo", "1", "un", "0,83"},
+                {"hamburguer", "queijo fatiado", "0,01", "kg", "0,38"},
+                {"hamburguer", "bacon fatiado", "0,01", "kg", "0,36"},
+                {"hamburguer", "alface", "0,03", "pes", "0,18"},
+                {"hamburguer", "batata palha", "0,01", "kg", "0,28"},
+                {"hamburguer", "embalagens p/ hamburguer", "1", "un", "1,05"},
+                {"x-burguer duplo", "pao de hamburguer", "1", "un", "1,00"},
+                {"x-burguer duplo", "hambuguer", "2", "un", "3,04"},
+                {"x-burguer duplo", "ovo", "2", "un", "1,67"},
+                {"x-burguer duplo", "queijo fatiado", "0,02", "kg", "0,77"},
+                {"x-burguer duplo", "bacon fatiado", "0,02", "kg", "0,71"},
+                {"x-burguer duplo", "alface", "0,03", "pes", "0,18"},
+                {"x-burguer duplo", "batata palha", "0,01", "kg", "0,28"},
+                {"x-burguer duplo", "embalagens p/ hamburguer", "1", "un", "1,05"}
             },
             new String [] {
-                "id_lanche", "Lanche", "Ingrediente", "Qnt.", "Und. medida", "Custo qnt."
+                "Lanche", "Ingrediente", "Qnt.", "Und. medida", "Custo qnt."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1485,7 +1490,6 @@ public void limparCalculoPorcoes() {
             dataSheetTable.getColumnModel().getColumn(2).setResizable(false);
             dataSheetTable.getColumnModel().getColumn(3).setResizable(false);
             dataSheetTable.getColumnModel().getColumn(4).setResizable(false);
-            dataSheetTable.getColumnModel().getColumn(5).setResizable(false);
         }
 
         panelIngredientes1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
@@ -2240,10 +2244,19 @@ public void limparCalculoPorcoes() {
 
     private void dataSheetEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSheetEditButtonActionPerformed
         DataSheetEdit editDataSheet = new DataSheetEdit();
-        editDataSheet.setJTable(dataSheetTable);
-        editDataSheet.searchFields();
-        editDataSheet.setFieldsValue();
-        editDataSheet.setVisible(true);
+        if(dataSheetTable.getSelectedRow() != -1){
+            editDataSheet.setJTable(dataSheetTable);
+            editDataSheet.setSnackModel(dataSheetController.getSnacksList().get(dataSheetTable.getSelectedRow()));
+            editDataSheet.setIngredientModel(dataSheetController.getIngredientsList().get(dataSheetTable.getSelectedRow()));
+            
+            editDataSheet.searchFields();
+            editDataSheet.setFieldsValue();
+            
+            editDataSheet.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um item da tabela!");
+        }
+        
     }//GEN-LAST:event_dataSheetEditButtonActionPerformed
 
     private void calcCalcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCalcBtnActionPerformed
@@ -2677,6 +2690,15 @@ public void limparCalculoPorcoes() {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataSheetSearchButtonActionPerformed
+
+    private void dataSheetDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSheetDeleteButtonActionPerformed
+        dataSheetController.setJTable(dataSheetTable);
+        try {   
+            dataSheetController.delete();
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataSheetDeleteButtonActionPerformed
 
     /**
      * @param args the command line arguments
