@@ -28,7 +28,7 @@ public class InputDAO {
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Input input = new Input();
-                input.setInputId(resultSet.getInt("inputId"));
+                input.setId(resultSet.getInt("inputId"));
                 input.setIngredientId(resultSet.getInt("ingredientId"));
                 input.setInputQuantity(resultSet.getFloat("inputQuantity"));
                 input.setInputCost(resultSet.getFloat("inputCost"));
@@ -61,7 +61,7 @@ public class InputDAO {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     Input input = new Input();
-                    input.setInputId(resultSet.getInt("inputId"));
+                    input.setId(resultSet.getInt("inputId"));
                     input.setIngredientId(resultSet.getInt("ingredientId"));
                     input.setInputQuantity(resultSet.getFloat("inputQuantity"));
                     input.setInputCost(resultSet.getFloat("inputCost"));
@@ -109,7 +109,7 @@ public class InputDAO {
             statement.setFloat(3, input.getInputCost());
             statement.setDate(4, (Date) input.getInputDate());
             statement.setString(5, input.getInputStatus());
-            statement.setInt(6, input.getInputId());
+            statement.setInt(6, input.getId());
             statement.executeUpdate();
         }
     }

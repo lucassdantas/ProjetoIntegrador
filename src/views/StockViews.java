@@ -2744,9 +2744,9 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_dataSheetTableMouseClicked
 
     private void inputDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDeleteButtonActionPerformed
-        inputController.setJTable(dataSheetTable);
+        inputController.setJTable(inputTable);
         try {   
-            dataSheetController.delete();
+            inputController.delete();
         } catch (SQLException ex) {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }

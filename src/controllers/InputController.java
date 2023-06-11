@@ -36,9 +36,12 @@ public class InputController {
     private List<JTextField> fields;
     private List<Ingredient> ingredients;
     private Ingredient ingredient;
+    private List<Input> inputs;
+    private Input inputModel;
     public InputController(){
         this.fields = new ArrayList<>();
         this.ingredients = new ArrayList<>();
+        this.inputs = new ArrayList<>();
         
     }
     public void setIngredients(Ingredient ingredient){
@@ -86,9 +89,13 @@ public class InputController {
         this.table.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
+        this.ingredients = new ArrayList<>();
+        this.inputs = new ArrayList<>();
+        
         InputDAO dao = new InputDAO();
             for (Input input: dao.readAll()){
                 this.ingredients.add(input.getIngredient());
+                this.inputs.add(input);
                 model.addRow(new Object[]{
                 input.getIngredient().getId(),
                 input.getIngredient().getIngredientName(),
@@ -107,9 +114,12 @@ public class InputController {
         model.setNumRows(0);
         
         InputDAO dao = new InputDAO();
-        
+        this.ingredients = new ArrayList<>();
+        this.inputs = new ArrayList<>();
         for (Input input: dao.search(search)){
             this.ingredients.add(input.getIngredient());
+            this.inputs.add(input);
+
             model.addRow(new Object[]{
                 input.getIngredient().getId(),
                 input.getIngredient().getIngredientName(),
@@ -123,9 +133,7 @@ public class InputController {
 
     public void clean (List <javax.swing.JTextField> fields){
         fields.forEach((field) -> {
-            if(!"inputAddDateField".equals(field.getName()) ){
-                field.setText("");
-            }
+            field.setText("");
         });
         try {
             this.readJTable();
@@ -161,6 +169,7 @@ public class InputController {
             try {
                 dao.addInput(input);
                 this.clean(this.fields);
+                this.setDateField();
                 this.readJTable();
                 return true;
             } catch (SQLException ex) {
@@ -169,7 +178,7 @@ public class InputController {
             }
         }
     }
-   public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
+    public boolean update(List <javax.swing.JTextField> fields) throws SQLException, ParseException{
             boolean isEmpty = false;
             for(int i = 0; i > fields.size(); i++){
                 System.out.print(fields.get(i));
@@ -187,12 +196,16 @@ public class InputController {
                 Input input = new Input();
                 InputDAO dao = new InputDAO();
 
-                input.setId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
-                input.setInputQuantity(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(),1))));
-                input.setInputCost(Float.parseFloat(fields.get(2).getText()));
-             // input.setInputDate(Float.parseFloat(fields.get(3).getText()));
-                input.setInputStatus(fields.get(3).getText());
-            
+                Date inputDate = new SimpleDateFormat("yyyy/MM/dd").parse(fields.get(5).getText());
+
+                this.ingredient.setId(Integer. parseInt(fields.get(0).getText()));
+                this.ingredient.setIngredientName(String.valueOf(fields.get(1).getText()));
+                this.ingredient.setIngredientUnitOfMeasure(String.valueOf(fields.get(3).getText()));
+                input.setInputQuantity(Float.parseFloat(fields.get(2).getText()));
+                input.setInputCost(Float.parseFloat(fields.get(4).getText()));
+                input.setInputDate(inputDate);
+                input.setIngredient(this.ingredient);
+
 
                 try {
                     dao.updateInput(input);
@@ -212,20 +225,18 @@ public class InputController {
             int answer = JOptionPane.showConfirmDialog(null,
                     "Confirma a Exclusão do Registro?", 
                     "Exclusão de Registro",OK_CANCEL_OPTION);
-            if(answer == 0){
-                Input input = new Input();
-                InputDAO dao = new InputDAO();                
-                input.setId((int) this.table.getValueAt(
-                        this.table.getSelectedRow(), 0));
-                
-                try {
-                    dao.deleteInput(input.getId());
-                } catch (SQLException ex) {
-                    System.out.print(ex);
-                }
-                
-                this.readJTable();
+            
+            InputDAO dao = new InputDAO();                
+
+            try {
+                System.out.println(inputs.get(1));
+                System.out.println(inputs.get(this.table.getSelectedRow()).getId());
+                dao.deleteInput(inputs.get(this.table.getSelectedRow()).getId());
+            } catch (SQLException ex) {
+                System.out.print(ex);
             }
+
+            this.readJTable();
         }
         else{
             JOptionPane.showMessageDialog(null,
