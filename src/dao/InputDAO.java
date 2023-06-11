@@ -10,6 +10,7 @@ import models.Input;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import models.Ingredient;
 
 public class InputDAO {
     private final Connection connection;
@@ -20,7 +21,7 @@ public class InputDAO {
     
     public List<Input> readAll() throws SQLException {
         List<Input> inputs = new ArrayList<>();
-        String query = "SELECT * FROM input";
+        String query = "SELECT input.*, ingredient.* FROM input INNER JOIN ingredient ON input.inputIngredientId = ingredient.ingredientId ";
         try (PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
@@ -31,6 +32,19 @@ public class InputDAO {
                 input.setInputCost(resultSet.getFloat("inputCost"));
                 input.setInputDate(resultSet.getDate("inputDate"));
                 input.setInputStatus(resultSet.getString("inputStatus"));
+                
+                Ingredient ingredient = new Ingredient();
+                ingredient.setId(resultSet.getInt("ingredientId"));
+                ingredient.setIngredientName(resultSet.getString("ingredientName"));
+                ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
+                ingredient.setIngredientUnitOfMeasure(resultSet.getString("ingredientUnitOfMeasure"));
+                ingredient.setIngredientUnitCost(resultSet.getFloat("ingredientUnitCost"));
+                ingredient.setIngredientStatus(resultSet.getString("ingredientStatus"));
+                ingredient.setIngredientStock(resultSet.getFloat("ingredientStock"));
+                ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
+                ingredient.setIngredientUnitQuantity(resultSet.getFloat("ingredientUnitQuantity"));
+                
+                input.setIngredient(ingredient);
                 inputs.add(input);
             }
         }
@@ -39,7 +53,7 @@ public class InputDAO {
 
     public List<Input> search(String searchTerm) throws SQLException {
         List<Input> inputs = new ArrayList<>();
-        String query = "SELECT * FROM input WHERE ingredientId IN (SELECT ingredientId FROM ingredient WHERE ingredientName LIKE ?)";
+        String query = "SELECT input.*, ingredient.* FROM input INNER JOIN ingredient ON input.inputIngredientId = ingredient.ingredientId WHERE ingredient.ingredientName LIKE ? ";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, "%" + searchTerm + "%");
             try (ResultSet resultSet = statement.executeQuery()) {
@@ -51,6 +65,19 @@ public class InputDAO {
                     input.setInputCost(resultSet.getFloat("inputCost"));
                     input.setInputDate(resultSet.getDate("inputDate"));
                     input.setInputStatus(resultSet.getString("inputStatus"));
+                    
+                    Ingredient ingredient = new Ingredient();
+                    ingredient.setId(resultSet.getInt("ingredientId"));
+                    ingredient.setIngredientName(resultSet.getString("ingredientName"));
+                    ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
+                    ingredient.setIngredientUnitOfMeasure(resultSet.getString("ingredientUnitOfMeasure"));
+                    ingredient.setIngredientUnitCost(resultSet.getFloat("ingredientUnitCost"));
+                    ingredient.setIngredientStatus(resultSet.getString("ingredientStatus"));
+                    ingredient.setIngredientStock(resultSet.getFloat("ingredientStock"));
+                    ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
+                    ingredient.setIngredientUnitQuantity(resultSet.getFloat("ingredientUnitQuantity"));
+
+                    input.setIngredient(ingredient);
                     inputs.add(input);
                 }
             }

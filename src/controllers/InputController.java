@@ -8,6 +8,8 @@ import dao.IngredientDAO;
 import dao.InputDAO;
 import dao.SnackDAO;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
@@ -49,28 +51,43 @@ public class InputController {
         return this.fields;
     }   
     
-     public void setFieldsValue(){
+    public void setFieldsValue(){
         for (int i = 0; i < this.fields.size(); i++){
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i)));
         }
-     }
+    }
+    
+    public void setDateField(){
+        LocalDate time = LocalDate.now();  
+ 
+        String stringDate = String.valueOf(time);
+        fields.get(fields.size()-1).setText(stringDate);
+    }
      
- public void readJTable() throws SQLException{
+     
+    public void searcIngredient(int id) throws SQLException {
+        IngredientDAO dao = new IngredientDAO();
+        this.ingredients.add((Ingredient) dao.searchById(id));
+        this.ingredient = ingredients.get(ingredients.size()-1);
+        this.getFields().get(1).setText(String.valueOf(ingredient.getIngredientName()));
+        this.getFields().get(2).setText(String.valueOf(ingredient.getIngredientUnitOfMeasure()));
+    }
+    public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
         this.table.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
         InputDAO dao = new InputDAO();
-        
             for (Input input: dao.readAll()){
+                this.ingredients.add(input.getIngredient());
                 model.addRow(new Object[]{
-                input.getId(),
-                input.getIngredientId(),
+                input.getIngredient().getId(),
+                input.getIngredient().getIngredientName(),
                 input.getInputQuantity(),
+                input.getIngredient().getIngredientUnitOfMeasure(),
                 input.getInputCost(),
-                input.getInputDate(),
-                input.getInputStatus(),
+                input.getInputDate()
             });
         }       
     }

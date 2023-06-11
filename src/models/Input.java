@@ -18,11 +18,11 @@ public class Input extends EntityId{
     private float inputCost;
     private Date inputDate;
     private String inputStatus;
-
+    private Ingredient ingredient;
     public Input() {
     }
 
-    public Input(int inputId, int ingredientId, int inputQuantity, float inputCost, Date inputDate, String inputStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Input(int inputId, int ingredientId, int inputQuantity, float inputCost, Date inputDate, String inputStatus, int id, LocalDateTime creation, LocalDateTime update, String status, Ingredient ingredient) {
         super(id, creation, update, status);
         this.inputId = inputId;
         this.ingredientId = ingredientId;
@@ -30,6 +30,7 @@ public class Input extends EntityId{
         this.inputCost = inputCost;
         this.inputDate = inputDate;
         this.inputStatus = inputStatus;
+        this.ingredient = ingredient;
     }
 
     public int getInputId() {
@@ -79,5 +80,11 @@ public class Input extends EntityId{
     public void setInputStatus(String inputStatus) {
         this.inputStatus = inputStatus;
     }
-    
+ 
+    public void setIngredient(Ingredient ingredient){
+        this.ingredient = ingredient;
+    }
+    public Ingredient getIngredient(){
+        return this.ingredient;
+    }
 }
