@@ -64,6 +64,7 @@ public class InputController {
     }
     public void setFieldsValue(){
         for (int i = 0; i < (this.fields.size()-1); i++){
+            System.out.println(i);
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i)));
         }
         setDateField();
@@ -90,6 +91,9 @@ public class InputController {
         return this.inputs;
     }
      
+    public void resetFields(){
+        this.fields = new ArrayList<>();
+    }
     public void searchIngredient(int id) throws SQLException {
         IngredientDAO dao = new IngredientDAO();
         this.ingredient = dao.searchById(id);
@@ -217,6 +221,8 @@ public class InputController {
                 try {
                     dao.updateInput(input);
                     this.readJTable();
+                    this.clean(this.getFields());
+                    this.fields = new ArrayList<>();
                     return true;
                 } catch (SQLException ex) {
                     System.out.print(ex);

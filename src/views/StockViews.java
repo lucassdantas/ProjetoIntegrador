@@ -2391,8 +2391,6 @@ public void limparCalculoPorcoes() {
             InputEdit inputEdit = new InputEdit();
             inputEdit.setController(inputController);
             inputEdit.setJTable(inputTable);
-            inputEdit.setIngredientModel();
-            inputEdit.setInputModel();
             inputEdit.searchFields();
             inputEdit.setFieldsValue();
             
