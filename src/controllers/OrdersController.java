@@ -27,6 +27,7 @@ public final class OrdersController {
     private List<Snack> snacks;
     private List<Ingredient> ingredients;
     private List<DataSheet> dataSheets;
+    private Ingredient ingredient;
     private Combobox comboBox;
     public OrdersController(JTable table, Combobox comboBox) throws SQLException {
         this.snacks = new ArrayList<>();
@@ -36,11 +37,11 @@ public final class OrdersController {
         this.setJTable(table);
         this.setComboBox(comboBox);
         this.readJTable();
-        
+       /* 
         this.searchDataSheet();
         this.searchSnack();
         this.searchIngredient();
-        this.setComboBoxOptions();
+        this.setComboBoxOptions();*/
     }
     
     public void setComboBox(Combobox comboBox){
@@ -65,7 +66,7 @@ public final class OrdersController {
         IngredientDAO dao = new IngredientDAO();
         for(int i = 0; i < dataSheets.size(); i++){
             
-            this.ingredients = dao.searchById(dataSheets.get(i).getDsIngredientId());
+            this.ingredient = dao.searchById(dataSheets.get(i).getDsIngredientId());
         }
     }
     

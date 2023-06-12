@@ -121,9 +121,7 @@ public class DataSheetController {
     public void searchIngredient(int id) throws SQLException{
         
         IngredientDAO dao = new IngredientDAO();
-        List<Ingredient> ingredients = dao.searchById(id);
-        System.out.print(ingredients);
-        this.ingredient = ingredients.get(0);
+        this.ingredient = dao.searchById(id);
         this.getIngredientFields().get(0).setText(String.valueOf(ingredient.getIngredientName()));
         this.getIngredientFields().get(1).setText(String.valueOf(ingredient.getIngredientUnitQuantity()));
         this.getIngredientFields().get(2).setText(String.valueOf(ingredient.getIngredientUnitOfMeasure()));

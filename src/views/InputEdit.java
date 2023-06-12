@@ -236,6 +236,7 @@ public class InputEdit extends javax.swing.JFrame {
         this.inputController.setInputModel(inputController.getInputs().get(inputController.getTable().getSelectedRow()));
     }
     public void searchFields(){
+        this.inputController.resetFields();
         this.inputController.setFields(inputEditIdField);
         this.inputController.setFields(inputEditIngredientField);
         this.inputController.setFields(inputEditQuantityField);

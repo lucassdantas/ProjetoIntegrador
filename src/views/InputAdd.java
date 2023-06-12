@@ -25,7 +25,6 @@ public class InputAdd extends javax.swing.JFrame {
      */
     InputController inputController;
     public InputAdd() {
-        this.inputController = new InputController();
 
         initComponents();
     }
@@ -224,6 +223,9 @@ public class InputAdd extends javax.swing.JFrame {
     public void setJTable(JTable table){
         this.inputController.setJTable(table);
     }
+    public void setController (InputController controller){
+        this.inputController = controller;
+    }
     public void searchFields(){
         this.inputController.setFields(inputAddSearchField);
         this.inputController.setFields(inputAddIngredientNameField);
@@ -256,7 +258,7 @@ public class InputAdd extends javax.swing.JFrame {
 
     private void inputAddSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddSearchButtonActionPerformed
         try {
-            inputController.searcIngredient(Integer.parseInt(inputAddSearchField.getText()));
+            inputController.searchIngredient(Integer.parseInt(inputAddSearchField.getText()));
         } catch (SQLException ex) {
             Logger.getLogger(DataSheetAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
