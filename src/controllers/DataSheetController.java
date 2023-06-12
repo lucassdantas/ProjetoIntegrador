@@ -268,8 +268,8 @@ public class DataSheetController {
                 this.readJTable();
                 return true;
             } catch (SQLException ex) {
-                System.out.print(ex);
-                return false;
+                System.out.print(ex); 
+               return false;
             }
         }
     }

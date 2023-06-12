@@ -5,10 +5,11 @@
 package controllers;
 
 import dao.IngredientDAO;
-import dao.InputDAO;
-import dao.SnackDAO;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 import javax.swing.JTable;
@@ -16,23 +17,24 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import models.Ingredient;
-import models.Input;
-import models.Snack;
 
 /**
  *
- * @author 42labinfo
+ * @author Lucas Dantas
  */
 public class StockController {
-
-  
+    
     private JTable table;
-    private List<JTextField> fields;
+    private final List<JTextField> fields;
+
+    public StockController() {
+        this.fields = new ArrayList<>();
+    }
     
     public void setJTable(JTable table){
         this.table = table;
     }
-    public void setFields(JTextField field){
+    public void setFields(javax.swing.JTextField field){
         this.fields.add(field);
     }
     public JTable getTable(){
@@ -40,34 +42,30 @@ public class StockController {
     }
     public List<JTextField> getFields(){
         return this.fields;
-    }   
+    }
     
      public void setFieldsValue(){
         for (int i = 0; i < this.fields.size(); i++){
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
         }
-     }
+    }
      
- public void readJTable() throws SQLException{
+    public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
         this.table.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
-        InputDAO dao = new InputDAO();
+        IngredientDAO dao = new IngredientDAO();
         
-            for (Input input: dao.readAll()){
-                 model.addRow(new Object[]{
-                input.getId(),
-                input.getIngredientId(),
-                input.getInputQuantity(),
-                input.getInputCost(),
-                input.getInputDate(),
-                input.getInputStatus(),
-            
- 
-            
-            
+        for (Ingredient ingredient: dao.readAll()){
+            model.addRow(new Object[]{
+                ingredient.getId(),
+                ingredient.getIngredientName(),
+                ingredient.getIngredientStock(),
+                ingredient.getIngredientMinQuantity(),
+                ingredient.getIngredientUnitOfMeasure(),
+                ingredient.calcStatus(),
             });
         }       
     }
@@ -78,17 +76,16 @@ public class StockController {
         this.table.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
-        InputDAO dao = new InputDAO();
+        IngredientDAO dao = new IngredientDAO();
         
-        for (Input input: dao.search(search)){
+        for (Ingredient ingredient: dao.search(search)){
             model.addRow(new Object[]{
-                input.getId(),
-                input.getIngredientId(),
-                input.getInputQuantity(),
-                input.getInputCost(),
-                input.getInputDate(),
-                input.getInputStatus(),
-               
+                ingredient.getId(),
+                ingredient.getIngredientName(),
+                ingredient.getIngredientStock(),
+                ingredient.getIngredientMinQuantity(),
+                ingredient.getIngredientUnitOfMeasure(),
+                ingredient.calcStatus(),
             });
         }       
     }
@@ -109,24 +106,27 @@ public class StockController {
         boolean isEmpty = false;
         for(int i = 0; i > fields.size(); i++){
             if(fields.get(i).getText().isEmpty()){
+                System.out.print("the field "+i+" is empty");
                 isEmpty = true;
                 break;
             }
         }
-        if(!isEmpty){
+        if(isEmpty){
             return false;
         } else{
-            Input input = new Input();
-            InputDAO dao = new InputDAO();
+            Ingredient ingredient = new Ingredient();
+            IngredientDAO dao = new IngredientDAO();
             
-            input.setIngredientId(Integer. parseInt(fields.get(0).getText()));
-            input.setInputQuantity(Integer. parseInt(fields.get(1).getText()));
-            input.setInputCost(Float.parseFloat(fields.get(2).getText()));
-           //input.setInputDate((fields.get(3).getText()));
-            input.setInputStatus(fields.get(3).getText());
+            ingredient.setIngredientName(fields.get(0).getText());
+            ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText()));
+            ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText()));
+            ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText()));
+            ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
             
             try {
-                dao.addInput(input);
+                dao.addIngredient(ingredient);
+                this.clean(this.fields);
+                this.readJTable();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);
@@ -134,7 +134,8 @@ public class StockController {
             }
         }
     }
-   public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
+    
+    public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
             boolean isEmpty = false;
             for(int i = 0; i > fields.size(); i++){
                 System.out.print(fields.get(i));
@@ -149,18 +150,18 @@ public class StockController {
                         "Preencha todos os campos");
                 return false;
             } else{
-                Input input = new Input();
-                InputDAO dao = new InputDAO();
+                Ingredient ingredient = new Ingredient();
+                IngredientDAO dao = new IngredientDAO();
 
-                input.setId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
-                input.setInputQuantity(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(),1))));
-                input.setInputCost(Float.parseFloat(fields.get(2).getText()));
-             // input.setInputDate(Float.parseFloat(fields.get(3).getText()));
-                input.setInputStatus(fields.get(3).getText());
-            
+                ingredient.setId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
+                ingredient.setIngredientName(fields.get(0).getText());
+                ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText()));
+                ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText()));
+                ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText()));
+                ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
 
                 try {
-                    dao.updateInput(input);
+                    dao.updateIngredient(ingredient);
                     this.readJTable();
                     return true;
                 } catch (SQLException ex) {
@@ -178,13 +179,13 @@ public class StockController {
                     "Confirma a Exclusão do Registro?", 
                     "Exclusão de Registro",OK_CANCEL_OPTION);
             if(answer == 0){
-                Input input = new Input();
-                InputDAO dao = new InputDAO();                
-                input.setId((int) this.table.getValueAt(
+                Ingredient ingredient = new Ingredient();
+                IngredientDAO dao = new IngredientDAO();                
+                ingredient.setId((int) this.table.getValueAt(
                         this.table.getSelectedRow(), 0));
                 
                 try {
-                    dao.deleteInput(input.getId());
+                    dao.deleteIngredient(ingredient.getId());
                 } catch (SQLException ex) {
                     System.out.print(ex);
                 }
@@ -196,16 +197,5 @@ public class StockController {
             JOptionPane.showMessageDialog(null,
                     "Selecione um serviço na tabela abaixo!");
         }
-    }           
-  
-
-}       
-    
-
-   
-
-
-    
-
-
-
+    }
+}

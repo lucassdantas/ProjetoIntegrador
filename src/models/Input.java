@@ -4,6 +4,8 @@
  */
 package models;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -14,15 +16,15 @@ import java.util.Date;
 public class Input extends EntityId{
     private int inputId;
     private int ingredientId;
-    private int inputQuantity;
+    private float inputQuantity;
     private float inputCost;
-    private Date inputDate;
+    private LocalDate inputDate;
     private String inputStatus;
-
+    private Ingredient ingredient;
     public Input() {
     }
 
-    public Input(int inputId, int ingredientId, int inputQuantity, float inputCost, Date inputDate, String inputStatus, int id, LocalDateTime creation, LocalDateTime update, String status) {
+    public Input(int inputId, int ingredientId, int inputQuantity, float inputCost, LocalDate inputDate, String inputStatus, int id, LocalDateTime creation, LocalDateTime update, String status, Ingredient ingredient) {
         super(id, creation, update, status);
         this.inputId = inputId;
         this.ingredientId = ingredientId;
@@ -30,6 +32,7 @@ public class Input extends EntityId{
         this.inputCost = inputCost;
         this.inputDate = inputDate;
         this.inputStatus = inputStatus;
+        this.ingredient = ingredient;
     }
 
     public int getInputId() {
@@ -48,11 +51,11 @@ public class Input extends EntityId{
         this.ingredientId = ingredientId;
     }
 
-    public int getInputQuantity() {
+    public float getInputQuantity() {
         return inputQuantity;
     }
 
-    public void setInputQuantity(int inputQuantity) {
+    public void setInputQuantity(float inputQuantity) {
         this.inputQuantity = inputQuantity;
     }
 
@@ -63,12 +66,12 @@ public class Input extends EntityId{
     public void setInputCost(float inputCost) {
         this.inputCost = inputCost;
     }
-
-    public Date getInputDate() {
+    
+    public LocalDate getInputDate() {
         return inputDate;
     }
 
-    public void setInputDate(Date inputDate) {
+    public void setInputDate(LocalDate inputDate) {
         this.inputDate = inputDate;
     }
 
@@ -79,5 +82,11 @@ public class Input extends EntityId{
     public void setInputStatus(String inputStatus) {
         this.inputStatus = inputStatus;
     }
-    
+ 
+    public void setIngredient(Ingredient ingredient){
+        this.ingredient = ingredient;
+    }
+    public Ingredient getIngredient(){
+        return this.ingredient;
+    }
 }

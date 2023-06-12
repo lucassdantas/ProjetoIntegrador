@@ -1,8 +1,10 @@
 
 package controllers;
 
+import dao.DataSheetDAO;
 import dao.IngredientDAO;
 import dao.OrdersDAO;
+import dao.SnackDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,26 +14,65 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import models.DataSheet;
 import models.Ingredient;
 import models.Orders;
+import models.Snack;
+import views.combobox.Combobox;
 
 
-public class OrdersController {
-
-
-    
+public final class OrdersController {
     private JTable table;
     private final List<JTextField> fields;
-
-    public OrdersController() {
+    private List<Snack> snacks;
+    private List<Ingredient> ingredients;
+    private List<DataSheet> dataSheets;
+    private Combobox comboBox;
+    public OrdersController(JTable table, Combobox comboBox) throws SQLException {
+        this.snacks = new ArrayList<>();
+        this.ingredients = new ArrayList<>();
+        this.dataSheets = new ArrayList<>();
         this.fields = new ArrayList<>();
+        this.setJTable(table);
+        this.setComboBox(comboBox);
+        this.readJTable();
+        
+        this.searchDataSheet();
+        this.searchSnack();
+        this.searchIngredient();
+        this.setComboBoxOptions();
     }
     
+    public void setComboBox(Combobox comboBox){
+        this.comboBox = comboBox;
+    }
     public void setJTable(JTable table){
         this.table = table;
     }
     public void setFields(javax.swing.JTextField field){
         this.fields.add(field);
+    }
+    public void setSnacks(Snack snack){
+        this.snacks.add(snack);
+    }
+    
+    public void searchDataSheet() throws SQLException{
+        DataSheetDAO dao = new DataSheetDAO();
+        this.dataSheets = dao.readAll();
+    }
+    
+    public void searchIngredient() throws SQLException{
+        IngredientDAO dao = new IngredientDAO();
+        for(int i = 0; i < dataSheets.size(); i++){
+            this.ingredients = dao.searchById(dataSheets.get(i).getDsIngredientId());
+        }
+    }
+    
+    public void searchSnack() throws SQLException{
+        SnackDAO dao = new SnackDAO();
+        for(int i = 0; i < dataSheets.size(); i++){
+            this.snacks = dao.searchById(dataSheets.get(i).getSnack().getId());
+        }
     }
     public JTable getTable(){
         return this.table;
@@ -40,12 +81,37 @@ public class OrdersController {
         return this.fields;
     }
     
-     public void setFieldsValue(){
+    public void setFieldsValue(){
         for (int i = 0; i < this.fields.size(); i++){
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
         }
     }
-     
+    
+    public void setComboBoxOptions(){
+        for(int i = 0; i < this.snacks.size(); i++){
+            this.comboBox.addItem(this.snacks.get(i).getSnackTitle());
+        }
+    }
+    public void readDataSheetTable(int id) throws SQLException{
+        DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
+        this.table.setRowSorter(new TableRowSorter(model));
+        model.setNumRows(0);
+        
+        OrdersDAO dao = new OrdersDAO();
+        /*
+        for (DataSheet dataSheet: dao.searchById(id)){
+            this.snacksList.add(dataSheet.getSnack());
+            this.ingredientsList.add(dataSheet.getIngredient());
+            model.addRow(new Object[]{
+               // dataSheet.getDsSnackId(),
+                dataSheet.getSnack().getSnackTitle(),
+                dataSheet.getIngredient().getIngredientName(),
+                dataSheet.getDsQuantity(),
+                dataSheet.getIngredient().getIngredientUnitOfMeasure(),
+                dataSheet.getDsTotalCost()
+            });
+        }      */ 
+    }
     public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        

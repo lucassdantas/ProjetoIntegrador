@@ -4,19 +4,30 @@
  */
 package views;
 
+import controllers.InputController;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import models.Ingredient;
+import models.Input;
+import models.Snack;
 
 /**
  *
  * @author Work.Studies
  */
-public class EstoqueEditar extends javax.swing.JFrame {
+public class InputEdit extends javax.swing.JFrame {
 
     /**
      * Creates new form EstoqueEntrada
      */
-    public EstoqueEditar() {
+    private InputController inputController;
+    public InputEdit() {
         initComponents();
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -27,22 +38,22 @@ public class EstoqueEditar extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         areaEntradas_entrada = new javax.swing.JInternalFrame();
         panelEntradas1 = new javax.swing.JPanel();
-        jTextField15 = new javax.swing.JTextField();
+        inputEditIdField = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        inputEditIngredientField = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         colorBtn19 = new javax.swing.JPanel();
         colorBtn20 = new javax.swing.JPanel();
-        jTextField18 = new javax.swing.JTextField();
+        inputEditUnityOfMeasureField = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
+        inputEditQuantityField = new javax.swing.JTextField();
+        inputEditCostField = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
-        mybtn5 = new views.styles.Mybtn();
-        mybtn4 = new views.styles.Mybtn();
+        inputEditDateField = new javax.swing.JTextField();
+        inputEditCancelButton = new views.styles.Mybtn();
+        inputEditSaveButton = new views.styles.Mybtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -68,23 +79,23 @@ public class EstoqueEditar extends javax.swing.JFrame {
         panelEntradas1.setPreferredSize(new java.awt.Dimension(1690, 1020));
         panelEntradas1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField15.setEditable(false);
-        jTextField15.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField15.setName(""); // NOI18N
-        jTextField15.setOpaque(true);
-        panelEntradas1.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 140, 45));
+        inputEditIdField.setEditable(false);
+        inputEditIdField.setBackground(new java.awt.Color(243, 243, 243));
+        inputEditIdField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputEditIdField.setName(""); // NOI18N
+        inputEditIdField.setOpaque(true);
+        panelEntradas1.add(inputEditIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 140, 45));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel31.setText("id");
         panelEntradas1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
-        jTextField17.setEditable(false);
-        jTextField17.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField17.setName(""); // NOI18N
-        jTextField17.setOpaque(true);
-        panelEntradas1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 300, 45));
+        inputEditIngredientField.setEditable(false);
+        inputEditIngredientField.setBackground(new java.awt.Color(243, 243, 243));
+        inputEditIngredientField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputEditIngredientField.setName(""); // NOI18N
+        inputEditIngredientField.setOpaque(true);
+        panelEntradas1.add(inputEditIngredientField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 300, 45));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel32.setText("Ingrediente");
@@ -120,12 +131,12 @@ public class EstoqueEditar extends javax.swing.JFrame {
 
         panelEntradas1.add(colorBtn20, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 570, 10, 40));
 
-        jTextField18.setEditable(false);
-        jTextField18.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField18.setName(""); // NOI18N
-        jTextField18.setOpaque(true);
-        panelEntradas1.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 140, 45));
+        inputEditUnityOfMeasureField.setEditable(false);
+        inputEditUnityOfMeasureField.setBackground(new java.awt.Color(243, 243, 243));
+        inputEditUnityOfMeasureField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputEditUnityOfMeasureField.setName(""); // NOI18N
+        inputEditUnityOfMeasureField.setOpaque(true);
+        panelEntradas1.add(inputEditUnityOfMeasureField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 140, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel33.setText("Und. medida");
@@ -135,13 +146,13 @@ public class EstoqueEditar extends javax.swing.JFrame {
         jLabel34.setText("Quantidade");
         panelEntradas1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 140, 30));
 
-        jTextField19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField19.setName(""); // NOI18N
-        panelEntradas1.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 140, 45));
+        inputEditQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputEditQuantityField.setName(""); // NOI18N
+        panelEntradas1.add(inputEditQuantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 140, 45));
 
-        jTextField20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField20.setName(""); // NOI18N
-        panelEntradas1.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 140, 45));
+        inputEditCostField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputEditCostField.setName(""); // NOI18N
+        panelEntradas1.add(inputEditCostField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 140, 45));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel35.setText("Custo");
@@ -151,26 +162,31 @@ public class EstoqueEditar extends javax.swing.JFrame {
         jLabel36.setText("Data");
         panelEntradas1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 140, 30));
 
-        jTextField21.setEditable(false);
-        jTextField21.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField21.setName(""); // NOI18N
-        jTextField21.setOpaque(true);
-        panelEntradas1.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 140, 45));
+        inputEditDateField.setEditable(false);
+        inputEditDateField.setBackground(new java.awt.Color(243, 243, 243));
+        inputEditDateField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputEditDateField.setName(""); // NOI18N
+        inputEditDateField.setOpaque(true);
+        panelEntradas1.add(inputEditDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 140, 45));
 
-        mybtn5.setText("CANCELAR");
-        mybtn5.addActionListener(new java.awt.event.ActionListener() {
+        inputEditCancelButton.setText("CANCELAR");
+        inputEditCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn5ActionPerformed(evt);
+                inputEditCancelButtonActionPerformed(evt);
             }
         });
-        panelEntradas1.add(mybtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 129, 40));
+        panelEntradas1.add(inputEditCancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 129, 40));
 
-        mybtn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
-        mybtn4.setText("SALVAR");
-        mybtn4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        panelEntradas1.add(mybtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
+        inputEditSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
+        inputEditSaveButton.setText("SALVAR");
+        inputEditSaveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        inputEditSaveButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        inputEditSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputEditSaveButtonActionPerformed(evt);
+            }
+        });
+        panelEntradas1.add(inputEditSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
@@ -193,10 +209,43 @@ public class EstoqueEditar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
+    private void inputEditCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEditCancelButtonActionPerformed
         dispose();
-    }//GEN-LAST:event_mybtn5ActionPerformed
-
+    }//GEN-LAST:event_inputEditCancelButtonActionPerformed
+    public void setController(InputController inputController){
+        this.inputController = inputController;
+        System.out.print(inputController.getIngredients().size());
+    }
+    private void inputEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEditSaveButtonActionPerformed
+        try {
+            this.inputController.update(this.inputController.getFields());
+            dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(InputEdit.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(InputEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_inputEditSaveButtonActionPerformed
+    public void setJTable(JTable table){
+        this.inputController.setJTable(table);
+    }
+    public void setIngredientModel(){
+        this.inputController.setIngredient(inputController.getIngredients().get(inputController.getTable().getSelectedRow()));
+    }
+    public void setInputModel(){
+        this.inputController.setInputModel(inputController.getInputs().get(inputController.getTable().getSelectedRow()));
+    }
+    public void searchFields(){
+        this.inputController.setFields(inputEditIdField);
+        this.inputController.setFields(inputEditIngredientField);
+        this.inputController.setFields(inputEditQuantityField);
+        this.inputController.setFields(inputEditUnityOfMeasureField);
+        this.inputController.setFields(inputEditCostField);
+        this.inputController.setFields(inputEditDateField);
+    }
+    public void setFieldsValue(){
+        this.inputController.setFieldsValue();
+    }
     /**
      * @param args the command line arguments
      */
@@ -214,21 +263,23 @@ public class EstoqueEditar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EstoqueEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InputEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EstoqueEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InputEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EstoqueEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InputEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EstoqueEditar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InputEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EstoqueEditar().setVisible(true);
+                new InputEdit().setVisible(true);
             }
         });
     }
@@ -237,6 +288,14 @@ public class EstoqueEditar extends javax.swing.JFrame {
     private javax.swing.JInternalFrame areaEntradas_entrada;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
+    private views.styles.Mybtn inputEditCancelButton;
+    private javax.swing.JTextField inputEditCostField;
+    private javax.swing.JTextField inputEditDateField;
+    private javax.swing.JTextField inputEditIdField;
+    private javax.swing.JTextField inputEditIngredientField;
+    private javax.swing.JTextField inputEditQuantityField;
+    private views.styles.Mybtn inputEditSaveButton;
+    private javax.swing.JTextField inputEditUnityOfMeasureField;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -245,14 +304,6 @@ public class EstoqueEditar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private views.styles.Mybtn mybtn4;
-    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
     // End of variables declaration//GEN-END:variables
 }

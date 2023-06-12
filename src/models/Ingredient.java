@@ -101,5 +101,19 @@ public class Ingredient extends EntityId{
         this.ingredientUnitQuantity = ingredientUnitQuantity;
     }
    
+    public String calcStatus(){
+        
+        if(this.ingredientStock > this.ingredientMinQuantity){
+            return "Estoque Estável";
+        }
+        if(this.ingredientStock == 0){
+            return "Sem estoque";
+        }
+        
+        if(this.ingredientStock < this.ingredientMinQuantity){
+            return "Estoque Crítico";
+        }
+        return "Calculo indisponível";
+    }
     
 }

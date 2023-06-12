@@ -2,19 +2,26 @@ package views;
 import AppPackage.AnimationClass;
 import controllers.DataSheetController;
 import controllers.IngredientController;
+import controllers.InputController;
+import controllers.OrdersController;
 import controllers.PortionCalcController;
 import controllers.SnackController;
+import controllers.StockController;
 import dao.IngredientDAO;
+import dao.SnackDAO;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 import models.Ingredient;
+import models.Snack;
 
 
 public class StockViews extends javax.swing.JFrame {
@@ -27,6 +34,9 @@ PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
 IngredientController ingredientController = new IngredientController();
 SnackController snackController = new SnackController();
 DataSheetController dataSheetController = new DataSheetController();
+InputController inputController = new InputController();
+StockController stockController = new StockController();
+OrdersController ordersController;
     public StockViews() throws SQLException {
         initComponents();
         setIcon();
@@ -44,6 +54,14 @@ DataSheetController dataSheetController = new DataSheetController();
         
         dataSheetController.setJTable(dataSheetTable);
         dataSheetController.readJTable();
+        
+        inputController.setJTable(inputTable);
+        inputController.readJTable();
+        
+        stockController.setJTable(stockTable);
+        stockController.readJTable();
+        ordersController = new OrdersController(orderDataSheetTable, orderSnackComboBox);
+       
     }
 
     private void setIcon(){
@@ -150,14 +168,14 @@ public void limparCalculoPorcoes() {
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
-        combobox1 = new views.combobox.Combobox();
-        spinner2 = new views.spinner.Spinner();
+        orderSnackComboBox = new views.combobox.Combobox();
+        orderQuantitySpinner = new views.spinner.Spinner();
         jScrollPane2 = new javax.swing.JScrollPane();
-        table1 = new views.tables.Table();
+        orderDataSheetTable = new views.tables.Table();
         fotoVP = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        mybtn1 = new views.styles.Mybtn();
+        orderTotalValueField = new javax.swing.JTextField();
+        orderAddButton = new views.styles.Mybtn();
         areaVisualizarPedidos = new javax.swing.JInternalFrame();
         panelVP = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -286,38 +304,38 @@ public void limparCalculoPorcoes() {
         areaEntradas = new javax.swing.JInternalFrame();
         panelEntradas = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        inputSearchField = new javax.swing.JTextField();
         colorBtn15 = new javax.swing.JPanel();
         colorBtn16 = new javax.swing.JPanel();
         colorBtn17 = new javax.swing.JPanel();
-        mybtn25 = new views.styles.Mybtn2();
-        mybtn13 = new views.styles.Mybtn();
-        mybtn14 = new views.styles.Mybtn();
-        mybtn15 = new views.styles.Mybtn();
+        inputSearchButton = new views.styles.Mybtn2();
+        inputAddButton = new views.styles.Mybtn();
+        inputEditButton = new views.styles.Mybtn();
+        inputDeleteButton = new views.styles.Mybtn();
         jLabel27 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        inputIngredientNameField = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jScrollPane7 = new javax.swing.JScrollPane();
-        table6 = new views.tables.Table();
-        jTextField16 = new javax.swing.JTextField();
+        inputTable = new views.tables.Table();
+        inputIngredientUnityOfMeasureField = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         areaProdutoEstoque = new javax.swing.JInternalFrame();
         panelPE = new javax.swing.JPanel();
         fotoVP3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        mybtn26 = new views.styles.Mybtn2();
+        stockSearchField = new javax.swing.JTextField();
+        stockSearchButton = new views.styles.Mybtn2();
         jLabel21 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        stockIngredientNameField = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        stockMinQuantityFIeld = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jScrollPane6 = new javax.swing.JScrollPane();
-        table5 = new views.tables.Table();
-        jTextField12 = new javax.swing.JTextField();
+        stockTable = new views.tables.Table();
+        stockUnityOfMeasureField = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -754,20 +772,23 @@ public void limparCalculoPorcoes() {
         jLabel8.setText("Lanche");
         panelNP.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
-        combobox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        combobox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        combobox1.setSelectedIndex(-1);
-        combobox1.setSelectedItem(null);
-        combobox1.setLabeText("");
-        panelNP.add(combobox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 220, 40));
+        orderSnackComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        orderSnackComboBox.setSelectedItem(null);
+        orderSnackComboBox.setLabeText("");
+        orderSnackComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderSnackComboBoxActionPerformed(evt);
+            }
+        });
+        panelNP.add(orderSnackComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 220, 40));
 
-        spinner2.setBackground(new java.awt.Color(51, 51, 255));
-        spinner2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        spinner2.setLabelText("");
-        panelNP.add(spinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 102, 45));
+        orderQuantitySpinner.setBackground(new java.awt.Color(51, 51, 255));
+        orderQuantitySpinner.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        orderQuantitySpinner.setLabelText("");
+        panelNP.add(orderQuantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 102, 45));
 
-        table1.fixTable(jScrollPane2);
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        orderDataSheetTable.fixTable(jScrollPane2);
+        orderDataSheetTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"pao de hamburguer", "1", "un"},
                 {"hamburguer", "1", "un"},
@@ -786,11 +807,11 @@ public void limparCalculoPorcoes() {
                 return canEdit [columnIndex];
             }
         });
-        table1.setShowGrid(true);
-        jScrollPane2.setViewportView(table1);
-        if (table1.getColumnModel().getColumnCount() > 0) {
-            table1.getColumnModel().getColumn(1).setResizable(false);
-            table1.getColumnModel().getColumn(2).setResizable(false);
+        orderDataSheetTable.setShowGrid(true);
+        jScrollPane2.setViewportView(orderDataSheetTable);
+        if (orderDataSheetTable.getColumnModel().getColumnCount() > 0) {
+            orderDataSheetTable.getColumnModel().getColumn(1).setResizable(false);
+            orderDataSheetTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
         panelNP.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 610, 450));
@@ -820,17 +841,17 @@ public void limparCalculoPorcoes() {
 
         panelNP.add(fotoVP, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 213, 213));
 
-        jTextField1.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField1.setName(""); // NOI18N
-        jTextField1.setEditable(false);
-        jTextField1.setOpaque(true);
-        panelNP.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 102, 45));
+        orderTotalValueField.setBackground(new java.awt.Color(243, 243, 243));
+        orderTotalValueField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        orderTotalValueField.setName(""); // NOI18N
+        orderTotalValueField.setEditable(false);
+        orderTotalValueField.setOpaque(true);
+        panelNP.add(orderTotalValueField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 102, 45));
 
-        mybtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
-        mybtn1.setText("FINALIZAR");
-        mybtn1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelNP.add(mybtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
+        orderAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
+        orderAddButton.setText("FINALIZAR");
+        orderAddButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelNP.add(orderAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
         areaNovoPedido.getContentPane().add(panelNP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
 
@@ -876,7 +897,7 @@ public void limparCalculoPorcoes() {
         jTextField3.setOpaque(true);
         panelVP.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 188, 45));
 
-        table1.fixTable(jScrollPane3);
+        orderDataSheetTable.fixTable(jScrollPane3);
         table2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "hamburguer", "1", "5,60", "12,00", "12,00", "01/02/2023"},
@@ -1046,7 +1067,7 @@ public void limparCalculoPorcoes() {
         panelLanche.add(colorBtn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
         panelLanche.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        table1.fixTable(jScrollPane4);
+        orderDataSheetTable.fixTable(jScrollPane4);
         snackTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "hamburguer", "11,00", "..."},
@@ -1270,7 +1291,7 @@ public void limparCalculoPorcoes() {
         panelIngredientes.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 180, 30));
         panelIngredientes.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        table1.fixTable(jScrollPane5);
+        orderDataSheetTable.fixTable(jScrollPane5);
         ingredientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "pao de hamburguer", "un", "1", "1,00", "20"},
@@ -1450,7 +1471,7 @@ public void limparCalculoPorcoes() {
         panelIngredientes1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 180, 30));
         panelIngredientes1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        table1.fixTable(jScrollPane9);
+        orderDataSheetTable.fixTable(jScrollPane9);
         dataSheetTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"hamburguer", "pao de hamburguer", "1", "un", "1,00"},
@@ -1830,9 +1851,9 @@ public void limparCalculoPorcoes() {
         jLabel26.setOpaque(true);
         panelEntradas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
 
-        jTextField13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField13.setName(""); // NOI18N
-        panelEntradas.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
+        inputSearchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputSearchField.setName(""); // NOI18N
+        panelEntradas.add(inputSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
 
         colorBtn15.setBackground(new java.awt.Color(90, 90, 90));
 
@@ -1879,52 +1900,62 @@ public void limparCalculoPorcoes() {
 
         panelEntradas.add(colorBtn17, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
 
-        mybtn25.setText("OK");
-        panelEntradas.add(mybtn25, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
-
-        mybtn13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
-        mybtn13.setText("NOVO");
-        mybtn13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn13.addActionListener(new java.awt.event.ActionListener() {
+        inputSearchButton.setText("OK");
+        inputSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn13ActionPerformed(evt);
+                inputSearchButtonActionPerformed(evt);
             }
         });
-        panelEntradas.add(mybtn13, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
+        panelEntradas.add(inputSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 50, 47, 45));
 
-        mybtn14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
-        mybtn14.setText("EDITAR");
-        mybtn14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mybtn14.addActionListener(new java.awt.event.ActionListener() {
+        inputAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adicionar.png"))); // NOI18N
+        inputAddButton.setText("NOVO");
+        inputAddButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        inputAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn14ActionPerformed(evt);
+                inputAddButtonActionPerformed(evt);
             }
         });
-        panelEntradas.add(mybtn14, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
+        panelEntradas.add(inputAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
-        mybtn15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
-        mybtn15.setText("EXCLUIR");
-        mybtn15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelEntradas.add(mybtn15, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
+        inputEditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        inputEditButton.setText("EDITAR");
+        inputEditButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        inputEditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputEditButtonActionPerformed(evt);
+            }
+        });
+        panelEntradas.add(inputEditButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 129, 40));
+
+        inputDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excluir.png"))); // NOI18N
+        inputDeleteButton.setText("EXCLUIR");
+        inputDeleteButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        inputDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputDeleteButtonActionPerformed(evt);
+            }
+        });
+        panelEntradas.add(inputDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel27.setText("id");
         panelEntradas.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
-        jTextField14.setEditable(false);
-        jTextField14.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField14.setName(""); // NOI18N
-        jTextField14.setOpaque(true);
-        panelEntradas.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 350, 45));
+        inputIngredientNameField.setEditable(false);
+        inputIngredientNameField.setBackground(new java.awt.Color(243, 243, 243));
+        inputIngredientNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputIngredientNameField.setName(""); // NOI18N
+        inputIngredientNameField.setOpaque(true);
+        panelEntradas.add(inputIngredientNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 350, 45));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel28.setText("Ingrediente");
         panelEntradas.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 180, 30));
         panelEntradas.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        table1.fixTable(jScrollPane7);
-        table6.setModel(new javax.swing.table.DefaultTableModel(
+        orderDataSheetTable.fixTable(jScrollPane7);
+        inputTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "pao de hamburguer", "100", "un", "99,80", "01/05/2023"},
                 {"2", "hamburguer", "100", "un", "152,00", "01/05/2023"},
@@ -1948,25 +1979,30 @@ public void limparCalculoPorcoes() {
                 return canEdit [columnIndex];
             }
         });
-        table6.setShowGrid(true);
-        jScrollPane7.setViewportView(table6);
-        if (table6.getColumnModel().getColumnCount() > 0) {
-            table6.getColumnModel().getColumn(0).setResizable(false);
-            table6.getColumnModel().getColumn(1).setResizable(false);
-            table6.getColumnModel().getColumn(2).setResizable(false);
-            table6.getColumnModel().getColumn(3).setResizable(false);
-            table6.getColumnModel().getColumn(4).setResizable(false);
-            table6.getColumnModel().getColumn(5).setResizable(false);
+        inputTable.setShowGrid(true);
+        inputTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inputTableMouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(inputTable);
+        if (inputTable.getColumnModel().getColumnCount() > 0) {
+            inputTable.getColumnModel().getColumn(0).setResizable(false);
+            inputTable.getColumnModel().getColumn(1).setResizable(false);
+            inputTable.getColumnModel().getColumn(2).setResizable(false);
+            inputTable.getColumnModel().getColumn(3).setResizable(false);
+            inputTable.getColumnModel().getColumn(4).setResizable(false);
+            inputTable.getColumnModel().getColumn(5).setResizable(false);
         }
 
         panelEntradas.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
 
-        jTextField16.setEditable(false);
-        jTextField16.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField16.setName(""); // NOI18N
-        jTextField16.setOpaque(true);
-        panelEntradas.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 140, 45));
+        inputIngredientUnityOfMeasureField.setEditable(false);
+        inputIngredientUnityOfMeasureField.setBackground(new java.awt.Color(243, 243, 243));
+        inputIngredientUnityOfMeasureField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        inputIngredientUnityOfMeasureField.setName(""); // NOI18N
+        inputIngredientUnityOfMeasureField.setOpaque(true);
+        panelEntradas.add(inputIngredientUnityOfMeasureField, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 140, 45));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel30.setText("Und. medida");
@@ -2021,23 +2057,28 @@ public void limparCalculoPorcoes() {
         jLabel20.setOpaque(true);
         panelPE.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
 
-        jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField9.setName(""); // NOI18N
-        panelPE.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 260, 45));
+        stockSearchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        stockSearchField.setName(""); // NOI18N
+        panelPE.add(stockSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 260, 45));
 
-        mybtn26.setText("OK");
-        panelPE.add(mybtn26, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 50, 47, 45));
+        stockSearchButton.setText("OK");
+        stockSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stockSearchButtonActionPerformed(evt);
+            }
+        });
+        panelPE.add(stockSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 50, 47, 45));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel21.setText("Pesquisar");
         panelPE.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
-        jTextField10.setEditable(false);
-        jTextField10.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField10.setName(""); // NOI18N
-        jTextField10.setOpaque(true);
-        panelPE.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 350, 45));
+        stockIngredientNameField.setEditable(false);
+        stockIngredientNameField.setBackground(new java.awt.Color(243, 243, 243));
+        stockIngredientNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        stockIngredientNameField.setName(""); // NOI18N
+        stockIngredientNameField.setOpaque(true);
+        panelPE.add(stockIngredientNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 350, 45));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel22.setText("Ingrediente");
@@ -2047,61 +2088,63 @@ public void limparCalculoPorcoes() {
         jLabel23.setText("Estoque mínimo");
         panelPE.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 140, 30));
 
-        jTextField11.setEditable(false);
-        jTextField11.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField11.setName(""); // NOI18N
-        jTextField11.setOpaque(true);
-        panelPE.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 140, 45));
+        stockMinQuantityFIeld.setEditable(false);
+        stockMinQuantityFIeld.setBackground(new java.awt.Color(243, 243, 243));
+        stockMinQuantityFIeld.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        stockMinQuantityFIeld.setName(""); // NOI18N
+        stockMinQuantityFIeld.setOpaque(true);
+        panelPE.add(stockMinQuantityFIeld, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 140, 45));
         panelPE.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        table1.fixTable(jScrollPane6);
-        table5.setModel(new javax.swing.table.DefaultTableModel(
+        orderDataSheetTable.fixTable(jScrollPane6);
+        stockTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "1", "pao de hamburguer", "350", "20", "un", "Estoque estável"},
-                {"2", "2", "hamburguer", "100", "20", "un", "Estoque estável"},
-                {"3", "3", "ovo", "100", "20", "un", "Estoque estável"},
-                {"4", "4", "queijo fatiado", "1", "0,2", "kg", "Estoque estável"},
-                {"5", "5", "bacon fatiado", "1", "0,2", "kg", "Estoque estável"},
-                {"6", "6", "alface", "3", "0,6", "pes", "Estoque estável"},
-                {"7", "7", "batata palha", "1", "0,2", "kg", "Estoque estável"},
-                {"8", "8", "embalagens p/ hamburguer", "100", "20", "un", "Estoque estável"}
+                {"1", "pao de hamburguer", "350", "20", "un", "Estoque estável"},
+                {"2", "hamburguer", "100", "20", "un", "Estoque estável"},
+                {"3", "ovo", "100", "20", "un", "Estoque estável"},
+                {"4", "queijo fatiado", "1", "0,2", "kg", "Estoque estável"},
+                {"5", "bacon fatiado", "1", "0,2", "kg", "Estoque estável"},
+                {"6", "alface", "3", "0,6", "pes", "Estoque estável"},
+                {"7", "batata palha", "1", "0,2", "kg", "Estoque estável"},
+                {"8", "embalagens p/ hamburguer", "100", "20", "un", "Estoque estável"}
             },
             new String [] {
-                "id_AI", "id_ingrediente", "Ingrediente", "Total estoque", "Estoque min.", "Und. medida", "Status"
+                "id_ingrediente", "Ingrediente", "Total estoque", "Estoque min.", "Und. medida", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        table5.setShowGrid(true);
-        jScrollPane6.setViewportView(table5);
-        if (table5.getColumnModel().getColumnCount() > 0) {
-            table5.getColumnModel().getColumn(0).setResizable(false);
-            table5.getColumnModel().getColumn(0).setHeaderValue("id_AI");
-            table5.getColumnModel().getColumn(1).setResizable(false);
-            table5.getColumnModel().getColumn(2).setResizable(false);
-            table5.getColumnModel().getColumn(3).setResizable(false);
-            table5.getColumnModel().getColumn(4).setResizable(false);
-            table5.getColumnModel().getColumn(4).setHeaderValue("Estoque min.");
-            table5.getColumnModel().getColumn(5).setResizable(false);
-            table5.getColumnModel().getColumn(6).setResizable(false);
-            table5.getColumnModel().getColumn(6).setHeaderValue("Status");
+        stockTable.setColumnSelectionAllowed(true);
+        stockTable.setShowGrid(true);
+        stockTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stockTableMouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(stockTable);
+        if (stockTable.getColumnModel().getColumnCount() > 0) {
+            stockTable.getColumnModel().getColumn(0).setResizable(false);
+            stockTable.getColumnModel().getColumn(1).setResizable(false);
+            stockTable.getColumnModel().getColumn(2).setResizable(false);
+            stockTable.getColumnModel().getColumn(3).setResizable(false);
+            stockTable.getColumnModel().getColumn(4).setResizable(false);
+            stockTable.getColumnModel().getColumn(5).setResizable(false);
         }
 
         panelPE.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 930, 450));
 
-        jTextField12.setEditable(false);
-        jTextField12.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField12.setName(""); // NOI18N
-        jTextField12.setOpaque(true);
-        panelPE.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 140, 45));
+        stockUnityOfMeasureField.setEditable(false);
+        stockUnityOfMeasureField.setBackground(new java.awt.Color(243, 243, 243));
+        stockUnityOfMeasureField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        stockUnityOfMeasureField.setName(""); // NOI18N
+        stockUnityOfMeasureField.setOpaque(true);
+        panelPE.add(stockUnityOfMeasureField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 140, 45));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel24.setText("Und. medida");
@@ -2334,13 +2377,29 @@ public void limparCalculoPorcoes() {
         limparCalculoPorcoes();
     }//GEN-LAST:event_calcCleanBtnActionPerformed
 
-    private void mybtn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn13ActionPerformed
-       new EstoqueEntrada().setVisible(true);
-    }//GEN-LAST:event_mybtn13ActionPerformed
+    private void inputAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddButtonActionPerformed
+       InputAdd inputAdd = new InputAdd();
+       inputAdd.setJTable(inputTable);
+       inputAdd.searchFields();
+       inputAdd.setDateField();
+       inputAdd.setVisible(true);
+    }//GEN-LAST:event_inputAddButtonActionPerformed
 
-    private void mybtn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn14ActionPerformed
-       new EstoqueEditar().setVisible(true);
-    }//GEN-LAST:event_mybtn14ActionPerformed
+    private void inputEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEditButtonActionPerformed
+        if(inputTable.getSelectedRow() != -1){
+            InputEdit inputEdit = new InputEdit();
+            inputEdit.setController(inputController);
+            inputEdit.setJTable(inputTable);
+            inputEdit.setIngredientModel();
+            inputEdit.setInputModel();
+            inputEdit.searchFields();
+            inputEdit.setFieldsValue();
+            
+            inputEdit.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um item da tabela!");
+        }
+    }//GEN-LAST:event_inputEditButtonActionPerformed
 
     private void buttonNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNovoPedidoActionPerformed
         buttonNovoPedido.setBackground(Color.decode("#C0C0C0"));
@@ -2718,6 +2777,49 @@ public void limparCalculoPorcoes() {
         dataFieldSnackField.setText(String.valueOf(dataSheetTable.getValueAt(dataSheetTable.getSelectedRow(), 0)));
     }//GEN-LAST:event_dataSheetTableMouseClicked
 
+    private void inputDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDeleteButtonActionPerformed
+        inputController.setJTable(inputTable);
+        try {   
+            inputController.delete();
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_inputDeleteButtonActionPerformed
+
+    private void inputSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSearchButtonActionPerformed
+        inputController.setJTable(inputTable);
+        try {   
+            inputController.readJTableSearch(inputSearchField.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_inputSearchButtonActionPerformed
+
+    private void inputTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputTableMouseClicked
+        InputEdit inputEdit = new InputEdit();
+        inputEdit.setController(inputController);
+        inputEdit.setJTable(inputTable);
+        inputEdit.setIngredientModel();
+        inputEdit.setInputModel();
+        
+    }//GEN-LAST:event_inputTableMouseClicked
+
+    private void stockTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockTableMouseClicked
+        System.out.println(stockTable.getSelectedRow());
+    }//GEN-LAST:event_stockTableMouseClicked
+
+    private void stockSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockSearchButtonActionPerformed
+        try {
+            stockController.readJTableSearch(stockSearchField.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_stockSearchButtonActionPerformed
+
+    private void orderSnackComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderSnackComboBoxActionPerformed
+       
+    }//GEN-LAST:event_orderSnackComboBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2851,7 +2953,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel colorBtn7;
     private javax.swing.JPanel colorBtn8;
     private javax.swing.JPanel colorBtn9;
-    private views.combobox.Combobox combobox1;
     private javax.swing.JTextField dataFieldSnackField;
     private views.styles.Mybtn dataSheetAddButton;
     private views.styles.Mybtn dataSheetDeleteButton;
@@ -2870,6 +2971,14 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn2 ingredientSearchButton;
     private javax.swing.JTextField ingredientSearchField;
     private views.tables.Table ingredientTable;
+    private views.styles.Mybtn inputAddButton;
+    private views.styles.Mybtn inputDeleteButton;
+    private views.styles.Mybtn inputEditButton;
+    private javax.swing.JTextField inputIngredientNameField;
+    private javax.swing.JTextField inputIngredientUnityOfMeasureField;
+    private views.styles.Mybtn2 inputSearchButton;
+    private javax.swing.JTextField inputSearchField;
+    private views.tables.Table inputTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2923,16 +3032,8 @@ public void limparCalculoPorcoes() {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblCopyright;
     private javax.swing.JLabel lblVersion;
     private javax.swing.JLabel lblVersion1;
@@ -2943,13 +3044,12 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel logoVersion;
     private javax.swing.JLabel logoVersion1;
     private javax.swing.JLabel logoVersion2;
-    private views.styles.Mybtn mybtn1;
-    private views.styles.Mybtn mybtn13;
-    private views.styles.Mybtn mybtn14;
-    private views.styles.Mybtn mybtn15;
     private views.styles.Mybtn2 mybtn21;
-    private views.styles.Mybtn2 mybtn25;
-    private views.styles.Mybtn2 mybtn26;
+    private views.styles.Mybtn orderAddButton;
+    private views.tables.Table orderDataSheetTable;
+    private views.spinner.Spinner orderQuantitySpinner;
+    private views.combobox.Combobox orderSnackComboBox;
+    private javax.swing.JTextField orderTotalValueField;
     private javax.swing.JPanel painelMenu1;
     private javax.swing.JPanel painelMenu2;
     private javax.swing.JPanel painelMenu3;
@@ -2970,10 +3070,12 @@ public void limparCalculoPorcoes() {
     private javax.swing.JTextField snackSearchField;
     private views.tables.Table snackTable;
     private javax.swing.JTextField snackTitleField;
-    private views.spinner.Spinner spinner2;
-    private views.tables.Table table1;
+    private javax.swing.JTextField stockIngredientNameField;
+    private javax.swing.JTextField stockMinQuantityFIeld;
+    private views.styles.Mybtn2 stockSearchButton;
+    private javax.swing.JTextField stockSearchField;
+    private views.tables.Table stockTable;
+    private javax.swing.JTextField stockUnityOfMeasureField;
     private views.tables.Table table2;
-    private views.tables.Table table5;
-    private views.tables.Table table6;
     // End of variables declaration//GEN-END:variables
 }
