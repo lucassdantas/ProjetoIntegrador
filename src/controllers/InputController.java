@@ -173,17 +173,19 @@ public class InputController {
         } else{
             Input input = new Input();
             InputDAO dao = new InputDAO();
-            
+            IngredientDAO ingredientDAO = new IngredientDAO();
             LocalDate inputDate = LocalDate.parse(fields.get(5).getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy") );
             this.ingredient.setId(Integer.parseInt(fields.get(0).getText()));
             this.ingredient.setIngredientName(String.valueOf(fields.get(1).getText()));
             this.ingredient.setIngredientUnitOfMeasure(String.valueOf(fields.get(3).getText()));
+            this.ingredient.sumIngredientStock(Float.parseFloat(fields.get(2).getText()));
             input.setInputQuantity(Float.parseFloat(fields.get(2).getText()));
             input.setInputCost(Float.parseFloat(fields.get(4).getText()));
             input.setInputDate(inputDate);
             input.setIngredient(this.ingredient);
             try {
                 dao.addInput(input);
+                ingredientDAO.addStock(input.getIngredient());
                 this.clean(this.fields);
                 this.setDateField();
                 //this.readJTable();
