@@ -64,6 +64,7 @@ public final class OrdersController {
     public void searchIngredient() throws SQLException{
         IngredientDAO dao = new IngredientDAO();
         for(int i = 0; i < dataSheets.size(); i++){
+            
             this.ingredients = dao.searchById(dataSheets.get(i).getDsIngredientId());
         }
     }
@@ -71,7 +72,7 @@ public final class OrdersController {
     public void searchSnack() throws SQLException{
         SnackDAO dao = new SnackDAO();
         for(int i = 0; i < dataSheets.size(); i++){
-            this.snacks = dao.searchById(dataSheets.get(i).getSnack().getId());
+            this.setSnacks(dao.searchById(dataSheets.get(i).getDsSnackId()));
         }
     }
     public JTable getTable(){
