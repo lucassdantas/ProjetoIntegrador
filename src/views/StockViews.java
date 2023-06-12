@@ -5,6 +5,7 @@ import controllers.IngredientController;
 import controllers.InputController;
 import controllers.PortionCalcController;
 import controllers.SnackController;
+import controllers.StockController;
 import dao.IngredientDAO;
 import java.awt.Color;
 import java.awt.Component;
@@ -29,6 +30,7 @@ IngredientController ingredientController = new IngredientController();
 SnackController snackController = new SnackController();
 DataSheetController dataSheetController = new DataSheetController();
 InputController inputController = new InputController();
+StockController stockController = new StockController();
     public StockViews() throws SQLException {
         initComponents();
         setIcon();
@@ -49,6 +51,9 @@ InputController inputController = new InputController();
         
         inputController.setJTable(inputTable);
         inputController.readJTable();
+        
+        stockController.setJTable(stockTable);
+        stockController.readJTable();
     }
 
     private void setIcon(){
@@ -312,17 +317,17 @@ public void limparCalculoPorcoes() {
         fotoVP3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        mybtn26 = new views.styles.Mybtn2();
+        stockSearchField = new javax.swing.JTextField();
+        stockSearchButton = new views.styles.Mybtn2();
         jLabel21 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        stockIngredientNameField = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        stockMinQuantityFIeld = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jScrollPane6 = new javax.swing.JScrollPane();
-        table5 = new views.tables.Table();
-        jTextField12 = new javax.swing.JTextField();
+        stockTable = new views.tables.Table();
+        stockUnityOfMeasureField = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2041,23 +2046,28 @@ public void limparCalculoPorcoes() {
         jLabel20.setOpaque(true);
         panelPE.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, 45));
 
-        jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField9.setName(""); // NOI18N
-        panelPE.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 260, 45));
+        stockSearchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        stockSearchField.setName(""); // NOI18N
+        panelPE.add(stockSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 260, 45));
 
-        mybtn26.setText("OK");
-        panelPE.add(mybtn26, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 50, 47, 45));
+        stockSearchButton.setText("OK");
+        stockSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stockSearchButtonActionPerformed(evt);
+            }
+        });
+        panelPE.add(stockSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 50, 47, 45));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel21.setText("Pesquisar");
         panelPE.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
-        jTextField10.setEditable(false);
-        jTextField10.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField10.setName(""); // NOI18N
-        jTextField10.setOpaque(true);
-        panelPE.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 350, 45));
+        stockIngredientNameField.setEditable(false);
+        stockIngredientNameField.setBackground(new java.awt.Color(243, 243, 243));
+        stockIngredientNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        stockIngredientNameField.setName(""); // NOI18N
+        stockIngredientNameField.setOpaque(true);
+        panelPE.add(stockIngredientNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 350, 45));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel22.setText("Ingrediente");
@@ -2067,61 +2077,63 @@ public void limparCalculoPorcoes() {
         jLabel23.setText("Estoque mínimo");
         panelPE.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 140, 30));
 
-        jTextField11.setEditable(false);
-        jTextField11.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField11.setName(""); // NOI18N
-        jTextField11.setOpaque(true);
-        panelPE.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 140, 45));
+        stockMinQuantityFIeld.setEditable(false);
+        stockMinQuantityFIeld.setBackground(new java.awt.Color(243, 243, 243));
+        stockMinQuantityFIeld.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        stockMinQuantityFIeld.setName(""); // NOI18N
+        stockMinQuantityFIeld.setOpaque(true);
+        panelPE.add(stockMinQuantityFIeld, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 140, 45));
         panelPE.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
         table1.fixTable(jScrollPane6);
-        table5.setModel(new javax.swing.table.DefaultTableModel(
+        stockTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "1", "pao de hamburguer", "350", "20", "un", "Estoque estável"},
-                {"2", "2", "hamburguer", "100", "20", "un", "Estoque estável"},
-                {"3", "3", "ovo", "100", "20", "un", "Estoque estável"},
-                {"4", "4", "queijo fatiado", "1", "0,2", "kg", "Estoque estável"},
-                {"5", "5", "bacon fatiado", "1", "0,2", "kg", "Estoque estável"},
-                {"6", "6", "alface", "3", "0,6", "pes", "Estoque estável"},
-                {"7", "7", "batata palha", "1", "0,2", "kg", "Estoque estável"},
-                {"8", "8", "embalagens p/ hamburguer", "100", "20", "un", "Estoque estável"}
+                {"1", "pao de hamburguer", "350", "20", "un", "Estoque estável"},
+                {"2", "hamburguer", "100", "20", "un", "Estoque estável"},
+                {"3", "ovo", "100", "20", "un", "Estoque estável"},
+                {"4", "queijo fatiado", "1", "0,2", "kg", "Estoque estável"},
+                {"5", "bacon fatiado", "1", "0,2", "kg", "Estoque estável"},
+                {"6", "alface", "3", "0,6", "pes", "Estoque estável"},
+                {"7", "batata palha", "1", "0,2", "kg", "Estoque estável"},
+                {"8", "embalagens p/ hamburguer", "100", "20", "un", "Estoque estável"}
             },
             new String [] {
-                "id_AI", "id_ingrediente", "Ingrediente", "Total estoque", "Estoque min.", "Und. medida", "Status"
+                "id_ingrediente", "Ingrediente", "Total estoque", "Estoque min.", "Und. medida", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        table5.setShowGrid(true);
-        jScrollPane6.setViewportView(table5);
-        if (table5.getColumnModel().getColumnCount() > 0) {
-            table5.getColumnModel().getColumn(0).setResizable(false);
-            table5.getColumnModel().getColumn(0).setHeaderValue("id_AI");
-            table5.getColumnModel().getColumn(1).setResizable(false);
-            table5.getColumnModel().getColumn(2).setResizable(false);
-            table5.getColumnModel().getColumn(3).setResizable(false);
-            table5.getColumnModel().getColumn(4).setResizable(false);
-            table5.getColumnModel().getColumn(4).setHeaderValue("Estoque min.");
-            table5.getColumnModel().getColumn(5).setResizable(false);
-            table5.getColumnModel().getColumn(6).setResizable(false);
-            table5.getColumnModel().getColumn(6).setHeaderValue("Status");
+        stockTable.setColumnSelectionAllowed(true);
+        stockTable.setShowGrid(true);
+        stockTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stockTableMouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(stockTable);
+        if (stockTable.getColumnModel().getColumnCount() > 0) {
+            stockTable.getColumnModel().getColumn(0).setResizable(false);
+            stockTable.getColumnModel().getColumn(1).setResizable(false);
+            stockTable.getColumnModel().getColumn(2).setResizable(false);
+            stockTable.getColumnModel().getColumn(3).setResizable(false);
+            stockTable.getColumnModel().getColumn(4).setResizable(false);
+            stockTable.getColumnModel().getColumn(5).setResizable(false);
         }
 
         panelPE.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 930, 450));
 
-        jTextField12.setEditable(false);
-        jTextField12.setBackground(new java.awt.Color(243, 243, 243));
-        jTextField12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jTextField12.setName(""); // NOI18N
-        jTextField12.setOpaque(true);
-        panelPE.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 140, 45));
+        stockUnityOfMeasureField.setEditable(false);
+        stockUnityOfMeasureField.setBackground(new java.awt.Color(243, 243, 243));
+        stockUnityOfMeasureField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        stockUnityOfMeasureField.setName(""); // NOI18N
+        stockUnityOfMeasureField.setOpaque(true);
+        panelPE.add(stockUnityOfMeasureField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 140, 45));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel24.setText("Und. medida");
@@ -2782,6 +2794,18 @@ public void limparCalculoPorcoes() {
         
     }//GEN-LAST:event_inputTableMouseClicked
 
+    private void stockTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockTableMouseClicked
+        System.out.println(stockTable.getSelectedRow());
+    }//GEN-LAST:event_stockTableMouseClicked
+
+    private void stockSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockSearchButtonActionPerformed
+        try {
+            stockController.readJTableSearch(stockSearchField.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_stockSearchButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2996,12 +3020,8 @@ public void limparCalculoPorcoes() {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblCopyright;
     private javax.swing.JLabel lblVersion;
     private javax.swing.JLabel lblVersion1;
@@ -3014,7 +3034,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel logoVersion2;
     private views.styles.Mybtn mybtn1;
     private views.styles.Mybtn2 mybtn21;
-    private views.styles.Mybtn2 mybtn26;
     private javax.swing.JPanel painelMenu1;
     private javax.swing.JPanel painelMenu2;
     private javax.swing.JPanel painelMenu3;
@@ -3036,8 +3055,13 @@ public void limparCalculoPorcoes() {
     private views.tables.Table snackTable;
     private javax.swing.JTextField snackTitleField;
     private views.spinner.Spinner spinner2;
+    private javax.swing.JTextField stockIngredientNameField;
+    private javax.swing.JTextField stockMinQuantityFIeld;
+    private views.styles.Mybtn2 stockSearchButton;
+    private javax.swing.JTextField stockSearchField;
+    private views.tables.Table stockTable;
+    private javax.swing.JTextField stockUnityOfMeasureField;
     private views.tables.Table table1;
     private views.tables.Table table2;
-    private views.tables.Table table5;
     // End of variables declaration//GEN-END:variables
 }

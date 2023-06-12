@@ -66,6 +66,7 @@ public class InputController {
         for (int i = 0; i < (this.fields.size()-1); i++){
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i)));
         }
+        setDateField();
     }
     public void setDateField(){
         LocalDate time = LocalDate.now();
@@ -249,8 +250,17 @@ public class InputController {
                     "Selecione um serviço na tabela abaixo!");
         }
     }           
-  
-
+    public void addStock(List <javax.swing.JTextField> fields) throws SQLException{
+        this.ingredient.setId(Integer.parseInt(fields.get(0).getText()));
+        this.ingredient.setIngredientStock(Float.parseFloat(fields.get(2).getText()));
+        IngredientDAO dao = new IngredientDAO();
+        try{
+            dao.addStock(this.ingredient);
+        }
+        catch(SQLException ex){
+            System.out.println(ex);
+        }
+    }
 }       
     
 
