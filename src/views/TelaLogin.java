@@ -7,12 +7,13 @@ package views;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
-//import dao.LoginDao;
+import dao.LoginDao;
 
 public class TelaLogin extends javax.swing.JFrame {
 
     public TelaLogin() {
         initComponents();
+        IconManager.setIcon(this);
         txtSenhaVisivel.setVisible(false);
         btn_passwordOcultar.setVisible(false);
     }
@@ -24,14 +25,14 @@ public class TelaLogin extends javax.swing.JFrame {
             if(!txtLogin.getText().isEmpty() && !txtSenha.getText().isEmpty()){
             String login = txtLogin.getText();
             String senha = txtSenha.getText();
-            /*
+            
             LoginDao dao = new LoginDao(this);
             
             try {
                 dao.loginSistema(login,senha);
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+            }
         }
 }
     
