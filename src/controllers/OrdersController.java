@@ -36,11 +36,11 @@ public final class OrdersController {
         this.setJTable(table);
         this.setComboBox(comboBox);
         this.readJTable();
-        
+       /* 
         this.searchDataSheet();
         this.searchSnack();
         this.searchIngredient();
-        this.setComboBoxOptions();
+        this.setComboBoxOptions();*/
     }
     
     public void setComboBox(Combobox comboBox){
