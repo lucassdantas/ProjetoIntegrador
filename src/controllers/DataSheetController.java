@@ -114,8 +114,8 @@ public class DataSheetController {
     public void searchSnack(int id) throws SQLException{
         
         SnackDAO dao = new SnackDAO();
-        List<Snack> snacks = dao.searchById(id);
-        this.snack = snacks.get(0);
+        this.snack = dao.searchById(id);
+ ;
         this.getSnackFields().get(0).setText(String.valueOf(snack.getSnackTitle()));
     }
     public void searchIngredient(int id) throws SQLException{
