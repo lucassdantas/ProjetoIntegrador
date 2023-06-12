@@ -972,7 +972,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="views.combobox.Combobox" name="combobox1">
+                    <Component class="views.combobox.Combobox" name="orderSnackComboBox">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -982,26 +982,23 @@
                           </Border>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
-                        <Property name="selectedIndex" type="int" value="-1"/>
                         <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="null" type="code"/>
                         </Property>
                         <Property name="labeText" type="java.lang.String" value=""/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="orderSnackComboBoxActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="60" y="50" width="220" height="40"/>
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="views.spinner.Spinner" name="spinner2">
+                    <Component class="views.spinner.Spinner" name="orderQuantitySpinner">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="33" red="33" type="rgb"/>
@@ -1033,7 +1030,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="views.tables.Table" name="table1">
+                        <Component class="views.tables.Table" name="orderDataSheetTable">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="3" rowCount="4">
@@ -1082,7 +1079,7 @@
                             </Property>
                           </Properties>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="table1.fixTable(jScrollPane2);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane2);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -1130,7 +1127,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
+                    <Component class="javax.swing.JTextField" name="orderTotalValueField">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f3" green="f3" red="f3" type="rgb"/>
@@ -1142,7 +1139,7 @@
                             </LineBorder>
                           </Border>
                         </Property>
-                        <Property name="name" type="java.lang.String" value="" noResource="true" postCode="jTextField1.setEditable(false);"/>
+                        <Property name="name" type="java.lang.String" value="" noResource="true" postCode="orderTotalValueField.setEditable(false);"/>
                         <Property name="opaque" type="boolean" value="true"/>
                       </Properties>
                       <Constraints>
@@ -1151,7 +1148,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="views.styles.Mybtn" name="mybtn1">
+                    <Component class="views.styles.Mybtn" name="orderAddButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/img/check mark.png"/>
@@ -1423,7 +1420,7 @@
                             </Property>
                           </Properties>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="table1.fixTable(jScrollPane3);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane3);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -1828,7 +1825,7 @@
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="snackTableKeyReleased"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="table1.fixTable(jScrollPane4);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane4);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -2343,7 +2340,7 @@
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ingredientTableKeyTyped"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="table1.fixTable(jScrollPane5);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane5);"/>
                             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="StockViews_ingredientTable"/>
                           </AuxValues>
                         </Component>
@@ -2788,7 +2785,7 @@
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dataSheetTableKeyReleased"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="table1.fixTable(jScrollPane9);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane9);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -4206,7 +4203,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="inputTableMouseClicked"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="table1.fixTable(jScrollPane7);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane7);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -4616,7 +4613,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="stockTableMouseClicked"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="table1.fixTable(jScrollPane6);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane6);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>

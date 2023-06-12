@@ -214,6 +214,7 @@ public class InputEdit extends javax.swing.JFrame {
     }//GEN-LAST:event_inputEditCancelButtonActionPerformed
     public void setController(InputController inputController){
         this.inputController = inputController;
+        System.out.print(inputController.getIngredients().size());
     }
     private void inputEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEditSaveButtonActionPerformed
         try {

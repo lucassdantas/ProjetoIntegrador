@@ -103,9 +103,9 @@ public class InputController {
         this.table.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
-        this.ingredients = new ArrayList<>();
-        this.inputs = new ArrayList<>();
-        
+        //this.ingredients = new ArrayList<>();
+        //this.inputs = new ArrayList<>();
+        int i = 0;
         InputDAO dao = new InputDAO();
             for (Input input: dao.readAll()){
                 setIngredients(input.getIngredient());
@@ -118,7 +118,10 @@ public class InputController {
                     input.getInputCost(),
                     input.getInputDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 });
+                i++;
             }       
+            System.out.println(getIngredients());
+
     }
     
     public void readJTableSearch(String search) throws SQLException{
@@ -185,7 +188,7 @@ public class InputController {
                 this.ingredients.add(input.getIngredient());
                 this.clean(this.fields);
                 this.setDateField();
-                this.readJTable();
+                //this.readJTable();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);
