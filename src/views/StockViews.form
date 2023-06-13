@@ -990,7 +990,9 @@
                         <Property name="labeText" type="java.lang.String" value=""/>
                       </Properties>
                       <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="orderSnackComboBoxItemStateChanged"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="orderSnackComboBoxActionPerformed"/>
+                        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="orderSnackComboBoxPropertyChange"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1030,7 +1032,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="views.tables.Table" name="orderDataSheetTable">
+                        <Component class="views.tables.Table" name="ordersDataSheetTable">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="3" rowCount="4">
@@ -1079,7 +1081,7 @@
                             </Property>
                           </Properties>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane2);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ordersDataSheetTable.fixTable(jScrollPane2);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -1420,7 +1422,7 @@
                             </Property>
                           </Properties>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane3);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ordersDataSheetTable.fixTable(jScrollPane3);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -1825,7 +1827,7 @@
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="snackTableKeyReleased"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane4);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ordersDataSheetTable.fixTable(jScrollPane4);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -2340,7 +2342,7 @@
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ingredientTableKeyTyped"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane5);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ordersDataSheetTable.fixTable(jScrollPane5);"/>
                             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="StockViews_ingredientTable"/>
                           </AuxValues>
                         </Component>
@@ -2785,7 +2787,7 @@
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dataSheetTableKeyReleased"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane9);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ordersDataSheetTable.fixTable(jScrollPane9);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -4203,7 +4205,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="inputTableMouseClicked"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane7);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ordersDataSheetTable.fixTable(jScrollPane7);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -4613,7 +4615,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="stockTableMouseClicked"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="orderDataSheetTable.fixTable(jScrollPane6);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ordersDataSheetTable.fixTable(jScrollPane6);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
