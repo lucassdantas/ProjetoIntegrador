@@ -66,7 +66,9 @@ public final class OrdersController {
     public void setSnacks(Snack snack){
         this.snacks.add(snack);
     }
-
+    public void setIngredients(Ingredient ingredient){
+        this.ingredients.add(ingredient);
+    }
     public void searchDataSheet() throws SQLException{
         DataSheetDAO dao = new DataSheetDAO();
         this.dataSheets = dao.readAllBySnack();
@@ -75,6 +77,7 @@ public final class OrdersController {
         IngredientDAO dao = new IngredientDAO();
         for(int i = 0; i < dataSheets.size(); i++){
             this.ingredient = dao.searchById(dataSheets.get(i).getDsIngredientId());
+            this.setIngredients(dataSheets.get(i).getIngredient());
         }
     }
     public void searchSnack() throws SQLException{
@@ -170,6 +173,7 @@ public final class OrdersController {
         order.setOrderQuantity(Integer.parseInt(String.valueOf(this.quantitySpinner.getValue())));
         order.setOrderCost(Float.parseFloat(this.totalField.getText()));
         order.setOrderDate(time);
+        
         IngredientDAO ingredientDAO = new IngredientDAO();
         ingredientDAO.removeStock(
                 order.getOrderQuantity(), 
