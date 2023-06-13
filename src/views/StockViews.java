@@ -877,6 +877,11 @@ public void limparCalculoPorcoes() {
         orderAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
         orderAddButton.setText("FINALIZAR");
         orderAddButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        orderAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderAddButtonActionPerformed(evt);
+            }
+        });
         panelNP.add(orderAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
         areaNovoPedido.getContentPane().add(panelNP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
@@ -2852,6 +2857,7 @@ public void limparCalculoPorcoes() {
     private void orderSnackComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_orderSnackComboBoxItemStateChanged
         try {
             ordersController.readDataSheetTable(orderSnackComboBox.getSelectedIndex());
+            ordersController.calcTotalValue();
         } catch (SQLException ex) {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2861,6 +2867,10 @@ public void limparCalculoPorcoes() {
     private void orderQuantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_orderQuantitySpinnerStateChanged
         ordersController.calcTotalValue();
     }//GEN-LAST:event_orderQuantitySpinnerStateChanged
+
+    private void orderAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderAddButtonActionPerformed
+        ordersController.buildSnack();
+    }//GEN-LAST:event_orderAddButtonActionPerformed
 
     /**
      * @param args the command line arguments
