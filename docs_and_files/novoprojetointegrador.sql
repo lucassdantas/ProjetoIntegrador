@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Jun-2023 às 12:05
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Tempo de geração: 13/06/2023 às 01:31
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `datasheet`
+-- Estrutura para tabela `datasheet`
 --
 
 CREATE TABLE `datasheet` (
@@ -35,10 +35,18 @@ CREATE TABLE `datasheet` (
   `dsStatus` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `datasheet`
+--
+
+INSERT INTO `datasheet` (`dsSnackId`, `dsIngredientId`, `dsQuantity`, `dsTotalCost`, `dsStatus`) VALUES
+(1, 4, 3.00, 75.00, NULL),
+(2, 4, 2.00, 50.00, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ingredient`
+-- Estrutura para tabela `ingredient`
 --
 
 CREATE TABLE `ingredient` (
@@ -54,17 +62,17 @@ CREATE TABLE `ingredient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `ingredient`
+-- Despejando dados para a tabela `ingredient`
 --
 
 INSERT INTO `ingredient` (`ingredientId`, `ingredientName`, `ingredientMinQuantity`, `ingredientUnitQuantity`, `ingredientUnitOfMeasure`, `ingredientUnitCost`, `ingredientStatus`, `ingredientStock`, `ingredientStockStatus`) VALUES
-(1, 'teste', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'a', '1.00', '1.00', '1', '1.00', '1', '1.00', '1');
+(3, 'tomate2', 3.00, 0.10, 'kg', 1.00, NULL, 0.00, NULL),
+(4, 'alface', 1.00, 1.00, 'pés', 25.00, NULL, 0.00, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `input`
+-- Estrutura para tabela `input`
 --
 
 CREATE TABLE `input` (
@@ -76,10 +84,18 @@ CREATE TABLE `input` (
   `inputStatus` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `input`
+--
+
+INSERT INTO `input` (`inputId`, `inputIngredientId`, `inputQuantity`, `inputCost`, `inputDate`, `inputStatus`) VALUES
+(4, 3, 2.00, 5.00, '2023-06-12', NULL),
+(8, 3, 15.00, 25.00, '2023-06-12', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `orders`
+-- Estrutura para tabela `orders`
 --
 
 CREATE TABLE `orders` (
@@ -95,7 +111,7 @@ CREATE TABLE `orders` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `snack`
+-- Estrutura para tabela `snack`
 --
 
 CREATE TABLE `snack` (
@@ -108,57 +124,84 @@ CREATE TABLE `snack` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Despejando dados para a tabela `snack`
+--
+
+INSERT INTO `snack` (`snackId`, `snackTitle`, `snackSellingPrice`, `snackDescription`, `snackImageUrl`, `snackStatus`) VALUES
+(1, 'hamburuguer', 15.00, 'teste', NULL, NULL),
+(2, 'test2', 1.00, '1', NULL, NULL),
+(3, 'teste', 1.00, 'te', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `login` varchar(100) NOT NULL,
+  `senha` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`login`, `senha`) VALUES
+('gabriel.modesto', 'newnew');
+
+--
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `datasheet`
+-- Índices de tabela `datasheet`
 --
 ALTER TABLE `datasheet`
   ADD PRIMARY KEY (`dsSnackId`,`dsIngredientId`),
   ADD KEY `dsIngredientId` (`dsIngredientId`);
 
 --
--- Índices para tabela `ingredient`
+-- Índices de tabela `ingredient`
 --
 ALTER TABLE `ingredient`
   ADD PRIMARY KEY (`ingredientId`);
 
 --
--- Índices para tabela `input`
+-- Índices de tabela `input`
 --
 ALTER TABLE `input`
   ADD PRIMARY KEY (`inputId`),
   ADD KEY `inputIngredientId` (`inputIngredientId`);
 
 --
--- Índices para tabela `orders`
+-- Índices de tabela `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`orderId`),
   ADD KEY `orderSnackId` (`orderSnackId`);
 
 --
--- Índices para tabela `snack`
+-- Índices de tabela `snack`
 --
 ALTER TABLE `snack`
   ADD PRIMARY KEY (`snackId`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `input`
 --
 ALTER TABLE `input`
-  MODIFY `inputId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `inputId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `orders`
@@ -170,27 +213,27 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de tabela `snack`
 --
 ALTER TABLE `snack`
-  MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `datasheet`
+-- Restrições para tabelas `datasheet`
 --
 ALTER TABLE `datasheet`
   ADD CONSTRAINT `datasheet_ibfk_1` FOREIGN KEY (`dsSnackId`) REFERENCES `snack` (`snackId`),
   ADD CONSTRAINT `datasheet_ibfk_2` FOREIGN KEY (`dsIngredientId`) REFERENCES `ingredient` (`ingredientId`);
 
 --
--- Limitadores para a tabela `input`
+-- Restrições para tabelas `input`
 --
 ALTER TABLE `input`
   ADD CONSTRAINT `input_ibfk_1` FOREIGN KEY (`inputIngredientId`) REFERENCES `ingredient` (`ingredientId`);
 
 --
--- Limitadores para a tabela `orders`
+-- Restrições para tabelas `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`orderSnackId`) REFERENCES `snack` (`snackId`);

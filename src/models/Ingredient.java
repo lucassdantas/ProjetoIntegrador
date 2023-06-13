@@ -81,6 +81,9 @@ public class Ingredient extends EntityId{
         return ingredientStock;
     }
 
+    public void sumIngredientStock(float ingredientStock){
+        this.ingredientStock += ingredientStock;
+    }
     public void setIngredientStock(float ingredientStock) {
         this.ingredientStock = ingredientStock;
     }
