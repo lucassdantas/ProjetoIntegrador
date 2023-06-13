@@ -21,6 +21,7 @@ private PortionResultController resultController = new PortionResultController()
      */
     public PorcoesCalcular() {
         initComponents();
+        IconManager.setIcon(this);
     }
     
     public PortionCalcController calcController;

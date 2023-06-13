@@ -44,7 +44,7 @@ public class StockController {
         return this.fields;
     }
     
-     public void setFieldsValue(){
+    public void setFieldsValue(){
         for (int i = 0; i < this.fields.size(); i++){
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
         }
@@ -65,7 +65,7 @@ public class StockController {
                 ingredient.getIngredientStock(),
                 ingredient.getIngredientMinQuantity(),
                 ingredient.getIngredientUnitOfMeasure(),
-                ingredient.calcStatus(),
+                ingredient.calcStatus()
             });
         }       
     }

@@ -27,6 +27,8 @@ public class DataSheetEdit extends javax.swing.JFrame {
     public DataSheetEdit() {
         initComponents();
         dsController = new DataSheetController();
+        IconManager.setIcon(this);
+
     }
     
     @SuppressWarnings("unchecked")

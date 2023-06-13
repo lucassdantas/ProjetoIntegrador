@@ -24,6 +24,7 @@ public class SnackAdd extends javax.swing.JFrame {
     public SnackAdd() {
         initComponents();
         this.snackController = new SnackController();
+        IconManager.setIcon(this);
     }
     public void setJTable(JTable table){
         this.snackController.setJTable(table);
@@ -259,6 +260,22 @@ public class SnackAdd extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SnackAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
