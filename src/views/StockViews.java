@@ -60,7 +60,11 @@ OrdersController ordersController;
         
         stockController.setJTable(stockTable);
         stockController.readJTable();
+        
+        
         ordersController = new OrdersController(orderDataSheetTable, orderSnackComboBox);
+        
+        
        
     }
 
@@ -2267,7 +2271,7 @@ public void limparCalculoPorcoes() {
         }
         
     }//GEN-LAST:event_snackEditButtonActionPerformed
-
+    
     private void ingredientAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientAddButtonActionPerformed
        IngredientAdd ingredientAdd = new IngredientAdd();
        ingredientAdd.setJTable(ingredientTable);
@@ -2381,6 +2385,7 @@ public void limparCalculoPorcoes() {
        InputAdd inputAdd = new InputAdd();
        inputAdd.setController(inputController);
        inputAdd.setJTable(inputTable);
+       inputAdd.setStockController(stockController);
        inputAdd.searchFields();
        inputAdd.setDateField();
        inputAdd.setVisible(true);

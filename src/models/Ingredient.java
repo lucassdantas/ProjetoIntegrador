@@ -19,6 +19,7 @@ public class Ingredient extends EntityId{
     private float ingredientStock;
     private String ingredientStockStatus;
     private float ingredientUnitQuantity;
+    private String imageUrl;
 
     public Ingredient() {
     }

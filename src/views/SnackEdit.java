@@ -25,6 +25,8 @@ public class SnackEdit extends javax.swing.JFrame {
     public SnackEdit() {
         initComponents();
         snackController = new SnackController();
+        //icon
+        IconManager.setIcon(this);
     }
     public void setJTable(JTable table){
         this.snackController.setJTable(table);

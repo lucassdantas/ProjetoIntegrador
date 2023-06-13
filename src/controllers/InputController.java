@@ -33,6 +33,7 @@ public class InputController {
 
   
     private JTable table;
+    private StockController stockController;
     private List<JTextField> fields;
     private List<Ingredient> ingredients;
     private Ingredient ingredient;
@@ -53,6 +54,10 @@ public class InputController {
     public void setJTable(JTable table){
         this.table = table;
     }
+    public void setStockController(StockController stockController){
+        this.stockController = stockController;
+    }
+    
     public void setFields(JTextField field){
         this.fields.add(field);
     }
@@ -77,6 +82,9 @@ public class InputController {
 
     public JTable getTable(){
         return this.table;
+    }
+    public StockController getStockController(){
+        return this.stockController;
     }
     public List<Ingredient> getIngredients(){
         return this.ingredients;
@@ -186,6 +194,7 @@ public class InputController {
             try {
                 dao.addInput(input);
                 ingredientDAO.addStock(input.getIngredient());
+                this.stockController.readJTable();
                 this.clean(this.fields);
                 this.setDateField();
                 //this.readJTable();

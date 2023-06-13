@@ -25,6 +25,7 @@ public class DataSheetAdd extends javax.swing.JFrame {
     public DataSheetAdd() {
         initComponents();
         dsController = new DataSheetController();
+        IconManager.setIcon(this);
     }
     
     @SuppressWarnings("unchecked")

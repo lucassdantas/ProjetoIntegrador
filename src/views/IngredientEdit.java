@@ -27,6 +27,7 @@ public class IngredientEdit extends javax.swing.JFrame {
     public IngredientEdit() {
         initComponents();
         ingredientController = new IngredientController();
+        IconManager.setIcon(this);
     }
     public void setJTable(JTable table){
         this.ingredientController.setJTable(table);

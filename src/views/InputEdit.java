@@ -27,6 +27,7 @@ public class InputEdit extends javax.swing.JFrame {
     private InputController inputController;
     public InputEdit() {
         initComponents();
+        IconManager.setIcon(this);
         
     }
     

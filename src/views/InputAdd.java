@@ -6,6 +6,7 @@ package views;
 
 import controllers.IngredientController;
 import controllers.InputController;
+import controllers.StockController;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -27,6 +28,7 @@ public class InputAdd extends javax.swing.JFrame {
     public InputAdd() {
 
         initComponents();
+        IconManager.setIcon(this);
     }
     
     @SuppressWarnings("unchecked")
@@ -222,6 +224,9 @@ public class InputAdd extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     public void setJTable(JTable table){
         this.inputController.setJTable(table);
+    }
+    public void setStockController(StockController controller){
+        this.inputController.setStockController(controller);
     }
     public void setController (InputController controller){
         this.inputController = controller;

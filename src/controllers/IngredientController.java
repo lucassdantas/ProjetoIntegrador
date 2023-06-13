@@ -26,7 +26,6 @@ public class IngredientController {
     
     private JTable table;
     private final List<JTextField> fields;
-
     public IngredientController() {
         this.fields = new ArrayList<>();
     }
