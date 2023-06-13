@@ -194,10 +194,11 @@ public class InputController {
             try {
                 dao.addInput(input);
                 ingredientDAO.addStock(input.getIngredient());
+                this.readJTable();
                 this.stockController.readJTable();
                 this.clean(this.fields);
+                this.resetFields();
                 this.setDateField();
-                //this.readJTable();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);

@@ -232,6 +232,7 @@ public class InputAdd extends javax.swing.JFrame {
         this.inputController = controller;
     }
     public void searchFields(){
+        this.inputController.resetFields();
         this.inputController.setFields(inputAddSearchField);
         this.inputController.setFields(inputAddIngredientNameField);
         this.inputController.setFields(inputAddQuantityField);
