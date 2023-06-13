@@ -36,7 +36,7 @@ SnackController snackController = new SnackController();
 DataSheetController dataSheetController = new DataSheetController();
 InputController inputController = new InputController();
 StockController stockController = new StockController();
-OrdersController ordersController;
+OrdersController ordersController = new OrdersController();
     public StockViews() throws SQLException {
         initComponents();
         setIcon();
@@ -62,7 +62,14 @@ OrdersController ordersController;
         stockController.readJTable();
         
         
-        ordersController = new OrdersController(orderDataSheetTable, orderSnackComboBox);
+        ordersController.setItems(
+            ordersDataSheetTable,
+            orderSnackComboBox,
+            orderTotalValueField,
+            orderQuantitySpinner
+        );
+        ordersController.main();
+        
         
         
        
@@ -175,7 +182,7 @@ public void limparCalculoPorcoes() {
         orderSnackComboBox = new views.combobox.Combobox();
         orderQuantitySpinner = new views.spinner.Spinner();
         jScrollPane2 = new javax.swing.JScrollPane();
-        orderDataSheetTable = new views.tables.Table();
+        ordersDataSheetTable = new views.tables.Table();
         fotoVP = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         orderTotalValueField = new javax.swing.JTextField();
@@ -779,9 +786,19 @@ public void limparCalculoPorcoes() {
         orderSnackComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         orderSnackComboBox.setSelectedItem(null);
         orderSnackComboBox.setLabeText("");
+        orderSnackComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                orderSnackComboBoxItemStateChanged(evt);
+            }
+        });
         orderSnackComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderSnackComboBoxActionPerformed(evt);
+            }
+        });
+        orderSnackComboBox.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                orderSnackComboBoxPropertyChange(evt);
             }
         });
         panelNP.add(orderSnackComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 220, 40));
@@ -791,8 +808,8 @@ public void limparCalculoPorcoes() {
         orderQuantitySpinner.setLabelText("");
         panelNP.add(orderQuantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 102, 45));
 
-        orderDataSheetTable.fixTable(jScrollPane2);
-        orderDataSheetTable.setModel(new javax.swing.table.DefaultTableModel(
+        ordersDataSheetTable.fixTable(jScrollPane2);
+        ordersDataSheetTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"pao de hamburguer", "1", "un"},
                 {"hamburguer", "1", "un"},
@@ -811,11 +828,11 @@ public void limparCalculoPorcoes() {
                 return canEdit [columnIndex];
             }
         });
-        orderDataSheetTable.setShowGrid(true);
-        jScrollPane2.setViewportView(orderDataSheetTable);
-        if (orderDataSheetTable.getColumnModel().getColumnCount() > 0) {
-            orderDataSheetTable.getColumnModel().getColumn(1).setResizable(false);
-            orderDataSheetTable.getColumnModel().getColumn(2).setResizable(false);
+        ordersDataSheetTable.setShowGrid(true);
+        jScrollPane2.setViewportView(ordersDataSheetTable);
+        if (ordersDataSheetTable.getColumnModel().getColumnCount() > 0) {
+            ordersDataSheetTable.getColumnModel().getColumn(1).setResizable(false);
+            ordersDataSheetTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
         panelNP.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 610, 450));
@@ -901,7 +918,7 @@ public void limparCalculoPorcoes() {
         jTextField3.setOpaque(true);
         panelVP.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 188, 45));
 
-        orderDataSheetTable.fixTable(jScrollPane3);
+        ordersDataSheetTable.fixTable(jScrollPane3);
         table2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "hamburguer", "1", "5,60", "12,00", "12,00", "01/02/2023"},
@@ -1071,7 +1088,7 @@ public void limparCalculoPorcoes() {
         panelLanche.add(colorBtn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 150, 10, 40));
         panelLanche.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        orderDataSheetTable.fixTable(jScrollPane4);
+        ordersDataSheetTable.fixTable(jScrollPane4);
         snackTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "hamburguer", "11,00", "..."},
@@ -1295,7 +1312,7 @@ public void limparCalculoPorcoes() {
         panelIngredientes.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 180, 30));
         panelIngredientes.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        orderDataSheetTable.fixTable(jScrollPane5);
+        ordersDataSheetTable.fixTable(jScrollPane5);
         ingredientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "pao de hamburguer", "un", "1", "1,00", "20"},
@@ -1475,7 +1492,7 @@ public void limparCalculoPorcoes() {
         panelIngredientes1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 180, 30));
         panelIngredientes1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        orderDataSheetTable.fixTable(jScrollPane9);
+        ordersDataSheetTable.fixTable(jScrollPane9);
         dataSheetTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"hamburguer", "pao de hamburguer", "1", "un", "1,00"},
@@ -1958,7 +1975,7 @@ public void limparCalculoPorcoes() {
         panelEntradas.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 180, 30));
         panelEntradas.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        orderDataSheetTable.fixTable(jScrollPane7);
+        ordersDataSheetTable.fixTable(jScrollPane7);
         inputTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "pao de hamburguer", "100", "un", "99,80", "01/05/2023"},
@@ -2100,7 +2117,7 @@ public void limparCalculoPorcoes() {
         panelPE.add(stockMinQuantityFIeld, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 140, 45));
         panelPE.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
-        orderDataSheetTable.fixTable(jScrollPane6);
+        ordersDataSheetTable.fixTable(jScrollPane6);
         stockTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "pao de hamburguer", "350", "20", "un", "Estoque estável"},
@@ -2824,6 +2841,18 @@ public void limparCalculoPorcoes() {
        
     }//GEN-LAST:event_orderSnackComboBoxActionPerformed
 
+    private void orderSnackComboBoxPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_orderSnackComboBoxPropertyChange
+    }//GEN-LAST:event_orderSnackComboBoxPropertyChange
+
+    private void orderSnackComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_orderSnackComboBoxItemStateChanged
+        try {
+            ordersController.readDataSheetTable(orderSnackComboBox.getSelectedIndex());
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_orderSnackComboBoxItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -3050,10 +3079,10 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel logoVersion2;
     private views.styles.Mybtn2 mybtn21;
     private views.styles.Mybtn orderAddButton;
-    private views.tables.Table orderDataSheetTable;
     private views.spinner.Spinner orderQuantitySpinner;
     private views.combobox.Combobox orderSnackComboBox;
     private javax.swing.JTextField orderTotalValueField;
+    private views.tables.Table ordersDataSheetTable;
     private javax.swing.JPanel painelMenu1;
     private javax.swing.JPanel painelMenu2;
     private javax.swing.JPanel painelMenu3;
