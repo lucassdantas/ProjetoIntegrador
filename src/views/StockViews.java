@@ -2845,7 +2845,11 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_orderSnackComboBoxPropertyChange
 
     private void orderSnackComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_orderSnackComboBoxItemStateChanged
-        System.out.println(orderSnackComboBox.getSelectedIndex());
+        try {
+            ordersController.readDataSheetTable(orderSnackComboBox.getSelectedIndex());
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_orderSnackComboBoxItemStateChanged
 

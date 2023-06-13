@@ -67,7 +67,6 @@ public final class OrdersController {
     public void searchDataSheet() throws SQLException{
         DataSheetDAO dao = new DataSheetDAO();
         this.dataSheets = dao.readAllBySnack();
-        System.out.print(this.dataSheets);
     }
     public void searchIngredient() throws SQLException{
         IngredientDAO dao = new IngredientDAO();
@@ -100,18 +99,13 @@ public final class OrdersController {
         this.table.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
-        OrdersDAO dao = new OrdersDAO();
-        
-        for (DataSheet dataSheet: dao.searchById(id)){
-            this.snacksList.add(dataSheet.getSnack());
-            this.ingredientsList.add(dataSheet.getIngredient());
+        DataSheetDAO dao = new DataSheetDAO();
+        int snackId = this.dataSheets.get(id).getDsSnackId();
+        for (DataSheet dataSheet: dao.searchBySnackId(snackId)){
             model.addRow(new Object[]{
-               // dataSheet.getDsSnackId(),
-                dataSheet.getSnack().getSnackTitle(),
                 dataSheet.getIngredient().getIngredientName(),
                 dataSheet.getDsQuantity(),
                 dataSheet.getIngredient().getIngredientUnitOfMeasure(),
-                dataSheet.getDsTotalCost()
             });
         } 
     }
