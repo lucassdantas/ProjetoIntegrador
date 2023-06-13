@@ -4,6 +4,7 @@
  */
 package models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -17,7 +18,7 @@ public class Orders {
     private float orderCost;
     private float orderUnitPrice;
     private float orderTotalPrice;
-    private Date orderDate;
+    private LocalDate orderDate;
     private Snack snack;
     
     public Orders(){};
@@ -70,11 +71,11 @@ public class Orders {
         this.orderTotalPrice = orderTotalPrice;
     }
 
-    public Date getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
 

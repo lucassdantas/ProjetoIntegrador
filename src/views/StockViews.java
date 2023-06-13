@@ -2869,7 +2869,11 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_orderQuantitySpinnerStateChanged
 
     private void orderAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderAddButtonActionPerformed
-        ordersController.buildSnack();
+        try {
+            ordersController.buildSnack();
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_orderAddButtonActionPerformed
 
     /**
