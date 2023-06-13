@@ -30,7 +30,7 @@ public final class OrdersController {
     private List<DataSheet> dataSheets;
     private Ingredient ingredient;
     private JTextField totalField;
-    private Spinner quantity;
+    private Spinner quantitySpinner;
     private Combobox comboBox;
     public OrdersController() throws SQLException {
         this.snacks = new ArrayList<>();
@@ -50,7 +50,7 @@ public final class OrdersController {
         this.setJTable(table);
         this.setComboBox(combobox);
         this.totalField = orderTotalValueField;
-        this.quantity = spinner;
+        this.quantitySpinner = spinner;
         
     }
     
@@ -63,7 +63,7 @@ public final class OrdersController {
     public void setSnacks(Snack snack){
         this.snacks.add(snack);
     }
-    
+
     public void searchDataSheet() throws SQLException{
         DataSheetDAO dao = new DataSheetDAO();
         this.dataSheets = dao.readAllBySnack();
@@ -88,7 +88,11 @@ public final class OrdersController {
         return this.fields;
     }
     
-    
+    public void calcTotalValue(){
+       float snackValue =  this.dataSheets.get(this.comboBox.getSelectedIndex()).getSnack().getSnackSellingPrice();
+       this.totalField.setText(String.valueOf(Float.parseFloat(String.valueOf( this.quantitySpinner.getValue())) * snackValue));
+    }
+
     public void setComboBoxOptions(){
         for(int i = 0; i < this.dataSheets.size(); i++){
             this.comboBox.addItem(this.dataSheets.get(i).getSnack().getSnackTitle());

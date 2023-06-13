@@ -806,6 +806,11 @@ public void limparCalculoPorcoes() {
         orderQuantitySpinner.setBackground(new java.awt.Color(51, 51, 255));
         orderQuantitySpinner.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         orderQuantitySpinner.setLabelText("");
+        orderQuantitySpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                orderQuantitySpinnerStateChanged(evt);
+            }
+        });
         panelNP.add(orderQuantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 102, 45));
 
         ordersDataSheetTable.fixTable(jScrollPane2);
@@ -2852,6 +2857,10 @@ public void limparCalculoPorcoes() {
         }
 
     }//GEN-LAST:event_orderSnackComboBoxItemStateChanged
+
+    private void orderQuantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_orderQuantitySpinnerStateChanged
+        ordersController.calcTotalValue();
+    }//GEN-LAST:event_orderQuantitySpinnerStateChanged
 
     /**
      * @param args the command line arguments
