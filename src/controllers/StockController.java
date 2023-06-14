@@ -44,6 +44,7 @@ public class StockController {
         return this.fields;
     }
     
+    
     public void setFieldsValue(){
         for (int i = 0; i < this.fields.size(); i++){
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));

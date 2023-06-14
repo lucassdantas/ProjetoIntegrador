@@ -31,7 +31,7 @@ public class OrdersDAO {
             statement.setFloat(3, order.getOrderCost());
             statement.setFloat(4, order.getOrderUnitPrice());
             statement.setFloat(5, order.getOrderTotalPrice());
-            statement.setDate(6, new java.sql.Date(order.getOrderDate().getTime()));
+            statement.setDate(6, Date.valueOf(order.getOrderDate()));
             statement.executeUpdate();
         }
     }
@@ -45,7 +45,7 @@ public class OrdersDAO {
             statement.setFloat(3, order.getOrderCost());
             statement.setFloat(4, order.getOrderUnitPrice());
             statement.setFloat(5, order.getOrderTotalPrice());
-            statement.setDate(6, new java.sql.Date(order.getOrderDate().getTime()));
+            statement.setDate(6, Date.valueOf(order.getOrderDate()));
             statement.setInt(7, order.getOrderId());
             statement.executeUpdate();
         }
@@ -76,7 +76,7 @@ public class OrdersDAO {
                     order.setOrderCost(resultSet.getFloat("orderCost"));
                     order.setOrderUnitPrice(resultSet.getFloat("orderUnitPrice"));
                     order.setOrderTotalPrice(resultSet.getFloat("orderTotalPrice"));
-                    order.setOrderDate(resultSet.getDate("orderDate"));
+                    order.setOrderDate(resultSet.getDate("orderDate").toLocalDate());
 
                     Snack snack = new Snack();
                     snack.setId(resultSet.getInt("orderSnackId"));
@@ -110,7 +110,7 @@ public class OrdersDAO {
                 order.setOrderCost(resultSet.getFloat("orderCost"));
                 order.setOrderUnitPrice(resultSet.getFloat("orderUnitPrice"));
                 order.setOrderTotalPrice(resultSet.getFloat("orderTotalPrice"));
-                order.setOrderDate(resultSet.getDate("orderDate"));
+                order.setOrderDate(resultSet.getDate("orderDate").toLocalDate());
 
                 Snack snack = new Snack();
                 snack.setId(resultSet.getInt("orderSnackId"));

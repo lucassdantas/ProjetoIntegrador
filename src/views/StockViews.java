@@ -806,6 +806,11 @@ public void limparCalculoPorcoes() {
         orderQuantitySpinner.setBackground(new java.awt.Color(51, 51, 255));
         orderQuantitySpinner.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         orderQuantitySpinner.setLabelText("");
+        orderQuantitySpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                orderQuantitySpinnerStateChanged(evt);
+            }
+        });
         panelNP.add(orderQuantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 102, 45));
 
         ordersDataSheetTable.fixTable(jScrollPane2);
@@ -872,6 +877,11 @@ public void limparCalculoPorcoes() {
         orderAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
         orderAddButton.setText("FINALIZAR");
         orderAddButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        orderAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderAddButtonActionPerformed(evt);
+            }
+        });
         panelNP.add(orderAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
         areaNovoPedido.getContentPane().add(panelNP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
@@ -2847,11 +2857,24 @@ public void limparCalculoPorcoes() {
     private void orderSnackComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_orderSnackComboBoxItemStateChanged
         try {
             ordersController.readDataSheetTable(orderSnackComboBox.getSelectedIndex());
+            ordersController.calcTotalValue();
         } catch (SQLException ex) {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_orderSnackComboBoxItemStateChanged
+
+    private void orderQuantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_orderQuantitySpinnerStateChanged
+        ordersController.calcTotalValue();
+    }//GEN-LAST:event_orderQuantitySpinnerStateChanged
+
+    private void orderAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderAddButtonActionPerformed
+        try {
+            ordersController.buildSnack();
+        } catch (SQLException ex) {
+            Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_orderAddButtonActionPerformed
 
     /**
      * @param args the command line arguments

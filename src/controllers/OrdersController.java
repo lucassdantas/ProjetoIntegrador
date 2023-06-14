@@ -6,6 +6,8 @@ import dao.IngredientDAO;
 import dao.OrdersDAO;
 import dao.SnackDAO;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -23,14 +25,14 @@ import views.spinner.Spinner;
 
 
 public final class OrdersController {
-    private JTable table;
+    private JTable dsTable;
     private final List<JTextField> fields;
     private List<Snack> snacks;
     private List<Ingredient> ingredients;
     private List<DataSheet> dataSheets;
     private Ingredient ingredient;
     private JTextField totalField;
-    private Spinner quantity;
+    private Spinner quantitySpinner;
     private Combobox comboBox;
     public OrdersController() throws SQLException {
         this.snacks = new ArrayList<>();
@@ -40,30 +42,33 @@ public final class OrdersController {
  
     }
     public void main() throws SQLException{
-        this.readJTable();
+        this.readDataSheetTable(this.comboBox.getSelectedIndex());
+        this.readOrdersTable();
         this.searchDataSheet();
         this.searchSnack();
         this.searchIngredient();
         this.setComboBoxOptions();
     }
     public void setItems(JTable table, Combobox combobox, JTextField orderTotalValueField, Spinner spinner){
-        this.setJTable(table);
+        this.setDSJTable(table);
         this.setComboBox(combobox);
         this.totalField = orderTotalValueField;
-        this.quantity = spinner;
+        this.quantitySpinner = spinner;
         
     }
     
     public void setComboBox(Combobox comboBox){
         this.comboBox = comboBox;
     }
-    public void setJTable(JTable table){
-        this.table = table;
+    public void setDSJTable(JTable table){
+        this.dsTable = table;
     }
     public void setSnacks(Snack snack){
         this.snacks.add(snack);
     }
-    
+    public void setIngredients(Ingredient ingredient){
+        this.ingredients.add(ingredient);
+    }
     public void searchDataSheet() throws SQLException{
         DataSheetDAO dao = new DataSheetDAO();
         this.dataSheets = dao.readAllBySnack();
@@ -72,6 +77,7 @@ public final class OrdersController {
         IngredientDAO dao = new IngredientDAO();
         for(int i = 0; i < dataSheets.size(); i++){
             this.ingredient = dao.searchById(dataSheets.get(i).getDsIngredientId());
+            this.setIngredients(dataSheets.get(i).getIngredient());
         }
     }
     public void searchSnack() throws SQLException{
@@ -81,22 +87,22 @@ public final class OrdersController {
         }
     }
     
-    public JTable getTable(){
-        return this.table;
+    public JTable getDSJTable(){
+        return this.dsTable;
     }
     public List<JTextField> getFields(){
         return this.fields;
     }
     
-    
     public void setComboBoxOptions(){
         for(int i = 0; i < this.dataSheets.size(); i++){
             this.comboBox.addItem(this.dataSheets.get(i).getSnack().getSnackTitle());
         }
+       
     }
     public void readDataSheetTable(int id) throws SQLException{
-        DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
-        this.table.setRowSorter(new TableRowSorter(model));
+        DefaultTableModel model = (DefaultTableModel) this.dsTable.getModel();        
+        this.dsTable.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
         DataSheetDAO dao = new DataSheetDAO();
@@ -109,10 +115,10 @@ public final class OrdersController {
             });
         } 
     }
-    public void readJTable() throws SQLException{
+    public void readOrdersTable() throws SQLException{
         
-        DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
-        this.table.setRowSorter(new TableRowSorter(model));
+        DefaultTableModel model = (DefaultTableModel) this.dsTable.getModel();        
+        this.dsTable.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
         OrdersDAO dao = new OrdersDAO();
@@ -133,8 +139,8 @@ public final class OrdersController {
     
     public void readJTableSearch(String search) throws SQLException{
         
-        DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
-        this.table.setRowSorter(new TableRowSorter(model));
+        DefaultTableModel model = (DefaultTableModel) this.dsTable.getModel();        
+        this.dsTable.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
         OrdersDAO dao = new OrdersDAO();
@@ -152,20 +158,42 @@ public final class OrdersController {
             });
         }       
     }
-
+    public void calcTotalValue(){
+       float snackValue =  this.dataSheets.get(this.comboBox.getSelectedIndex()).getSnack().getSnackSellingPrice();
+       this.totalField.setText(String.valueOf(Float.parseFloat(String.valueOf( this.quantitySpinner.getValue())) * snackValue));
+    }
+    
+    public void buildSnack() throws SQLException{
+        
+        Snack snack = this.snacks.get(this.comboBox.getSelectedIndex());
+        Orders order = new Orders();
+        
+        LocalDate time = LocalDate.now();
+        order.setOrderSnackId(snack.getId());
+        order.setOrderQuantity(Integer.parseInt(String.valueOf(this.quantitySpinner.getValue())));
+        order.setOrderCost(Float.parseFloat(this.totalField.getText()));
+        order.setOrderDate(time);
+        
+        IngredientDAO ingredientDAO = new IngredientDAO();
+        ingredientDAO.removeStock(
+                order.getOrderQuantity(), 
+                this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId()
+        );
+        this.add(order);
+    }
     public void clean (List <javax.swing.JTextField> fields){
         fields.forEach((field) -> {
                 field.setText("");
         });
         try {
-            this.readJTable();
+            this.readOrdersTable();
             
         } catch (SQLException ex) {
             System.out.println("Erro ao acessar o Banco de dador" + ex);
         }
     }
 
-    public boolean add (List <javax.swing.JTextField> fields) throws SQLException{
+    public boolean add (Orders order) throws SQLException{
         boolean isEmpty = false;
         for(int i = 0; i > fields.size(); i++){
             if(fields.get(i).getText().isEmpty()){
@@ -180,8 +208,8 @@ public final class OrdersController {
             Orders orders = new Orders();
             OrdersDAO dao = new OrdersDAO();
             
-            orders.setOrderSnackId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
-            orders.setOrderQuantity(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 1))));
+            orders.setOrderSnackId(Integer.parseInt(String.valueOf(dsTable.getValueAt(dsTable.getSelectedRow(), 0))));
+            orders.setOrderQuantity(Integer.parseInt(String.valueOf(dsTable.getValueAt(dsTable.getSelectedRow(), 1))));
             orders.setOrderCost(Float.parseFloat(fields.get(2).getText()));
             orders.setOrderUnitPrice(Float.parseFloat(fields.get(3).getText()));
             orders.setOrderTotalPrice(Float.parseFloat(fields.get(4).getText()));
@@ -194,7 +222,7 @@ public final class OrdersController {
             try {
                 dao.addOrder(orders);
                 this.clean(this.fields);
-                this.readJTable();
+                this.readOrdersTable();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);
@@ -221,8 +249,8 @@ public final class OrdersController {
                Orders orders = new Orders();
                OrdersDAO dao = new OrdersDAO();
             
-            orders.setOrderSnackId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
-            orders.setOrderQuantity(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 1))));
+            orders.setOrderSnackId(Integer.parseInt(String.valueOf(dsTable.getValueAt(dsTable.getSelectedRow(), 0))));
+            orders.setOrderQuantity(Integer.parseInt(String.valueOf(dsTable.getValueAt(dsTable.getSelectedRow(), 1))));
             orders.setOrderCost(Float.parseFloat(fields.get(2).getText()));
             orders.setOrderUnitPrice(Float.parseFloat(fields.get(3).getText()));
             orders.setOrderTotalPrice(Float.parseFloat(fields.get(4).getText()));
@@ -231,7 +259,7 @@ public final class OrdersController {
 
                 try {
                     dao.updateOrder(orders);
-                    this.readJTable();
+                    this.readOrdersTable();
                     return true;
                 } catch (SQLException ex) {
                     System.out.print(ex);
@@ -243,15 +271,14 @@ public final class OrdersController {
     }
     
     public void delete() throws SQLException{
-        if (this.table.getSelectedRow() != -1){
+        if (this.dsTable.getSelectedRow() != -1){
             int answer = JOptionPane.showConfirmDialog(null,
                     "Confirma a Exclusão do Registro?", 
                     "Exclusão de Registro",OK_CANCEL_OPTION);
             if(answer == 0){
                Orders orders = new Orders();
                OrdersDAO dao = new OrdersDAO();                
-                orders.setOrderId((int) this.table.getValueAt(
-                        this.table.getSelectedRow(), 0));
+                orders.setOrderId((int) this.dsTable.getValueAt(this.dsTable.getSelectedRow(), 0));
               /*  
                 try {
                     dao.deleteOrder(orders.getId);
@@ -259,7 +286,7 @@ public final class OrdersController {
                     System.out.print(ex);
                 }
                 */
-                this.readJTable();
+                this.readOrdersTable();
             }
         }
         else{
