@@ -86,5 +86,9 @@ public class Orders {
     public void setSnack(Snack snack) {
         this.snack = snack;
     }
+    
+    public void sumCost(float value){
+        this.orderCost += value;
+    }
 }
 
