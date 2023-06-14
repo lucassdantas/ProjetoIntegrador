@@ -20,7 +20,7 @@ public class SnackDAO {
     public SnackDAO() throws SQLException {
         this.connection = ConnectionFactory.getConnection();
     }
-
+    
     public List<Snack> readAll() throws SQLException {
         List<Snack> snacks = new ArrayList<>();
         String query = "SELECT * FROM snack";
@@ -40,7 +40,17 @@ public class SnackDAO {
         return snacks;
     }
     
-    public List<Snack> search(String searchTerm) throws SQLException {
+   public void addImageUrl(Snack snack) throws SQLException{
+      String query  = "update snack set snackImageUrl = ? WHERE snackId = ?";
+          try (PreparedStatement statement = connection.prepareStatement(query)) {
+           statement.setString(1, snack.getSnackImageUrl());
+           statement.setInt(2, snack.getId());
+            statement.executeUpdate();
+        
+          }    
+   }
+    
+   public List<Snack> search(String searchTerm) throws SQLException {
         List<Snack> snacks = new ArrayList<>();
         String query = "SELECT * FROM snack WHERE snackTitle LIKE ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -112,5 +122,9 @@ public class SnackDAO {
             statement.setInt(1, snackId);
             statement.executeUpdate();
         }
+    }
+
+    public com.sun.jdi.connect.spi.Connection conectar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
