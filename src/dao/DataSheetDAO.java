@@ -231,4 +231,11 @@ public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
             statement.executeUpdate();
         }
     }
+        public void deleteByIngredientId(int id) throws SQLException{
+        String query = "DELETE FROM datasheet WHERE dsIngredientId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        }
+    }
 }

@@ -80,6 +80,10 @@ public final class OrdersController {
     public void searchDataSheet() throws SQLException{
         DataSheetDAO dao = new DataSheetDAO();
         this.dataSheets = dao.readAllBySnack();
+        /*if(this.dataSheets.size() <= 0){
+            DataSheet ds = new DataSheet(0, 0, 0, 0, "null");
+            this.dataSheets.add(ds);
+        }*/
     }
     public void searchIngredient() throws SQLException{
         IngredientDAO dao = new IngredientDAO();
@@ -105,6 +109,9 @@ public final class OrdersController {
     public void setComboBoxOptions(){
         for(int i = 0; i < this.dataSheets.size(); i++){
             this.comboBox.addItem(this.dataSheets.get(i).getSnack().getSnackTitle());
+        }
+        if( this.comboBox.getSelectedItem() == null){
+            this.comboBox.addItem(" a");
         }
         this.comboBox.setSelectedIndex(0);
 
