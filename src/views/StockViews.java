@@ -351,7 +351,6 @@ public void limparCalculoPorcoes() {
         jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1440, 900));
         setUndecorated(true);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1020));

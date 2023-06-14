@@ -19,7 +19,15 @@ public class DataSheet extends EntityMultipleId {
     
     private Snack snack;
     private Ingredient ingredient;
-
+    public DataSheet(){};
+    public DataSheet(int dsSnackId, int dsIngredientId, int dsQuantity, float dsTotalCost, String dsStatus){
+        this.dsSnackId = 0;
+        this.dsIngredientId = 0;
+        this.dsQuantity = 0;
+        this.dsTotalCost = 0;
+        this.dsStatus = null;
+    }
+    
     public int getDsSnackId() {
         return dsSnackId;
     }

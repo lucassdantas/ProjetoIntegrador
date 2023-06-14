@@ -121,4 +121,11 @@ public class InputDAO {
             statement.executeUpdate();
         }
     }
+    public void deleteByIngredientId(int id) throws SQLException {
+        String query = "DELETE FROM input WHERE inputIngredientId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        }
+    }
 }
