@@ -4,12 +4,19 @@
  */
 package views;
 
+import AppPackage.AnimationClass;
 import controllers.SnackController;
+import java.awt.Image;
+import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -17,9 +24,17 @@ import javax.swing.JTable;
  */
 public class SnackAdd extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EstoqueEntrada
-     */
+    
+AnimationClass ac = new AnimationClass();
+
+
+//Instanciar objeto para o fluxo de bytes.
+  private FileInputStream fis;
+  
+//variavel global para armazebar o tamanho da imagem(bytes)
+private int tamanho;     
+    
+    
     private final SnackController snackController;
     public SnackAdd() {
         initComponents();
@@ -34,6 +49,32 @@ public class SnackAdd extends javax.swing.JFrame {
         this.snackController.setFields(snackSellingPriceField);
         this.snackController.setTextArea(snackDescriptionField);
     }
+    private void carregarFoto(){
+        JFileChooser jfc = new JFileChooser();
+        jfc.setDialogTitle("Selecionar arquivo");
+        jfc.setFileFilter(new FileNameExtensionFilter("Arquivo de imagens(*.PNG, *.JPG,*.JPEG","png","jpg", "jpeg"));
+        jfc.showOpenDialog(this);
+        int resultado = jfc.showOpenDialog(this);
+        if(resultado == JFileChooser.APPROVE_OPTION) {
+            try{
+                fis = new FileInputStream(jfc.getSelectedFile());
+                tamanho = (int) jfc.getSelectedFile().length();
+                Image foto = ImageIO.read(jfc.getSelectedFile()).getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_SMOOTH);
+                lblFoto.setIcon(new ImageIcon(foto));               
+                lblFoto.updateUI();
+            } catch (Exception e ) {
+                System.out.println(e);
+            }
+        }
+
+        
+ 
+ }     
+    
+    
+    
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -52,7 +93,7 @@ public class SnackAdd extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         snackDescriptionField = new views.text.area.AreaText();
         fotoVP = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblFoto = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         snackCancelButton = new views.styles.Mybtn();
@@ -144,27 +185,23 @@ public class SnackAdd extends javax.swing.JFrame {
 
         panelEntradas1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 450, 120));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("FOTO");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblFoto.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        lblFoto.setForeground(new java.awt.Color(255, 255, 255));
+        lblFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFoto.setText("FOTO");
+        lblFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout fotoVPLayout = new javax.swing.GroupLayout(fotoVP);
         fotoVP.setLayout(fotoVPLayout);
         fotoVPLayout.setHorizontalGroup(
             fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fotoVPLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+            .addGroup(fotoVPLayout.createSequentialGroup()
+                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         fotoVPLayout.setVerticalGroup(
             fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fotoVPLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+            .addComponent(lblFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
         );
 
         panelEntradas1.add(fotoVP, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 100, -1, -1));
@@ -180,6 +217,11 @@ public class SnackAdd extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setOpaque(true);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         panelEntradas1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 320, 120, 23));
 
         snackCancelButton.setText("CANCELAR");
@@ -234,6 +276,10 @@ public class SnackAdd extends javax.swing.JFrame {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_snackSaveButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       carregarFoto();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,13 +354,13 @@ public class SnackAdd extends javax.swing.JFrame {
     private javax.swing.JPanel fotoVP;
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblFoto;
     private javax.swing.JPanel panelEntradas1;
     private views.styles.Mybtn snackCancelButton;
     private views.text.area.AreaText snackDescriptionField;

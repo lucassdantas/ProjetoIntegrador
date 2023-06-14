@@ -42,12 +42,12 @@ public final class OrdersController {
  
     }
     public void main() throws SQLException{
-        this.readDataSheetTable(this.comboBox.getSelectedIndex());
         this.readOrdersTable();
         this.searchDataSheet();
         this.searchSnack();
         this.searchIngredient();
         this.setComboBoxOptions();
+        this.readDataSheetTable(this.comboBox.getSelectedIndex());
     }
     public void setItems(JTable table, Combobox combobox, JTextField orderTotalValueField, Spinner spinner){
         this.setDSJTable(table);
@@ -98,6 +98,8 @@ public final class OrdersController {
         for(int i = 0; i < this.dataSheets.size(); i++){
             this.comboBox.addItem(this.dataSheets.get(i).getSnack().getSnackTitle());
         }
+        this.comboBox.setSelectedIndex(0);
+
        
     }
     public void readDataSheetTable(int id) throws SQLException{
