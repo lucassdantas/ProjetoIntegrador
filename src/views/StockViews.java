@@ -64,6 +64,7 @@ OrdersController ordersController = new OrdersController();
         
         ordersController.setItems(
             ordersDataSheetTable,
+            orderTable,
             orderSnackComboBox,
             orderTotalValueField,
             orderQuantitySpinner
@@ -196,7 +197,7 @@ public void limparCalculoPorcoes() {
         jLabel1 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        table2 = new views.tables.Table();
+        orderTable = new views.tables.Table();
         mybtn21 = new views.styles.Mybtn2();
         areaLanche = new javax.swing.JInternalFrame();
         panelLanche = new javax.swing.JPanel();
@@ -929,7 +930,7 @@ public void limparCalculoPorcoes() {
         panelVP.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 188, 45));
 
         ordersDataSheetTable.fixTable(jScrollPane3);
-        table2.setModel(new javax.swing.table.DefaultTableModel(
+        orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "hamburguer", "1", "5,60", "12,00", "12,00", "01/02/2023"},
                 {"1", "hamburguer", "1", "5,60", "12,00", "12,00", "01/02/2023"},
@@ -948,16 +949,16 @@ public void limparCalculoPorcoes() {
                 return canEdit [columnIndex];
             }
         });
-        table2.setShowGrid(true);
-        jScrollPane3.setViewportView(table2);
-        if (table2.getColumnModel().getColumnCount() > 0) {
-            table2.getColumnModel().getColumn(0).setResizable(false);
-            table2.getColumnModel().getColumn(1).setResizable(false);
-            table2.getColumnModel().getColumn(2).setResizable(false);
-            table2.getColumnModel().getColumn(3).setResizable(false);
-            table2.getColumnModel().getColumn(4).setResizable(false);
-            table2.getColumnModel().getColumn(5).setResizable(false);
-            table2.getColumnModel().getColumn(6).setResizable(false);
+        orderTable.setShowGrid(true);
+        jScrollPane3.setViewportView(orderTable);
+        if (orderTable.getColumnModel().getColumnCount() > 0) {
+            orderTable.getColumnModel().getColumn(0).setResizable(false);
+            orderTable.getColumnModel().getColumn(1).setResizable(false);
+            orderTable.getColumnModel().getColumn(2).setResizable(false);
+            orderTable.getColumnModel().getColumn(3).setResizable(false);
+            orderTable.getColumnModel().getColumn(4).setResizable(false);
+            orderTable.getColumnModel().getColumn(5).setResizable(false);
+            orderTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         panelVP.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
@@ -3104,6 +3105,7 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn orderAddButton;
     private views.spinner.Spinner orderQuantitySpinner;
     private views.combobox.Combobox orderSnackComboBox;
+    private views.tables.Table orderTable;
     private javax.swing.JTextField orderTotalValueField;
     private views.tables.Table ordersDataSheetTable;
     private javax.swing.JPanel painelMenu1;
@@ -3132,6 +3134,5 @@ public void limparCalculoPorcoes() {
     private javax.swing.JTextField stockSearchField;
     private views.tables.Table stockTable;
     private javax.swing.JTextField stockUnityOfMeasureField;
-    private views.tables.Table table2;
     // End of variables declaration//GEN-END:variables
 }
