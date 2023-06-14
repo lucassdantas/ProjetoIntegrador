@@ -4,6 +4,7 @@
  */
 package controllers;
 
+import dao.DataSheetDAO;
 import dao.SnackDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -181,12 +182,16 @@ public class SnackController {
                     "Exclusão de Registro",OK_CANCEL_OPTION);
             if(answer == 0){
                 Snack snack = new Snack();
-                SnackDAO dao = new SnackDAO();                
-                snack.setId((int) this.table.getValueAt(
-                        this.table.getSelectedRow(), 0));
+                SnackDAO dao = new SnackDAO();  
+                DataSheetDAO dsDAO= new DataSheetDAO();
+                int id = (int) this.table.getValueAt(
+                        this.table.getSelectedRow(), 0);
+                snack.setId(id);
                 
                 try {
+                    dsDAO.deleteBySnack(snack.getId());
                     dao.deleteSnack(snack.getId());
+                    
                 } catch (SQLException ex) {
                     System.out.print(ex);
                 }
