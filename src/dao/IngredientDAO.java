@@ -121,6 +121,14 @@ public class IngredientDAO {
             statement.executeUpdate();
         }
     }
+    public void removeStock(float quantity, int id) throws SQLException {
+        String query = "UPDATE ingredient SET ingredientStock = ingredientStock - ? WHERE ingredientId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setFloat(1, quantity);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        }
+    }
     public void updateIngredient(Ingredient ingredient) throws SQLException {
         String query = "UPDATE ingredient SET ingredientName = ?, ingredientMinQuantity = ?, " +
                 "ingredientUnitOfMeasure = ?, ingredientUnitCost = ?, ingredientStatus = ?, " +
