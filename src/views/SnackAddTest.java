@@ -4,42 +4,80 @@
  */
 package views;
 
-import controllers.IngredientController;
+import AppPackage.AnimationClass;
 import controllers.SnackController;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author Work.Studies
  */
-public class SnackEdit extends javax.swing.JFrame {
+public class SnackAddTest extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EstoqueEntrada
-     */
+    
+AnimationClass ac = new AnimationClass();
+
+
+//Instanciar objeto para o fluxo de bytes.
+  private FileInputStream fis;
+  
+//variavel global para armazebar o tamanho da imagem(bytes)
+private int tamanho;     
+    
+    
     private final SnackController snackController;
-    public SnackEdit() {
+    public SnackAddTest() {
         initComponents();
-        snackController = new SnackController();
-        //icon
+        this.snackController = new SnackController();
         IconManager.setIcon(this);
     }
     public void setJTable(JTable table){
         this.snackController.setJTable(table);
     }
-    
     public void searchFields(){
-        this.snackController.setFields(ingredientEditTitleField);
-        this.snackController.setFields(ingredientEditPriceField);
-        this.snackController.setTextArea(ingredientEditDescriptionTextArea);
+        this.snackController.setFields(snackNameField);
+        this.snackController.setFields(snackSellingPriceField);
+        this.snackController.setTextArea(snackDescriptionField);
     }
-    public void setFieldsValue(){
-        this.snackController.setFieldsValue();
-    }
+    /*
+    private void carregarFoto(){
+        JFileChooser jfc = new JFileChooser();
+        jfc.setDialogTitle("Selecionar arquivo");
+        jfc.setFileFilter(new FileNameExtensionFilter("Arquivo de imagens(*.PNG, *.JPG,*.JPEG","png","jpg", "jpeg"));
+        jfc.showOpenDialog(this);
+        int resultado = jfc.showOpenDialog(this);
+        if(resultado == JFileChooser.APPROVE_OPTION) {
+            try{
+                fis = new FileInputStream(jfc.getSelectedFile());
+                tamanho = (int) jfc.getSelectedFile().length();
+                Image foto = ImageIO.read(jfc.getSelectedFile()).getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_SMOOTH);
+                lblFoto.setIcon(new ImageIcon(foto));               
+                lblFoto.updateUI();
+            } catch (Exception e ) {
+                System.out.println(e);
+            }
+        }
+    }     
+    
+    */
+
+    
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,21 +86,21 @@ public class SnackEdit extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         areaEntradas_entrada = new javax.swing.JInternalFrame();
         panelEntradas1 = new javax.swing.JPanel();
-        ingredientEditTitleField = new javax.swing.JTextField();
+        snackNameField = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         colorBtn19 = new javax.swing.JPanel();
         colorBtn20 = new javax.swing.JPanel();
-        ingredientEditPriceField = new javax.swing.JTextField();
+        snackSellingPriceField = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ingredientEditDescriptionTextArea = new views.text.area.AreaText();
+        snackDescriptionField = new views.text.area.AreaText();
         fotoVP = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        snackEditCancelButton = new views.styles.Mybtn();
-        snackEditSaveButton = new views.styles.Mybtn();
+        snackAddChoseFileButton = new javax.swing.JButton();
+        snackCancelButton = new views.styles.Mybtn();
+        snackSaveButton = new views.styles.Mybtn();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -88,9 +126,9 @@ public class SnackEdit extends javax.swing.JFrame {
         panelEntradas1.setPreferredSize(new java.awt.Dimension(1690, 1020));
         panelEntradas1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ingredientEditTitleField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        ingredientEditTitleField.setName(""); // NOI18N
-        panelEntradas1.add(ingredientEditTitleField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 45));
+        snackNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        snackNameField.setName(""); // NOI18N
+        panelEntradas1.add(snackNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 45));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel32.setText("Produtos/lanche");
@@ -126,9 +164,9 @@ public class SnackEdit extends javax.swing.JFrame {
 
         panelEntradas1.add(colorBtn20, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 570, 10, 40));
 
-        ingredientEditPriceField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        ingredientEditPriceField.setName(""); // NOI18N
-        panelEntradas1.add(ingredientEditPriceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
+        snackSellingPriceField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        snackSellingPriceField.setName(""); // NOI18N
+        panelEntradas1.add(snackSellingPriceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(126, 126, 126));
@@ -141,12 +179,12 @@ public class SnackEdit extends javax.swing.JFrame {
         jLabel34.setText("Descrição");
         panelEntradas1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 140, 30));
 
-        ingredientEditDescriptionTextArea.fixTextArea(jScrollPane1);
-        ingredientEditDescriptionTextArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        ingredientEditDescriptionTextArea.setColumns(20);
-        ingredientEditDescriptionTextArea.setRows(5);
-        ingredientEditDescriptionTextArea.setMaximumSize(new java.awt.Dimension(232, 18));
-        jScrollPane1.setViewportView(ingredientEditDescriptionTextArea);
+        snackDescriptionField.fixTextArea(jScrollPane1);
+        snackDescriptionField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        snackDescriptionField.setColumns(20);
+        snackDescriptionField.setRows(5);
+        snackDescriptionField.setMaximumSize(new java.awt.Dimension(232, 18));
+        jScrollPane1.setViewportView(snackDescriptionField);
 
         panelEntradas1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 450, 120));
 
@@ -179,33 +217,38 @@ public class SnackEdit extends javax.swing.JFrame {
         jLabel35.setText("Preço de venda (R$)");
         panelEntradas1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 140, 30));
 
-        jButton1.setBackground(new java.awt.Color(246, 246, 246));
-        jButton1.setForeground(new java.awt.Color(126, 126, 126));
-        jButton1.setText("escolher arquivo");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setOpaque(true);
-        panelEntradas1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 320, 120, 23));
-
-        snackEditCancelButton.setText("CANCELAR");
-        snackEditCancelButton.addActionListener(new java.awt.event.ActionListener() {
+        snackAddChoseFileButton.setBackground(new java.awt.Color(246, 246, 246));
+        snackAddChoseFileButton.setForeground(new java.awt.Color(126, 126, 126));
+        snackAddChoseFileButton.setText("escolher arquivo");
+        snackAddChoseFileButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        snackAddChoseFileButton.setContentAreaFilled(false);
+        snackAddChoseFileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        snackAddChoseFileButton.setOpaque(true);
+        snackAddChoseFileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                snackEditCancelButtonActionPerformed(evt);
+                snackAddChoseFileButtonActionPerformed(evt);
             }
         });
-        panelEntradas1.add(snackEditCancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 129, 40));
+        panelEntradas1.add(snackAddChoseFileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 320, 120, 23));
 
-        snackEditSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
-        snackEditSaveButton.setText("SALVAR");
-        snackEditSaveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        snackEditSaveButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        snackEditSaveButton.addActionListener(new java.awt.event.ActionListener() {
+        snackCancelButton.setText("CANCELAR");
+        snackCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                snackEditSaveButtonActionPerformed(evt);
+                snackCancelButtonActionPerformed(evt);
             }
         });
-        panelEntradas1.add(snackEditSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
+        panelEntradas1.add(snackCancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 129, 40));
+
+        snackSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
+        snackSaveButton.setText("SALVAR");
+        snackSaveButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        snackSaveButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        snackSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                snackSaveButtonActionPerformed(evt);
+            }
+        });
+        panelEntradas1.add(snackSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
@@ -228,19 +271,39 @@ public class SnackEdit extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void snackEditCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackEditCancelButtonActionPerformed
+    private void snackCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackCancelButtonActionPerformed
         dispose();
-    }//GEN-LAST:event_snackEditCancelButtonActionPerformed
+    }//GEN-LAST:event_snackCancelButtonActionPerformed
 
-    private void snackEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackEditSaveButtonActionPerformed
-       try {
-            snackController.update(snackController.getFields(), snackController.getTextArea());
+    private void snackSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackSaveButtonActionPerformed
+        try {
+            snackController.add(snackController.getFields(), snackController.getTextArea());
             dispose();
         } catch (SQLException ex) {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_snackEditSaveButtonActionPerformed
-    
+    }//GEN-LAST:event_snackSaveButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void snackAddChoseFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackAddChoseFileButtonActionPerformed
+        JButton selecionarImagemButton = snackAddChoseFileButton;
+        selecionarImagemButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                    if (returnValue == JFileChooser.APPROVE_OPTION) {
+                        File selectedFile = fileChooser.getSelectedFile();
+                        String filePath = selectedFile.getPath();
+                        System.out.println(filePath); // working
+                    }
+                }
+        });
+            //carregarFoto();
+    }//GEN-LAST:event_snackAddChoseFileButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -258,14 +321,110 @@ public class SnackEdit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SnackEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SnackAddTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SnackEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SnackAddTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SnackEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SnackAddTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SnackEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SnackAddTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -302,7 +461,7 @@ public class SnackEdit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SnackEdit().setVisible(true);
+                new SnackAddTest().setVisible(true);
             }
         });
     }
@@ -312,10 +471,6 @@ public class SnackEdit extends javax.swing.JFrame {
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
     private javax.swing.JPanel fotoVP;
-    private views.text.area.AreaText ingredientEditDescriptionTextArea;
-    private javax.swing.JTextField ingredientEditPriceField;
-    private javax.swing.JTextField ingredientEditTitleField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel32;
@@ -325,7 +480,11 @@ public class SnackEdit extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelEntradas1;
-    private views.styles.Mybtn snackEditCancelButton;
-    private views.styles.Mybtn snackEditSaveButton;
+    private javax.swing.JButton snackAddChoseFileButton;
+    private views.styles.Mybtn snackCancelButton;
+    private views.text.area.AreaText snackDescriptionField;
+    private javax.swing.JTextField snackNameField;
+    private views.styles.Mybtn snackSaveButton;
+    private javax.swing.JTextField snackSellingPriceField;
     // End of variables declaration//GEN-END:variables
 }
