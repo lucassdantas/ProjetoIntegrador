@@ -146,7 +146,7 @@ public final class OrdersController {
         for (Orders orders: dao.readAll()){
             model.addRow(new Object[]{
                 orders.getOrderId(),
-                orders.getSnack().getSnackTitle(),
+                orders.getOrderSnackName(),
                 orders.getOrderQuantity(),
                 orders.getOrderCost(),
                 orders.getOrderUnitPrice(),
@@ -167,7 +167,7 @@ public final class OrdersController {
         for (Orders orders: dao.search(search)){
             model.addRow(new Object[]{
                 orders.getOrderId(),
-                orders.getSnack().getSnackTitle(),
+                orders.getOrderSnackName(),
                 orders.getOrderQuantity(),
                 orders.getOrderCost(),
                 orders.getOrderUnitPrice(),
@@ -182,27 +182,28 @@ public final class OrdersController {
     }
     
     public void buildSnack() throws SQLException{
-        
+        int index = this.comboBox.getSelectedIndex();
         Snack snack = this.snacks.get(this.comboBox.getSelectedIndex());
-        Orders order = new Orders();
-        float unitPrice = 0;
         
         
         LocalDate time = LocalDate.now();
         this.order.setOrderSnackId(snack.getId());
         this.order.setOrderQuantity(Integer.parseInt(String.valueOf(this.quantitySpinner.getValue())));
+        this.order.setOrderSnackName(snack.getSnackTitle());
        // this.order.getOrderCost();
         this.order.setOrderUnitPrice(snack.getSnackSellingPrice());
         this.order.setOrderTotalPrice(Float.parseFloat(this.totalField.getText()));
         this.order.setOrderDate(time);
         
         IngredientDAO ingredientDAO = new IngredientDAO();
-        System.out.println(this.order.getOrderQuantity());
-        System.out.println(this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId());
+        DataSheetDAO dsDAO = new DataSheetDAO();
+        List<DataSheet> dsSnack = dsDAO.searchBySnackId(this.dataSheets.get(index).getSnack().getId());
+        1
         ingredientDAO.removeStock(
-                this.order.getOrderQuantity(), 
-                this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId()
+            this.order.getOrderQuantity(), 
+            this.dataSheets.get(index).getIngredient().getId()
         );
+        
         this.add(this.order);
     }
     public void clean (List <javax.swing.JTextField> fields){

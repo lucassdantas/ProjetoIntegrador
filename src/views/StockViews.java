@@ -937,7 +937,7 @@ public void limparCalculoPorcoes() {
                 {"2", "x-buguer duplo", "1", "8,69", "16,00", "16,00", "01/02/2023"}
             },
             new String [] {
-                "id lanche", "Lanche", "Qnt", "Custo Unt.", "Valor Unt.", "Valor Total Venda", "Data"
+                "Id pedido", "Lanche", "Qnt", "Custo Unt.", "Valor Unt.", "Valor Total Venda", "Data"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -2871,6 +2871,7 @@ public void limparCalculoPorcoes() {
     private void orderAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderAddButtonActionPerformed
         try {
             ordersController.buildSnack();
+            stockController.readJTable();
         } catch (SQLException ex) {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }

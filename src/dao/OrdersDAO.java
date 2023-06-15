@@ -23,8 +23,8 @@ public class OrdersDAO {
     }
 
     public void addOrder(Orders order) throws SQLException {
-        String query = "INSERT INTO orders (orderSnackId, orderQuantity, orderCost, orderUnitPrice, orderTotalPrice, orderDate) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO orders (orderSnackId,  orderQuantity, orderCost, orderUnitPrice, orderTotalPrice, orderDate, orderSnackName) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, order.getOrderSnackId());
             statement.setInt(2, order.getOrderQuantity());
@@ -32,6 +32,7 @@ public class OrdersDAO {
             statement.setFloat(4, order.getOrderUnitPrice());
             statement.setFloat(5, order.getOrderTotalPrice());
             statement.setDate(6, Date.valueOf(order.getOrderDate()));
+            statement.setString(7, order.getOrderSnackName());
             statement.executeUpdate();
         }
     }
@@ -61,10 +62,7 @@ public class OrdersDAO {
 
     public List<Orders> search(String snackName) throws SQLException {
         List<Orders> orders = new ArrayList<>();
-        String query = "SELECT o.orderId, o.orderSnackId, o.orderQuantity, o.orderCost, o.orderUnitPrice, " +
-                "o.orderTotalPrice, o.orderDate, s.snackTitle, s.snackSellingPrice, s.snackDescription, s.snackImageUrl, s.snackStatus " +
-                "FROM orders o INNER JOIN snack s ON o.orderSnackId = s.snackId " +
-                "WHERE s.snackTitle LIKE ?";
+        String query = "SELECT * FROM orders WHERE orderSnackName LIKE ? " ;
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, "%" + snackName + "%");
             try (ResultSet resultSet = statement.executeQuery()) {
@@ -77,7 +75,8 @@ public class OrdersDAO {
                     order.setOrderUnitPrice(resultSet.getFloat("orderUnitPrice"));
                     order.setOrderTotalPrice(resultSet.getFloat("orderTotalPrice"));
                     order.setOrderDate(resultSet.getDate("orderDate").toLocalDate());
-
+                    order.setOrderSnackName(resultSet.getString("orderSnackName"));
+/*
                     Snack snack = new Snack();
                     snack.setId(resultSet.getInt("orderSnackId"));
                     snack.setSnackTitle(resultSet.getString("snackTitle"));
@@ -86,7 +85,7 @@ public class OrdersDAO {
                     snack.setSnackImageUrl(resultSet.getString("snackImageUrl"));
                     snack.setSnackStatus(resultSet.getString("snackStatus"));
 
-                    order.setSnack(snack);
+                    order.setSnack(snack);*/
 
                     orders.add(order);
                 }
@@ -96,10 +95,12 @@ public class OrdersDAO {
     }
 
     public List<Orders> readAll() throws SQLException {
-        List<Orders> orders = new ArrayList<>();
-        String query = "SELECT o.orderId, o.orderSnackId, o.orderQuantity, o.orderCost, o.orderUnitPrice, " +
+        List<Orders> orders = new ArrayList<>();/*
+        String query = "SELECT o.orderId, o.orderSnackId, o.orderQuantity, o.orderCost, o.orderUnitPrice, o.orderSnackName, " +
                 "o.orderTotalPrice, o.orderDate, s.snackTitle, s.snackSellingPrice, s.snackDescription, s.snackImageUrl, s.snackStatus " +
-                "FROM orders o INNER JOIN snack s ON o.orderSnackId = s.snackId";
+                "FROM orders o INNER JOIN snack s ON o.orderSnackId = s.snackId";*/
+        
+        String query = "SELECT * FROM orders";
         try (PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
@@ -111,7 +112,8 @@ public class OrdersDAO {
                 order.setOrderUnitPrice(resultSet.getFloat("orderUnitPrice"));
                 order.setOrderTotalPrice(resultSet.getFloat("orderTotalPrice"));
                 order.setOrderDate(resultSet.getDate("orderDate").toLocalDate());
-
+                order.setOrderSnackName(resultSet.getString("orderSnackName"));
+                /*
                 Snack snack = new Snack();
                 snack.setId(resultSet.getInt("orderSnackId"));
                 snack.setSnackTitle(resultSet.getString("snackTitle"));
@@ -121,7 +123,7 @@ public class OrdersDAO {
                 snack.setSnackStatus(resultSet.getString("snackStatus"));
 
                 order.setSnack(snack);
-
+                */
                 orders.add(order);
             }
         }
