@@ -297,7 +297,7 @@ private int tamanho;
                     if (returnValue == JFileChooser.APPROVE_OPTION) {
                         File selectedFile = fileChooser.getSelectedFile();
                         String filePath = selectedFile.getPath();
-                        System.out.println(filePath);
+                        System.out.println(filePath); // working
                     }
                 }
         });
