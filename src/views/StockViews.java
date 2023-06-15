@@ -2280,14 +2280,14 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_btnSairMouseClicked
 
     private void snackAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackAddButtonActionPerformed
-        SnackAddTest snackAdd = new SnackAddTest();
+        SnackAdd snackAdd = new SnackAdd();
         snackAdd.setJTable(snackTable);
         snackAdd.searchFields();
         snackAdd.setVisible(true);
     }//GEN-LAST:event_snackAddButtonActionPerformed
 
     private void snackEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackEditButtonActionPerformed
-        SnackEditTest snackEdit = new SnackEditTest();
+        SnackEdit snackEdit = new SnackEdit();
         snackEdit.setJTable(snackTable);
         if(snackTable.getSelectedRow() != -1){
             snackEdit.searchFields();
@@ -2758,7 +2758,7 @@ public void limparCalculoPorcoes() {
 
     private void snackTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_snackTableKeyPressed
          if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            SnackEditTest snackEdit = new SnackEditTest();
+            SnackEdit snackEdit = new SnackEdit();
             snackEdit.setJTable(snackTable);
             if(snackTable.getSelectedRow() != -1){
                 snackEdit.searchFields();
