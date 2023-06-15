@@ -146,7 +146,7 @@ public final class OrdersController {
         for (Orders orders: dao.readAll()){
             model.addRow(new Object[]{
                 orders.getOrderId(),
-                orders.getSnack().getSnackTitle(),
+                orders.getOrderSnackName(),
                 orders.getOrderQuantity(),
                 orders.getOrderCost(),
                 orders.getOrderUnitPrice(),
@@ -167,7 +167,7 @@ public final class OrdersController {
         for (Orders orders: dao.search(search)){
             model.addRow(new Object[]{
                 orders.getOrderId(),
-                orders.getSnack().getSnackTitle(),
+                orders.getOrderSnackName(),
                 orders.getOrderQuantity(),
                 orders.getOrderCost(),
                 orders.getOrderUnitPrice(),
@@ -184,13 +184,12 @@ public final class OrdersController {
     public void buildSnack() throws SQLException{
         
         Snack snack = this.snacks.get(this.comboBox.getSelectedIndex());
-        Orders order = new Orders();
-        float unitPrice = 0;
         
         
         LocalDate time = LocalDate.now();
         this.order.setOrderSnackId(snack.getId());
         this.order.setOrderQuantity(Integer.parseInt(String.valueOf(this.quantitySpinner.getValue())));
+        this.order.setOrderSnackName(snack.getSnackTitle());
        // this.order.getOrderCost();
         this.order.setOrderUnitPrice(snack.getSnackSellingPrice());
         this.order.setOrderTotalPrice(Float.parseFloat(this.totalField.getText()));

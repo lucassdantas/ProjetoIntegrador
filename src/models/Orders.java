@@ -14,6 +14,7 @@ import java.util.Date;
 public class Orders {
     private int orderId;
     private int orderSnackId;
+    private String orderSnackName;
     private int orderQuantity;
     private float orderCost;
     private float orderUnitPrice;
@@ -39,6 +40,13 @@ public class Orders {
         this.orderSnackId = orderSnackId;
     }
 
+    public void setOrderSnackName(String snackName){
+        this.orderSnackName = snackName;
+    }
+    
+    public String getOrderSnackName(){
+        return this.orderSnackName;
+    }
     public int getOrderQuantity() {
         return orderQuantity;
     }
