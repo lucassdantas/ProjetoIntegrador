@@ -119,6 +119,8 @@ public class IngredientDAO {
             statement.setFloat(1, ingredient.getIngredientStock());
             statement.setInt(2, ingredient.getId());
             statement.executeUpdate();
+            System.out.println(statement.getResultSet());
+
         }
     }
     public void removeStock(float quantity, int id) throws SQLException {
@@ -127,6 +129,7 @@ public class IngredientDAO {
             statement.setFloat(1, quantity);
             statement.setInt(2, id);
             statement.executeUpdate();
+            System.out.println(statement.getResultSet());
         }
     }
     public void updateIngredient(Ingredient ingredient) throws SQLException {

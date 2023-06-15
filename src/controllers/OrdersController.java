@@ -197,6 +197,8 @@ public final class OrdersController {
         this.order.setOrderDate(time);
         
         IngredientDAO ingredientDAO = new IngredientDAO();
+        System.out.println(this.order.getOrderQuantity());
+        System.out.println(this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId());
         ingredientDAO.removeStock(
                 this.order.getOrderQuantity(), 
                 this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId()
@@ -252,7 +254,6 @@ public final class OrdersController {
     public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
             boolean isEmpty = false;
             for(int i = 0; i > fields.size(); i++){
-                System.out.print(fields.get(i));
                 if(fields.get(i).getText().isEmpty()){
                     System.out.print("the field "+i+" is empty");
                     isEmpty = true;
