@@ -182,7 +182,7 @@ public final class OrdersController {
     }
     
     public void buildSnack() throws SQLException{
-        
+        int index = this.comboBox.getSelectedIndex();
         Snack snack = this.snacks.get(this.comboBox.getSelectedIndex());
         
         
@@ -196,10 +196,12 @@ public final class OrdersController {
         this.order.setOrderDate(time);
         
         IngredientDAO ingredientDAO = new IngredientDAO();
+        DataSheetDAO dsDAO = new DataSheetDAO();
+        List<DataSheet> dsSnack = dsDAO.searchBySnackId(this.dataSheets.get(index).getSnack().getId());
         
         ingredientDAO.removeStock(
             this.order.getOrderQuantity(), 
-            this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId()
+            this.dataSheets.get(index).getIngredient().getId()
         );
         
         this.add(this.order);
