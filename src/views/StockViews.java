@@ -2871,6 +2871,7 @@ public void limparCalculoPorcoes() {
     private void orderAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderAddButtonActionPerformed
         try {
             ordersController.buildSnack();
+            stockController.readJTable();
         } catch (SQLException ex) {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }

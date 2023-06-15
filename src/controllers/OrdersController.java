@@ -196,12 +196,12 @@ public final class OrdersController {
         this.order.setOrderDate(time);
         
         IngredientDAO ingredientDAO = new IngredientDAO();
-        System.out.println(this.order.getOrderQuantity());
-        System.out.println(this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId());
+        
         ingredientDAO.removeStock(
-                this.order.getOrderQuantity(), 
-                this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId()
+            this.order.getOrderQuantity(), 
+            this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId()
         );
+        
         this.add(this.order);
     }
     public void clean (List <javax.swing.JTextField> fields){
