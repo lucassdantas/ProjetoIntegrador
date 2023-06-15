@@ -198,7 +198,7 @@ public final class OrdersController {
         IngredientDAO ingredientDAO = new IngredientDAO();
         DataSheetDAO dsDAO = new DataSheetDAO();
         List<DataSheet> dsSnack = dsDAO.searchBySnackId(this.dataSheets.get(index).getSnack().getId());
-        
+        1
         ingredientDAO.removeStock(
             this.order.getOrderQuantity(), 
             this.dataSheets.get(index).getIngredient().getId()
