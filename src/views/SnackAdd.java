@@ -5,7 +5,10 @@
 package views;
 
 import AppPackage.AnimationClass;
+import com.sun.jdi.connect.spi.Connection;
 import controllers.SnackController;
+import dao.SnackDAO;
+import java.sql.PreparedStatement;
 import java.awt.Image;
 import java.io.FileInputStream;
 import java.sql.SQLException;
@@ -17,6 +20,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import models.Snack;
 
 /**
  *
@@ -24,6 +28,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class SnackAdd extends javax.swing.JFrame {
 
+//instanciar objeto JDBC 
+
+SnackDAO dao = SnackDAO();
+private Connection con;
+private PreparedStatement pst;
+    
     
 AnimationClass ac = new AnimationClass();
 
@@ -34,12 +44,15 @@ AnimationClass ac = new AnimationClass();
 //variavel global para armazebar o tamanho da imagem(bytes)
 private int tamanho;     
     
-    
+    private int id;
     private final SnackController snackController;
     public SnackAdd() {
         initComponents();
         this.snackController = new SnackController();
         IconManager.setIcon(this);
+    }
+    public void setId(int id){
+        this.id = id;
     }
     public void setJTable(JTable table){
         this.snackController.setJTable(table);
@@ -50,6 +63,7 @@ private int tamanho;
         this.snackController.setTextArea(snackDescriptionField);
     }
     private void carregarFoto(){
+        Snack snackImage = new Snack();
         JFileChooser jfc = new JFileChooser();
         jfc.setDialogTitle("Selecionar arquivo");
         jfc.setFileFilter(new FileNameExtensionFilter("Arquivo de imagens(*.PNG, *.JPG,*.JPEG","png","jpg", "jpeg"));
@@ -62,16 +76,41 @@ private int tamanho;
                 Image foto = ImageIO.read(jfc.getSelectedFile()).getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_SMOOTH);
                 lblFoto.setIcon(new ImageIcon(foto));               
                 lblFoto.updateUI();
+                String url = jfc.getImageUrl();
+                
+                int id = Integer.parseInt(
+                    String.valueOf(
+                    this.snackController.getTable().getValueAt(this.snackController.getTable().getSelectedRow(), 0)
+                    )
+               );
+
+                snackImage.setSnackImageUrl(url);
+                snackImage.setId(id);
+                SnackDAO dao = new SnackDAO();
+                dao.addImageUrl(snackImage);
             } catch (Exception e ) {
                 System.out.println(e);
             }
         }
-
+      
         
- 
+    
  }     
     
+  private void adicionar(){
     
+    String insert = "insert into snack(snackImageUrl) values(?)";
+      try {
+          
+          con = dao.conectar();
+          pst = con.prepareStatement(insert);
+       //   pst.setString(1, fis, tamanho);
+          
+      } catch (Exception e) {
+      } System.out.println();
+      
+    
+  }
     
     
     
@@ -98,6 +137,7 @@ private int tamanho;
         jButton1 = new javax.swing.JButton();
         snackCancelButton = new views.styles.Mybtn();
         snackSaveButton = new views.styles.Mybtn();
+        btnArquivo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -243,6 +283,14 @@ private int tamanho;
         });
         panelEntradas1.add(snackSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
 
+        btnArquivo.setText("Arquivo");
+        btnArquivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArquivoActionPerformed(evt);
+            }
+        });
+        panelEntradas1.add(btnArquivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
+
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
         jDesktopPane1.add(areaEntradas_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 940, 710));
@@ -280,6 +328,10 @@ private int tamanho;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        carregarFoto();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArquivoActionPerformed
+       adicionar();
+    }//GEN-LAST:event_btnArquivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,6 +401,7 @@ private int tamanho;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
+    private javax.swing.JButton btnArquivo;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
     private javax.swing.JPanel fotoVP;
@@ -368,4 +421,12 @@ private int tamanho;
     private views.styles.Mybtn snackSaveButton;
     private javax.swing.JTextField snackSellingPriceField;
     // End of variables declaration//GEN-END:variables
+
+    private void Adicionar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private SnackDAO SnackDAO() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
