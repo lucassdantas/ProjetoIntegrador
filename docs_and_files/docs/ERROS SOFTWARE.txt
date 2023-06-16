@@ -1,3 +1,2 @@
---- LISTA DE ERROS ---
-- O programa n√£o inicia caso n√£o haja ficha t√©cnica devido a um erro no comboBox
-- 
+Link do documento. N„o compartilhem com quem est· fora do grupo por enquanto
+https://docs.google.com/document/d/12VO8OeFZTHPvd5gpLll4N4v6rji-Fkn1be5ZNcFgqME/edit
