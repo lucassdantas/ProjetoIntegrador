@@ -1,0 +1,3 @@
+--- LISTA DE ERROS ---
+- O programa não inicia caso não haja ficha técnica devido a um erro no comboBox
+- 
