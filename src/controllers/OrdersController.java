@@ -27,6 +27,7 @@ import views.spinner.Spinner;
 public final class OrdersController {
     private JTable dsTable;
     private JTable orderTable;
+    private JTable ingredientTable;
     private final List<JTextField> fields;
     private List<Snack> snacks;
     private List<Ingredient> ingredients;
@@ -52,9 +53,10 @@ public final class OrdersController {
         this.setComboBoxOptions();
         this.readDataSheetTable(this.comboBox.getSelectedIndex());
     }
-    public void setItems(JTable dsTable, JTable orderTable, Combobox combobox, JTextField orderTotalValueField, Spinner spinner){
+    public void setItems(JTable dsTable, JTable orderTable, JTable ingredientTable, Combobox combobox, JTextField orderTotalValueField, Spinner spinner){
         this.setDSJTable(dsTable);
         this.setOrderTable(orderTable);
+        this.setIngredientTable(ingredientTable);
         this.setComboBox(combobox);
         this.totalField = orderTotalValueField;
         this.quantitySpinner = spinner;
@@ -67,7 +69,9 @@ public final class OrdersController {
     public void setDSJTable(JTable table){
         this.dsTable = table;
     }
-    
+    public void setIngredientJTable(JTable table){
+        this.ingredientTable = table;
+    }
     public void setOrderTable(JTable table){
         this.orderTable = table;
     }
@@ -97,6 +101,9 @@ public final class OrdersController {
     
     public JTable getDSJTable(){
         return this.dsTable;
+    }
+    public JTable getIngredientTable(){
+        return this.ingredientTable;
     }
     public List<JTextField> getFields(){
         return this.fields;
@@ -229,11 +236,6 @@ public final class OrdersController {
             ingredientDAO.removeStock(dsSnack.get(i).getDsQuantity(), ingredientId);
         }
         
-
-        ingredientDAO.removeStock(
-                this.order.getOrderQuantity(), 
-                this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId()
-        );
         this.add(this.order);
     }
     public void clean (List <javax.swing.JTextField> fields){
@@ -274,6 +276,7 @@ public final class OrdersController {
                 dao.addOrder(order);
                 this.clean(this.fields);
                 this.readOrdersTable();
+                this.getIngredientTable().readJTable();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);

@@ -65,6 +65,7 @@ OrdersController ordersController = new OrdersController();
         ordersController.setItems(
             ordersDataSheetTable,
             orderTable,
+            ingredientTable,
             orderSnackComboBox,
             orderTotalValueField,
             orderQuantitySpinner
