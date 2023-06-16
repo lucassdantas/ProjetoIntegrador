@@ -6,7 +6,9 @@
  */
 package controllers;
 
+import dao.DataSheetDAO;
 import dao.IngredientDAO;
+import dao.InputDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -227,12 +229,17 @@ public class IngredientController {
                     "Exclusão de Registro",OK_CANCEL_OPTION);
             if(answer == 0){
                 Ingredient ingredient = new Ingredient();
-                IngredientDAO dao = new IngredientDAO();                
+                IngredientDAO dao = new IngredientDAO();    
+                DataSheetDAO dsDAO = new DataSheetDAO();
+                InputDAO inputDAO = new InputDAO();
                 ingredient.setId((int) this.table.getValueAt(
                         this.table.getSelectedRow(), 0));
                 
                 try {
+                    inputDAO.deleteByIngredientId(ingredient.getId());
+                    dsDAO.deleteByIngredientId(ingredient.getId());
                     dao.deleteIngredient(ingredient.getId());
+                    
                 } catch (SQLException ex) {
                     System.out.print(ex);
                 }

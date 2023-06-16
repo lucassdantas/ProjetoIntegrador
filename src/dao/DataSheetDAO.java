@@ -224,7 +224,7 @@ public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
             statement.executeUpdate();
         }
     }
-    public void deleteBySnack(int id) throws SQLException{
+    public void deleteBySnackId(int id) throws SQLException{
         String query = "DELETE FROM datasheet WHERE dsSnackId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, id);

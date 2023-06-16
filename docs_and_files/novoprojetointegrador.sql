@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/06/2023 às 01:31
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- Tempo de geração: 16-Jun-2023 às 06:10
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `datasheet`
+-- Estrutura da tabela `datasheet`
 --
 
 CREATE TABLE `datasheet` (
@@ -36,17 +36,16 @@ CREATE TABLE `datasheet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `datasheet`
+-- Extraindo dados da tabela `datasheet`
 --
 
 INSERT INTO `datasheet` (`dsSnackId`, `dsIngredientId`, `dsQuantity`, `dsTotalCost`, `dsStatus`) VALUES
-(1, 4, 3.00, 75.00, NULL),
-(2, 4, 2.00, 50.00, NULL);
+(5, 6, '2.00', '5.71', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `ingredient`
+-- Estrutura da tabela `ingredient`
 --
 
 CREATE TABLE `ingredient` (
@@ -62,17 +61,18 @@ CREATE TABLE `ingredient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `ingredient`
+-- Extraindo dados da tabela `ingredient`
 --
 
 INSERT INTO `ingredient` (`ingredientId`, `ingredientName`, `ingredientMinQuantity`, `ingredientUnitQuantity`, `ingredientUnitOfMeasure`, `ingredientUnitCost`, `ingredientStatus`, `ingredientStock`, `ingredientStockStatus`) VALUES
-(3, 'tomate2', 3.00, 0.10, 'kg', 1.00, NULL, 0.00, NULL),
-(4, 'alface', 1.00, 1.00, 'pés', 25.00, NULL, 0.00, NULL);
+(5, 'Tomate', '0.20', '0.10', 'kg', '0.50', NULL, '55.00', NULL),
+(6, 'Carne | X burguer ', '2.00', '0.35', 'kg', '1.00', NULL, '-23.00', NULL),
+(7, 'Alface', '1.00', '1.00', 'un', '1.05', NULL, '0.00', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `input`
+-- Estrutura da tabela `input`
 --
 
 CREATE TABLE `input` (
@@ -85,17 +85,20 @@ CREATE TABLE `input` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `input`
+-- Extraindo dados da tabela `input`
 --
 
 INSERT INTO `input` (`inputId`, `inputIngredientId`, `inputQuantity`, `inputCost`, `inputDate`, `inputStatus`) VALUES
-(4, 3, 2.00, 5.00, '2023-06-12', NULL),
-(8, 3, 15.00, 25.00, '2023-06-12', NULL);
+(21, 5, '15.00', '10.00', '2023-06-15', NULL),
+(22, 6, '20.00', '7.00', '2023-06-15', NULL),
+(23, 6, '25.00', '15.00', '2023-06-15', NULL),
+(24, 5, '3.00', '1.00', '2023-06-16', NULL),
+(25, 5, '1.00', '15.00', '2023-06-16', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `orders`
+-- Estrutura da tabela `orders`
 --
 
 CREATE TABLE `orders` (
@@ -105,37 +108,50 @@ CREATE TABLE `orders` (
   `orderCost` decimal(10,2) DEFAULT NULL,
   `orderUnitPrice` decimal(10,2) DEFAULT NULL,
   `orderTotalPrice` decimal(10,2) DEFAULT NULL,
-  `orderDate` date DEFAULT NULL
+  `orderDate` date DEFAULT NULL,
+  `orderSnackName` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `orders`
+--
+
+INSERT INTO `orders` (`orderId`, `orderSnackId`, `orderQuantity`, `orderCost`, `orderUnitPrice`, `orderTotalPrice`, `orderDate`, `orderSnackName`) VALUES
+(14, NULL, 1, '81.00', '15.00', '15.00', '2023-06-15', 'hamburuguer'),
+(15, NULL, 0, '50.00', '1.00', '0.00', '2023-06-15', 'test2'),
+(16, NULL, 1, '3.00', '15.00', '15.00', '2023-06-15', 'Hamburguer'),
+(17, NULL, 1, '3.00', '15.00', '15.00', '2023-06-15', 'Hamburguer'),
+(18, NULL, 1, '3.00', '15.00', '15.00', '2023-06-15', 'Hamburguer'),
+(19, 5, 2, '15.00', '15.00', '30.00', '2023-06-16', 'Hamburguer'),
+(20, 5, 1, '15.00', '15.00', '15.00', '2023-06-16', 'Hamburguer'),
+(21, 5, 2, '15.00', '15.00', '30.00', '2023-06-16', 'Hamburguer');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `snack`
+-- Estrutura da tabela `snack`
 --
 
 CREATE TABLE `snack` (
   `snackId` int(11) NOT NULL,
-  `snackTitle` text DEFAULT NULL,
-  `snackSellingPrice` decimal(10,2) DEFAULT NULL,
+  `snackTitle` varchar(255) DEFAULT NULL,
+  `snackSellingPrice` float DEFAULT NULL,
   `snackDescription` varchar(255) DEFAULT NULL,
   `snackImageUrl` varchar(255) DEFAULT NULL,
   `snackStatus` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `snack`
+-- Extraindo dados da tabela `snack`
 --
 
 INSERT INTO `snack` (`snackId`, `snackTitle`, `snackSellingPrice`, `snackDescription`, `snackImageUrl`, `snackStatus`) VALUES
-(1, 'hamburuguer', 15.00, 'teste', NULL, NULL),
-(2, 'test2', 1.00, '1', NULL, NULL),
-(3, 'teste', 1.00, 'te', NULL, NULL);
+(5, 'Hamburguer', 15, '15', '15', 'a');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuario`
+-- Estrutura da tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -144,7 +160,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuario`
+-- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`login`, `senha`) VALUES
@@ -155,88 +171,88 @@ INSERT INTO `usuario` (`login`, `senha`) VALUES
 --
 
 --
--- Índices de tabela `datasheet`
+-- Índices para tabela `datasheet`
 --
 ALTER TABLE `datasheet`
   ADD PRIMARY KEY (`dsSnackId`,`dsIngredientId`),
   ADD KEY `dsIngredientId` (`dsIngredientId`);
 
 --
--- Índices de tabela `ingredient`
+-- Índices para tabela `ingredient`
 --
 ALTER TABLE `ingredient`
   ADD PRIMARY KEY (`ingredientId`);
 
 --
--- Índices de tabela `input`
+-- Índices para tabela `input`
 --
 ALTER TABLE `input`
   ADD PRIMARY KEY (`inputId`),
   ADD KEY `inputIngredientId` (`inputIngredientId`);
 
 --
--- Índices de tabela `orders`
+-- Índices para tabela `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`orderId`),
   ADD KEY `orderSnackId` (`orderSnackId`);
 
 --
--- Índices de tabela `snack`
+-- Índices para tabela `snack`
 --
 ALTER TABLE `snack`
   ADD PRIMARY KEY (`snackId`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `input`
 --
 ALTER TABLE `input`
-  MODIFY `inputId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `inputId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `snack`
 --
 ALTER TABLE `snack`
-  MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `datasheet`
+-- Limitadores para a tabela `datasheet`
 --
 ALTER TABLE `datasheet`
-  ADD CONSTRAINT `datasheet_ibfk_1` FOREIGN KEY (`dsSnackId`) REFERENCES `snack` (`snackId`),
-  ADD CONSTRAINT `datasheet_ibfk_2` FOREIGN KEY (`dsIngredientId`) REFERENCES `ingredient` (`ingredientId`);
+  ADD CONSTRAINT `datasheet_ibfk_1` FOREIGN KEY (`dsIngredientId`) REFERENCES `ingredient` (`ingredientId`),
+  ADD CONSTRAINT `datasheet_ibfk_2` FOREIGN KEY (`dsSnackId`) REFERENCES `snack` (`snackId`);
 
 --
--- Restrições para tabelas `input`
+-- Limitadores para a tabela `input`
 --
 ALTER TABLE `input`
   ADD CONSTRAINT `input_ibfk_1` FOREIGN KEY (`inputIngredientId`) REFERENCES `ingredient` (`ingredientId`);
 
 --
--- Restrições para tabelas `orders`
+-- Limitadores para a tabela `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`orderSnackId`) REFERENCES `snack` (`snackId`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`orderSnackId`) REFERENCES `snack` (`snackId`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

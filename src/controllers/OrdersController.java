@@ -144,7 +144,7 @@ public final class OrdersController {
                
                 model.addRow(new Object[]{
                     orders.getOrderId(),
-                    orders.getSnack().getSnackTitle(),
+                    orders.getOrderSnackName(),
                     orders.getOrderQuantity(),
                     orders.getOrderCost(),
                     orders.getOrderUnitPrice(),
@@ -204,14 +204,15 @@ public final class OrdersController {
     }
     
     public void buildSnack() throws SQLException{
-        
-        Snack snack = this.snacks.get(this.comboBox.getSelectedIndex());
+        int index = this.comboBox.getSelectedIndex();
+        Snack snack = this.snacks.get(index);
         Orders order = new Orders();
         float unitPrice = 0;
         
         
         LocalDate time = LocalDate.now();
         this.order.setOrderSnackId(snack.getId());
+        this.order.setOrderSnackName(snack.getSnackTitle());
         this.order.setOrderQuantity(Integer.parseInt(String.valueOf(this.quantitySpinner.getValue())));
        // this.order.getOrderCost();
         this.order.setOrderUnitPrice(snack.getSnackSellingPrice());
@@ -219,8 +220,8 @@ public final class OrdersController {
         this.order.setOrderDate(time);
         
         IngredientDAO ingredientDAO = new IngredientDAO();
-      
         DataSheetDAO dsDAO = new DataSheetDAO();
+        
         List<DataSheet> dsSnack = dsDAO.searchBySnackId(this.dataSheets.get(index).getSnack().getId());
         
         for(int i = 0; i < dsSnack.size(); i++){
@@ -326,8 +327,8 @@ public final class OrdersController {
                     "Confirma a Exclusão do Registro?", 
                     "Exclusão de Registro",OK_CANCEL_OPTION);
             if(answer == 0){
-               Orders orders = new Orders();
-               OrdersDAO dao = new OrdersDAO();                
+                Orders orders = new Orders();
+                OrdersDAO dao = new OrdersDAO();                
                 orders.setOrderId((int) this.dsTable.getValueAt(this.dsTable.getSelectedRow(), 0));
               /*  
                 try {
