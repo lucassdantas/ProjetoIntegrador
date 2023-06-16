@@ -63,33 +63,34 @@ public class IngredientController {
         
         IngredientDAO dao = new IngredientDAO();
         int i = 0;
-        
+
         for (Ingredient ingredient : dao.readAll()) {
             
             float unitCost = ingredient.getIngredientUnitCost();
             float unitQuantity = ingredient.getIngredientUnitQuantity();
             float minQuantity = ingredient.getIngredientMinQuantity();
-            //gera as colunas e increnta os valores
+
             model.addRow(new Object[]{
-                ingredient.getId(),
-                ingredient.getIngredientName(),
-                unitCost,
-                unitQuantity,
-                minQuantity,
-                ingredient.getIngredientUnitOfMeasure()
+              ingredient.getId(),
+              ingredient.getIngredientName(),
+              unitCost,
+              unitQuantity,
+              minQuantity,
+              ingredient.getIngredientUnitOfMeasure()
+                    
             });
-                int unitQuantityInteger;
-                int minQuantityInteger;
             
-                if( unitQuantity % 1 == 0){
-                    unitQuantityInteger = (int) unitQuantity;
-                    model.setValueAt(unitQuantityInteger, i, 3);
-                }
-                if(minQuantity % 1 == 0){
-                    minQuantityInteger = (int) minQuantity;
-                    model.setValueAt(minQuantityInteger, i, 4);
-                }
+            int unitQuantityInteger;
+            int minQuantityInteger;
             
+            if( unitQuantity % 1 == 0){
+                unitQuantityInteger = (int) unitQuantity;
+                model.setValueAt(unitQuantityInteger, i, 3);
+            }
+            if(minQuantity % 1 == 0){
+                minQuantityInteger = (int) minQuantity;
+                model.setValueAt(minQuantityInteger, i, 4);
+            }
             i++;
           }
         }       
@@ -101,6 +102,7 @@ public class IngredientController {
     model.setNumRows(0);
 
     IngredientDAO dao = new IngredientDAO();
+
     int i = 0;
     
     for (Ingredient ingredient : dao.search(search)) {
@@ -130,6 +132,7 @@ public class IngredientController {
                 }
             
             i++;
+
         }
     }
     

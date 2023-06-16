@@ -219,6 +219,16 @@ public final class OrdersController {
         this.order.setOrderDate(time);
         
         IngredientDAO ingredientDAO = new IngredientDAO();
+      
+        DataSheetDAO dsDAO = new DataSheetDAO();
+        List<DataSheet> dsSnack = dsDAO.searchBySnackId(this.dataSheets.get(index).getSnack().getId());
+        
+        for(int i = 0; i < dsSnack.size(); i++){
+            int ingredientId = dsSnack.get(i).getIngredient().getId();
+            ingredientDAO.removeStock(dsSnack.get(i).getDsQuantity(), ingredientId);
+        }
+        
+
         ingredientDAO.removeStock(
                 this.order.getOrderQuantity(), 
                 this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId()
