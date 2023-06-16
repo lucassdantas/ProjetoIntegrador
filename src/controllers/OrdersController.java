@@ -53,10 +53,10 @@ public final class OrdersController {
         this.setComboBoxOptions();
         this.readDataSheetTable(this.comboBox.getSelectedIndex());
     }
-    public void setItems(JTable dsTable, JTable orderTable, JTable ingredientTable, Combobox combobox, JTextField orderTotalValueField, Spinner spinner){
+    public void setItems(JTable dsTable, JTable orderJTable, JTable ingredientTable, Combobox combobox, JTextField orderTotalValueField, Spinner spinner){
         this.setDSJTable(dsTable);
-        this.setOrderTable(orderTable);
-        this.setIngredientTable(ingredientTable);
+        this.setOrderJTable(orderJTable);
+        this.setIngredientJTable(ingredientTable);
         this.setComboBox(combobox);
         this.totalField = orderTotalValueField;
         this.quantitySpinner = spinner;
@@ -72,7 +72,7 @@ public final class OrdersController {
     public void setIngredientJTable(JTable table){
         this.ingredientTable = table;
     }
-    public void setOrderTable(JTable table){
+    public void setOrderJTable(JTable table){
         this.orderTable = table;
     }
     public void setSnacks(Snack snack){
