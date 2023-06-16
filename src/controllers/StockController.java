@@ -59,7 +59,12 @@ public class StockController {
         
         IngredientDAO dao = new IngredientDAO();
         
+        int i = 0;
+        
         for (Ingredient ingredient: dao.readAll()){
+            
+             float minQuantity = ingredient.getIngredientMinQuantity();
+             
             model.addRow(new Object[]{
                 ingredient.getId(),
                 ingredient.getIngredientName(),
@@ -67,7 +72,16 @@ public class StockController {
                 ingredient.getIngredientMinQuantity(),
                 ingredient.getIngredientUnitOfMeasure(),
                 ingredient.calcStatus()
+                    
             });
+                int minQuantityInteger;
+            
+                if(minQuantity % 1 == 0){
+                    minQuantityInteger = (int) minQuantity;
+                    model.setValueAt(minQuantityInteger, i, 3);
+                }
+            
+            i++;
         }       
     }
     
@@ -79,15 +93,29 @@ public class StockController {
         
         IngredientDAO dao = new IngredientDAO();
         
-        for (Ingredient ingredient: dao.search(search)){
+        int i = 0;
+        
+        for (Ingredient ingredient: dao.readAll()){
+            
+             float minQuantity = ingredient.getIngredientMinQuantity();
+             
             model.addRow(new Object[]{
                 ingredient.getId(),
                 ingredient.getIngredientName(),
                 ingredient.getIngredientStock(),
                 ingredient.getIngredientMinQuantity(),
                 ingredient.getIngredientUnitOfMeasure(),
-                ingredient.calcStatus(),
+                ingredient.calcStatus()
+                    
             });
+                int minQuantityInteger;
+            
+                if(minQuantity % 1 == 0){
+                    minQuantityInteger = (int) minQuantity;
+                    model.setValueAt(minQuantityInteger, i, 3);
+                }
+            
+            i++;
         }       
     }
 

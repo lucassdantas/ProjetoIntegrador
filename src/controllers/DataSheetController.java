@@ -155,6 +155,8 @@ public class DataSheetController {
         for (DataSheet ds: dao.readAll()){
             this.snacksList.add(ds.getSnack());
             this.ingredientsList.add(ds.getIngredient());
+            
+            
             model.addRow(new Object[]{
                 //dataSheet.getDsSnackId(),
                 ds.getSnack().getSnackTitle(),
@@ -162,6 +164,10 @@ public class DataSheetController {
                 ds.getDsQuantity(),
                 ds.getIngredient().getIngredientUnitOfMeasure(),
                 ds.getDsTotalCost()
+                    
+                    
+                    
+                    
             });
         }       
     }

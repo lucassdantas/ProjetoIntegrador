@@ -80,10 +80,6 @@ public final class OrdersController {
     public void searchDataSheet() throws SQLException{
         DataSheetDAO dao = new DataSheetDAO();
         this.dataSheets = dao.readAllBySnack();
-        /*if(this.dataSheets.size() <= 0){
-            DataSheet ds = new DataSheet(0, 0, 0, 0, "null");
-            this.dataSheets.add(ds);
-        }*/
     }
     public void searchIngredient() throws SQLException{
         IngredientDAO dao = new IngredientDAO();
@@ -109,9 +105,6 @@ public final class OrdersController {
     public void setComboBoxOptions(){
         for(int i = 0; i < this.dataSheets.size(); i++){
             this.comboBox.addItem(this.dataSheets.get(i).getSnack().getSnackTitle());
-        }
-        if( this.comboBox.getSelectedItem() == null){
-            this.comboBox.addItem(" a");
         }
         this.comboBox.setSelectedIndex(0);
 
@@ -143,16 +136,31 @@ public final class OrdersController {
         
         OrdersDAO dao = new OrdersDAO();
         
-        for (Orders orders: dao.readAll()){
-            model.addRow(new Object[]{
-                orders.getOrderId(),
-                orders.getOrderSnackName(),
-                orders.getOrderQuantity(),
-                orders.getOrderCost(),
-                orders.getOrderUnitPrice(),
-                orders.getOrderTotalPrice(),
-                orders.getOrderDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-            });
+        int i = 0;
+        
+            for (Orders orders: dao.readAll()){
+                
+                float OrderQuantity = orders.getOrderQuantity();
+               
+                model.addRow(new Object[]{
+                    orders.getOrderId(),
+                    orders.getSnack().getSnackTitle(),
+                    orders.getOrderQuantity(),
+                    orders.getOrderCost(),
+                    orders.getOrderUnitPrice(),
+                    orders.getOrderTotalPrice(),
+                    orders.getOrderDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                        
+                });
+                
+                int OrderQuantityInterger;
+                
+                if( OrderQuantity % 1 == 0){
+                    OrderQuantityInterger = (int) OrderQuantity;
+                    model.setValueAt(OrderQuantityInterger, i, 2);
+                }
+                
+            i++;
         }       
     }
     
@@ -163,17 +171,31 @@ public final class OrdersController {
         model.setNumRows(0);
         
         OrdersDAO dao = new OrdersDAO();
+        int i = 0;
         
-        for (Orders orders: dao.search(search)){
-            model.addRow(new Object[]{
-                orders.getOrderId(),
-                orders.getOrderSnackName(),
-                orders.getOrderQuantity(),
-                orders.getOrderCost(),
-                orders.getOrderUnitPrice(),
-                orders.getOrderTotalPrice(),
-                orders.getOrderDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-            });
+            for (Orders orders: dao.readAll()){
+                
+                float OrderQuantity = orders.getOrderQuantity();
+               
+                model.addRow(new Object[]{
+                    orders.getOrderId(),
+                    orders.getSnack().getSnackTitle(),
+                    orders.getOrderQuantity(),
+                    orders.getOrderCost(),
+                    orders.getOrderUnitPrice(),
+                    orders.getOrderTotalPrice(),
+                    orders.getOrderDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                        
+                });
+                
+                int OrderQuantityInterger;
+                
+                if( OrderQuantity % 1 == 0){
+                    OrderQuantityInterger = (int) OrderQuantity;
+                    model.setValueAt(OrderQuantityInterger, i, 2);
+                }
+                
+            i++;
         }       
     }
     public void calcTotalValue(){
@@ -182,28 +204,25 @@ public final class OrdersController {
     }
     
     public void buildSnack() throws SQLException{
-        int index = this.comboBox.getSelectedIndex();
+        
         Snack snack = this.snacks.get(this.comboBox.getSelectedIndex());
+        Orders order = new Orders();
+        float unitPrice = 0;
         
         
         LocalDate time = LocalDate.now();
         this.order.setOrderSnackId(snack.getId());
         this.order.setOrderQuantity(Integer.parseInt(String.valueOf(this.quantitySpinner.getValue())));
-        this.order.setOrderSnackName(snack.getSnackTitle());
        // this.order.getOrderCost();
         this.order.setOrderUnitPrice(snack.getSnackSellingPrice());
         this.order.setOrderTotalPrice(Float.parseFloat(this.totalField.getText()));
         this.order.setOrderDate(time);
         
         IngredientDAO ingredientDAO = new IngredientDAO();
-        DataSheetDAO dsDAO = new DataSheetDAO();
-        List<DataSheet> dsSnack = dsDAO.searchBySnackId(this.dataSheets.get(index).getSnack().getId());
-        1
         ingredientDAO.removeStock(
-            this.order.getOrderQuantity(), 
-            this.dataSheets.get(index).getIngredient().getId()
+                this.order.getOrderQuantity(), 
+                this.dataSheets.get(this.comboBox.getSelectedIndex()).getIngredient().getId()
         );
-        
         this.add(this.order);
     }
     public void clean (List <javax.swing.JTextField> fields){
@@ -255,6 +274,7 @@ public final class OrdersController {
     public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
             boolean isEmpty = false;
             for(int i = 0; i > fields.size(); i++){
+                System.out.print(fields.get(i));
                 if(fields.get(i).getText().isEmpty()){
                     System.out.print("the field "+i+" is empty");
                     isEmpty = true;

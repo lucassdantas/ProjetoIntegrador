@@ -118,18 +118,36 @@ public class InputController {
         this.inputs = new ArrayList<>();
        
         InputDAO dao = new InputDAO();
+        
+        int i = 0;
+        
             for (Input input: dao.readAll()){
+                
                 setIngredients(input.getIngredient());
                 setInputs(input);
+                
+                float InputQuantity = input.getInputQuantity();
+                
                 model.addRow(new Object[]{
+                    
                     input.getIngredient().getId(),
                     input.getIngredient().getIngredientName(),
                     input.getInputQuantity(),
                     input.getIngredient().getIngredientUnitOfMeasure(),
                     input.getInputCost(),
                     input.getInputDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                        
                 });
-            }       
+                
+                int InputQuantityInterger;
+                
+                if( InputQuantity % 1 == 0){
+                    InputQuantityInterger = (int) InputQuantity;
+                    model.setValueAt(InputQuantityInterger, i, 2);
+                }
+                
+            i++;
+         }       
     }
     
     public void readJTableSearch(String search) throws SQLException{
@@ -138,21 +156,39 @@ public class InputController {
         this.table.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
-        InputDAO dao = new InputDAO();
         this.ingredients = new ArrayList<>();
         this.inputs = new ArrayList<>();
-        for (Input input: dao.search(search)){
-            setIngredients(input.getIngredient());
-            setInputs(input);
-
-            model.addRow(new Object[]{
-                input.getIngredient().getId(),
-                input.getIngredient().getIngredientName(),
-                input.getInputQuantity(),
-                input.getIngredient().getIngredientUnitOfMeasure(),
-                input.getInputCost(),
-                input.getInputDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-            });
+        
+        InputDAO dao = new InputDAO();
+        
+        int i = 0;
+        
+            for (Input input: dao.readAll()){
+                
+                setIngredients(input.getIngredient());
+                setInputs(input);
+                
+                float InputQuantity = input.getInputQuantity();
+                
+                model.addRow(new Object[]{
+                    
+                    input.getIngredient().getId(),
+                    input.getIngredient().getIngredientName(),
+                    input.getInputQuantity(),
+                    input.getIngredient().getIngredientUnitOfMeasure(),
+                    input.getInputCost(),
+                    input.getInputDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                        
+                });
+                
+                int InputQuantityInterger;
+                
+                if( InputQuantity % 1 == 0){
+                    InputQuantityInterger = (int) InputQuantity;
+                    model.setValueAt(InputQuantityInterger, i, 2);
+                }
+                
+            i++;
         }       
     }
 
