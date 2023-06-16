@@ -127,7 +127,7 @@ public final class OrdersController {
         this.order = new Orders();
         DataSheetDAO dao = new DataSheetDAO();
         int snackId = this.dataSheets.get(id).getDsSnackId();
-        
+        this.currentDS = new ArrayList<>();
         for (DataSheet dataSheet: dao.searchBySnackId(snackId)){
             this.currentDS.add(dataSheet);
             System.out.println(dataSheet.getIngredient().getIngredientName());
