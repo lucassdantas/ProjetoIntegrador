@@ -95,7 +95,7 @@ private int tamanho;
         jLabel34 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         snackDescriptionField = new views.text.area.AreaText();
-        fotoVP = new javax.swing.JPanel();
+        lblFoto = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         snackAddChoseFileButton = new javax.swing.JButton();
@@ -194,24 +194,24 @@ private int tamanho;
         jLabel2.setText("FOTO");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout fotoVPLayout = new javax.swing.GroupLayout(fotoVP);
-        fotoVP.setLayout(fotoVPLayout);
-        fotoVPLayout.setHorizontalGroup(
-            fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fotoVPLayout.createSequentialGroup()
+        javax.swing.GroupLayout lblFotoLayout = new javax.swing.GroupLayout(lblFoto);
+        lblFoto.setLayout(lblFotoLayout);
+        lblFotoLayout.setHorizontalGroup(
+            lblFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblFotoLayout.createSequentialGroup()
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
-        fotoVPLayout.setVerticalGroup(
-            fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fotoVPLayout.createSequentialGroup()
+        lblFotoLayout.setVerticalGroup(
+            lblFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lblFotoLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
-        panelEntradas1.add(fotoVP, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 100, -1, -1));
+        panelEntradas1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 100, -1, -1));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel35.setText("Preço de venda (R$)");
@@ -598,7 +598,6 @@ private int tamanho;
     private javax.swing.JInternalFrame areaEntradas_entrada;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
-    private javax.swing.JPanel fotoVP;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel32;
@@ -607,6 +606,7 @@ private int tamanho;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel lblFoto;
     private javax.swing.JPanel panelEntradas1;
     private javax.swing.JButton snackAddChoseFileButton;
     private views.styles.Mybtn snackCancelButton;

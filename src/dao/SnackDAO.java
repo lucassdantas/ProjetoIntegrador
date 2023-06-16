@@ -43,8 +43,8 @@ public class SnackDAO {
    public void addImageUrl(Snack snack) throws SQLException{
       String query  = "update snack set snackImageUrl = ? WHERE snackId = ?";
           try (PreparedStatement statement = connection.prepareStatement(query)) {
-           statement.setString(1, snack.getSnackImageUrl());
-           statement.setInt(2, snack.getId());
+            statement.setString(1, snack.getSnackImageUrl());
+            statement.setInt(2, snack.getId());
             statement.executeUpdate();
         
           }    

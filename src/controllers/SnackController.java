@@ -126,6 +126,7 @@ public class SnackController {
             snack.setSnackTitle(fields.get(0).getText());
             snack.setSnackSellingPrice(Float.parseFloat(fields.get(1).getText()));
             snack.setSnackDescription(textArea.getText());
+            snack.setSnackImageUrl("oi");
             
             try {
                 dao.addSnack(snack);
