@@ -65,7 +65,6 @@ OrdersController ordersController = new OrdersController();
         ordersController.setItems(
             ordersDataSheetTable,
             orderTable,
-            ingredientTable,
             orderSnackComboBox,
             orderTotalValueField,
             orderQuantitySpinner
@@ -2323,6 +2322,8 @@ public void limparCalculoPorcoes() {
     private void dataSheetAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataSheetAddButtonActionPerformed
        DataSheetAdd dataSheetAdd = new DataSheetAdd();
        dataSheetAdd.setJTable(dataSheetTable);
+       dataSheetAdd.setComboBox(orderSnackComboBox);
+       dataSheetAdd.setOrderController(ordersController);
        dataSheetAdd.searchFields();
        dataSheetAdd.setVisible(true);
     }//GEN-LAST:event_dataSheetAddButtonActionPerformed
@@ -2873,6 +2874,7 @@ public void limparCalculoPorcoes() {
         try {
             ordersController.buildSnack();
             stockController.readJTable();
+            ingredientController.readJTable();
         } catch (SQLException ex) {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }

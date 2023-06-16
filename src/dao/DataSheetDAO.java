@@ -152,37 +152,38 @@ public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
                 "WHERE dsSnackId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, searchTerm);
-            try (ResultSet resultSet = statement.executeQuery()) {
-                while (resultSet.next()) {
-                    DataSheet dataSheet = new DataSheet();
-                    dataSheet.setDsSnackId(resultSet.getInt("dsSnackId"));
-                    dataSheet.setDsIngredientId(resultSet.getInt("dsIngredientId"));
-                    dataSheet.setDsQuantity(resultSet.getInt("dsQuantity"));
-                    dataSheet.setDsTotalCost(resultSet.getFloat("dsTotalCost"));
-                    dataSheet.setDsStatus(resultSet.getString("dsStatus"));
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println(resultSet);
+                DataSheet dataSheet = new DataSheet();
+                dataSheet.setDsSnackId(resultSet.getInt("dsSnackId"));
+                dataSheet.setDsIngredientId(resultSet.getInt("dsIngredientId"));
+                dataSheet.setDsQuantity(resultSet.getInt("dsQuantity"));
+                dataSheet.setDsTotalCost(resultSet.getFloat("dsTotalCost"));
+                dataSheet.setDsStatus(resultSet.getString("dsStatus"));
 
-                    Snack snack = new Snack();
-                    snack.setId(resultSet.getInt("snackId"));
-                    snack.setSnackTitle(resultSet.getString("snackTitle"));
-                    snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
-                    snack.setSnackDescription(resultSet.getString("snackDescription"));
-                    snack.setSnackImageUrl(resultSet.getString("snackImageUrl"));
-                    snack.setSnackStatus(resultSet.getString("snackStatus"));
+                Snack snack = new Snack();
+                snack.setId(resultSet.getInt("snackId"));
+                snack.setSnackTitle(resultSet.getString("snackTitle"));
+                snack.setSnackSellingPrice(resultSet.getFloat("snackSellingPrice"));
+                snack.setSnackDescription(resultSet.getString("snackDescription"));
+                snack.setSnackImageUrl(resultSet.getString("snackImageUrl"));
+                snack.setSnackStatus(resultSet.getString("snackStatus"));
 
-                    Ingredient ingredient = new Ingredient();
-                    ingredient.setId(resultSet.getInt("ingredientId"));
-                    ingredient.setIngredientName(resultSet.getString("ingredientName"));
-                    ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
-                    ingredient.setIngredientUnitOfMeasure(resultSet.getString("ingredientUnitOfMeasure"));
-                    ingredient.setIngredientUnitCost(resultSet.getFloat("ingredientUnitCost"));
-                    ingredient.setIngredientStatus(resultSet.getString("ingredientStatus"));
-                    ingredient.setIngredientStock(resultSet.getFloat("ingredientStock"));
-                    ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
+                Ingredient ingredient = new Ingredient();
+                ingredient.setId(resultSet.getInt("ingredientId"));
+                ingredient.setIngredientName(resultSet.getString("ingredientName"));
+                ingredient.setIngredientMinQuantity(resultSet.getFloat("ingredientMinQuantity"));
+                ingredient.setIngredientUnitOfMeasure(resultSet.getString("ingredientUnitOfMeasure"));
+                ingredient.setIngredientUnitCost(resultSet.getFloat("ingredientUnitCost"));
+                ingredient.setIngredientStatus(resultSet.getString("ingredientStatus"));
+                ingredient.setIngredientStock(resultSet.getFloat("ingredientStock"));
+                ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
 
-                    dataSheet.setSnack(snack);
-                    dataSheet.setIngredient(ingredient);
-                    dataSheets.add(dataSheet);
-                }
+                dataSheet.setSnack(snack);
+                dataSheet.setIngredient(ingredient);
+                dataSheets.add(dataSheet);
+                
             }
         }
         return dataSheets;

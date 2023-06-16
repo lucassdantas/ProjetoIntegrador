@@ -5,11 +5,13 @@
 package views;
 
 import controllers.DataSheetController;
+import controllers.OrdersController;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import views.combobox.Combobox;
 
 /**
  *
@@ -21,10 +23,12 @@ public class DataSheetAdd extends javax.swing.JFrame {
      * Creates new form EstoqueEntrada
      */
     private final DataSheetController dsController;
-
+    private  OrdersController orderController;
+    private Combobox combobox;
     public DataSheetAdd() {
         initComponents();
         dsController = new DataSheetController();
+        
         IconManager.setIcon(this);
     }
     
@@ -288,6 +292,12 @@ public class DataSheetAdd extends javax.swing.JFrame {
     public void setJTable(JTable table){
         this.dsController.setJTable(table);
     }
+    public void setOrderController(OrdersController orderController){
+        this.orderController = orderController;
+    }
+    public void setComboBox(Combobox combobox){
+        this.combobox = combobox;
+    }
     public void searchFields(){
         this.dsController.setSnackFields(dsSnackNameField);
         this.dsController.setIngredientFields(dsIngredientNameField);
@@ -303,7 +313,17 @@ public class DataSheetAdd extends javax.swing.JFrame {
 
     private void dsSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsSaveButtonActionPerformed
         try {
-            dsController.add(dsController.getIngredientFields(), dsController.getSnackFields(), dsController.getTotalValueField(), dsController.getDsQuantitySpinner());
+            if(
+                dsController.add(
+                    dsController.getIngredientFields(), 
+                    dsController.getSnackFields(), 
+                    dsController.getTotalValueField(), 
+                    dsController.getDsQuantitySpinner()
+                ) 
+            ){
+                this.orderController.readDataSheetTable(this.combobox.getSelectedIndex());
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
