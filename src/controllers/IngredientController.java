@@ -1,12 +1,12 @@
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controllers;
 
-import dao.DataSheetDAO;
 import dao.IngredientDAO;
-import dao.InputDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,10 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import models.Ingredient;
+import java.util.Scanner;
+import java.math.BigDecimal;
+
+
 
 /**
  *
@@ -58,38 +62,71 @@ public class IngredientController {
         model.setNumRows(0);
         
         IngredientDAO dao = new IngredientDAO();
-        
-        for (Ingredient ingredient: dao.readAll()){
+        int i = 0;
+        for (Ingredient ingredient : dao.readAll()) {
+            
+            float unitCost = ingredient.getIngredientUnitCost();
+            float unitQuantity = ingredient.getIngredientUnitQuantity();
+            float minQuantity = ingredient.getIngredientMinQuantity();
+            
+            
+
             model.addRow(new Object[]{
-                ingredient.getId(),
-                ingredient.getIngredientName(),
-                ingredient.getIngredientUnitCost(),
-                ingredient.getIngredientUnitQuantity(),
-                ingredient.getIngredientMinQuantity(),
-                ingredient.getIngredientUnitOfMeasure()
+            ingredient.getId(),
+            ingredient.getIngredientName(),
+            unitCost,
+            unitQuantity,
+            minQuantity,
+            ingredient.getIngredientUnitOfMeasure()
+                    
             });
+            
+            int unitQuantityInteger;
+            int minQuantityInteger;
+            
+            if( unitQuantity % 1 == 0){
+                unitQuantityInteger = (int) unitQuantity;
+                model.setValueAt(unitQuantityInteger, i, 3);
+            }
+            if(minQuantity % 1 == 0){
+                minQuantityInteger = (int) minQuantity;
+                model.setValueAt(minQuantityInteger, i, 4);
+            }
+            
+            
+            i++;
+          }
         }       
+    
+    
+  public void readJTableSearch(String search) throws SQLException {
+    DefaultTableModel model = (DefaultTableModel) this.table.getModel();
+    this.table.setRowSorter(new TableRowSorter(model));
+    model.setNumRows(0);
+
+    IngredientDAO dao = new IngredientDAO();
+
+    for (Ingredient ingredient : dao.search(search)) {
+            double unitCost = ingredient.getIngredientUnitCost();
+            double unitQuantity = ingredient.getIngredientUnitQuantity();
+            double minQuantity = ingredient.getIngredientMinQuantity();
+
+            int unitCostInteger = (int) unitCost;
+            int unitQuantityInteger = (int) unitQuantity;
+            int minQuantityInteger = (int) minQuantity;
+
+            model.addRow(new Object[]{
+            ingredient.getId(),
+            ingredient.getIngredientName(),
+            unitCostInteger,
+            unitQuantityInteger,
+            minQuantityInteger,
+            ingredient.getIngredientUnitOfMeasure()
+                    
+            });
+        }
     }
     
-    public void readJTableSearch(String search) throws SQLException{
-        
-        DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
-        this.table.setRowSorter(new TableRowSorter(model));
-        model.setNumRows(0);
-        
-        IngredientDAO dao = new IngredientDAO();
-        
-        for (Ingredient ingredient: dao.search(search)){
-            model.addRow(new Object[]{
-                ingredient.getId(),
-                ingredient.getIngredientName(),
-                ingredient.getIngredientUnitCost(),
-                ingredient.getIngredientUnitQuantity(),
-                ingredient.getIngredientMinQuantity(),
-                ingredient.getIngredientUnitOfMeasure()
-            });
-        }       
-    }
 
     public void clean (List <javax.swing.JTextField> fields){
         fields.forEach((field) -> {
@@ -180,19 +217,12 @@ public class IngredientController {
                     "Confirma a Exclusão do Registro?", 
                     "Exclusão de Registro",OK_CANCEL_OPTION);
             if(answer == 0){
-                IngredientDAO dao = new IngredientDAO();      
-                DataSheetDAO dsDAO = new DataSheetDAO();
-                InputDAO inputDAO = new InputDAO();
-                
                 Ingredient ingredient = new Ingredient();
-                
-                int id = (int) this.table.getValueAt(
-                        this.table.getSelectedRow(), 0);
-                ingredient.setId(id);
+                IngredientDAO dao = new IngredientDAO();                
+                ingredient.setId((int) this.table.getValueAt(
+                        this.table.getSelectedRow(), 0));
                 
                 try {
-                    dsDAO.deleteByIngredientId(ingredient.getId());
-                    inputDAO.deleteByIngredientId(ingredient.getId());
                     dao.deleteIngredient(ingredient.getId());
                 } catch (SQLException ex) {
                     System.out.print(ex);

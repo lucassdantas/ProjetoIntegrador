@@ -97,8 +97,10 @@ private int tamanho;
         jLabel34 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         snackDescriptionField = new views.text.area.AreaText();
+
         fotoVP = new javax.swing.JPanel();
         lblFoto = new javax.swing.JLabel();
+
         jLabel35 = new javax.swing.JLabel();
         carregarFoto = new javax.swing.JButton();
         snackCancelButton = new views.styles.Mybtn();
@@ -196,6 +198,7 @@ private int tamanho;
         lblFoto.setText("FOTO");
         lblFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+
         javax.swing.GroupLayout fotoVPLayout = new javax.swing.GroupLayout(fotoVP);
         fotoVP.setLayout(fotoVPLayout);
         fotoVPLayout.setHorizontalGroup(
@@ -205,9 +208,10 @@ private int tamanho;
         fotoVPLayout.setVerticalGroup(
             fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+
         );
 
-        panelEntradas1.add(fotoVP, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 100, -1, -1));
+        panelEntradas1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 100, -1, -1));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel35.setText("Preço de venda (R$)");
@@ -608,7 +612,6 @@ private int tamanho;
     private javax.swing.JButton carregarFoto;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
-    private javax.swing.JPanel fotoVP;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -616,7 +619,9 @@ private int tamanho;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+
     private javax.swing.JLabel lblFoto;
+
     private javax.swing.JPanel panelEntradas1;
     private views.styles.Mybtn snackCancelButton;
     private views.text.area.AreaText snackDescriptionField;
