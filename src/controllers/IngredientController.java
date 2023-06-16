@@ -63,21 +63,20 @@ public class IngredientController {
         
         IngredientDAO dao = new IngredientDAO();
         int i = 0;
+
         for (Ingredient ingredient : dao.readAll()) {
             
             float unitCost = ingredient.getIngredientUnitCost();
             float unitQuantity = ingredient.getIngredientUnitQuantity();
             float minQuantity = ingredient.getIngredientMinQuantity();
-            
-            
 
             model.addRow(new Object[]{
-            ingredient.getId(),
-            ingredient.getIngredientName(),
-            unitCost,
-            unitQuantity,
-            minQuantity,
-            ingredient.getIngredientUnitOfMeasure()
+              ingredient.getId(),
+              ingredient.getIngredientName(),
+              unitCost,
+              unitQuantity,
+              minQuantity,
+              ingredient.getIngredientUnitOfMeasure()
                     
             });
             
@@ -92,8 +91,6 @@ public class IngredientController {
                 minQuantityInteger = (int) minQuantity;
                 model.setValueAt(minQuantityInteger, i, 4);
             }
-            
-            
             i++;
           }
         }       
@@ -106,24 +103,36 @@ public class IngredientController {
 
     IngredientDAO dao = new IngredientDAO();
 
+    int i = 0;
+    
     for (Ingredient ingredient : dao.search(search)) {
-            double unitCost = ingredient.getIngredientUnitCost();
-            double unitQuantity = ingredient.getIngredientUnitQuantity();
-            double minQuantity = ingredient.getIngredientMinQuantity();
-
-            int unitCostInteger = (int) unitCost;
-            int unitQuantityInteger = (int) unitQuantity;
-            int minQuantityInteger = (int) minQuantity;
+        
+            float unitCost = ingredient.getIngredientUnitCost();
+            float unitQuantity = ingredient.getIngredientUnitQuantity();
+            float minQuantity = ingredient.getIngredientMinQuantity();
 
             model.addRow(new Object[]{
-            ingredient.getId(),
-            ingredient.getIngredientName(),
-            unitCostInteger,
-            unitQuantityInteger,
-            minQuantityInteger,
-            ingredient.getIngredientUnitOfMeasure()
-                    
+                ingredient.getId(),
+                ingredient.getIngredientName(),
+                unitCost,
+                unitQuantity,
+                minQuantity,
+                ingredient.getIngredientUnitOfMeasure()
             });
+                int unitQuantityInteger;
+                int minQuantityInteger;
+            
+                if( unitQuantity % 1 == 0){
+                    unitQuantityInteger = (int) unitQuantity;
+                    model.setValueAt(unitQuantityInteger, i, 3);
+                }
+                if(minQuantity % 1 == 0){
+                    minQuantityInteger = (int) minQuantity;
+                    model.setValueAt(minQuantityInteger, i, 4);
+                }
+            
+            i++;
+
         }
     }
     
