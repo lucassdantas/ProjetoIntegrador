@@ -154,7 +154,6 @@ public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
             statement.setInt(1, searchTerm);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                System.out.println(resultSet);
                 DataSheet dataSheet = new DataSheet();
                 dataSheet.setDsSnackId(resultSet.getInt("dsSnackId"));
                 dataSheet.setDsIngredientId(resultSet.getInt("dsIngredientId"));

@@ -130,7 +130,6 @@ public final class OrdersController {
         this.currentDS = new ArrayList<>();
         for (DataSheet dataSheet: dao.searchBySnackId(snackId)){
             this.currentDS.add(dataSheet);
-            System.out.println(dataSheet.getIngredient().getIngredientName());
             this.order.sumCost(dataSheet.getDsQuantity()* dataSheet.getIngredient().getIngredientUnitCost());
                 model.addRow(new Object[]{
                     dataSheet.getIngredient().getIngredientName(),
@@ -234,9 +233,7 @@ public final class OrdersController {
         DataSheetDAO dsDAO = new DataSheetDAO();
         
         //List<DataSheet> dsSnack = dsDAO.searchBySnackId(this.dataSheets.get(index).getSnack().getId());
-        System.out.println("size:"+currentDS.size());
         for(int i = 0; i < currentDS.size(); i++){
-            System.out.println("index:" + i);
             int ingredientId = currentDS.get(i).getIngredient().getId();
             ingredientDAO.removeStock(currentDS.get(i).getDsQuantity(), ingredientId);
         }
@@ -293,7 +290,6 @@ public final class OrdersController {
     public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
             boolean isEmpty = false;
             for(int i = 0; i > fields.size(); i++){
-                System.out.print(fields.get(i));
                 if(fields.get(i).getText().isEmpty()){
                     System.out.print("the field "+i+" is empty");
                     isEmpty = true;

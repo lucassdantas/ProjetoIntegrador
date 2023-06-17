@@ -69,7 +69,6 @@ public class InputController {
     }
     public void setFieldsValue(){
         for (int i = 0; i < (this.fields.size()-1); i++){
-            System.out.println(i);
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i)));
         }
         setDateField();
