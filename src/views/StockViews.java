@@ -2282,6 +2282,7 @@ public void limparCalculoPorcoes() {
     private void snackAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackAddButtonActionPerformed
         SnackAdd snackAdd = new SnackAdd();
         snackAdd.setJTable(snackTable);
+        snackAdd.setOrdersController(ordersController);
         snackAdd.searchFields();
         snackAdd.setVisible(true);
     }//GEN-LAST:event_snackAddButtonActionPerformed

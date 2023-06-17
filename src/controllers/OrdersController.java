@@ -63,14 +63,27 @@ public final class OrdersController {
         this.quantitySpinner = spinner;
         
     }
+    public void search() throws SQLException{
+        this.searchDataSheet();
+        this.searchIngredient();
+        this.searchSnack();
+    }
+    public void resetCombobox(){
+        this.comboBox.removeAllItems();
+    }
+    public void resetAndUpdate() throws SQLException{
+        this.resetCombobox();
+        this.search();
+        this.setComboBoxOptions();
+    }
     
     public void setComboBox(Combobox comboBox){
         this.comboBox = comboBox;
     }
+    
     public void setDSJTable(JTable table){
         this.dsTable = table;
     }
-    
     public void setOrderTable(JTable table){
         this.orderTable = table;
     }
@@ -83,6 +96,7 @@ public final class OrdersController {
     public void setCurrentDS(DataSheet ds){
         this.currentDS.add(ds);
     }
+    
     public void searchDataSheet() throws SQLException{
         DataSheetDAO dao = new DataSheetDAO();
         this.dataSheets = dao.readAllBySnack();
@@ -265,15 +279,6 @@ public final class OrdersController {
             return false;
         } else{
             OrdersDAO dao = new OrdersDAO();
-            /*
-            orders.setOrderSnackId(Integer.parseInt(String.valueOf(dsTable.getValueAt(dsTable.getSelectedRow(), 0))));
-            orders.setOrderQuantity(Integer.parseInt(String.valueOf(dsTable.getValueAt(dsTable.getSelectedRow(), 1))));
-            orders.setOrderCost(Float.parseFloat(fields.get(2).getText()));
-            orders.setOrderUnitPrice(Float.parseFloat(fields.get(3).getText()));
-            orders.setOrderTotalPrice(Float.parseFloat(fields.get(4).getText()));
-            orders.setOrderTotalPrice(Float.parseFloat(fields.get(5).getText()));
-        //  orders.setSnack(fields.get(4).getText());
-            */
             try {
                 dao.addOrder(order);
                 this.clean(this.fields);
