@@ -226,9 +226,11 @@ public class InputController {
             input.setInputCost(Float.parseFloat(fields.get(4).getText()));
             input.setInputDate(inputDate);
             input.setIngredient(this.ingredient);
+            System.out.println(String.valueOf(fields.get(2).getText()));
+            System.out.println(this.ingredient.getIngredientStock());
             try {
                 dao.addInput(input);
-                ingredientDAO.addStock(input.getIngredient());
+                ingredientDAO.addStock(input.getInputQuantity(), input.getIngredient());
                 this.readJTable();
                 this.stockController.readJTable();
                 this.clean(this.fields);
@@ -300,17 +302,7 @@ public class InputController {
                     "Selecione um serviço na tabela abaixo!");
         }
     }           
-    public void addStock(List <javax.swing.JTextField> fields) throws SQLException{
-        this.ingredient.setId(Integer.parseInt(fields.get(0).getText()));
-        this.ingredient.setIngredientStock(Float.parseFloat(fields.get(2).getText()));
-        IngredientDAO dao = new IngredientDAO();
-        try{
-            dao.addStock(this.ingredient);
-        }
-        catch(SQLException ex){
-            System.out.println(ex);
-        }
-    }
+    
 }       
     
 
