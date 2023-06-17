@@ -30,7 +30,7 @@ public class StockViews extends javax.swing.JFrame {
 
     //portion calc contrller
     PortionCalcController calcController = new PortionCalcController();
-    PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
+    PortionCalcResult PorcoesCalcular = new PortionCalcResult();
     IngredientController ingredientController = new IngredientController();
     SnackController snackController = new SnackController();
     DataSheetController dataSheetController = new DataSheetController();

@@ -14,12 +14,12 @@ import javax.swing.JFrame;
  *
  * @author Work.Studies
  */
-public class PorcoesCalcular extends javax.swing.JFrame {
+public class PortionCalcResult extends javax.swing.JFrame {
 private PortionResultController resultController = new PortionResultController();
     /**
      * Creates new form EstoqueEntrada
      */
-    public PorcoesCalcular() {
+    public PortionCalcResult() {
         initComponents();
         IconManager.setIcon(this);
     }
@@ -36,7 +36,7 @@ private PortionResultController resultController = new PortionResultController()
         resultSnackName = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         colorBtn19 = new javax.swing.JPanel();
-        mybtn5 = new views.styles.Mybtn();
+        calcPortionCancelButton = new views.styles.Mybtn();
         jLabel35 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         resultItemField01 = new javax.swing.JTextField();
@@ -145,13 +145,13 @@ private PortionResultController resultController = new PortionResultController()
 
         panelEntradas1.add(colorBtn19, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 780, 10, 40));
 
-        mybtn5.setText("CANCELAR");
-        mybtn5.addActionListener(new java.awt.event.ActionListener() {
+        calcPortionCancelButton.setText("CANCELAR");
+        calcPortionCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybtn5ActionPerformed(evt);
+                calcPortionCancelButtonActionPerformed(evt);
             }
         });
-        panelEntradas1.add(mybtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 780, 129, 40));
+        panelEntradas1.add(calcPortionCancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 780, 129, 40));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel35.setText("Qnt. de porções");
@@ -514,9 +514,9 @@ private PortionResultController resultController = new PortionResultController()
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mybtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybtn5ActionPerformed
+    private void calcPortionCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcPortionCancelButtonActionPerformed
         dispose();
-    }//GEN-LAST:event_mybtn5ActionPerformed
+    }//GEN-LAST:event_calcPortionCancelButtonActionPerformed
 
     private void resultItemField01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultItemField01ActionPerformed
         // TODO add your handling code here:
@@ -539,14 +539,78 @@ private PortionResultController resultController = new PortionResultController()
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PorcoesCalcular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PortionCalcResult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PorcoesCalcular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PortionCalcResult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PorcoesCalcular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PortionCalcResult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PorcoesCalcular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PortionCalcResult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -615,7 +679,7 @@ private PortionResultController resultController = new PortionResultController()
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PorcoesCalcular().setVisible(true);
+                new PortionCalcResult().setVisible(true);
             }
         });
     }
@@ -720,6 +784,7 @@ private PortionResultController resultController = new PortionResultController()
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
+    private views.styles.Mybtn calcPortionCancelButton;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel32;
@@ -735,7 +800,6 @@ private PortionResultController resultController = new PortionResultController()
     private javax.swing.JLabel jLabel42;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator7;
-    private views.styles.Mybtn mybtn5;
     private javax.swing.JPanel panelEntradas1;
     private javax.swing.JTextField resultCostField01;
     private javax.swing.JTextField resultCostField02;

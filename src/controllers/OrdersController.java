@@ -300,7 +300,6 @@ public final class OrdersController {
             }
         }
     }
-    
     public boolean update(List <javax.swing.JTextField> fields) throws SQLException{
             boolean isEmpty = false;
             for(int i = 0; i > fields.size(); i++){
@@ -338,7 +337,6 @@ public final class OrdersController {
         
         
     }
-    
     public void delete() throws SQLException{
         if (this.dsTable.getSelectedRow() != -1){
             int answer = JOptionPane.showConfirmDialog(null,
