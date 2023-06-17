@@ -63,14 +63,27 @@ public final class OrdersController {
         this.quantitySpinner = spinner;
         
     }
+    public void search() throws SQLException{
+        this.searchDataSheet();
+        this.searchIngredient();
+        this.searchSnack();
+    }
+    public void resetCombobox(){
+        this.comboBox.removeAllItems();
+    }
+    public void resetAndUpdate() throws SQLException{
+       // this.resetCombobox();
+        this.search();
+        this.setComboBoxOptions();
+    }
     
     public void setComboBox(Combobox comboBox){
         this.comboBox = comboBox;
     }
+    
     public void setDSJTable(JTable table){
         this.dsTable = table;
     }
-    
     public void setOrderTable(JTable table){
         this.orderTable = table;
     }
@@ -83,6 +96,7 @@ public final class OrdersController {
     public void setCurrentDS(DataSheet ds){
         this.currentDS.add(ds);
     }
+    
     public void searchDataSheet() throws SQLException{
         DataSheetDAO dao = new DataSheetDAO();
         this.dataSheets = dao.readAllBySnack();
@@ -112,6 +126,7 @@ public final class OrdersController {
         return this.currentDS;
     }
     public void setComboBoxOptions(){
+        this.resetCombobox();
         for(int i = 0; i < this.dataSheets.size(); i++){
             this.comboBox.addItem(this.dataSheets.get(i).getSnack().getSnackTitle());
         }
@@ -119,15 +134,19 @@ public final class OrdersController {
 
        
     }
-    public void readDataSheetTable(int id) throws SQLException{
+    public void readDataSheetTable(int index) throws SQLException{
+        if(index > this.dataSheets.size() || index < 0){
+            index = 0 ;
+        }
         DefaultTableModel model = (DefaultTableModel) this.dsTable.getModel();        
         this.dsTable.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
         this.order = new Orders();
         DataSheetDAO dao = new DataSheetDAO();
-        int snackId = this.dataSheets.get(id).getDsSnackId();
         this.currentDS = new ArrayList<>();
+
+        int snackId = this.dataSheets.get(index).getDsSnackId();
         for (DataSheet dataSheet: dao.searchBySnackId(snackId)){
             this.currentDS.add(dataSheet);
             this.order.sumCost(dataSheet.getDsQuantity()* dataSheet.getIngredient().getIngredientUnitCost());
@@ -209,8 +228,12 @@ public final class OrdersController {
         }       
     }
     public void calcTotalValue(){
-       float snackValue =  this.dataSheets.get(this.comboBox.getSelectedIndex()).getSnack().getSnackSellingPrice();
-       this.totalField.setText(String.valueOf(Float.parseFloat(String.valueOf( this.quantitySpinner.getValue())) * snackValue));
+        int index = this.comboBox.getSelectedIndex();
+        if(index > this.dataSheets.size() || index < 0){
+            index = 0;
+        }
+        float snackValue =  this.dataSheets.get(index).getSnack().getSnackSellingPrice();
+        this.totalField.setText(String.valueOf(Float.parseFloat(String.valueOf( this.quantitySpinner.getValue())) * snackValue));
     }
     
     public void buildSnack() throws SQLException{
@@ -265,15 +288,6 @@ public final class OrdersController {
             return false;
         } else{
             OrdersDAO dao = new OrdersDAO();
-            /*
-            orders.setOrderSnackId(Integer.parseInt(String.valueOf(dsTable.getValueAt(dsTable.getSelectedRow(), 0))));
-            orders.setOrderQuantity(Integer.parseInt(String.valueOf(dsTable.getValueAt(dsTable.getSelectedRow(), 1))));
-            orders.setOrderCost(Float.parseFloat(fields.get(2).getText()));
-            orders.setOrderUnitPrice(Float.parseFloat(fields.get(3).getText()));
-            orders.setOrderTotalPrice(Float.parseFloat(fields.get(4).getText()));
-            orders.setOrderTotalPrice(Float.parseFloat(fields.get(5).getText()));
-        //  orders.setSnack(fields.get(4).getText());
-            */
             try {
                 dao.addOrder(order);
                 this.clean(this.fields);

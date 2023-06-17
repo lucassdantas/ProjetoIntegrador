@@ -5,6 +5,7 @@
 package views;
 
 import AppPackage.AnimationClass;
+import controllers.OrdersController;
 import controllers.SnackController;
 import dao.SnackDAO;
 import java.awt.Image;
@@ -30,22 +31,15 @@ import models.Snack;
  */
 public class SnackAdd extends javax.swing.JFrame {
 
-    
-AnimationClass ac = new AnimationClass();
-
-
-//Instanciar objeto para o fluxo de bytes.
-  private FileInputStream fis;
-  
-//variavel global para armazebar o tamanho da imagem(bytes)
-private int tamanho;     
-
-    
     private SnackController snackController;
+    private OrdersController ordersController;
     public SnackAdd() {
         initComponents();
         this.snackController = new SnackController();
         IconManager.setIcon(this);
+    }
+    public void setOrdersController(OrdersController ordersController){
+        this.ordersController = ordersController;
     }
     public void setJTable(JTable table){
         this.snackController.setJTable(table);
@@ -277,7 +271,7 @@ private int tamanho;
     private void snackSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackSaveButtonActionPerformed
         try {
             snackController.add(snackController.getFields(), snackController.getTextArea());
-            dispose();
+            
         } catch (SQLException ex) {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }

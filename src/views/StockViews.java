@@ -26,17 +26,19 @@ import models.Snack;
 
 public class StockViews extends javax.swing.JFrame {
 
-AnimationClass ac = new AnimationClass();
+    AnimationClass ac = new AnimationClass();
 
-//portion calc contrller
-PortionCalcController calcController = new PortionCalcController();
-PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
-IngredientController ingredientController = new IngredientController();
-SnackController snackController = new SnackController();
-DataSheetController dataSheetController = new DataSheetController();
-InputController inputController = new InputController();
-StockController stockController = new StockController();
-OrdersController ordersController = new OrdersController();
+    //portion calc contrller
+    PortionCalcController calcController = new PortionCalcController();
+    PorcoesCalcular PorcoesCalcular = new PorcoesCalcular();
+    IngredientController ingredientController = new IngredientController();
+    SnackController snackController = new SnackController();
+    DataSheetController dataSheetController = new DataSheetController();
+    InputController inputController = new InputController();
+    StockController stockController = new StockController();
+    OrdersController ordersController = new OrdersController();
+    int oldValue = -2;
+
     public StockViews() throws SQLException {
         initComponents();
         setIcon();
@@ -791,6 +793,11 @@ public void limparCalculoPorcoes() {
                 orderSnackComboBoxItemStateChanged(evt);
             }
         });
+        orderSnackComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderSnackComboBoxMouseClicked(evt);
+            }
+        });
         orderSnackComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderSnackComboBoxActionPerformed(evt);
@@ -872,6 +879,11 @@ public void limparCalculoPorcoes() {
         orderTotalValueField.setName(""); // NOI18N
         orderTotalValueField.setEditable(false);
         orderTotalValueField.setOpaque(true);
+        orderTotalValueField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderTotalValueFieldActionPerformed(evt);
+            }
+        });
         panelNP.add(orderTotalValueField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 102, 45));
 
         orderAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check mark.png"))); // NOI18N
@@ -2282,6 +2294,7 @@ public void limparCalculoPorcoes() {
     private void snackAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackAddButtonActionPerformed
         SnackAdd snackAdd = new SnackAdd();
         snackAdd.setJTable(snackTable);
+        snackAdd.setOrdersController(ordersController);
         snackAdd.searchFields();
         snackAdd.setVisible(true);
     }//GEN-LAST:event_snackAddButtonActionPerformed
@@ -2850,20 +2863,30 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_stockSearchButtonActionPerformed
 
     private void orderSnackComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderSnackComboBoxActionPerformed
-       
+        int currentValue = orderSnackComboBox.getSelectedIndex();
+        if(currentValue != oldValue){
+            try {
+                oldValue = currentValue;
+
+                ordersController.readDataSheetTable(orderSnackComboBox.getSelectedIndex());
+                ordersController.calcTotalValue();
+            } catch (SQLException ex) {
+                Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_orderSnackComboBoxActionPerformed
 
     private void orderSnackComboBoxPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_orderSnackComboBoxPropertyChange
     }//GEN-LAST:event_orderSnackComboBoxPropertyChange
 
     private void orderSnackComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_orderSnackComboBoxItemStateChanged
-        try {
+  /*      try {
             ordersController.readDataSheetTable(orderSnackComboBox.getSelectedIndex());
             ordersController.calcTotalValue();
         } catch (SQLException ex) {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+*/
     }//GEN-LAST:event_orderSnackComboBoxItemStateChanged
 
     private void orderQuantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_orderQuantitySpinnerStateChanged
@@ -2879,6 +2902,14 @@ public void limparCalculoPorcoes() {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_orderAddButtonActionPerformed
+
+    private void orderSnackComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderSnackComboBoxMouseClicked
+ 
+    }//GEN-LAST:event_orderSnackComboBoxMouseClicked
+
+    private void orderTotalValueFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderTotalValueFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderTotalValueFieldActionPerformed
 
     /**
      * @param args the command line arguments

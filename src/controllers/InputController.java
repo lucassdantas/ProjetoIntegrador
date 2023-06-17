@@ -39,6 +39,7 @@ public class InputController {
     private Ingredient ingredient;
     private List<Input> inputs;
     private Input inputModel;
+    
     public InputController(){
         this.fields = new ArrayList<>();
         this.ingredients = new ArrayList<>();
@@ -57,7 +58,6 @@ public class InputController {
     public void setStockController(StockController stockController){
         this.stockController = stockController;
     }
-    
     public void setFields(JTextField field){
         this.fields.add(field);
     }
@@ -235,7 +235,6 @@ public class InputController {
                 this.stockController.readJTable();
                 this.clean(this.fields);
                 this.resetFields();
-                this.setDateField();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);
