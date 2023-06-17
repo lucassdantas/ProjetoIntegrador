@@ -72,7 +72,7 @@ public final class OrdersController {
         this.comboBox.removeAllItems();
     }
     public void resetAndUpdate() throws SQLException{
-        this.resetCombobox();
+       // this.resetCombobox();
         this.search();
         this.setComboBoxOptions();
     }
@@ -126,6 +126,7 @@ public final class OrdersController {
         return this.currentDS;
     }
     public void setComboBoxOptions(){
+        this.resetCombobox();
         for(int i = 0; i < this.dataSheets.size(); i++){
             this.comboBox.addItem(this.dataSheets.get(i).getSnack().getSnackTitle());
         }
@@ -133,15 +134,19 @@ public final class OrdersController {
 
        
     }
-    public void readDataSheetTable(int id) throws SQLException{
+    public void readDataSheetTable(int index) throws SQLException{
+        if(index > this.dataSheets.size() || index < 0){
+            index = 0 ;
+        }
         DefaultTableModel model = (DefaultTableModel) this.dsTable.getModel();        
         this.dsTable.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
         this.order = new Orders();
         DataSheetDAO dao = new DataSheetDAO();
-        int snackId = this.dataSheets.get(id).getDsSnackId();
         this.currentDS = new ArrayList<>();
+
+        int snackId = this.dataSheets.get(index).getDsSnackId();
         for (DataSheet dataSheet: dao.searchBySnackId(snackId)){
             this.currentDS.add(dataSheet);
             this.order.sumCost(dataSheet.getDsQuantity()* dataSheet.getIngredient().getIngredientUnitCost());
@@ -223,8 +228,12 @@ public final class OrdersController {
         }       
     }
     public void calcTotalValue(){
-       float snackValue =  this.dataSheets.get(this.comboBox.getSelectedIndex()).getSnack().getSnackSellingPrice();
-       this.totalField.setText(String.valueOf(Float.parseFloat(String.valueOf( this.quantitySpinner.getValue())) * snackValue));
+        int index = this.comboBox.getSelectedIndex();
+        if(index > this.dataSheets.size() || index < 0){
+            index = 0;
+        }
+        float snackValue =  this.dataSheets.get(index).getSnack().getSnackSellingPrice();
+        this.totalField.setText(String.valueOf(Float.parseFloat(String.valueOf( this.quantitySpinner.getValue())) * snackValue));
     }
     
     public void buildSnack() throws SQLException{

@@ -321,7 +321,8 @@ public class DataSheetAdd extends javax.swing.JFrame {
                     dsController.getDsQuantitySpinner()
                 ) 
             ){
-                this.orderController.readDataSheetTable(this.combobox.getSelectedIndex());
+                this.orderController.resetAndUpdate();
+                this.orderController.readDataSheetTable(0);
             }
             
         } catch (SQLException ex) {
