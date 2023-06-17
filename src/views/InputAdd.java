@@ -254,6 +254,9 @@ public class InputAdd extends javax.swing.JFrame {
     private void inputAddSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddSaveButtonActionPerformed
         try {
             this.inputController.add(inputController.getFields());
+            this.searchFields();
+            inputController.setDateField();
+
         } catch (SQLException ex) {
             Logger.getLogger(InputAdd.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
