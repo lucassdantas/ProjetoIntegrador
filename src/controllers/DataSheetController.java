@@ -164,10 +164,6 @@ public class DataSheetController {
                 ds.getDsQuantity(),
                 ds.getIngredient().getIngredientUnitOfMeasure(),
                 ds.getDsTotalCost()
-                    
-                    
-                    
-                    
             });
         }       
     }
