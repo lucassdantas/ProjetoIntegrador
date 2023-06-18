@@ -14,15 +14,20 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.NumberFormatter;
 import models.Snack;
 
 /**
@@ -163,6 +168,16 @@ public class SnackAdd extends javax.swing.JFrame {
 
         snackSellingPriceField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         snackSellingPriceField.setName(""); // NOI18N
+        snackSellingPriceField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                snackSellingPriceFieldActionPerformed(evt);
+            }
+        });
+        snackSellingPriceField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                snackSellingPriceFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(snackSellingPriceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -310,9 +325,24 @@ public class SnackAdd extends javax.swing.JFrame {
             //carregarFoto();
     }//GEN-LAST:event_snackAddChoseFileButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void snackSellingPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackSellingPriceFieldActionPerformed
+         
+      // snackSellingPriceField = NumberFormat.getInstance().parse(snackSellingPriceField).doubleValue;
+      NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+              System.out.println(formatter.format(123456.78));
+    }//GEN-LAST:event_snackSellingPriceFieldActionPerformed
+
+    private void snackSellingPriceFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_snackSellingPriceFieldKeyTyped
+         String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+         
+    }//GEN-LAST:event_snackSellingPriceFieldKeyTyped
+
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -621,4 +651,5 @@ public class SnackAdd extends javax.swing.JFrame {
     private views.styles.Mybtn snackSaveButton;
     private javax.swing.JTextField snackSellingPriceField;
     // End of variables declaration//GEN-END:variables
+
 }
