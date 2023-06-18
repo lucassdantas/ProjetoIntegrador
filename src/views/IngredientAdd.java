@@ -155,6 +155,11 @@ public class IngredientAdd extends javax.swing.JFrame {
 
         ingredientCostField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         ingredientCostField.setName(""); // NOI18N
+        ingredientCostField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ingredientCostFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(ingredientCostField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -208,10 +213,20 @@ public class IngredientAdd extends javax.swing.JFrame {
 
         ingredientUnityQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         ingredientUnityQuantityField.setName(""); // NOI18N
+        ingredientUnityQuantityField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ingredientUnityQuantityFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(ingredientUnityQuantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 140, 45));
 
         ingredientMinQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         ingredientMinQuantityField.setName(""); // NOI18N
+        ingredientMinQuantityField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ingredientMinQuantityFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(ingredientMinQuantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 140, 45));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -224,6 +239,11 @@ public class IngredientAdd extends javax.swing.JFrame {
 
         ingredientMediaField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         ingredientMediaField.setName(""); // NOI18N
+        ingredientMediaField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ingredientMediaFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(ingredientMediaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 140, 45));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
@@ -263,6 +283,34 @@ public class IngredientAdd extends javax.swing.JFrame {
     private void ingredientNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientNameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ingredientNameFieldActionPerformed
+
+    private void ingredientCostFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ingredientCostFieldKeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_ingredientCostFieldKeyTyped
+
+    private void ingredientUnityQuantityFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ingredientUnityQuantityFieldKeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_ingredientUnityQuantityFieldKeyTyped
+
+    private void ingredientMinQuantityFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ingredientMinQuantityFieldKeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_ingredientMinQuantityFieldKeyTyped
+
+    private void ingredientMediaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ingredientMediaFieldKeyTyped
+                         
+    }//GEN-LAST:event_ingredientMediaFieldKeyTyped
     
     /**
      * @param args the command line arguments

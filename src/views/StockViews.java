@@ -1,6 +1,7 @@
 package views;
 import AppPackage.AnimationClass;
 import controllers.DataSheetController;
+
 import controllers.IngredientController;
 import controllers.InputController;
 import controllers.OrdersController;
@@ -37,6 +38,7 @@ public class StockViews extends javax.swing.JFrame {
     InputController inputController = new InputController();
     StockController stockController = new StockController();
     OrdersController ordersController = new OrdersController();
+   
     int oldValue = -2;
 
     public StockViews() throws SQLException {
@@ -63,6 +65,8 @@ public class StockViews extends javax.swing.JFrame {
         stockController.setJTable(stockTable);
         stockController.readJTable();
         
+      
+        
         
         ordersController.setItems(
             ordersDataSheetTable,
@@ -73,52 +77,7 @@ public class StockViews extends javax.swing.JFrame {
         );
         ordersController.main();
         
-        calcController.setCalcItemField(calcItemField01);
-        calcController.setCalcItemField(calcItemField02);
-        calcController.setCalcItemField(calcItemField03);
-        calcController.setCalcItemField(calcItemField04);
-        calcController.setCalcItemField(calcItemField05);
-        calcController.setCalcItemField(calcItemField06);
-        calcController.setCalcItemField(calcItemField07);
-        calcController.setCalcItemField(calcItemField08);
-        calcController.setCalcItemField(calcItemField09);
-        calcController.setCalcItemField(calcItemField10);
-
-        calcController.setCalcQntField(calcQntField01);
-        calcController.setCalcQntField(calcQntField02);
-        calcController.setCalcQntField(calcQntField03);
-        calcController.setCalcQntField(calcQntField04);
-        calcController.setCalcQntField(calcQntField05);
-        calcController.setCalcQntField(calcQntField06);
-        calcController.setCalcQntField(calcQntField07);
-        calcController.setCalcQntField(calcQntField08);
-        calcController.setCalcQntField(calcQntField09);
-        calcController.setCalcQntField(calcQntField10);
-
-        calcController.setCalcUnityField(calcUnField01);
-        calcController.setCalcUnityField(calcUnField02);
-        calcController.setCalcUnityField(calcUnField03);
-        calcController.setCalcUnityField(calcUnField04);
-        calcController.setCalcUnityField(calcUnField05);
-        calcController.setCalcUnityField(calcUnField06);
-        calcController.setCalcUnityField(calcUnField07);
-        calcController.setCalcUnityField(calcUnField08);
-        calcController.setCalcUnityField(calcUnField09);
-        calcController.setCalcUnityField(calcUnField10);
         
-        calcController.setCalcCostField(calcCostField01);
-        calcController.setCalcCostField(calcCostField02);
-        calcController.setCalcCostField(calcCostField03);
-        calcController.setCalcCostField(calcCostField04);
-        calcController.setCalcCostField(calcCostField05);
-        calcController.setCalcCostField(calcCostField06);
-        calcController.setCalcCostField(calcCostField07);
-        calcController.setCalcCostField(calcCostField08);
-        calcController.setCalcCostField(calcCostField09);
-        calcController.setCalcCostField(calcCostField10);
-        
-        calcController.setCalcPortionField(calcPortionField);
-        calcController.setCalcQuantityFieldValue();
         
        
     }
@@ -1107,6 +1066,11 @@ public void limparCalculoPorcoes() {
         snackPriceOfSellingField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         snackPriceOfSellingField.setName(""); // NOI18N
         snackPriceOfSellingField.setOpaque(true);
+        snackPriceOfSellingField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                snackPriceOfSellingFieldKeyTyped(evt);
+            }
+        });
         panelLanche.add(snackPriceOfSellingField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 140, 45));
 
         colorBtn4.setBackground(new java.awt.Color(90, 90, 90));
@@ -1638,6 +1602,11 @@ public void limparCalculoPorcoes() {
                 calcQntField01ActionPerformed(evt);
             }
         });
+        calcQntField01.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField01KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 100, 45));
 
         calcItemField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1670,14 +1639,9 @@ public void limparCalculoPorcoes() {
 
         calcCostField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField01.setName(""); // NOI18N
-        calcCostField01.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField01ActionPerformed(evt);
-            }
-        });
         calcCostField01.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField01KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField01KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 100, 45));
@@ -1688,6 +1652,11 @@ public void limparCalculoPorcoes() {
 
         calcQntField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField02.setName(""); // NOI18N
+        calcQntField02.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField02KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 365, 100, 45));
 
         calcUnField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1696,14 +1665,9 @@ public void limparCalculoPorcoes() {
 
         calcCostField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField02.setName(""); // NOI18N
-        calcCostField02.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField02ActionPerformed(evt);
-            }
-        });
         calcCostField02.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField02KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField02KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 365, 100, 45));
@@ -1728,6 +1692,11 @@ public void limparCalculoPorcoes() {
 
         calcQntField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField03.setName(""); // NOI18N
+        calcQntField03.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField03KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 100, 45));
 
         calcUnField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1736,14 +1705,9 @@ public void limparCalculoPorcoes() {
 
         calcCostField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField03.setName(""); // NOI18N
-        calcCostField03.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField03ActionPerformed(evt);
-            }
-        });
         calcCostField03.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField03KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField03KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 100, 45));
@@ -1754,6 +1718,11 @@ public void limparCalculoPorcoes() {
 
         calcQntField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField04.setName(""); // NOI18N
+        calcQntField04.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField04KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 475, 100, 45));
 
         calcUnField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1762,14 +1731,9 @@ public void limparCalculoPorcoes() {
 
         calcCostField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField04.setName(""); // NOI18N
-        calcCostField04.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField04ActionPerformed(evt);
-            }
-        });
         calcCostField04.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField04KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField04KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 475, 100, 45));
@@ -1780,6 +1744,11 @@ public void limparCalculoPorcoes() {
 
         calcQntField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField05.setName(""); // NOI18N
+        calcQntField05.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField05KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 100, 45));
 
         calcUnField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1792,6 +1761,11 @@ public void limparCalculoPorcoes() {
 
         calcQntField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField06.setName(""); // NOI18N
+        calcQntField06.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField06KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 585, 100, 45));
 
         calcUnField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1800,42 +1774,27 @@ public void limparCalculoPorcoes() {
 
         calcCostField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField06.setName(""); // NOI18N
-        calcCostField06.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField06ActionPerformed(evt);
-            }
-        });
         calcCostField06.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField06KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField06KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 585, 100, 45));
 
         calcCostField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField05.setName(""); // NOI18N
-        calcCostField05.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField05ActionPerformed(evt);
-            }
-        });
         calcCostField05.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField05KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField05KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 100, 45));
 
         calcCostField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField07.setName(""); // NOI18N
-        calcCostField07.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField07ActionPerformed(evt);
-            }
-        });
         calcCostField07.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField07KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField07KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, 100, 45));
@@ -1846,6 +1805,11 @@ public void limparCalculoPorcoes() {
 
         calcQntField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField07.setName(""); // NOI18N
+        calcQntField07.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField07KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 640, 100, 45));
 
         calcItemField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1858,6 +1822,11 @@ public void limparCalculoPorcoes() {
 
         calcQntField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField08.setName(""); // NOI18N
+        calcQntField08.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField08KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 695, 100, 45));
 
         calcUnField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1866,14 +1835,9 @@ public void limparCalculoPorcoes() {
 
         calcCostField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField08.setName(""); // NOI18N
-        calcCostField08.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField08ActionPerformed(evt);
-            }
-        });
         calcCostField08.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField08KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField08KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 695, 100, 45));
@@ -1884,6 +1848,11 @@ public void limparCalculoPorcoes() {
 
         calcQntField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField09.setName(""); // NOI18N
+        calcQntField09.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField09KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 750, 100, 45));
 
         calcUnField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1892,14 +1861,9 @@ public void limparCalculoPorcoes() {
 
         calcCostField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField09.setName(""); // NOI18N
-        calcCostField09.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField09ActionPerformed(evt);
-            }
-        });
         calcCostField09.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField09KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField09KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 750, 100, 45));
@@ -1910,6 +1874,11 @@ public void limparCalculoPorcoes() {
 
         calcQntField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField10.setName(""); // NOI18N
+        calcQntField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcQntField10KeyTyped(evt);
+            }
+        });
         panelPE1.add(calcQntField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 805, 100, 45));
 
         calcUnField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -1918,14 +1887,9 @@ public void limparCalculoPorcoes() {
 
         calcCostField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField10.setName(""); // NOI18N
-        calcCostField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCostField10ActionPerformed(evt);
-            }
-        });
         calcCostField10.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                calcCostField10KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField10KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 805, 100, 45));
@@ -2505,7 +2469,51 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_dataSheetEditButtonActionPerformed
 
     private void portionCalcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portionCalcBtnActionPerformed
+        calcController.setCalcItemField(calcItemField01);
+        calcController.setCalcItemField(calcItemField02);
+        calcController.setCalcItemField(calcItemField03);
+        calcController.setCalcItemField(calcItemField04);
+        calcController.setCalcItemField(calcItemField05);
+        calcController.setCalcItemField(calcItemField06);
+        calcController.setCalcItemField(calcItemField07);
+        calcController.setCalcItemField(calcItemField08);
+        calcController.setCalcItemField(calcItemField09);
+        calcController.setCalcItemField(calcItemField10);
 
+        calcController.setCalcQntField(calcQntField01.getText());
+        calcController.setCalcQntField(calcQntField02.getText());
+        calcController.setCalcQntField(calcQntField03.getText());
+        calcController.setCalcQntField(calcQntField04.getText());
+        calcController.setCalcQntField(calcQntField05.getText());
+        calcController.setCalcQntField(calcQntField06.getText());
+        calcController.setCalcQntField(calcQntField07.getText());
+        calcController.setCalcQntField(calcQntField08.getText());
+        calcController.setCalcQntField(calcQntField09.getText());
+        calcController.setCalcQntField(calcQntField10.getText());
+
+        calcController.setCalcUnityField(calcUnField01.getText());
+        calcController.setCalcUnityField(calcUnField02.getText());
+        calcController.setCalcUnityField(calcUnField03.getText());
+        calcController.setCalcUnityField(calcUnField04.getText());
+        calcController.setCalcUnityField(calcUnField05.getText());
+        calcController.setCalcUnityField(calcUnField06.getText());
+        calcController.setCalcUnityField(calcUnField07.getText());
+        calcController.setCalcUnityField(calcUnField08.getText());
+        calcController.setCalcUnityField(calcUnField09.getText());
+        calcController.setCalcUnityField(calcUnField10.getText());
+        
+        calcController.setCalcCostField(calcCostField01.getText());
+        calcController.setCalcCostField(calcCostField02.getText());
+        calcController.setCalcCostField(calcCostField03.getText());
+        calcController.setCalcCostField(calcCostField04.getText());
+        calcController.setCalcCostField(calcCostField05.getText());
+        calcController.setCalcCostField(calcCostField06.getText());
+        calcController.setCalcCostField(calcCostField07.getText());
+        calcController.setCalcCostField(calcCostField08.getText());
+        calcController.setCalcCostField(calcCostField09.getText());
+        calcController.setCalcCostField(calcCostField10.getText());
+        
+        calcController.setCalcQuantityValue(calcPortionField.getText());
         
         portionCalcResult.setController(calcController);
         portionCalcResult.findItemFields();
@@ -3012,85 +3020,193 @@ public void limparCalculoPorcoes() {
         // TODO add your handling code here:
     }//GEN-LAST:event_orderTotalValueFieldActionPerformed
 
-    private void calcCostField01KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField01KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField01KeyReleased
+    private void calcQntField01KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField01KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField01KeyTyped
 
-    private void calcCostField01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField01ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_calcCostField01ActionPerformed
+    private void calcCostField01KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField01KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField01KeyTyped
 
-    private void calcCostField02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField02ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField02ActionPerformed
+    private void calcQntField02KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField02KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField02KeyTyped
 
-    private void calcCostField03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField03ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField03ActionPerformed
+    private void calcCostField02KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField02KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField02KeyTyped
 
-    private void calcCostField04ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField04ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField04ActionPerformed
+    private void calcQntField03KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField03KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField03KeyTyped
 
-    private void calcCostField05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField05ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField05ActionPerformed
+    private void calcCostField03KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField03KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField03KeyTyped
 
-    private void calcCostField06ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField06ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField06ActionPerformed
+    private void calcQntField04KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField04KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField04KeyTyped
 
-    private void calcCostField07ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField07ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField07ActionPerformed
+    private void calcCostField04KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField04KeyTyped
+             String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField04KeyTyped
 
-    private void calcCostField08ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField08ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField08ActionPerformed
+    private void calcQntField05KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField05KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField05KeyTyped
 
-    private void calcCostField09ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField09ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField09ActionPerformed
+    private void calcCostField05KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField05KeyTyped
+             String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField05KeyTyped
 
-    private void calcCostField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField10ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField10ActionPerformed
+    private void calcQntField06KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField06KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField06KeyTyped
 
-    private void calcCostField02KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField02KeyReleased
-       calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField02KeyReleased
+    private void calcCostField06KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField06KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField06KeyTyped
 
-    private void calcCostField03KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField03KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField03KeyReleased
+    private void calcQntField07KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField07KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField07KeyTyped
 
-    private void calcCostField04KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField04KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField04KeyReleased
+    private void calcCostField07KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField07KeyTyped
+             String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField07KeyTyped
 
-    private void calcCostField05KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField05KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField05KeyReleased
+    private void calcQntField08KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField08KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField08KeyTyped
 
-    private void calcCostField06KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField06KeyReleased
-       calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField06KeyReleased
+    private void calcCostField08KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField08KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField08KeyTyped
 
-    private void calcCostField07KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField07KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField07KeyReleased
+    private void calcQntField09KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField09KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField09KeyTyped
 
-    private void calcCostField08KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField08KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField08KeyReleased
+    private void calcCostField09KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField09KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField09KeyTyped
 
-    private void calcCostField09KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField09KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField09KeyReleased
+    private void calcQntField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcQntField10KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcQntField10KeyTyped
 
-    private void calcCostField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField10KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
-    }//GEN-LAST:event_calcCostField10KeyReleased
+    private void calcCostField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField10KeyTyped
+       String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+         
+    }//GEN-LAST:event_calcCostField10KeyTyped
+
+    private void snackPriceOfSellingFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_snackPriceOfSellingFieldKeyTyped
+         String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+         }
+    }//GEN-LAST:event_snackPriceOfSellingFieldKeyTyped
 
     /**
      * @param args the command line arguments
