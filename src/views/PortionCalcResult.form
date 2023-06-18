@@ -192,12 +192,12 @@
                         </DimensionLayout>
                       </Layout>
                     </Container>
-                    <Component class="views.styles.Mybtn" name="mybtn5">
+                    <Component class="views.styles.Mybtn" name="calcPortionCancelButton">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="CANCELAR"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mybtn5ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calcPortionCancelButtonActionPerformed"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
