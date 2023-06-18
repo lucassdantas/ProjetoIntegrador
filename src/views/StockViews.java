@@ -30,7 +30,7 @@ public class StockViews extends javax.swing.JFrame {
 
     //portion calc contrller
     PortionCalcController calcController = new PortionCalcController();
-    PortionCalcResult PorcoesCalcular = new PortionCalcResult();
+    PortionCalcResult portionCalcResult = new PortionCalcResult();
     IngredientController ingredientController = new IngredientController();
     SnackController snackController = new SnackController();
     DataSheetController dataSheetController = new DataSheetController();
@@ -306,7 +306,7 @@ public void limparCalculoPorcoes() {
         jLabel33 = new javax.swing.JLabel();
         colorBtn18 = new javax.swing.JPanel();
         colorBtn22 = new javax.swing.JPanel();
-        calcCalcBtn = new views.styles.Mybtn();
+        portionCalcBtn = new views.styles.Mybtn();
         calcCleanBtn = new views.styles.Mybtn();
         jSeparator7 = new javax.swing.JSeparator();
         calcTotalField = new javax.swing.JTextField();
@@ -1822,15 +1822,15 @@ public void limparCalculoPorcoes() {
 
         panelPE1.add(colorBtn22, new org.netbeans.lib.awtextra.AbsoluteConstraints(917, 50, 10, 40));
 
-        calcCalcBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/calculadora.png"))); // NOI18N
-        calcCalcBtn.setText("CALCULAR");
-        calcCalcBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        calcCalcBtn.addActionListener(new java.awt.event.ActionListener() {
+        portionCalcBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/calculadora.png"))); // NOI18N
+        portionCalcBtn.setText("CALCULAR");
+        portionCalcBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        portionCalcBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcCalcBtnActionPerformed(evt);
+                portionCalcBtnActionPerformed(evt);
             }
         });
-        panelPE1.add(calcCalcBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
+        panelPE1.add(portionCalcBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
 
         calcCleanBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpar.png"))); // NOI18N
         calcCleanBtn.setText("LIMPAR");
@@ -2358,66 +2358,66 @@ public void limparCalculoPorcoes() {
         
     }//GEN-LAST:event_dataSheetEditButtonActionPerformed
 
-    private void calcCalcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCalcBtnActionPerformed
-        calcController.setItemField(calcItemField01);
-        calcController.setItemField(calcItemField02);
-        calcController.setItemField(calcItemField03);
-        calcController.setItemField(calcItemField04);
-        calcController.setItemField(calcItemField05);
-        calcController.setItemField(calcItemField06);
-        calcController.setItemField(calcItemField07);
-        calcController.setItemField(calcItemField08);
-        calcController.setItemField(calcItemField09);
-        calcController.setItemField(calcItemField10);
+    private void portionCalcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portionCalcBtnActionPerformed
+        calcController.setCalcItemField(calcItemField01);
+        calcController.setCalcItemField(calcItemField02);
+        calcController.setCalcItemField(calcItemField03);
+        calcController.setCalcItemField(calcItemField04);
+        calcController.setCalcItemField(calcItemField05);
+        calcController.setCalcItemField(calcItemField06);
+        calcController.setCalcItemField(calcItemField07);
+        calcController.setCalcItemField(calcItemField08);
+        calcController.setCalcItemField(calcItemField09);
+        calcController.setCalcItemField(calcItemField10);
 
-        calcController.setQntField(calcQntField01.getText());
-        calcController.setQntField(calcQntField02.getText());
-        calcController.setQntField(calcQntField03.getText());
-        calcController.setQntField(calcQntField04.getText());
-        calcController.setQntField(calcQntField05.getText());
-        calcController.setQntField(calcQntField06.getText());
-        calcController.setQntField(calcQntField07.getText());
-        calcController.setQntField(calcQntField08.getText());
-        calcController.setQntField(calcQntField09.getText());
-        calcController.setQntField(calcQntField10.getText());
+        calcController.setCalcQntField(calcQntField01.getText());
+        calcController.setCalcQntField(calcQntField02.getText());
+        calcController.setCalcQntField(calcQntField03.getText());
+        calcController.setCalcQntField(calcQntField04.getText());
+        calcController.setCalcQntField(calcQntField05.getText());
+        calcController.setCalcQntField(calcQntField06.getText());
+        calcController.setCalcQntField(calcQntField07.getText());
+        calcController.setCalcQntField(calcQntField08.getText());
+        calcController.setCalcQntField(calcQntField09.getText());
+        calcController.setCalcQntField(calcQntField10.getText());
 
-        calcController.setUnityField(calcUnField01.getText());
-        calcController.setUnityField(calcUnField02.getText());
-        calcController.setUnityField(calcUnField03.getText());
-        calcController.setUnityField(calcUnField04.getText());
-        calcController.setUnityField(calcUnField05.getText());
-        calcController.setUnityField(calcUnField06.getText());
-        calcController.setUnityField(calcUnField07.getText());
-        calcController.setUnityField(calcUnField08.getText());
-        calcController.setUnityField(calcUnField09.getText());
-        calcController.setUnityField(calcUnField10.getText());
+        calcController.setCalcUnityField(calcUnField01.getText());
+        calcController.setCalcUnityField(calcUnField02.getText());
+        calcController.setCalcUnityField(calcUnField03.getText());
+        calcController.setCalcUnityField(calcUnField04.getText());
+        calcController.setCalcUnityField(calcUnField05.getText());
+        calcController.setCalcUnityField(calcUnField06.getText());
+        calcController.setCalcUnityField(calcUnField07.getText());
+        calcController.setCalcUnityField(calcUnField08.getText());
+        calcController.setCalcUnityField(calcUnField09.getText());
+        calcController.setCalcUnityField(calcUnField10.getText());
         
-        calcController.setCostField(calcCostField01.getText());
-        calcController.setCostField(calcCostField02.getText());
-        calcController.setCostField(calcCostField03.getText());
-        calcController.setCostField(calcCostField04.getText());
-        calcController.setCostField(calcCostField05.getText());
-        calcController.setCostField(calcCostField06.getText());
-        calcController.setCostField(calcCostField07.getText());
-        calcController.setCostField(calcCostField08.getText());
-        calcController.setCostField(calcCostField09.getText());
-        calcController.setCostField(calcCostField10.getText());
+        calcController.setCalcCostField(calcCostField01.getText());
+        calcController.setCalcCostField(calcCostField02.getText());
+        calcController.setCalcCostField(calcCostField03.getText());
+        calcController.setCalcCostField(calcCostField04.getText());
+        calcController.setCalcCostField(calcCostField05.getText());
+        calcController.setCalcCostField(calcCostField06.getText());
+        calcController.setCalcCostField(calcCostField07.getText());
+        calcController.setCalcCostField(calcCostField08.getText());
+        calcController.setCalcCostField(calcCostField09.getText());
+        calcController.setCalcCostField(calcCostField10.getText());
         calcController.setQuantityFieldValue(calcPortionField.getText());
         
-        PorcoesCalcular.findItemFields();
-        PorcoesCalcular.findQntFields();
-        PorcoesCalcular.findUnityFields();
-        PorcoesCalcular.findCostFields();
+        portionCalcResult.setController(calcController);
+        portionCalcResult.findItemFields();
+        portionCalcResult.findQntFields();
+        portionCalcResult.findUnityFields();
+        portionCalcResult.findCostFields();
 
-        PorcoesCalcular.setCurrentPortionQuantity(1);
-        PorcoesCalcular.setPortionQuantityFieldValue(calcController.getPortionQuantityFieldValue());
-        PorcoesCalcular.setItemFieldValue(calcController.getItemFieldValue());
-        PorcoesCalcular.setUnFieldValue(calcController.getUnityFieldValue());
-        PorcoesCalcular.setQntFieldValue(calcController.getQntFieldValue());
-        PorcoesCalcular.setCostFieldValue(calcController.getCostFieldValue());
-        PorcoesCalcular.setVisible(true);
+        portionCalcResult.setCurrentPortionQuantity(1);
+        portionCalcResult.setItemFieldValue();
+        portionCalcResult.setUnFieldValue();
+        portionCalcResult.setQntFieldValue();
+        portionCalcResult.setCostFieldValue(calcController.getCalcCostFieldValue());
+        portionCalcResult.setVisible(true);
         
-    }//GEN-LAST:event_calcCalcBtnActionPerformed
+    }//GEN-LAST:event_portionCalcBtnActionPerformed
 
     private void calcCleanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCleanBtnActionPerformed
         limparCalculoPorcoes();
@@ -2984,7 +2984,6 @@ public void limparCalculoPorcoes() {
     private views.styles.MybtnMenu buttonProdutos3;
     private views.styles.MybtnMenu2 buttonProdutosEstoque;
     private views.styles.MybtnMenu2 buttonVisualizarPedidos;
-    private views.styles.Mybtn calcCalcBtn;
     private views.styles.Mybtn calcCleanBtn;
     private javax.swing.JTextField calcCostField01;
     private javax.swing.JTextField calcCostField02;
@@ -3153,6 +3152,7 @@ public void limparCalculoPorcoes() {
     private javax.swing.JPanel panelPE;
     private javax.swing.JPanel panelPE1;
     private javax.swing.JPanel panelVP;
+    private views.styles.Mybtn portionCalcBtn;
     private javax.swing.JPanel rodapePainel;
     private views.styles.Mybtn snackAddButton;
     private views.styles.Mybtn snackDeleteButton;

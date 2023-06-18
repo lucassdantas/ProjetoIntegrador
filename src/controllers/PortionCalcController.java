@@ -19,10 +19,10 @@ public class PortionCalcController {
     private List<String> costFieldValue = new ArrayList<String>();
     private int quantityFieldValue;
     
-    private List<JTextField> itemField = new ArrayList<>();
-    private List<JTextField> qntField = new ArrayList<>();
-    private List<JTextField> unityField = new ArrayList<>();
-    private List<JTextField> costField = new ArrayList<>();
+    private List<JTextField> resultItemField = new ArrayList<>();
+    private List<JTextField> resultQuantityField = new ArrayList<>();
+    private List<JTextField> resultUnityField = new ArrayList<>();
+    private List<JTextField> resultCostField = new ArrayList<>();
     
     //toCalc
     private float itemQuantity;
@@ -39,14 +39,18 @@ public class PortionCalcController {
         this.costFieldValue = new ArrayList<String>();
         this.quantityFieldValue = 0;
     }
-    public float ruleOfThree(float value){
-        if (value == 0){
+    public float ruleOfThree(String value){
+        float fValue;
+        try{
+            Float.parseFloat(value);
+            fValue = Float.parseFloat(value);
+            fValue = (fValue * this.portionQuantity) / this.currentPortionQuantity;
+            return fValue;
+        }catch(NumberFormatException e){
             return 0;
         }
-        float result = (value * this.portionQuantity) / this.currentPortionQuantity;
-        return result;
     }
-
+  
     public int getCurrentPortionQuantity() {
         return currentPortionQuantity;
     }
@@ -70,10 +74,10 @@ public class PortionCalcController {
     }
     
     public void clear(){
-        this.itemField = new ArrayList<>();
-        this.qntField = new ArrayList<>();
-        this.unityField = new ArrayList<>();
-        this.costField = new ArrayList<>();
+        this.resultItemField = new ArrayList<>();
+        this.resultQuantityField = new ArrayList<>();
+        this.resultUnityField = new ArrayList<>();
+        this.resultCostField = new ArrayList<>();
         
         this.itemQuantity = 0;
         this.unityValue = "0";
@@ -111,89 +115,54 @@ public class PortionCalcController {
     
     
     //buttons
-    public List<javax.swing.JTextField> getItemField() {
-        return itemField;
-    }
 
-    public void addItemField(javax.swing.JTextField field) {
-        itemField.add(field);
-    }
-
-    public List<javax.swing.JTextField> getQntField() {
-        return qntField;
-    }
    
-    public void addQntField(javax.swing.JTextField field) {
-        qntField.add(field);
-    }
-
-    public List<javax.swing.JTextField> getUnityField() {
-        return unityField;
-    }
-    
-   
-    
-    public void addUnityField(javax.swing.JTextField field) {
-        unityField.add(field);
-    }
-
-    public List<javax.swing.JTextField> getCostField() {
-        return costField;
-    }
-   
-    public void addCostField(javax.swing.JTextField field) {
-        costField.add(field);
-    }
+ 
     
     
-
-    public void setItemField(javax.swing.JTextField itemField) {
+//calc
+    public void setCalcItemField(javax.swing.JTextField itemField) {
         if(!itemField.getText().isEmpty()){
             this.itemFieldValue.add(itemField.getText());
         }else{
-            this.itemFieldValue.add("0");
+            this.itemFieldValue.add(" ");
         }
     }
-    
-    public List<String> getItemFieldValue() {
-        return itemFieldValue;
-    }
-    
-    public List<String> getQntFieldValue() {
-        return qntFieldValue;
-    }
-
-    public void setQntField(String qntField) {
+    public void setCalcQntField(String qntField) {
         if(!qntField.isEmpty()){
             this.qntFieldValue.add(qntField);
         }else{
-            this.qntFieldValue.add("0");
+            this.qntFieldValue.add(" ");
         }
     }
-
-    public List<String> getUnityFieldValue() {
-        return unityFieldValue;
-    }
-
-    public void setUnityField(String unityField) {
+    public void setCalcUnityField(String unityField) {
         if(!unityField.isEmpty()){
             this.unityFieldValue.add(unityField);
         }else{
-            this.unityFieldValue.add("0");
+            this.unityFieldValue.add(" ");
         }
     }
-
-    public List<String> getCostFieldValue() {
-        return qntFieldValue;
-    }
-
-    public void setCostField(String costField) {
+    public void setCalcCostField(String costField) {
         if(!costField.isEmpty()){
             this.costFieldValue.add(costField);
         }else{
-            this.costFieldValue.add("0");
+            this.costFieldValue.add(" ");
         }
     }
+    
+    public List<String> getCalcItemFieldValue() {
+        return itemFieldValue;
+    }
+    public List<String> getCalcQntFieldValue() {
+        return qntFieldValue;
+    }
+    public List<String> getCalcUnityFieldValue() {
+        return unityFieldValue;
+    }
+    public List<String> getCalcCostFieldValue() {
+        return qntFieldValue;
+    }
+
     public void setQuantityFieldValue(String quantityFieldValue){
         if(!quantityFieldValue.isEmpty()){
             this.quantityFieldValue = Integer.parseInt(quantityFieldValue);
@@ -201,9 +170,34 @@ public class PortionCalcController {
             this.quantityFieldValue = 1;
         }
     }
-    
     public int getPortionQuantityFieldValue(){
         return this.quantityFieldValue;
     }
  
+    //result
+    public void addResultItemField(javax.swing.JTextField field) {
+        resultItemField.add(field);
+    }
+    public void addResultQntField(javax.swing.JTextField field) {
+        resultQuantityField.add(field);
+    }    
+    public void addResultUnityField(javax.swing.JTextField field) {
+        resultUnityField.add(field);
+    }
+    public void addResultCostField(javax.swing.JTextField field) {
+        resultCostField.add(field);
+    }
+    
+    public List<javax.swing.JTextField> getResultItemField() {
+        return resultItemField;
+    }
+    public List<javax.swing.JTextField> getResultQuantityField() {
+        return resultQuantityField;
+    }
+    public List<javax.swing.JTextField> getResultUnityField() {
+        return resultUnityField;
+    }
+    public List<javax.swing.JTextField> getResultCostField() {
+        return resultCostField;
+    }
 }

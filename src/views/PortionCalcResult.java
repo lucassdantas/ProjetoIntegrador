@@ -5,7 +5,7 @@
 package views;
 
 import controllers.PortionCalcController;
-import controllers.PortionResultController;
+import controllers.PortioncalcController;
 import java.util.List;
 import java.util.ListIterator;
 import javax.swing.JFrame;
@@ -15,16 +15,17 @@ import javax.swing.JFrame;
  * @author Work.Studies
  */
 public class PortionCalcResult extends javax.swing.JFrame {
-private PortionResultController resultController = new PortionResultController();
     /**
      * Creates new form EstoqueEntrada
      */
+    private PortionCalcController calcController;
+
     public PortionCalcResult() {
         initComponents();
         IconManager.setIcon(this);
+        
     }
     
-    public PortionCalcController calcController;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -683,105 +684,109 @@ private PortionResultController resultController = new PortionResultController()
             }
         });
     }
-    
-   public void setCurrentPortionQuantity(int quantity){
-       resultController.setCurrentPortionQuantity(quantity);
+    public void setController(PortionCalcController calcController){
+        this.calcController = calcController;
+    }
+    public void setCurrentPortionQuantity(int quantity){
+       calcController.setCurrentPortionQuantity(quantity);
        resultPortionQuantity.setValue(quantity);
    }
    
-    public void setPortionQuantityFieldValue(int quantity){
-        resultController.setPortionQuantity(quantity);
-    }
-    public void setItemFieldValue(List<String> itemField){
+    public void setItemFieldValue(){
+        List<String> itemField = calcController.getCalcItemFieldValue();
         for(int i = 0; i < itemField.size(); i++){
-            resultController
-            .getItemField()
+            calcController
+            .getResultItemField()
             .get(i)
             .setText(itemField.get(i));
         }
     }
-     public void setQntFieldValue(List<String> qntField){
+    public void setQntFieldValue(){
+        List<String> qntField = calcController.getCalcQntFieldValue();
         float result = 0; 
         for(int i = 0; i < qntField.size(); i++){
-            result = resultController.ruleOfThree(Float.parseFloat(qntField.get(i)));
-            resultController            
-            .getQntField()
+            String fieldValue = qntField.get(i);
+            result = calcController.ruleOfThree(fieldValue);
+            calcController            
+            .getResultQuantityField()
             .get(i)
             .setText(Float.toString(result));
         }
     }
-    public void setUnFieldValue(List<String> unityField){
+    public void setUnFieldValue(){
         float result = 0; 
+        List<String> unityField = calcController.getCalcUnityFieldValue();
         for(int i = 0; i< unityField.size(); i++){
-            resultController
-            .getUnityField()
+            calcController
+            .getResultUnityField()
             .get(i)
             .setText(unityField.get(i));
         }
     }
-   
-    public void setCostFieldValue(List<String> costField){
+    public void setCostFieldValue(){
+        List<String> costField = calcController.getCalcCostFieldValue();
         float result = 0; 
         for(int i = 0; i< costField.size(); i++){
-            result = resultController.ruleOfThree(Float.parseFloat(costField.get(i)));
-            resultController
-            .getCostField()
+            result = calcController.ruleOfThree(Float.parseFloat(costField.get(i)));
+            System.out.println("valor: "+costField);
+            System.out.println("resultado: "+result);
+            calcController
+            .getResultCostField()
             .get(i)
             .setText(Float.toString(result));
         }
     }
    
     public void findItemFields() {
-        resultController.addItemField(resultItemField01);
-        resultController.addItemField(resultItemField02);
-        resultController.addItemField(resultItemField03);
-        resultController.addItemField(resultItemField04);
-        resultController.addItemField(resultItemField05);
-        resultController.addItemField(resultItemField06);
-        resultController.addItemField(resultItemField07);
-        resultController.addItemField(resultItemField08);
-        resultController.addItemField(resultItemField09);
-        resultController.addItemField(resultItemField10);
+        calcController.addResultItemField(resultItemField01);
+        calcController.addResultItemField(resultItemField02);
+        calcController.addResultItemField(resultItemField03);
+        calcController.addResultItemField(resultItemField04);
+        calcController.addResultItemField(resultItemField05);
+        calcController.addResultItemField(resultItemField06);
+        calcController.addResultItemField(resultItemField07);
+        calcController.addResultItemField(resultItemField08);
+        calcController.addResultItemField(resultItemField09);
+        calcController.addResultItemField(resultItemField10);
     }
-
     public void findQntFields() {
-        resultController.addQntField(resultQntField01);
-        resultController.addQntField(resultQntField02);
-        resultController.addQntField(resultQntField03);
-        resultController.addQntField(resultQntField04);
-        resultController.addQntField(resultQntField05);
-        resultController.addQntField(resultQntField06);
-        resultController.addQntField(resultQntField07);
-        resultController.addQntField(resultQntField08);
-        resultController.addQntField(resultQntField09);
-        resultController.addQntField(resultQntField10);
+        calcController.addResultQntField(resultQntField01);
+        calcController.addResultQntField(resultQntField02);
+        calcController.addResultQntField(resultQntField03);
+        calcController.addResultQntField(resultQntField04);
+        calcController.addResultQntField(resultQntField05);
+        calcController.addResultQntField(resultQntField06);
+        calcController.addResultQntField(resultQntField07);
+        calcController.addResultQntField(resultQntField08);
+        calcController.addResultQntField(resultQntField09);
+        calcController.addResultQntField(resultQntField10);
     }
-
     public void findUnityFields() {
-        resultController.addUnityField(resultUnField01);
-        resultController.addUnityField(resultUnField02);
-        resultController.addUnityField(resultUnField03);
-        resultController.addUnityField(resultUnField04);
-        resultController.addUnityField(resultUnField05);
-        resultController.addUnityField(resultUnField06);
-        resultController.addUnityField(resultUnField07);
-        resultController.addUnityField(resultUnField08);
-        resultController.addUnityField(resultUnField09);
-        resultController.addUnityField(resultUnField10);
+        calcController.addResultUnityField(resultUnField01);
+        calcController.addResultUnityField(resultUnField02);
+        calcController.addResultUnityField(resultUnField03);
+        calcController.addResultUnityField(resultUnField04);
+        calcController.addResultUnityField(resultUnField05);
+        calcController.addResultUnityField(resultUnField06);
+        calcController.addResultUnityField(resultUnField07);
+        calcController.addResultUnityField(resultUnField08);
+        calcController.addResultUnityField(resultUnField09);
+        calcController.addResultUnityField(resultUnField10);
     }
-
     public void findCostFields() {
-        resultController.addCostField(resultCostField01);
-        resultController.addCostField(resultCostField02);
-        resultController.addCostField(resultCostField03);
-        resultController.addCostField(resultCostField04);
-        resultController.addCostField(resultCostField05);
-        resultController.addCostField(resultCostField06);
-        resultController.addCostField(resultCostField07);
-        resultController.addCostField(resultCostField08);
-        resultController.addCostField(resultCostField09);
-        resultController.addCostField(resultCostField10);
+        calcController.addResultCostField(resultCostField01);
+        calcController.addResultCostField(resultCostField02);
+        calcController.addResultCostField(resultCostField03);
+        calcController.addResultCostField(resultCostField04);
+        calcController.addResultCostField(resultCostField05);
+        calcController.addResultCostField(resultCostField06);
+        calcController.addResultCostField(resultCostField07);
+        calcController.addResultCostField(resultCostField08);
+        calcController.addResultCostField(resultCostField09);
+        calcController.addResultCostField(resultCostField10);
     }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
     private views.styles.Mybtn calcPortionCancelButton;
