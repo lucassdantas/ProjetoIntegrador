@@ -125,7 +125,11 @@ public class PortionCalcController {
     public float sumAllCalcCost(){
         float value = 0;
         for(int i = 0; i < this.calcCostFieldValue.size(); i++){
-            value += Float.parseFloat(this.calcCostFieldValue.get(i).getText());
+            try{
+                value += Float.parseFloat(this.calcCostFieldValue.get(i).getText());
+            }catch(NumberFormatException  E){
+                
+            }
         }
         
         return value;
