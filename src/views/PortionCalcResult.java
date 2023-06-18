@@ -685,9 +685,8 @@ public class PortionCalcResult extends javax.swing.JFrame {
     public void setController(PortionCalcController calcController){
         this.calcController = calcController;
     }
-    public void setCurrentPortionQuantity(int quantity){
-       calcController.setResultPortionQuantity(quantity);
-       resultPortionQuantity.setValue(quantity);
+    public void setCurrentPortionQuantity(){
+       calcController.setResultPortionField(resultPortionQuantity);
    }
     public void setFieldsValue(){
         this.calcController.setResultItemFieldValue();

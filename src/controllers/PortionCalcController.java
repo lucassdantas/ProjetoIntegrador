@@ -7,6 +7,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTextField;
+import views.spinner.Spinner;
 
 /**
  *
@@ -29,7 +30,7 @@ public class PortionCalcController {
     private String unityValue;
     private float cost;
     private int portionQuantity;
-    private int resultPortionQuantity; 
+    private Spinner resultPortionField; 
     
     public PortionCalcController(){};
     
@@ -40,54 +41,26 @@ public class PortionCalcController {
         this.calcCostFieldValue = new ArrayList<String>();
         this.quantityFieldValue = 0;
     }
-    public float ruleOfThree(Float value){
-        value = (value * this.portionQuantity) / this.resultPortionQuantity;
+    public float ruleOfThree(String stringQuantity, String stringCost){
+        float cost = Float.parseFloat(stringCost);
+        float quantity = Float.parseFloat(stringQuantity);
+        
+        System.out.println(stringQuantity);
+        System.out.println(stringCost);
+        float value = (cost * (int)this.resultPortionField.getValue()) / quantity;
+        System.out.println(value);
         return value;
        
     }
   
-    public void setResultPortionQuantity(int resultPortionQuantity) {
-        System.out.print(resultPortionQuantity);
-        if(resultPortionQuantity <= 0){
-            this.resultPortionQuantity = 1;
-        }
-        else{
-            this.resultPortionQuantity = resultPortionQuantity;
-        }
-    }
-    public void setItemQuantityStringToInt(String itemQuantity){
-        this.itemQuantity = Float.parseFloat(itemQuantity);
-    }
-    public void setItemQuantity(int itemQuantity) {
-        this.itemQuantity = itemQuantity;
-    }
-    public void setPortionQuantity(int portionQuantity) {
-        this.portionQuantity = portionQuantity;
-    }
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-    public void setUnityValue(String unityValue) {
-        this.unityValue = unityValue;
+    public void setResultPortionField(Spinner resultPortionQuantity) {
+        this.resultPortionField = resultPortionQuantity;
     }
     
-    public int getPortionQuantity() {
-        return portionQuantity;
+    public Spinner getResultPortionField() {
+         return resultPortionField;
     }
-    public int getResultPortionQuantity() {
-         return resultPortionQuantity;
-     }
-    public float getItemQuantity() {
-        return itemQuantity;
-        
-    }
-    public float getCost() {
-        return cost;
-    }
-    public String getUnityValue() {
-        return unityValue;
-    }
-    
+   
     public void clear(){
         this.resultItemField = new ArrayList<>();
         this.resultQuantityField = new ArrayList<>();
@@ -98,7 +71,7 @@ public class PortionCalcController {
         this.unityValue = "0";
         this.cost = 0;
         this.portionQuantity = 0;
-        this.resultPortionQuantity = 0; 
+        this.resultPortionField.setValue(1); 
     }
    
 //calc
@@ -144,8 +117,8 @@ public class PortionCalcController {
         return calcQuantityFieldValue;
     }
 
-    public void setQuantityFieldValue(String quantityFieldValue){
-        if(!quantityFieldValue.isEmpty()){
+    public void setCalcQuantityValue(String quantityFieldValue){
+        if(!quantityFieldValue.isEmpty() || quantityFieldValue != "0"){
             this.quantityFieldValue = Integer.parseInt(quantityFieldValue);
         }else{
             this.quantityFieldValue = 1;
@@ -203,7 +176,9 @@ public class PortionCalcController {
                 this
                     .getResultQuantityField()
                     .get(i)
-                    .setText(Float.toString(this.ruleOfThree(Float.parseFloat(qntField.get(i)))));
+                    .setText(  
+                    Float.toString(this.ruleOfThree(this.calcCostFieldValue.get(i), qntField.get(i)))
+                    );
             }
             
         }
@@ -230,7 +205,9 @@ public class PortionCalcController {
                 this
                     .getResultCostField()
                     .get(i)
-                    .setText(Float.toString(this.ruleOfThree(Float.parseFloat(costField.get(i)))));
+                    .setText(  
+                    Float.toString(this.ruleOfThree(calcQuantityFieldValue.get(i), costField.get(i)))
+                    );
             }
             
         }

@@ -1651,6 +1651,7 @@ public void limparCalculoPorcoes() {
             }
         });
         panelPE1.add(calcPortionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 140, 45));
+        calcPortionField.setText("1");
 
         calcLunchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcLunchField.setName(""); // NOI18N
@@ -2402,7 +2403,8 @@ public void limparCalculoPorcoes() {
         calcController.setCalcCostField(calcCostField08.getText());
         calcController.setCalcCostField(calcCostField09.getText());
         calcController.setCalcCostField(calcCostField10.getText());
-        calcController.setQuantityFieldValue(calcPortionField.getText());
+        
+        calcController.setCalcQuantityValue(calcPortionField.getText());
         
         portionCalcResult.setController(calcController);
         portionCalcResult.findItemFields();
@@ -2410,7 +2412,7 @@ public void limparCalculoPorcoes() {
         portionCalcResult.findUnityFields();
         portionCalcResult.findCostFields();
 
-        portionCalcResult.setCurrentPortionQuantity(1);
+        portionCalcResult.setCurrentPortionQuantity();
         portionCalcResult.setFieldsValue();
         
         portionCalcResult.setVisible(true);
