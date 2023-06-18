@@ -18,43 +18,34 @@ public class PortionCalcController {
     private List<String> calcQuantityFieldValue = new ArrayList<String>();
     private List<String> calcUnityFieldValue = new ArrayList<String>();
     private List<String> calcCostFieldValue = new ArrayList<String>();
-    private int quantityFieldValue;
+    private int calcPortionQuantityFieldValue;
     
     private List<JTextField> resultItemField = new ArrayList<>();
     private List<JTextField> resultQuantityField = new ArrayList<>();
     private List<JTextField> resultUnityField = new ArrayList<>();
     private List<JTextField> resultCostField = new ArrayList<>();
-    
-    //toCalc
-    private float itemQuantity;
-    private String unityValue;
-    private float cost;
-    private int portionQuantity;
-    private Spinner resultPortionField; 
+    private Spinner resultPortionField;
     
     public PortionCalcController(){};
     
     public void clearValues(){
-        this.calcItemFieldValue = new ArrayList<String>();
-        this.calcQuantityFieldValue = new ArrayList<String>();
-        this.calcUnityFieldValue = new ArrayList<String>();
-        this.calcCostFieldValue = new ArrayList<String>();
-        this.quantityFieldValue = 0;
+        this.calcItemFieldValue = new ArrayList<>();
+        this.calcQuantityFieldValue = new ArrayList<>();
+        this.calcUnityFieldValue = new ArrayList<>();
+        this.calcCostFieldValue = new ArrayList<>();
+        this.calcPortionQuantityFieldValue = 0;
     }
+    
     public float ruleOfThree(String stringQuantity, String stringCost){
         float cost = Float.parseFloat(stringCost);
         float quantity = Float.parseFloat(stringQuantity);
         
         System.out.println(stringQuantity);
         System.out.println(stringCost);
-        float value = (cost * (int)this.resultPortionField.getValue()) / quantity;
+        System.out.println(this.resultPortionField.getValue());
+        float value = ( cost * (int)this.resultPortionField.getValue()) / quantity;
         System.out.println(value);
         return value;
-       
-    }
-  
-    public void setResultPortionField(Spinner resultPortionQuantity) {
-        this.resultPortionField = resultPortionQuantity;
     }
     
     public Spinner getResultPortionField() {
@@ -66,11 +57,6 @@ public class PortionCalcController {
         this.resultQuantityField = new ArrayList<>();
         this.resultUnityField = new ArrayList<>();
         this.resultCostField = new ArrayList<>();
-        
-        this.itemQuantity = 0;
-        this.unityValue = "0";
-        this.cost = 0;
-        this.portionQuantity = 0;
         this.resultPortionField.setValue(1); 
     }
    
@@ -114,18 +100,18 @@ public class PortionCalcController {
         return calcUnityFieldValue;
     }
     public List<String> getCalcCostFieldValue() {
-        return calcQuantityFieldValue;
+        return calcCostFieldValue;
     }
 
     public void setCalcQuantityValue(String quantityFieldValue){
         if(!quantityFieldValue.isEmpty() || quantityFieldValue != "0"){
-            this.quantityFieldValue = Integer.parseInt(quantityFieldValue);
+            this.calcPortionQuantityFieldValue = Integer.parseInt(quantityFieldValue);
         }else{
-            this.quantityFieldValue = 1;
+            this.calcPortionQuantityFieldValue = 1;
         }
     }
     public int getPortionQuantityFieldValue(){
-        return this.quantityFieldValue;
+        return this.calcPortionQuantityFieldValue;
     }
  
 //result
@@ -155,6 +141,12 @@ public class PortionCalcController {
         return resultCostField;
     }
     
+    public void setResultPortionField(Spinner resultPortionQuantity) {
+        if((int) resultPortionQuantity.getValue() == 0){
+            resultPortionQuantity.setValue(1);
+        }
+        this.resultPortionField = resultPortionQuantity;
+    }
     public void setResultItemFieldValue(){
         List<String> itemField = this.getCalcItemFieldValue();
         for(int i = 0; i < itemField.size(); i++){
@@ -165,22 +157,8 @@ public class PortionCalcController {
         }
     }
     public void setResultQntFieldValue(){
-        List<String> qntField = this.getCalcQntFieldValue();
-        for(int i = 0; i< qntField.size(); i++){
-            if(qntField.get(i).isEmpty() || qntField.get(i) == " "){
-                this
-                    .getResultQuantityField()
-                    .get(i)
-                    .setText(qntField.get(i));
-            }else{
-                this
-                    .getResultQuantityField()
-                    .get(i)
-                    .setText(  
-                    Float.toString(this.ruleOfThree(this.calcCostFieldValue.get(i), qntField.get(i)))
-                    );
-            }
-            
+        for(int i = 0; i< calcQuantityFieldValue.size(); i++){
+            this.resultQuantityField.get(i).setText(calcQuantityFieldValue.get(i));
         }
     }
     public void setResultUnFieldValue(){
@@ -206,8 +184,7 @@ public class PortionCalcController {
                     .getResultCostField()
                     .get(i)
                     .setText(  
-                    Float.toString(this.ruleOfThree(calcQuantityFieldValue.get(i), costField.get(i)))
-                    );
+                    Float.toString(this.ruleOfThree(calcQuantityFieldValue.get(i), calcCostFieldValue.get(i))));
             }
             
         }
