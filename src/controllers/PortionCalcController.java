@@ -13,10 +13,10 @@ import javax.swing.JTextField;
  * @author 42labinfo
  */
 public class PortionCalcController {
-    private List<String> itemFieldValue = new ArrayList<String>();
-    private List<String> qntFieldValue = new ArrayList<String>();
-    private List<String> unityFieldValue = new ArrayList<String>();
-    private List<String> costFieldValue = new ArrayList<String>();
+    private List<String> calcItemFieldValue = new ArrayList<String>();
+    private List<String> calcQuantityFieldValue = new ArrayList<String>();
+    private List<String> calcUnityFieldValue = new ArrayList<String>();
+    private List<String> calcCostFieldValue = new ArrayList<String>();
     private int quantityFieldValue;
     
     private List<JTextField> resultItemField = new ArrayList<>();
@@ -29,48 +29,63 @@ public class PortionCalcController {
     private String unityValue;
     private float cost;
     private int portionQuantity;
-    private int currentPortionQuantity; 
+    private int resultPortionQuantity; 
     
     public PortionCalcController(){};
+    
     public void clearValues(){
-        this.itemFieldValue = new ArrayList<String>();
-        this.qntFieldValue = new ArrayList<String>();
-        this.unityFieldValue = new ArrayList<String>();
-        this.costFieldValue = new ArrayList<String>();
+        this.calcItemFieldValue = new ArrayList<String>();
+        this.calcQuantityFieldValue = new ArrayList<String>();
+        this.calcUnityFieldValue = new ArrayList<String>();
+        this.calcCostFieldValue = new ArrayList<String>();
         this.quantityFieldValue = 0;
     }
-    public float ruleOfThree(String value){
-        float fValue;
-        try{
-            Float.parseFloat(value);
-            fValue = Float.parseFloat(value);
-            fValue = (fValue * this.portionQuantity) / this.currentPortionQuantity;
-            return fValue;
-        }catch(NumberFormatException e){
-            return 0;
-        }
+    public float ruleOfThree(Float value){
+        value = (value * this.portionQuantity) / this.resultPortionQuantity;
+        return value;
+       
     }
   
-    public int getCurrentPortionQuantity() {
-        return currentPortionQuantity;
-    }
-
-    public void setCurrentPortionQuantity(int currentPortionQuantity) {
-        System.out.print(currentPortionQuantity);
-        if(currentPortionQuantity <= 0){
-            this.currentPortionQuantity = 1;
+    public void setResultPortionQuantity(int resultPortionQuantity) {
+        System.out.print(resultPortionQuantity);
+        if(resultPortionQuantity <= 0){
+            this.resultPortionQuantity = 1;
         }
         else{
-            this.currentPortionQuantity = currentPortionQuantity;
+            this.resultPortionQuantity = resultPortionQuantity;
         }
+    }
+    public void setItemQuantityStringToInt(String itemQuantity){
+        this.itemQuantity = Float.parseFloat(itemQuantity);
+    }
+    public void setItemQuantity(int itemQuantity) {
+        this.itemQuantity = itemQuantity;
+    }
+    public void setPortionQuantity(int portionQuantity) {
+        this.portionQuantity = portionQuantity;
+    }
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
+    public void setUnityValue(String unityValue) {
+        this.unityValue = unityValue;
     }
     
     public int getPortionQuantity() {
         return portionQuantity;
     }
-
-    public void setPortionQuantity(int portionQuantity) {
-        this.portionQuantity = portionQuantity;
+    public int getResultPortionQuantity() {
+         return resultPortionQuantity;
+     }
+    public float getItemQuantity() {
+        return itemQuantity;
+        
+    }
+    public float getCost() {
+        return cost;
+    }
+    public String getUnityValue() {
+        return unityValue;
     }
     
     public void clear(){
@@ -83,84 +98,50 @@ public class PortionCalcController {
         this.unityValue = "0";
         this.cost = 0;
         this.portionQuantity = 0;
-        this.currentPortionQuantity = 0; 
+        this.resultPortionQuantity = 0; 
     }
-    public float getItemQuantity() {
-        return itemQuantity;
-        
-    }
-    
-    public void setItemQuantityStringToInt(String itemQuantity){
-        this.itemQuantity = Float.parseFloat(itemQuantity);
-    }
-    public void setItemQuantity(int itemQuantity) {
-        this.itemQuantity = itemQuantity;
-    }
-
-    public String getUnityValue() {
-        return unityValue;
-    }
-
-    public void setUnityValue(String unityValue) {
-        this.unityValue = unityValue;
-    }
-
-    public float getCost() {
-        return cost;
-    }
-
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-    
-    
-    //buttons
-
    
- 
-    
-    
 //calc
     public void setCalcItemField(javax.swing.JTextField itemField) {
         if(!itemField.getText().isEmpty()){
-            this.itemFieldValue.add(itemField.getText());
+            this.calcItemFieldValue.add(itemField.getText());
         }else{
-            this.itemFieldValue.add(" ");
+            this.calcItemFieldValue.add(" ");
         }
     }
     public void setCalcQntField(String qntField) {
         if(!qntField.isEmpty()){
-            this.qntFieldValue.add(qntField);
+            this.calcQuantityFieldValue.add(qntField);
         }else{
-            this.qntFieldValue.add(" ");
+            this.calcQuantityFieldValue.add(" ");
         }
     }
     public void setCalcUnityField(String unityField) {
         if(!unityField.isEmpty()){
-            this.unityFieldValue.add(unityField);
+            this.calcUnityFieldValue.add(unityField);
         }else{
-            this.unityFieldValue.add(" ");
+            this.calcUnityFieldValue.add(" ");
         }
     }
     public void setCalcCostField(String costField) {
         if(!costField.isEmpty()){
-            this.costFieldValue.add(costField);
+            this.calcCostFieldValue.add(costField);
         }else{
-            this.costFieldValue.add(" ");
+            this.calcCostFieldValue.add(" ");
         }
     }
     
     public List<String> getCalcItemFieldValue() {
-        return itemFieldValue;
+        return calcItemFieldValue;
     }
     public List<String> getCalcQntFieldValue() {
-        return qntFieldValue;
+        return calcQuantityFieldValue;
     }
     public List<String> getCalcUnityFieldValue() {
-        return unityFieldValue;
+        return calcUnityFieldValue;
     }
     public List<String> getCalcCostFieldValue() {
-        return qntFieldValue;
+        return calcQuantityFieldValue;
     }
 
     public void setQuantityFieldValue(String quantityFieldValue){
@@ -174,7 +155,7 @@ public class PortionCalcController {
         return this.quantityFieldValue;
     }
  
-    //result
+//result
     public void addResultItemField(javax.swing.JTextField field) {
         resultItemField.add(field);
     }
@@ -199,5 +180,59 @@ public class PortionCalcController {
     }
     public List<javax.swing.JTextField> getResultCostField() {
         return resultCostField;
+    }
+    
+    public void setResultItemFieldValue(){
+        List<String> itemField = this.getCalcItemFieldValue();
+        for(int i = 0; i < itemField.size(); i++){
+            this
+            .getResultItemField()
+            .get(i)
+            .setText(itemField.get(i));
+        }
+    }
+    public void setResultQntFieldValue(){
+        List<String> qntField = this.getCalcQntFieldValue();
+        for(int i = 0; i< qntField.size(); i++){
+            if(qntField.get(i).isEmpty() || qntField.get(i) == " "){
+                this
+                    .getResultQuantityField()
+                    .get(i)
+                    .setText(qntField.get(i));
+            }else{
+                this
+                    .getResultQuantityField()
+                    .get(i)
+                    .setText(Float.toString(this.ruleOfThree(Float.parseFloat(qntField.get(i)))));
+            }
+            
+        }
+    }
+    public void setResultUnFieldValue(){
+        float result = 0; 
+        List<String> unityField = this.getCalcUnityFieldValue();
+        for(int i = 0; i< unityField.size(); i++){
+            this
+            .getResultUnityField()
+            .get(i)
+            .setText(unityField.get(i));
+        }
+    }
+    public void setResultCostFieldValue(){
+        List<String> costField = this.getCalcCostFieldValue();
+        for(int i = 0; i< costField.size(); i++){
+            if(costField.get(i).isEmpty() || costField.get(i) == " "){
+                this
+                    .getResultCostField()
+                    .get(i)
+                    .setText(costField.get(i));
+            }else{
+                this
+                    .getResultCostField()
+                    .get(i)
+                    .setText(Float.toString(this.ruleOfThree(Float.parseFloat(costField.get(i)))));
+            }
+            
+        }
     }
 }

@@ -5,7 +5,6 @@
 package views;
 
 import controllers.PortionCalcController;
-import controllers.PortioncalcController;
 import java.util.List;
 import java.util.ListIterator;
 import javax.swing.JFrame;
@@ -518,7 +517,6 @@ public class PortionCalcResult extends javax.swing.JFrame {
     private void calcPortionCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcPortionCancelButtonActionPerformed
         dispose();
     }//GEN-LAST:event_calcPortionCancelButtonActionPerformed
-
     private void resultItemField01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultItemField01ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resultItemField01ActionPerformed
@@ -688,53 +686,15 @@ public class PortionCalcResult extends javax.swing.JFrame {
         this.calcController = calcController;
     }
     public void setCurrentPortionQuantity(int quantity){
-       calcController.setCurrentPortionQuantity(quantity);
+       calcController.setResultPortionQuantity(quantity);
        resultPortionQuantity.setValue(quantity);
    }
-   
-    public void setItemFieldValue(){
-        List<String> itemField = calcController.getCalcItemFieldValue();
-        for(int i = 0; i < itemField.size(); i++){
-            calcController
-            .getResultItemField()
-            .get(i)
-            .setText(itemField.get(i));
-        }
-    }
-    public void setQntFieldValue(){
-        List<String> qntField = calcController.getCalcQntFieldValue();
-        float result = 0; 
-        for(int i = 0; i < qntField.size(); i++){
-            String fieldValue = qntField.get(i);
-            result = calcController.ruleOfThree(fieldValue);
-            calcController            
-            .getResultQuantityField()
-            .get(i)
-            .setText(Float.toString(result));
-        }
-    }
-    public void setUnFieldValue(){
-        float result = 0; 
-        List<String> unityField = calcController.getCalcUnityFieldValue();
-        for(int i = 0; i< unityField.size(); i++){
-            calcController
-            .getResultUnityField()
-            .get(i)
-            .setText(unityField.get(i));
-        }
-    }
-    public void setCostFieldValue(){
-        List<String> costField = calcController.getCalcCostFieldValue();
-        float result = 0; 
-        for(int i = 0; i< costField.size(); i++){
-            result = calcController.ruleOfThree(Float.parseFloat(costField.get(i)));
-            System.out.println("valor: "+costField);
-            System.out.println("resultado: "+result);
-            calcController
-            .getResultCostField()
-            .get(i)
-            .setText(Float.toString(result));
-        }
+    public void setFieldsValue(){
+        this.calcController.setResultItemFieldValue();
+        this.calcController.setResultQntFieldValue();
+        this.calcController.setResultUnFieldValue();
+        this.calcController.setResultCostFieldValue();
+        
     }
    
     public void findItemFields() {

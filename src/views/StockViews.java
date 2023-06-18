@@ -2411,10 +2411,8 @@ public void limparCalculoPorcoes() {
         portionCalcResult.findCostFields();
 
         portionCalcResult.setCurrentPortionQuantity(1);
-        portionCalcResult.setItemFieldValue();
-        portionCalcResult.setUnFieldValue();
-        portionCalcResult.setQntFieldValue();
-        portionCalcResult.setCostFieldValue(calcController.getCalcCostFieldValue());
+        portionCalcResult.setFieldsValue();
+        
         portionCalcResult.setVisible(true);
         
     }//GEN-LAST:event_portionCalcBtnActionPerformed
