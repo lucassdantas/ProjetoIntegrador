@@ -14,10 +14,11 @@ import views.spinner.Spinner;
  * @author 42labinfo
  */
 public class PortionCalcController {
-    private List<String> calcItemFieldValue = new ArrayList<String>();
-    private List<String> calcQuantityFieldValue = new ArrayList<String>();
-    private List<String> calcUnityFieldValue = new ArrayList<String>();
-    private List<String> calcCostFieldValue = new ArrayList<String>();
+    private List<JTextField> calcItemFieldValue = new ArrayList<>();
+    private List<JTextField> calcQuantityFieldValue = new ArrayList<>();
+    private List<JTextField> calcUnityFieldValue = new ArrayList<>();
+    private List<JTextField> calcCostFieldValue = new ArrayList<>();
+    private JTextField calcPortionField;
     private int calcPortionQuantityFieldValue;
     
     private List<JTextField> resultItemField = new ArrayList<>();
@@ -63,55 +64,71 @@ public class PortionCalcController {
 //calc
     public void setCalcItemField(javax.swing.JTextField itemField) {
         if(!itemField.getText().isEmpty()){
-            this.calcItemFieldValue.add(itemField.getText());
+            this.calcItemFieldValue.add(itemField);
         }else{
-            this.calcItemFieldValue.add(" ");
+            itemField.setText(" ");
+            this.calcItemFieldValue.add(itemField);
         }
     }
-    public void setCalcQntField(String qntField) {
-        if(!qntField.isEmpty()){
+    public void setCalcQntField(JTextField qntField) {
+        if(!qntField.getText().isEmpty()){
             this.calcQuantityFieldValue.add(qntField);
         }else{
-            this.calcQuantityFieldValue.add(" ");
+            qntField.setText(" ");
+            this.calcQuantityFieldValue.add(qntField);
         }
     }
-    public void setCalcUnityField(String unityField) {
-        if(!unityField.isEmpty()){
+    public void setCalcUnityField(JTextField unityField) {
+        if(!unityField.getText().isEmpty()){
             this.calcUnityFieldValue.add(unityField);
         }else{
-            this.calcUnityFieldValue.add(" ");
+            unityField.setText(" ");
+            this.calcUnityFieldValue.add(unityField);
         }
     }
-    public void setCalcCostField(String costField) {
-        if(!costField.isEmpty()){
+    public void setCalcCostField(JTextField costField) {
+        if(!costField.getText().isEmpty()){
             this.calcCostFieldValue.add(costField);
         }else{
-            this.calcCostFieldValue.add(" ");
+            costField.setText(" ");
+            this.calcCostFieldValue.add(costField);
         }
     }
-    
-    public List<String> getCalcItemFieldValue() {
-        return calcItemFieldValue;
-    }
-    public List<String> getCalcQntFieldValue() {
-        return calcQuantityFieldValue;
-    }
-    public List<String> getCalcUnityFieldValue() {
-        return calcUnityFieldValue;
-    }
-    public List<String> getCalcCostFieldValue() {
-        return calcCostFieldValue;
-    }
-
-    public void setCalcQuantityValue(String quantityFieldValue){
-        if(!quantityFieldValue.isEmpty() || quantityFieldValue != "0"){
-            this.calcPortionQuantityFieldValue = Integer.parseInt(quantityFieldValue);
+    public void setCalcQuantityFieldValue(){
+        if(!this.calcPortionField.getText().isEmpty() || calcPortionField.getText() != "0"){
+            this.calcPortionQuantityFieldValue = Integer.parseInt(calcPortionField.getText());
         }else{
             this.calcPortionQuantityFieldValue = 1;
         }
     }
-    public int getPortionQuantityFieldValue(){
+    public void setCalcPortionField(JTextField quantityField){
+        this.calcPortionField = quantityField;
+    }
+    
+    public List<JTextField> getCalcItemFieldValue() {
+        return calcItemFieldValue;
+    }
+    public List<JTextField> getCalcQntFieldValue() {
+        return calcQuantityFieldValue;
+    }
+    public List<JTextField> getCalcUnityFieldValue() {
+        return calcUnityFieldValue;
+    }
+    public List<JTextField> getCalcCostFieldValue() {
+        return calcCostFieldValue;
+    }
+
+   public int getPortionQuantityFieldValue(){
         return this.calcPortionQuantityFieldValue;
+    }
+    
+    public float sumAllCalcCost(){
+        float value = 0;
+        for(int i = 0; i < this.calcCostFieldValue.size(); i++){
+            value += Float.parseFloat(this.calcCostFieldValue.get(i).getText());
+        }
+        
+        return value;
     }
  
 //result
@@ -148,43 +165,43 @@ public class PortionCalcController {
         this.resultPortionField = resultPortionQuantity;
     }
     public void setResultItemFieldValue(){
-        List<String> itemField = this.getCalcItemFieldValue();
+        List<JTextField> itemField = this.getCalcItemFieldValue();
         for(int i = 0; i < itemField.size(); i++){
             this
             .getResultItemField()
             .get(i)
-            .setText(itemField.get(i));
+            .setText(itemField.get(i).getText());
         }
     }
     public void setResultQntFieldValue(){
         for(int i = 0; i< calcQuantityFieldValue.size(); i++){
-            this.resultQuantityField.get(i).setText(calcQuantityFieldValue.get(i));
+            this.resultQuantityField.get(i).setText(calcQuantityFieldValue.get(i).getText());
         }
     }
     public void setResultUnFieldValue(){
         float result = 0; 
-        List<String> unityField = this.getCalcUnityFieldValue();
+        List<JTextField> unityField = this.getCalcUnityFieldValue();
         for(int i = 0; i< unityField.size(); i++){
             this
             .getResultUnityField()
             .get(i)
-            .setText(unityField.get(i));
+            .setText(unityField.get(i).getText());
         }
     }
     public void setResultCostFieldValue(){
-        List<String> costField = this.getCalcCostFieldValue();
+        List<JTextField> costField = this.getCalcCostFieldValue();
         for(int i = 0; i< costField.size(); i++){
-            if(costField.get(i).isEmpty() || costField.get(i) == " "){
+            if(costField.get(i).getText().isEmpty() || costField.get(i).getText() == " "){
                 this
                     .getResultCostField()
                     .get(i)
-                    .setText(costField.get(i));
+                    .setText(costField.get(i).getText());
             }else{
                 this
                     .getResultCostField()
                     .get(i)
                     .setText(  
-                    Float.toString(this.ruleOfThree(calcQuantityFieldValue.get(i), calcCostFieldValue.get(i))));
+                    Float.toString(this.ruleOfThree(calcQuantityFieldValue.get(i).getText(), calcCostFieldValue.get(i).getText())));
             }
             
         }

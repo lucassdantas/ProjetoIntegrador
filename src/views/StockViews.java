@@ -73,7 +73,52 @@ public class StockViews extends javax.swing.JFrame {
         );
         ordersController.main();
         
+        calcController.setCalcItemField(calcItemField01);
+        calcController.setCalcItemField(calcItemField02);
+        calcController.setCalcItemField(calcItemField03);
+        calcController.setCalcItemField(calcItemField04);
+        calcController.setCalcItemField(calcItemField05);
+        calcController.setCalcItemField(calcItemField06);
+        calcController.setCalcItemField(calcItemField07);
+        calcController.setCalcItemField(calcItemField08);
+        calcController.setCalcItemField(calcItemField09);
+        calcController.setCalcItemField(calcItemField10);
+
+        calcController.setCalcQntField(calcQntField01);
+        calcController.setCalcQntField(calcQntField02);
+        calcController.setCalcQntField(calcQntField03);
+        calcController.setCalcQntField(calcQntField04);
+        calcController.setCalcQntField(calcQntField05);
+        calcController.setCalcQntField(calcQntField06);
+        calcController.setCalcQntField(calcQntField07);
+        calcController.setCalcQntField(calcQntField08);
+        calcController.setCalcQntField(calcQntField09);
+        calcController.setCalcQntField(calcQntField10);
+
+        calcController.setCalcUnityField(calcUnField01);
+        calcController.setCalcUnityField(calcUnField02);
+        calcController.setCalcUnityField(calcUnField03);
+        calcController.setCalcUnityField(calcUnField04);
+        calcController.setCalcUnityField(calcUnField05);
+        calcController.setCalcUnityField(calcUnField06);
+        calcController.setCalcUnityField(calcUnField07);
+        calcController.setCalcUnityField(calcUnField08);
+        calcController.setCalcUnityField(calcUnField09);
+        calcController.setCalcUnityField(calcUnField10);
         
+        calcController.setCalcCostField(calcCostField01);
+        calcController.setCalcCostField(calcCostField02);
+        calcController.setCalcCostField(calcCostField03);
+        calcController.setCalcCostField(calcCostField04);
+        calcController.setCalcCostField(calcCostField05);
+        calcController.setCalcCostField(calcCostField06);
+        calcController.setCalcCostField(calcCostField07);
+        calcController.setCalcCostField(calcCostField08);
+        calcController.setCalcCostField(calcCostField09);
+        calcController.setCalcCostField(calcCostField10);
+        
+        calcController.setCalcPortionField(calcPortionField);
+        calcController.setCalcQuantityFieldValue();
         
        
     }
@@ -1625,6 +1670,11 @@ public void limparCalculoPorcoes() {
 
         calcCostField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField01.setName(""); // NOI18N
+        calcCostField01.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                calcCostField01KeyReleased(evt);
+            }
+        });
         panelPE1.add(calcCostField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 100, 45));
 
         calcItemField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -2360,51 +2410,7 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_dataSheetEditButtonActionPerformed
 
     private void portionCalcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portionCalcBtnActionPerformed
-        calcController.setCalcItemField(calcItemField01);
-        calcController.setCalcItemField(calcItemField02);
-        calcController.setCalcItemField(calcItemField03);
-        calcController.setCalcItemField(calcItemField04);
-        calcController.setCalcItemField(calcItemField05);
-        calcController.setCalcItemField(calcItemField06);
-        calcController.setCalcItemField(calcItemField07);
-        calcController.setCalcItemField(calcItemField08);
-        calcController.setCalcItemField(calcItemField09);
-        calcController.setCalcItemField(calcItemField10);
 
-        calcController.setCalcQntField(calcQntField01.getText());
-        calcController.setCalcQntField(calcQntField02.getText());
-        calcController.setCalcQntField(calcQntField03.getText());
-        calcController.setCalcQntField(calcQntField04.getText());
-        calcController.setCalcQntField(calcQntField05.getText());
-        calcController.setCalcQntField(calcQntField06.getText());
-        calcController.setCalcQntField(calcQntField07.getText());
-        calcController.setCalcQntField(calcQntField08.getText());
-        calcController.setCalcQntField(calcQntField09.getText());
-        calcController.setCalcQntField(calcQntField10.getText());
-
-        calcController.setCalcUnityField(calcUnField01.getText());
-        calcController.setCalcUnityField(calcUnField02.getText());
-        calcController.setCalcUnityField(calcUnField03.getText());
-        calcController.setCalcUnityField(calcUnField04.getText());
-        calcController.setCalcUnityField(calcUnField05.getText());
-        calcController.setCalcUnityField(calcUnField06.getText());
-        calcController.setCalcUnityField(calcUnField07.getText());
-        calcController.setCalcUnityField(calcUnField08.getText());
-        calcController.setCalcUnityField(calcUnField09.getText());
-        calcController.setCalcUnityField(calcUnField10.getText());
-        
-        calcController.setCalcCostField(calcCostField01.getText());
-        calcController.setCalcCostField(calcCostField02.getText());
-        calcController.setCalcCostField(calcCostField03.getText());
-        calcController.setCalcCostField(calcCostField04.getText());
-        calcController.setCalcCostField(calcCostField05.getText());
-        calcController.setCalcCostField(calcCostField06.getText());
-        calcController.setCalcCostField(calcCostField07.getText());
-        calcController.setCalcCostField(calcCostField08.getText());
-        calcController.setCalcCostField(calcCostField09.getText());
-        calcController.setCalcCostField(calcCostField10.getText());
-        
-        calcController.setCalcQuantityValue(calcPortionField.getText());
         
         portionCalcResult.setController(calcController);
         portionCalcResult.findItemFields();
@@ -2910,6 +2916,11 @@ public void limparCalculoPorcoes() {
     private void orderTotalValueFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderTotalValueFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_orderTotalValueFieldActionPerformed
+
+    private void calcCostField01KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField01KeyReleased
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        System.out.println(calcController.sumAllCalcCost());
+    }//GEN-LAST:event_calcCostField01KeyReleased
 
     /**
      * @param args the command line arguments
