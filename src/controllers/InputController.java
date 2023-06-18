@@ -104,8 +104,8 @@ public class InputController {
     public void searchIngredient(int id) throws SQLException {
         IngredientDAO dao = new IngredientDAO();
         this.ingredient = dao.searchById(id);
-        this.getFields().get(1).setText(String.valueOf(ingredient.getIngredientName()));
-        this.getFields().get(3).setText(String.valueOf(ingredient.getIngredientUnitOfMeasure()));
+        this.getFields().get(1).setText(String.valueOf(ingredient.getIngredientName().replaceAll("," , ".")));
+        this.getFields().get(3).setText(String.valueOf(ingredient.getIngredientUnitOfMeasure().replaceAll("," , ".")));
     }
     public void readJTable() throws SQLException{
         
@@ -220,13 +220,13 @@ public class InputController {
             LocalDate inputDate = LocalDate.parse(fields.get(5).getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy") );
             this.ingredient.setId(Integer.parseInt(fields.get(0).getText()));
             this.ingredient.setIngredientName(String.valueOf(fields.get(1).getText()));
-            this.ingredient.setIngredientUnitOfMeasure(String.valueOf(fields.get(3).getText()));
-            this.ingredient.sumIngredientStock(Float.parseFloat(fields.get(2).getText()));
-            input.setInputQuantity(Float.parseFloat(fields.get(2).getText()));
-            input.setInputCost(Float.parseFloat(fields.get(4).getText()));
+            this.ingredient.setIngredientUnitOfMeasure(String.valueOf(fields.get(3).getText().replaceAll("," , ".")));
+            this.ingredient.sumIngredientStock(Float.parseFloat(fields.get(2).getText().replaceAll("," , ".")));
+            input.setInputQuantity(Float.parseFloat(fields.get(2).getText().replaceAll("," , ".")));
+            input.setInputCost(Float.parseFloat(fields.get(4).getText().replaceAll("," , ".")));
             input.setInputDate(inputDate);
             input.setIngredient(this.ingredient);
-            System.out.println(String.valueOf(fields.get(2).getText()));
+            System.out.println(String.valueOf(fields.get(2).getText().replaceAll("," , ".")));
             System.out.println(this.ingredient.getIngredientStock());
             try {
                 dao.addInput(input);
@@ -262,8 +262,8 @@ public class InputController {
                 LocalDate inputDate = LocalDate.parse(fields.get(5).getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                 
                 input.getIngredient().setId(Integer.parseInt(fields.get(0).getText()));
-                input.setInputQuantity(Float.parseFloat(fields.get(2).getText()));
-                input.setInputCost(Float.parseFloat(fields.get(4).getText()));
+                input.setInputQuantity(Float.parseFloat(fields.get(2).getText().replaceAll("," , ".")));
+                input.setInputCost(Float.parseFloat(fields.get(4).getText().replaceAll("," , ".")));
                 input.setInputDate(inputDate);
                 input.setId(inputs.get(table.getSelectedRow()).getId());
                 try {

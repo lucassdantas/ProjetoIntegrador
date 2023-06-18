@@ -9,12 +9,14 @@ import dao.SnackDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import javax.swing.text.NumberFormatter;
 import models.Snack;
 
 /**
@@ -23,6 +25,8 @@ import models.Snack;
  */
 public class SnackController {
     
+    private JTextField textField;
+   
     private JTable table;
     private final List<JTextField> fields;
     private views.text.area.AreaText textArea;
@@ -126,8 +130,12 @@ public class SnackController {
             Snack snack = new Snack();
             SnackDAO dao = new SnackDAO();
             
+            
+     
+      
+            
             snack.setSnackTitle(fields.get(0).getText());
-            snack.setSnackSellingPrice(Float.parseFloat(fields.get(1).getText()));
+            snack.setSnackSellingPrice(Float.parseFloat(fields.get(1).getText().replaceAll("," , ".")));
             snack.setSnackDescription(textArea.getText());
             snack.setSnackImageUrl("oi");
             
@@ -163,7 +171,7 @@ public class SnackController {
 
                 snack.setId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
                 snack.setSnackTitle(fields.get(0).getText());
-                snack.setSnackSellingPrice(Float.parseFloat(fields.get(1).getText()));
+                snack.setSnackSellingPrice(Float.parseFloat(fields.get(1).getText().replaceAll("," , ".")));
                 snack.setSnackDescription(textArea.getText());
 
                 try {
@@ -206,5 +214,12 @@ public class SnackController {
                     "Selecione um serviço na tabela abaixo!");
         }
     }
+
+
+
+
+
+
+
 }
 

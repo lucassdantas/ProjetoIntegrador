@@ -248,7 +248,7 @@ public final class OrdersController {
         this.order.setOrderSnackName(snack.getSnackTitle());
         this.order.setOrderQuantity(Integer.parseInt(String.valueOf(this.quantitySpinner.getValue())));
        // this.order.getOrderCost();
-        this.order.setOrderUnitPrice(snack.getSnackSellingPrice());
+        this.order.setOrderUnitPrice((float) snack.getSnackSellingPrice());
         this.order.setOrderTotalPrice(Float.parseFloat(this.totalField.getText()));
         this.order.setOrderDate(time);
         
