@@ -487,6 +487,11 @@ public class PortionCalcResult extends javax.swing.JFrame {
 
         resultPortionQuantity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultPortionQuantity.setLabelText("");
+        resultPortionQuantity.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                resultPortionQuantityStateChanged(evt);
+            }
+        });
         panelEntradas1.add(resultPortionQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 102, 45));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1040, 900));
@@ -520,6 +525,10 @@ public class PortionCalcResult extends javax.swing.JFrame {
     private void resultItemField01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultItemField01ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resultItemField01ActionPerformed
+
+    private void resultPortionQuantityStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_resultPortionQuantityStateChanged
+        calcController.multiplyValues();
+    }//GEN-LAST:event_resultPortionQuantityStateChanged
 
     /**
      * @param args the command line arguments
