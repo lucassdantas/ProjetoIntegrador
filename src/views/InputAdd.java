@@ -154,10 +154,29 @@ public class InputAdd extends javax.swing.JFrame {
 
         inputAddQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         inputAddQuantityField.setName(""); // NOI18N
+        inputAddQuantityField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputAddQuantityFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(inputAddQuantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 140, 45));
 
         inputAddCostField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         inputAddCostField.setName(""); // NOI18N
+        inputAddCostField.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                inputAddCostFieldAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        inputAddCostField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputAddCostFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(inputAddCostField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 140, 45));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -202,7 +221,7 @@ public class InputAdd extends javax.swing.JFrame {
         });
         panelEntradas1.add(inputAddSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 50, 47, 47));
 
-        areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
+        areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 660));
 
         jDesktopPane1.add(areaEntradas_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 940, 710));
 
@@ -272,6 +291,26 @@ public class InputAdd extends javax.swing.JFrame {
             Logger.getLogger(DataSheetAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_inputAddSearchButtonActionPerformed
+
+    private void inputAddQuantityFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputAddQuantityFieldKeyTyped
+        String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_inputAddQuantityFieldKeyTyped
+
+    private void inputAddCostFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputAddCostFieldKeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_inputAddCostFieldKeyTyped
+
+    private void inputAddCostFieldAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_inputAddCostFieldAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputAddCostFieldAncestorAdded
 
     /**
      * @param args the command line arguments

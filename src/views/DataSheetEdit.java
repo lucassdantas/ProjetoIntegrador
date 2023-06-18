@@ -144,6 +144,11 @@ public class DataSheetEdit extends javax.swing.JFrame {
         dsIngredientUnityQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         dsIngredientUnityQuantityField.setName(""); // NOI18N
         dsIngredientUnityQuantityField.setOpaque(true);
+        dsIngredientUnityQuantityField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dsIngredientUnityQuantityFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(dsIngredientUnityQuantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 140, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -163,6 +168,11 @@ public class DataSheetEdit extends javax.swing.JFrame {
         dsTotalCostField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         dsTotalCostField.setName(""); // NOI18N
         dsTotalCostField.setOpaque(true);
+        dsTotalCostField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dsTotalCostFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(dsTotalCostField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 140, 45));
 
         dsIngredientNameField.setEditable(false);
@@ -188,6 +198,11 @@ public class DataSheetEdit extends javax.swing.JFrame {
         dsUnityOfMeauseField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         dsUnityOfMeauseField.setName(""); // NOI18N
         dsUnityOfMeauseField.setOpaque(true);
+        dsUnityOfMeauseField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dsUnityOfMeauseFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(dsUnityOfMeauseField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 140, 45));
 
         jLabel38.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -203,6 +218,11 @@ public class DataSheetEdit extends javax.swing.JFrame {
         dsUnityCostField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         dsUnityCostField.setName(""); // NOI18N
         dsUnityCostField.setOpaque(true);
+        dsUnityCostField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dsUnityCostFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(dsUnityCostField, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 280, 140, 45));
         panelEntradas1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 830, 30));
 
@@ -295,6 +315,38 @@ public class DataSheetEdit extends javax.swing.JFrame {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dsEditSaveButtonActionPerformed
+
+    private void dsIngredientUnityQuantityFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dsIngredientUnityQuantityFieldKeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_dsIngredientUnityQuantityFieldKeyTyped
+
+    private void dsUnityOfMeauseFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dsUnityOfMeauseFieldKeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_dsUnityOfMeauseFieldKeyTyped
+
+    private void dsUnityCostFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dsUnityCostFieldKeyTyped
+          String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_dsUnityCostFieldKeyTyped
+
+    private void dsTotalCostFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dsTotalCostFieldKeyTyped
+          String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_dsTotalCostFieldKeyTyped
 
     /**
      * @param args the command line arguments
