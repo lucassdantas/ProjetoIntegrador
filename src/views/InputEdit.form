@@ -259,9 +259,6 @@
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                         <Property name="opaque" type="boolean" value="true"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="inputEditUnityOfMeasureFieldKeyTyped"/>
-                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="inputEditUnityOfMeasureField.setEditable(false);"/>
                       </AuxValues>
@@ -308,9 +305,6 @@
                         </Property>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="inputEditQuantityFieldKeyTyped"/>
-                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="60" y="260" width="140" height="45"/>
@@ -328,9 +322,6 @@
                         </Property>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="inputEditCostFieldKeyTyped"/>
-                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="220" y="260" width="140" height="45"/>

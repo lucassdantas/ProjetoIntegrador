@@ -137,11 +137,6 @@ public class InputEdit extends javax.swing.JFrame {
         inputEditUnityOfMeasureField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         inputEditUnityOfMeasureField.setName(""); // NOI18N
         inputEditUnityOfMeasureField.setOpaque(true);
-        inputEditUnityOfMeasureField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                inputEditUnityOfMeasureFieldKeyTyped(evt);
-            }
-        });
         panelEntradas1.add(inputEditUnityOfMeasureField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 140, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -154,20 +149,10 @@ public class InputEdit extends javax.swing.JFrame {
 
         inputEditQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         inputEditQuantityField.setName(""); // NOI18N
-        inputEditQuantityField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                inputEditQuantityFieldKeyTyped(evt);
-            }
-        });
         panelEntradas1.add(inputEditQuantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 140, 45));
 
         inputEditCostField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         inputEditCostField.setName(""); // NOI18N
-        inputEditCostField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                inputEditCostFieldKeyTyped(evt);
-            }
-        });
         panelEntradas1.add(inputEditCostField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 140, 45));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -242,26 +227,6 @@ public class InputEdit extends javax.swing.JFrame {
             Logger.getLogger(InputEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_inputEditSaveButtonActionPerformed
-
-    private void inputEditQuantityFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputEditQuantityFieldKeyTyped
-          String caracteres = "0123456789.,";
-         if (!caracteres.contains(evt.getKeyChar() + "")) {
-             
-              evt.consume();
-     }                             
-    }//GEN-LAST:event_inputEditQuantityFieldKeyTyped
-
-    private void inputEditCostFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputEditCostFieldKeyTyped
-         String caracteres = "0123456789.,";
-         if (!caracteres.contains(evt.getKeyChar() + "")) {
-             
-              evt.consume();
-    }                             
-    }//GEN-LAST:event_inputEditCostFieldKeyTyped
-
-    private void inputEditUnityOfMeasureFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputEditUnityOfMeasureFieldKeyTyped
-      
-    }//GEN-LAST:event_inputEditUnityOfMeasureFieldKeyTyped
     public void setJTable(JTable table){
         this.inputController.setJTable(table);
     }

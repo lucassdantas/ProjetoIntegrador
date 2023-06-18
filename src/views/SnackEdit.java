@@ -128,16 +128,6 @@ public class SnackEdit extends javax.swing.JFrame {
 
         ingredientEditPriceField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         ingredientEditPriceField.setName(""); // NOI18N
-        ingredientEditPriceField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ingredientEditPriceFieldActionPerformed(evt);
-            }
-        });
-        ingredientEditPriceField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                ingredientEditPriceFieldKeyTyped(evt);
-            }
-        });
         panelEntradas1.add(ingredientEditPriceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -250,18 +240,7 @@ public class SnackEdit extends javax.swing.JFrame {
             Logger.getLogger(IngredientEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_snackEditSaveButtonActionPerformed
-
-    private void ingredientEditPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingredientEditPriceFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ingredientEditPriceFieldActionPerformed
-
-    private void ingredientEditPriceFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ingredientEditPriceFieldKeyTyped
-           String caracteres = "0123456789.,";
-         if (!caracteres.contains(evt.getKeyChar() + "")) {
-             
-              evt.consume();
-    }//GEN-LAST:event_ingredientEditPriceFieldKeyTyped
-      }
+    
     /**
      * @param args the command line arguments
      */
