@@ -2515,8 +2515,8 @@ public void limparCalculoPorcoes() {
 
         portionCalcResult.setCurrentPortionQuantity();
         portionCalcResult.setFieldsValue();
-        
         portionCalcResult.setVisible(true);
+
         
     }//GEN-LAST:event_portionCalcBtnActionPerformed
 

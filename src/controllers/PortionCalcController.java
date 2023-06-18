@@ -177,11 +177,13 @@ public class PortionCalcController {
     }
     
     public void setResultPortionField(Spinner resultPortionQuantity) {
-        /*if((int) resultPortionQuantity.getValue() == 0 ){
+        if((int) resultPortionQuantity.getValue() == 0 ){
             resultPortionQuantity.setValue(1);
-        }*/
+        }else{
+            
+        }
         //this.resultPortionField = resultPortionQuantity;
-        this.resultPortionField = 1;
+        this.resultPortionField = resultPortionQuantity;
     }
     public void setResultItemFieldValue(){
         List<JTextField> itemField = this.getCalcItemFieldValue();
