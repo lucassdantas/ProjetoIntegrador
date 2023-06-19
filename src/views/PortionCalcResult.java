@@ -662,6 +662,11 @@ public class PortionCalcResult extends javax.swing.JFrame {
 
         resultPortionQuantity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultPortionQuantity.setLabelText("");
+        resultPortionQuantity.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                resultPortionQuantityStateChanged(evt);
+            }
+        });        
         panelEntradas1.add(resultPortionQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 102, 45));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1040, 900));
