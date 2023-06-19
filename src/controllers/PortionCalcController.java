@@ -40,9 +40,17 @@ public class PortionCalcController {
     }
     
     public float ruleOfThree(String stringQuantity, String stringCost){
+        int spinnerValue = 1;
+        try{
+            spinnerValue = (int) resultPortionField.getValue();
+        }catch(NullPointerException e){
+            spinnerValue = 1;
+        }
+        
         float cost = Float.parseFloat(stringCost);
         float quantity = Float.parseFloat(stringQuantity);
-        float value = ( cost * (int)this.resultPortionField.getValue()) / quantity;
+        
+        float value = ( cost * spinnerValue) / quantity;
         return value;
     }
     
@@ -177,12 +185,14 @@ public class PortionCalcController {
     }
     
     public void setResultPortionField(Spinner resultPortionQuantity) {
-        if((int) resultPortionQuantity.getValue() == 0 ){
-            resultPortionQuantity.setValue(1);
+        if((int) resultPortionQuantity.getValue() == 0 || resultPortionQuantity.getValue().toString().isEmpty()){
+            resultPortionQuantity.setValue(Integer.valueOf(1));
         }else{
             
         }
         //this.resultPortionField = resultPortionQuantity;
+        Integer v = 1;
+        resultPortionQuantity.setValue(v);
         this.resultPortionField = resultPortionQuantity;
     }
     public void setResultItemFieldValue(){
