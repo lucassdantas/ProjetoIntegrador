@@ -167,9 +167,9 @@ public class IngredientController {
             IngredientDAO dao = new IngredientDAO();
             
             ingredient.setIngredientName(fields.get(0).getText());
-            ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText()));
-            ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText()));
-            ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText()));
+            ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText().replaceAll("," , ".")));
+            ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText().replaceAll("," , ".")));
+            ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText().replaceAll("," , ".")));
             ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
             
             try {
@@ -204,9 +204,9 @@ public class IngredientController {
 
                 ingredient.setId(Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))));
                 ingredient.setIngredientName(fields.get(0).getText());
-                ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText()));
-                ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText()));
-                ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText()));
+                ingredient.setIngredientUnitCost(Float.parseFloat(fields.get(1).getText().replaceAll("," , ".")));
+                ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText().replaceAll("," , ".")));
+                ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText().replaceAll("," , ".")));
                 ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
 
                 try {
