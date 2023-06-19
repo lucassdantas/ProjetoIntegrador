@@ -1160,6 +1160,7 @@ public class PortionCalcResult extends javax.swing.JFrame {
         this.calcController.setResultUnFieldValue();
         this.calcController.setResultCostFieldValue();
         
+        this.calcController.sumAllCostResult();
     }
    
     public void findItemFields() {
@@ -1211,6 +1212,9 @@ public class PortionCalcResult extends javax.swing.JFrame {
         calcController.addResultCostField(resultCostField10);
     }
     
+    public void findInfoFields(){
+        this.calcController.setUnitySnackField(resultCostProductionField);
+    }
     public void setSnackName(String name){
         resultSnackName.setText(name);
     }

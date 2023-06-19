@@ -29,6 +29,8 @@ public class PortionCalcController {
     
     private List<String> resultQuantityFieldOriginalResult = new ArrayList<>();
     private List<String> resultCostFieldOriginalResult = new ArrayList<>();
+    
+    private JTextField resultUnitySnackFieldPrice;
     public PortionCalcController(){};
     
     public void clearValues(){
@@ -155,6 +157,10 @@ public class PortionCalcController {
     }
     
 //result
+    public void setUnitySnackField(JTextField field){
+        this.resultUnitySnackFieldPrice = field;
+    }
+    
     public void addResultItemField(javax.swing.JTextField field) {
         resultItemField.add(field);
     }
@@ -250,5 +256,19 @@ public class PortionCalcController {
         for(int i = 0; i < this.resultQuantityField.size(); i++){
             this.resultQuantityFieldOriginalResult.add(String.valueOf(resultQuantityField.get(i)));
         }
+    }
+    
+    public void sumAllCostResult(){
+        float value = 0;
+        for(int i = 0; i < this.resultCostField.size(); i++){
+            if(!resultCostField.get(i).getText().isEmpty() || resultCostField.get(i).getText() != " "){
+                try{
+                    value += Float.parseFloat(this.resultCostField.get(i).getText());
+                }catch(NumberFormatException  E){
+
+                }
+            }
+        }
+        this.resultUnitySnackFieldPrice.setText( String.valueOf(value));
     }
 }
