@@ -326,8 +326,8 @@ public class SnackAdd extends javax.swing.JFrame {
     }//GEN-LAST:event_snackAddChoseFileButtonActionPerformed
 
     private void snackSellingPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackSellingPriceFieldActionPerformed
-         
-      
+        // snackSellingPriceField = NumberFormat.getInstance().parse(snackSellingPriceField).doubleValue;
+      NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
     }//GEN-LAST:event_snackSellingPriceFieldActionPerformed
 
     private void snackSellingPriceFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_snackSellingPriceFieldKeyTyped
