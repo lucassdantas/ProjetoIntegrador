@@ -1728,6 +1728,7 @@ public void limparCalculoPorcoes() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField02KeyReleased(evt);
             }
+        }
         calcCostField02.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 calcCostField02KeyTyped(evt);
