@@ -2619,9 +2619,11 @@ public void limparCalculoPorcoes() {
         portionCalcResult.findQntFields();
         portionCalcResult.findUnityFields();
         portionCalcResult.findCostFields();
-
+            
         portionCalcResult.setCurrentPortionQuantity();
         portionCalcResult.setFieldsValue();
+        
+        portionCalcResult.setSnackName(calcLunchField.getText());
         
         portionCalcResult.setVisible(true);
         
