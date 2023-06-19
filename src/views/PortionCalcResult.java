@@ -230,54 +230,99 @@ public class PortionCalcResult extends javax.swing.JFrame {
         resultQntField10.setBackground(new java.awt.Color(243, 243, 243));
         resultQntField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField10.setName(""); // NOI18N
+        resultQntField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField10KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 645, 100, 45));
 
         resultQntField09.setEditable(false);
         resultQntField09.setBackground(new java.awt.Color(243, 243, 243));
         resultQntField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField09.setName(""); // NOI18N
+        resultQntField09.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField09KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 590, 100, 45));
 
         resultQntField08.setEditable(false);
         resultQntField08.setBackground(new java.awt.Color(243, 243, 243));
         resultQntField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField08.setName(""); // NOI18N
+        resultQntField08.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField08KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 535, 100, 45));
 
         resultQntField07.setEditable(false);
         resultQntField07.setBackground(new java.awt.Color(243, 243, 243));
         resultQntField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField07.setName(""); // NOI18N
+        resultQntField07.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField07KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 100, 45));
 
         resultQntField06.setEditable(false);
         resultQntField06.setBackground(new java.awt.Color(243, 243, 243));
         resultQntField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField06.setName(""); // NOI18N
+        resultQntField06.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField06KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 425, 100, 45));
 
         resultQntField05.setEditable(false);
         resultQntField05.setBackground(new java.awt.Color(243, 243, 243));
         resultQntField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField05.setName(""); // NOI18N
+        resultQntField05.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField05KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 100, 45));
 
         resultQntField04.setEditable(false);
         resultQntField04.setBackground(new java.awt.Color(243, 243, 243));
         resultQntField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField04.setName(""); // NOI18N
+        resultQntField04.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField04KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 315, 100, 45));
 
         resultQntField03.setEditable(false);
         resultQntField03.setBackground(new java.awt.Color(243, 243, 243));
         resultQntField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField03.setName(""); // NOI18N
+        resultQntField03.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField03KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 100, 45));
 
         resultQntField02.setEditable(false);
         resultQntField02.setBackground(new java.awt.Color(243, 243, 243));
         resultQntField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField02.setName(""); // NOI18N
+        resultQntField02.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField02KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 205, 100, 45));
 
         resultQntField01.setEditable(false);
@@ -285,6 +330,11 @@ public class PortionCalcResult extends javax.swing.JFrame {
         resultQntField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultQntField01.setName(""); // NOI18N
         resultQntField01.setOpaque(true);
+        resultQntField01.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultQntField01KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultQntField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 100, 45));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -299,120 +349,220 @@ public class PortionCalcResult extends javax.swing.JFrame {
         resultUnField01.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField01.setName(""); // NOI18N
+        resultUnField01.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField01KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 100, 45));
 
         resultUnField02.setEditable(false);
         resultUnField02.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField02.setName(""); // NOI18N
+        resultUnField02.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField02KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 205, 100, 45));
 
         resultUnField03.setEditable(false);
         resultUnField03.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField03.setName(""); // NOI18N
+        resultUnField03.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField03KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 100, 45));
 
         resultUnField04.setEditable(false);
         resultUnField04.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField04.setName(""); // NOI18N
+        resultUnField04.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField04KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 315, 100, 45));
 
         resultUnField05.setEditable(false);
         resultUnField05.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField05.setName(""); // NOI18N
+        resultUnField05.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField05KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 100, 45));
 
         resultUnField06.setEditable(false);
         resultUnField06.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField06.setName(""); // NOI18N
+        resultUnField06.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField06KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 425, 100, 45));
 
         resultUnField07.setEditable(false);
         resultUnField07.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField07.setName(""); // NOI18N
+        resultUnField07.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField07KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 100, 45));
 
         resultUnField08.setEditable(false);
         resultUnField08.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField08.setName(""); // NOI18N
+        resultUnField08.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField08KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 535, 100, 45));
 
         resultUnField09.setEditable(false);
         resultUnField09.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField09.setName(""); // NOI18N
+        resultUnField09.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField09KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 590, 100, 45));
 
         resultUnField10.setEditable(false);
         resultUnField10.setBackground(new java.awt.Color(243, 243, 243));
         resultUnField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultUnField10.setName(""); // NOI18N
+        resultUnField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultUnField10KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultUnField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 645, 100, 45));
 
         resultCostField10.setEditable(false);
         resultCostField10.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField10.setName(""); // NOI18N
+        resultCostField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField10KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 645, 100, 45));
 
         resultCostField09.setEditable(false);
         resultCostField09.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField09.setName(""); // NOI18N
+        resultCostField09.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField09KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 100, 45));
 
         resultCostField08.setEditable(false);
         resultCostField08.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField08.setName(""); // NOI18N
+        resultCostField08.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField08KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 535, 100, 45));
 
         resultCostField07.setEditable(false);
         resultCostField07.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField07.setName(""); // NOI18N
+        resultCostField07.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField07KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 480, 100, 45));
 
         resultCostField06.setEditable(false);
         resultCostField06.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField06.setName(""); // NOI18N
+        resultCostField06.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField06KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 425, 100, 45));
 
         resultCostField05.setEditable(false);
         resultCostField05.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField05.setName(""); // NOI18N
+        resultCostField05.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField05KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 100, 45));
 
         resultCostField04.setEditable(false);
         resultCostField04.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField04.setName(""); // NOI18N
+        resultCostField04.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField04KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 315, 100, 45));
 
         resultCostField03.setEditable(false);
         resultCostField03.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField03.setName(""); // NOI18N
+        resultCostField03.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField03KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 100, 45));
 
         resultCostField02.setEditable(false);
         resultCostField02.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField02.setName(""); // NOI18N
+        resultCostField02.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField02KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 205, 100, 45));
 
         resultCostField01.setEditable(false);
         resultCostField01.setBackground(new java.awt.Color(243, 243, 243));
         resultCostField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostField01.setName(""); // NOI18N
+        resultCostField01.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostField01KeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 100, 45));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -424,6 +574,11 @@ public class PortionCalcResult extends javax.swing.JFrame {
         resultCostProductionField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultCostProductionField.setName(""); // NOI18N
         resultCostProductionField.setOpaque(true);
+        resultCostProductionField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultCostProductionFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultCostProductionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, 210, 45));
 
         jLabel34.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -438,6 +593,11 @@ public class PortionCalcResult extends javax.swing.JFrame {
         resultSellValueField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultSellValueField.setName(""); // NOI18N
         resultSellValueField.setOpaque(true);
+        resultSellValueField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultSellValueFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultSellValueField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 290, 210, 45));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -457,6 +617,11 @@ public class PortionCalcResult extends javax.swing.JFrame {
         resultTotalPortionField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultTotalPortionField.setName(""); // NOI18N
         resultTotalPortionField.setOpaque(true);
+        resultTotalPortionField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultTotalPortionFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultTotalPortionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 400, 210, 45));
 
         resultGainField.setEditable(false);
@@ -464,6 +629,11 @@ public class PortionCalcResult extends javax.swing.JFrame {
         resultGainField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultGainField.setName(""); // NOI18N
         resultGainField.setOpaque(true);
+        resultGainField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultGainFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultGainField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 510, 210, 45));
 
         jLabel41.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
@@ -483,6 +653,11 @@ public class PortionCalcResult extends javax.swing.JFrame {
         resultGainMarginField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultGainMarginField.setName(""); // NOI18N
         resultGainMarginField.setOpaque(true);
+        resultGainMarginField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                resultGainMarginFieldKeyTyped(evt);
+            }
+        });
         panelEntradas1.add(resultGainMarginField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 620, 210, 45));
 
         resultPortionQuantity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
@@ -491,7 +666,7 @@ public class PortionCalcResult extends javax.swing.JFrame {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 resultPortionQuantityStateChanged(evt);
             }
-        });
+        });        
         panelEntradas1.add(resultPortionQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 102, 45));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1040, 900));
@@ -529,6 +704,286 @@ public class PortionCalcResult extends javax.swing.JFrame {
     private void resultPortionQuantityStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_resultPortionQuantityStateChanged
         calcController.multiplyValues();
     }//GEN-LAST:event_resultPortionQuantityStateChanged
+    
+    private void resultQntField01KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField01KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField01KeyTyped
+
+    private void resultUnField01KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField01KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField01KeyTyped
+
+    private void resultCostField01KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField01KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField01KeyTyped
+
+    private void resultQntField02KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField02KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField02KeyTyped
+
+    private void resultUnField02KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField02KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField02KeyTyped
+
+    private void resultCostField02KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField02KeyTyped
+          String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField02KeyTyped
+
+    private void resultQntField03KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField03KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField03KeyTyped
+
+    private void resultUnField03KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField03KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField03KeyTyped
+
+    private void resultCostField03KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField03KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField03KeyTyped
+
+    private void resultQntField04KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField04KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField04KeyTyped
+
+    private void resultUnField04KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField04KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField04KeyTyped
+
+    private void resultCostField04KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField04KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField04KeyTyped
+
+    private void resultQntField05KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField05KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField05KeyTyped
+
+    private void resultUnField05KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField05KeyTyped
+          String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField05KeyTyped
+
+    private void resultCostField05KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField05KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField05KeyTyped
+
+    private void resultQntField06KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField06KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField06KeyTyped
+
+    private void resultUnField06KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField06KeyTyped
+          String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField06KeyTyped
+
+    private void resultCostField06KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField06KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField06KeyTyped
+
+    private void resultQntField07KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField07KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField07KeyTyped
+
+    private void resultUnField07KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField07KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField07KeyTyped
+
+    private void resultCostField07KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField07KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField07KeyTyped
+
+    private void resultQntField08KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField08KeyTyped
+          String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField08KeyTyped
+
+    private void resultUnField08KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField08KeyTyped
+          String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField08KeyTyped
+
+    private void resultCostField08KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField08KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField08KeyTyped
+
+    private void resultQntField09KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField09KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField09KeyTyped
+
+    private void resultUnField09KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField09KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField09KeyTyped
+
+    private void resultCostField09KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField09KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField09KeyTyped
+
+    private void resultQntField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField10KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultQntField10KeyTyped
+
+    private void resultUnField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultUnField10KeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultUnField10KeyTyped
+
+    private void resultCostField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostField10KeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostField10KeyTyped
+
+    private void resultCostProductionFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultCostProductionFieldKeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultCostProductionFieldKeyTyped
+
+    private void resultSellValueFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultSellValueFieldKeyTyped
+          String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultSellValueFieldKeyTyped
+
+    private void resultTotalPortionFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultTotalPortionFieldKeyTyped
+           String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultTotalPortionFieldKeyTyped
+
+    private void resultGainFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultGainFieldKeyTyped
+          String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultGainFieldKeyTyped
+
+    private void resultGainMarginFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultGainMarginFieldKeyTyped
+            String caracteres = "0123456789.,";
+         if (!caracteres.contains(evt.getKeyChar() + "")) {
+             
+              evt.consume();
+    }                             
+    }//GEN-LAST:event_resultGainMarginFieldKeyTyped
 
     /**
      * @param args the command line arguments
