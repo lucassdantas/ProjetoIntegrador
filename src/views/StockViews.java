@@ -1693,6 +1693,7 @@ public void limparCalculoPorcoes() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField01KeyReleased(evt);
             }
+        });
         calcCostField01.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 calcCostField01KeyTyped(evt);
@@ -1728,7 +1729,7 @@ public void limparCalculoPorcoes() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField02KeyReleased(evt);
             }
-        }
+        });
         calcCostField02.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 calcCostField02KeyTyped(evt);
@@ -1778,6 +1779,7 @@ public void limparCalculoPorcoes() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField03KeyReleased(evt);
             }
+        });
         calcCostField03.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 calcCostField03KeyTyped(evt);
