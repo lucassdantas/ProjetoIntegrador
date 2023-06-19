@@ -701,6 +701,10 @@ public class PortionCalcResult extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_resultItemField01ActionPerformed
 
+    private void resultPortionQuantityStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_resultPortionQuantityStateChanged
+        calcController.multiplyValues();
+    }//GEN-LAST:event_resultPortionQuantityStateChanged
+    
     private void resultQntField01KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField01KeyTyped
            String caracteres = "0123456789.,";
          if (!caracteres.contains(evt.getKeyChar() + "")) {
@@ -1146,7 +1150,8 @@ public class PortionCalcResult extends javax.swing.JFrame {
         this.calcController = calcController;
     }
     public void setCurrentPortionQuantity(){
-       calcController.setResultPortionField(resultPortionQuantity);
+        resultPortionQuantity.setValue(1);
+        calcController.setResultPortionField(resultPortionQuantity);
    }
     public void setFieldsValue(){
         this.calcController.setResultItemFieldValue();
