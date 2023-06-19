@@ -151,22 +151,34 @@ public class DataSheetController {
         model.setNumRows(0);
         
         DataSheetDAO dao = new DataSheetDAO();
-        
+        int i = 0;
+
         for (DataSheet ds: dao.readAll()){
             this.snacksList.add(ds.getSnack());
             this.ingredientsList.add(ds.getIngredient());
+            float DsQuantity = ds.getDsQuantity();
             
-            
+
             model.addRow(new Object[]{
-                //dataSheet.getDsSnackId(),
                 ds.getSnack().getSnackTitle(),
                 ds.getIngredient().getIngredientName(),
                 ds.getDsQuantity(),
                 ds.getIngredient().getIngredientUnitOfMeasure(),
                 ds.getDsTotalCost()
+                    
             });
-        }       
+            
+            int DsQuantityInteger;
+            
+            
+            if( DsQuantity % 1 == 0){
+                DsQuantityInteger = (int) DsQuantity;
+                model.setValueAt(DsQuantityInteger, i, 2);
+            }  
+        i++; 
     }
+}          
+    
     public void readJTableSearch(String search) throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -174,20 +186,34 @@ public class DataSheetController {
         model.setNumRows(0);
         
         DataSheetDAO dao = new DataSheetDAO();
-       
-        for (DataSheet dataSheet: dao.search(search)){
-            this.snacksList.add(dataSheet.getSnack());
-            this.ingredientsList.add(dataSheet.getIngredient());
+       int i = 0;
+
+        for (DataSheet ds: dao.readAll()){
+            this.snacksList.add(ds.getSnack());
+            this.ingredientsList.add(ds.getIngredient());
+            float DsQuantity = ds.getDsQuantity();
+            
+
             model.addRow(new Object[]{
-               // dataSheet.getDsSnackId(),
-                dataSheet.getSnack().getSnackTitle(),
-                dataSheet.getIngredient().getIngredientName(),
-                dataSheet.getDsQuantity(),
-                dataSheet.getIngredient().getIngredientUnitOfMeasure(),
-                dataSheet.getDsTotalCost()
+                ds.getSnack().getSnackTitle(),
+                ds.getIngredient().getIngredientName(),
+                ds.getDsQuantity(),
+                ds.getIngredient().getIngredientUnitOfMeasure(),
+                ds.getDsTotalCost()
+                    
             });
-        }       
+            
+            int DsQuantityInteger;
+            
+            
+            if( DsQuantity % 1 == 0){
+                DsQuantityInteger = (int) DsQuantity;
+                model.setValueAt(DsQuantityInteger, i, 2);
+            }  
+        i++; 
     }
+}          
+    
     
     public void clean (List <javax.swing.JTextField> fields){
         fields.forEach((field) -> {
