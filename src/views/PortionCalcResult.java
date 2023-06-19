@@ -1211,7 +1211,9 @@ public class PortionCalcResult extends javax.swing.JFrame {
         calcController.addResultCostField(resultCostField10);
     }
     
-    
+    public void setSnackName(String name){
+        resultSnackName.setText(name);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame areaEntradas_entrada;
     private views.styles.Mybtn calcPortionCancelButton;
