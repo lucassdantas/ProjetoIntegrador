@@ -6,6 +6,7 @@ package controllers;
 
 import dao.DataSheetDAO;
 import dao.SnackDAO;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,8 +66,12 @@ public class SnackController {
         return this.snacks;
     }
     public ImageIcon getImageByIndex(int i){
-        System.out.println(i);
-        ImageIcon image = new ImageIcon(snacks.get(i).getSnackImageUrl());
+        String imagePath = snacks.get(i).getSnackImageUrl();
+        ImageIcon image = new ImageIcon("productImages/default.jpg");
+        System.out.println(imagePath);
+        if(new File(imagePath).isFile()){
+             image = new ImageIcon(snacks.get(i).getSnackImageUrl());
+        }
         return image;
     }
      public void setFieldsValue(){
@@ -188,7 +193,10 @@ public class SnackController {
                 snack.setSnackTitle(fields.get(0).getText());
                 snack.setSnackSellingPrice(Float.parseFloat(fields.get(1).getText().replaceAll("," , ".")));
                 snack.setSnackDescription(textArea.getText());
-
+                snack.setSnackImageUrl("productImages/default.jpg");
+                if(!this.imageUrl.isEmpty()){
+                    snack.setSnackImageUrl(this.imageUrl);
+                }
                 try {
                     dao.updateSnack(snack);
                     this.readJTable();

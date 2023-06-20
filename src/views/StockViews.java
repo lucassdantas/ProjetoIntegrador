@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 import models.Ingredient;
@@ -2557,9 +2559,12 @@ public void limparCalculoPorcoes() {
     private void snackEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackEditButtonActionPerformed
         SnackEdit snackEdit = new SnackEdit();
         snackEdit.setJTable(snackTable);
+        Icon labelImage = snackPhoto.getIcon();
+
         if(snackTable.getSelectedRow() != -1){
             snackEdit.searchFields();
             snackEdit.setFieldsValue();
+            snackEdit.setImage(labelImage);
             snackEdit.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null,"Selecione um item da tabela!");
