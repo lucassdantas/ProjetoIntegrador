@@ -171,10 +171,7 @@ public class DataSheetController {
             int DsQuantityInteger;
             
             
-            if( DsQuantity % 1 == 0){
-                DsQuantityInteger = (int) DsQuantity;
-                model.setValueAt(DsQuantityInteger, i, 2);
-            }  
+            
         i++; 
     }
 }          
