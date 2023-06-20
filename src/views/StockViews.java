@@ -2641,10 +2641,14 @@ public void limparCalculoPorcoes() {
         portionCalcResult.findCostFields();
         portionCalcResult.findInfoFields();
             
-        portionCalcResult.setCurrentPortionQuantity();
+        portionCalcResult.setResultPortionQuantity();
         portionCalcResult.setFieldsValue();
         
         portionCalcResult.setSnackName(calcLunchField.getText());
+        
+        calcController.setCalcTotalCostField(calcTotalField);
+        calcController.setCalcPortionField(calcPortionField);
+
         
         portionCalcResult.setVisible(true);
         
@@ -3417,11 +3421,10 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_calcTotalFieldVetoableChange
 
     private void calcTotalFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_calcTotalFieldCaretUpdate
-        calcController.setCalcTotalCostField(calcTotalField);
+        
     }//GEN-LAST:event_calcTotalFieldCaretUpdate
 
     private void calcPortionFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_calcPortionFieldCaretUpdate
-        calcController.setCalcPortionField(calcPortionField);
     }//GEN-LAST:event_calcPortionFieldCaretUpdate
     /**
      * @param args the command line arguments

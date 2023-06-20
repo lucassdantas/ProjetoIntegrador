@@ -729,7 +729,7 @@ public class PortionCalcResult extends javax.swing.JFrame {
          if (!caracteres.contains(evt.getKeyChar() + "")) {
              
               evt.consume();
-    }                             
+        }                             
     }//GEN-LAST:event_resultCostField01KeyTyped
 
     private void resultQntField02KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultQntField02KeyTyped
@@ -1160,7 +1160,7 @@ public class PortionCalcResult extends javax.swing.JFrame {
     public void clearFields(){
         this.calcController.clearResultValues();
     }
-    public void setCurrentPortionQuantity(){
+    public void setResultPortionQuantity(){
         Integer v = 1;
         resultPortionQuantity.setValue(v);
         calcController.setResultPortionField(resultPortionQuantity);
@@ -1228,7 +1228,7 @@ public class PortionCalcResult extends javax.swing.JFrame {
         this.calcController.setSellingValueField(resultSellValueField);
         this.calcController.setValuePerPortionField(resultTotalPortionField);
         this.calcController.setGainField(resultGainField);
-        this.calcController.setGainMargin(resultGainMarginField);
+        this.calcController.setGainMarginField(resultGainMarginField);
         
     }
     public void setSnackName(String name){
