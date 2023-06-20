@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Jun-2023 às 06:10
+-- Tempo de geração: 20-Jun-2023 às 22:44
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `datasheet` (
   `dsSnackId` int(11) NOT NULL,
   `dsIngredientId` int(11) NOT NULL,
-  `dsQuantity` decimal(10,2) DEFAULT NULL,
-  `dsTotalCost` decimal(10,2) DEFAULT NULL,
+  `dsQuantity` float DEFAULT NULL,
+  `dsTotalCost` float DEFAULT NULL,
   `dsStatus` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -40,7 +40,12 @@ CREATE TABLE `datasheet` (
 --
 
 INSERT INTO `datasheet` (`dsSnackId`, `dsIngredientId`, `dsQuantity`, `dsTotalCost`, `dsStatus`) VALUES
-(5, 6, '2.00', '5.71', NULL);
+(1, 1, 1, 0.998, NULL),
+(1, 2, 1, 1.52, NULL),
+(1, 3, 1, 0.8333, NULL),
+(1, 4, 0.01, 0.384, NULL),
+(1, 5, 0.1, 0.356, NULL),
+(1, 6, 0.03, 0.1797, NULL);
 
 -- --------------------------------------------------------
 
@@ -51,12 +56,12 @@ INSERT INTO `datasheet` (`dsSnackId`, `dsIngredientId`, `dsQuantity`, `dsTotalCo
 CREATE TABLE `ingredient` (
   `ingredientId` int(11) NOT NULL,
   `ingredientName` varchar(255) DEFAULT NULL,
-  `ingredientMinQuantity` decimal(10,2) DEFAULT NULL,
-  `ingredientUnitQuantity` decimal(10,2) DEFAULT NULL,
+  `ingredientMinQuantity` float DEFAULT NULL,
+  `ingredientUnitQuantity` float DEFAULT NULL,
   `ingredientUnitOfMeasure` varchar(50) DEFAULT NULL,
-  `ingredientUnitCost` decimal(10,2) DEFAULT NULL,
+  `ingredientUnitCost` float DEFAULT NULL,
   `ingredientStatus` varchar(255) DEFAULT NULL,
-  `ingredientStock` decimal(10,2) DEFAULT NULL,
+  `ingredientStock` float DEFAULT NULL,
   `ingredientStockStatus` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -65,9 +70,12 @@ CREATE TABLE `ingredient` (
 --
 
 INSERT INTO `ingredient` (`ingredientId`, `ingredientName`, `ingredientMinQuantity`, `ingredientUnitQuantity`, `ingredientUnitOfMeasure`, `ingredientUnitCost`, `ingredientStatus`, `ingredientStock`, `ingredientStockStatus`) VALUES
-(5, 'Tomate', '0.20', '0.10', 'kg', '0.50', NULL, '55.00', NULL),
-(6, 'Carne | X burguer ', '2.00', '0.35', 'kg', '1.00', NULL, '-23.00', NULL),
-(7, 'Alface', '1.00', '1.00', 'un', '1.05', NULL, '0.00', NULL);
+(1, 'pao de hamburguer', 20, 1, 'un', 0.998, NULL, 100, NULL),
+(2, 'hamburguer', 20, 1, 'un', 1.52, NULL, 100, NULL),
+(3, 'ovo', 20, 1, 'un', 0.8333, NULL, 100, NULL),
+(4, 'queijo fatiado', 1, 0.01, 'kg', 0.384, NULL, 1, NULL),
+(5, 'bacon fatiado', 1, 0.01, 'kg', 0.356, NULL, 1, NULL),
+(6, 'alface', 3, 0.03, 'pes', 0.1797, NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -78,8 +86,8 @@ INSERT INTO `ingredient` (`ingredientId`, `ingredientName`, `ingredientMinQuanti
 CREATE TABLE `input` (
   `inputId` int(11) NOT NULL,
   `inputIngredientId` int(11) DEFAULT NULL,
-  `inputQuantity` decimal(10,2) DEFAULT NULL,
-  `inputCost` decimal(10,2) DEFAULT NULL,
+  `inputQuantity` float DEFAULT NULL,
+  `inputCost` float DEFAULT NULL,
   `inputDate` date DEFAULT NULL,
   `inputStatus` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -89,11 +97,12 @@ CREATE TABLE `input` (
 --
 
 INSERT INTO `input` (`inputId`, `inputIngredientId`, `inputQuantity`, `inputCost`, `inputDate`, `inputStatus`) VALUES
-(21, 5, '15.00', '10.00', '2023-06-15', NULL),
-(22, 6, '20.00', '7.00', '2023-06-15', NULL),
-(23, 6, '25.00', '15.00', '2023-06-15', NULL),
-(24, 5, '3.00', '1.00', '2023-06-16', NULL),
-(25, 5, '1.00', '15.00', '2023-06-16', NULL);
+(1, 1, 100, 99.8, '2023-06-20', NULL),
+(2, 2, 100, 152, '2023-06-20', NULL),
+(3, 3, 100, 83.33, '2023-06-20', NULL),
+(4, 4, 1, 38.4, '2023-06-20', NULL),
+(5, 5, 1, 35.6, '2023-06-20', NULL),
+(6, 6, 3, 17.97, '2023-06-20', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,26 +114,12 @@ CREATE TABLE `orders` (
   `orderId` int(11) NOT NULL,
   `orderSnackId` int(11) DEFAULT NULL,
   `orderQuantity` int(11) DEFAULT NULL,
-  `orderCost` decimal(10,2) DEFAULT NULL,
-  `orderUnitPrice` decimal(10,2) DEFAULT NULL,
-  `orderTotalPrice` decimal(10,2) DEFAULT NULL,
+  `orderCost` float DEFAULT NULL,
+  `orderUnitPrice` float DEFAULT NULL,
+  `orderTotalPrice` float DEFAULT NULL,
   `orderDate` date DEFAULT NULL,
   `orderSnackName` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `orders`
---
-
-INSERT INTO `orders` (`orderId`, `orderSnackId`, `orderQuantity`, `orderCost`, `orderUnitPrice`, `orderTotalPrice`, `orderDate`, `orderSnackName`) VALUES
-(14, NULL, 1, '81.00', '15.00', '15.00', '2023-06-15', 'hamburuguer'),
-(15, NULL, 0, '50.00', '1.00', '0.00', '2023-06-15', 'test2'),
-(16, NULL, 1, '3.00', '15.00', '15.00', '2023-06-15', 'Hamburguer'),
-(17, NULL, 1, '3.00', '15.00', '15.00', '2023-06-15', 'Hamburguer'),
-(18, NULL, 1, '3.00', '15.00', '15.00', '2023-06-15', 'Hamburguer'),
-(19, 5, 2, '15.00', '15.00', '30.00', '2023-06-16', 'Hamburguer'),
-(20, 5, 1, '15.00', '15.00', '15.00', '2023-06-16', 'Hamburguer'),
-(21, 5, 2, '15.00', '15.00', '30.00', '2023-06-16', 'Hamburguer');
 
 -- --------------------------------------------------------
 
@@ -137,7 +132,7 @@ CREATE TABLE `snack` (
   `snackTitle` varchar(255) DEFAULT NULL,
   `snackSellingPrice` float DEFAULT NULL,
   `snackDescription` varchar(255) DEFAULT NULL,
-  `snackImageUrl` varchar(255) DEFAULT NULL,
+  `snackImageUrl` varchar(255) DEFAULT 'C:\\Users\\Lucas Dantas\\Documents\\NetBeansProjects\\ProjetoIntegrador\\src\\productImages\\default.jpg',
   `snackStatus` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -146,7 +141,8 @@ CREATE TABLE `snack` (
 --
 
 INSERT INTO `snack` (`snackId`, `snackTitle`, `snackSellingPrice`, `snackDescription`, `snackImageUrl`, `snackStatus`) VALUES
-(5, 'Hamburguer', 15, '15', '15', 'a');
+(1, 'Hamburguer', 12, 'Aqui é a descrição do lanche.', 'C:\\Users\\Lucas Dantas\\Documents\\NetBeansProjects\\ProjetoIntegrador\\src\\productImages\\default.jpg', NULL),
+(2, 'X-burguer-duplo', 15, 'Aqui é a descrição do lanche', 'C:\\Users\\Lucas Dantas\\Documents\\NetBeansProjects\\ProjetoIntegrador\\src\\productImages\\default.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -158,13 +154,6 @@ CREATE TABLE `usuario` (
   `login` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`login`, `senha`) VALUES
-('gabriel.modesto', 'newnew');
 
 --
 -- Índices para tabelas despejadas
@@ -211,25 +200,25 @@ ALTER TABLE `snack`
 -- AUTO_INCREMENT de tabela `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ingredientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `input`
 --
 ALTER TABLE `input`
-  MODIFY `inputId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `inputId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `snack`
 --
 ALTER TABLE `snack`
-  MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas
