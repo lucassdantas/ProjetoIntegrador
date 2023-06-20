@@ -588,12 +588,15 @@ public class PortionCalcResult extends javax.swing.JFrame {
         panelEntradas1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 140, 210, 45));
         panelEntradas1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 960, 30));
 
-        resultSellValueField.setEditable(false);
-        resultSellValueField.setBackground(new java.awt.Color(243, 243, 243));
+        resultSellValueField.setEditable(true);
+        resultSellValueField.setBackground(new java.awt.Color(255, 255, 255));
         resultSellValueField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         resultSellValueField.setName(""); // NOI18N
         resultSellValueField.setOpaque(true);
         resultSellValueField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                resultSellValueFieldKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 resultSellValueFieldKeyTyped(evt);
             }
@@ -666,10 +669,10 @@ public class PortionCalcResult extends javax.swing.JFrame {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 resultPortionQuantityStateChanged(evt);
             }
-        });        
+        });
         panelEntradas1.add(resultPortionQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 102, 45));
 
-        areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1040, 900));
+        areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1040, 900));
 
         jDesktopPane1.add(areaEntradas_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1060, 930));
 
@@ -985,6 +988,10 @@ public class PortionCalcResult extends javax.swing.JFrame {
     }                             
     }//GEN-LAST:event_resultGainMarginFieldKeyTyped
 
+    private void resultSellValueFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resultSellValueFieldKeyReleased
+        this.calcController.calcDetails();
+    }//GEN-LAST:event_resultSellValueFieldKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1149,6 +1156,10 @@ public class PortionCalcResult extends javax.swing.JFrame {
     public void setController(PortionCalcController calcController){
         this.calcController = calcController;
     }
+    
+    public void clearFields(){
+        this.calcController.clearResultValues();
+    }
     public void setCurrentPortionQuantity(){
         Integer v = 1;
         resultPortionQuantity.setValue(v);
@@ -1214,6 +1225,11 @@ public class PortionCalcResult extends javax.swing.JFrame {
     
     public void findInfoFields(){
         this.calcController.setUnitySnackField(resultCostProductionField);
+        this.calcController.setSellingValueField(resultSellValueField);
+        this.calcController.setValuePerPortionField(resultTotalPortionField);
+        this.calcController.setGainField(resultGainField);
+        this.calcController.setGainMargin(resultGainMarginField);
+        
     }
     public void setSnackName(String name){
         resultSnackName.setText(name);

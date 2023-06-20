@@ -18,8 +18,11 @@ public class PortionCalcController {
     private List<JTextField> calcQuantityFieldValue = new ArrayList<>();
     private List<JTextField> calcUnityFieldValue = new ArrayList<>();
     private List<JTextField> calcCostFieldValue = new ArrayList<>();
+    
+    private JTextField calcTotalCost;
     private JTextField calcPortionField;
     private int calcPortionQuantityFieldValue;
+    
     
     private List<JTextField> resultItemField = new ArrayList<>();
     private List<JTextField> resultQuantityField = new ArrayList<>();
@@ -31,9 +34,10 @@ public class PortionCalcController {
     private List<String> resultCostFieldOriginalResult = new ArrayList<>();
     
     private JTextField resultUnitySnackFieldPrice;
+    
     public PortionCalcController(){};
     
-    public void clearValues(){
+    public void clearCalcValues(){
         this.calcItemFieldValue = new ArrayList<>();
         this.calcQuantityFieldValue = new ArrayList<>();
         this.calcUnityFieldValue = new ArrayList<>();
@@ -56,13 +60,7 @@ public class PortionCalcController {
         return value;
     }
     
-    public void clear(){
-        this.resultItemField = new ArrayList<>();
-        this.resultQuantityField = new ArrayList<>();
-        this.resultUnityField = new ArrayList<>();
-        this.resultCostField = new ArrayList<>();
-        this.resultPortionField.setValue(1); 
-    }
+
    
 //calc
     public void setCalcItemField(javax.swing.JTextField itemField) {
@@ -107,6 +105,9 @@ public class PortionCalcController {
     public void setCalcPortionField(JTextField quantityField){
         this.calcPortionField = quantityField;
     }
+    public void setCalcTotalCostField(JTextField field){
+        this.calcTotalCost = field;
+    }
     
     public List<JTextField> getCalcItemFieldValue() {
         return calcItemFieldValue;
@@ -139,6 +140,7 @@ public class PortionCalcController {
     }
     public void multiplyValues(){
         this.setResultCostFieldValue();
+        this.setResultQntFieldValue();
         /*
         for(int i = 0; i < this.resultCostField.size(); i++){
             if(!this.resultCostField.get(i).getText().isEmpty() || this.resultCostField.get(i).getText() == " "){
@@ -157,6 +159,13 @@ public class PortionCalcController {
     }
     
 //result
+    public void clearResultValues(){
+        this.resultItemField = new ArrayList<>();
+        this.resultQuantityField = new ArrayList<>();
+        this.resultUnityField = new ArrayList<>();
+        this.resultCostField = new ArrayList<>();
+        //this.resultPortionField.setValue(1); 
+    }
     public void setUnitySnackField(JTextField field){
         this.resultUnitySnackFieldPrice = field;
     }
