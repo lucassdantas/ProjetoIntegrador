@@ -30,6 +30,7 @@ public class SnackController {
     private JTable table;
     private final List<JTextField> fields;
     private views.text.area.AreaText textArea;
+    private String imageUrl;
     public SnackController() {
         this.fields = new ArrayList<>();
         this.textArea = new views.text.area.AreaText();
@@ -44,6 +45,10 @@ public class SnackController {
     public void setTextArea(views.text.area.AreaText textArea){
         this.textArea = textArea;
     }
+    public void setImageUrl(String url){
+        this.imageUrl = url;
+    }
+    
     public views.text.area.AreaText getTextArea(){
         return this.textArea;
     }
@@ -130,14 +135,13 @@ public class SnackController {
             Snack snack = new Snack();
             SnackDAO dao = new SnackDAO();
             
-            
-     
-      
-            
             snack.setSnackTitle(fields.get(0).getText());
             snack.setSnackSellingPrice(Float.parseFloat(fields.get(1).getText().replaceAll("," , ".")));
             snack.setSnackDescription(textArea.getText());
-            snack.setSnackImageUrl("oi");
+            snack.setSnackImageUrl("productImages/default.jpg");
+            if(!this.imageUrl.isEmpty()){
+                snack.setSnackImageUrl(this.imageUrl);
+            }
             
             try {
                 dao.addSnack(snack);
