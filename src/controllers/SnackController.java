@@ -9,6 +9,7 @@ import dao.SnackDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
@@ -27,11 +28,14 @@ public class SnackController {
     
     private JTextField textField;
    
+    private List<Snack> snacks;
     private JTable table;
     private final List<JTextField> fields;
     private views.text.area.AreaText textArea;
+    private String imageUrl;
     public SnackController() {
         this.fields = new ArrayList<>();
+        this.snacks = new ArrayList<>();
         this.textArea = new views.text.area.AreaText();
     }
     
@@ -44,6 +48,10 @@ public class SnackController {
     public void setTextArea(views.text.area.AreaText textArea){
         this.textArea = textArea;
     }
+    public void setImageUrl(String url){
+        this.imageUrl = url;
+    }
+    
     public views.text.area.AreaText getTextArea(){
         return this.textArea;
     }
@@ -53,7 +61,14 @@ public class SnackController {
     public List<JTextField> getFields(){
         return this.fields;
     }
-    
+    public List<Snack> getSnacks(){
+        return this.snacks;
+    }
+    public ImageIcon getImageByIndex(int i){
+        System.out.println(i);
+        ImageIcon image = new ImageIcon(snacks.get(i).getSnackImageUrl());
+        return image;
+    }
      public void setFieldsValue(){
         for (int i = 0; i < this.fields.size(); i++){
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
@@ -69,9 +84,9 @@ public class SnackController {
         model.setNumRows(0);
         
         SnackDAO dao = new SnackDAO();
-
+        this.snacks = new ArrayList<>();
         for (Snack snack: dao.readAll()){
-            
+            this.snacks.add(snack);
             model.addRow(new Object[]{
                 snack.getId(),
                 snack.getSnackTitle(),
@@ -130,17 +145,17 @@ public class SnackController {
             Snack snack = new Snack();
             SnackDAO dao = new SnackDAO();
             
-            
-     
-      
-            
             snack.setSnackTitle(fields.get(0).getText());
             snack.setSnackSellingPrice(Float.parseFloat(fields.get(1).getText().replaceAll("," , ".")));
             snack.setSnackDescription(textArea.getText());
-            snack.setSnackImageUrl("oi");
+            snack.setSnackImageUrl("productImages/default.jpg");
+            if(!this.imageUrl.isEmpty()){
+                snack.setSnackImageUrl(this.imageUrl);
+            }
             
             try {
                 dao.addSnack(snack);
+                this.snacks = new ArrayList<>();
                 this.clean(this.fields, this.textArea);
                 this.readJTable();
                 return true;

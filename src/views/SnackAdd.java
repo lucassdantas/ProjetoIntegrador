@@ -54,32 +54,7 @@ public class SnackAdd extends javax.swing.JFrame {
         this.snackController.setFields(snackSellingPriceField);
         this.snackController.setTextArea(snackDescriptionField);
     }
-    
-    /*
-    private void carregarFoto(){
-        JFileChooser jfc = new JFileChooser();
-        jfc.setDialogTitle("Selecionar arquivo");
-        jfc.setFileFilter(new FileNameExtensionFilter("Arquivo de imagens(*.PNG, *.JPG,*.JPEG","png","jpg", "jpeg"));
-        jfc.showOpenDialog(this);
-        int resultado = jfc.showOpenDialog(this);
-        if(resultado == JFileChooser.APPROVE_OPTION) {
-            try{
-                fis = new FileInputStream(jfc.getSelectedFile());
-                tamanho = (int) jfc.getSelectedFile().length();
-                Image foto = ImageIO.read(jfc.getSelectedFile()).getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_SMOOTH);
-                lblFoto.setIcon(new ImageIcon(foto));               
-                lblFoto.updateUI();
-            } catch (Exception e ) {
-                System.out.println(e);
-            }
-        }
-    }    */ 
-    
-    
 
-    
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -97,12 +72,11 @@ public class SnackAdd extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         snackDescriptionField = new views.text.area.AreaText();
-        lblFoto = new javax.swing.JPanel();
-        snackAddPhoto = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         snackAddChoseFileButton = new javax.swing.JButton();
         snackCancelButton = new views.styles.Mybtn();
         snackSaveButton = new views.styles.Mybtn();
+        snackAddPhoto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -200,27 +174,6 @@ public class SnackAdd extends javax.swing.JFrame {
 
         panelEntradas1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 450, 120));
 
-        snackAddPhoto.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        snackAddPhoto.setForeground(new java.awt.Color(255, 255, 255));
-        snackAddPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        snackAddPhoto.setText("FOTO");
-        snackAddPhoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout lblFotoLayout = new javax.swing.GroupLayout(lblFoto);
-        lblFoto.setLayout(lblFotoLayout);
-        lblFotoLayout.setHorizontalGroup(
-            lblFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lblFotoLayout.createSequentialGroup()
-                .addComponent(snackAddPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        lblFotoLayout.setVerticalGroup(
-            lblFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(snackAddPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-        );
-
-        panelEntradas1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 100, -1, -1));
-
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel35.setText("Preço de venda (R$)");
         panelEntradas1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 140, 30));
@@ -237,7 +190,7 @@ public class SnackAdd extends javax.swing.JFrame {
                 snackAddChoseFileButtonActionPerformed(evt);
             }
         });
-        panelEntradas1.add(snackAddChoseFileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 320, 120, 23));
+        panelEntradas1.add(snackAddChoseFileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 120, 23));
 
         snackCancelButton.setText("CANCELAR");
         snackCancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -257,6 +210,14 @@ public class SnackAdd extends javax.swing.JFrame {
             }
         });
         panelEntradas1.add(snackSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 570, 129, 40));
+
+        snackAddPhoto.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        snackAddPhoto.setForeground(new java.awt.Color(255, 255, 255));
+        snackAddPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        snackAddPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/productImages/default.jpg"))); // NOI18N
+        snackAddPhoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        snackAddPhoto.setMaximumSize(new java.awt.Dimension(225, 225));
+        panelEntradas1.add(snackAddPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 200, 200));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
@@ -296,33 +257,20 @@ public class SnackAdd extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void snackAddChoseFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackAddChoseFileButtonActionPerformed
-        JButton selecionarImagemButton = snackAddChoseFileButton;
-        selecionarImagemButton.addActionListener(new ActionListener() {
+        snackAddChoseFileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fileChooser = new JFileChooser();
                 int returnValue = fileChooser.showOpenDialog(null);
-                    if (returnValue == JFileChooser.APPROVE_OPTION) {
-                        File selectedFile = fileChooser.getSelectedFile();
-                        String filePath = selectedFile.getPath();
-                        
-                        int id = Integer.parseInt((String) snackController.getTable().getValueAt(snackController.getTable().getSelectedRow(), 0));
-                        SnackDAO snackDAO;
-                        Snack snackModel = new Snack();
-                        snackModel.setSnackImageUrl(filePath);
-                        snackModel.setId(id);
-                    try {
-                        snackDAO = new SnackDAO();
-                        snackDAO.addImageUrl(snackModel);
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(SnackAdd.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                        System.out.println(filePath); // working
-                    }
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    String filePath = selectedFile.getPath();
+                    snackController.setImageUrl(filePath);
+                    ImageIcon img = new ImageIcon(filePath);
+                    snackAddPhoto.setIcon(img);
                 }
+            }
         });
-            //carregarFoto();
     }//GEN-LAST:event_snackAddChoseFileButtonActionPerformed
 
     private void snackSellingPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackSellingPriceFieldActionPerformed
@@ -639,7 +587,6 @@ public class SnackAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel lblFoto;
     private javax.swing.JPanel panelEntradas1;
     private javax.swing.JButton snackAddChoseFileButton;
     private javax.swing.JLabel snackAddPhoto;
