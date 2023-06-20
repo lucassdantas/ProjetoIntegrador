@@ -51,7 +51,7 @@ public class PortionCalcController {
         this.calcPortionQuantityFieldValue = 0;
     }
     
-    public float ruleOfThree(String stringQuantity, String stringCost){
+    public float ruleOfThree(String stringQuantity, String stringCost, String stringResultQuantity){
         int spinnerValue = 1;
         try{
             spinnerValue = (int) resultPortionField.getValue();
@@ -61,8 +61,9 @@ public class PortionCalcController {
         
         float cost = Float.parseFloat(stringCost);
         float quantity = Float.parseFloat(stringQuantity);
+        float resultQuantity = Float.parseFloat(stringResultQuantity);
         
-        float value = ( cost * spinnerValue) / quantity;
+        float value = ( (cost * resultQuantity) / quantity) * spinnerValue;
         return value;
     }
     
@@ -284,7 +285,7 @@ public class PortionCalcController {
                     .getResultCostField()
                     .get(i)
                     .setText(  
-                    Float.toString(this.ruleOfThree(calcQuantityFieldValue.get(i).getText(), calcCostFieldValue.get(i).getText())));
+                    Float.toString(this.ruleOfThree(calcQuantityFieldValue.get(i).getText(), calcCostFieldValue.get(i).getText(), resultQuantityField.get(i).getText())));
             }
             
         }
