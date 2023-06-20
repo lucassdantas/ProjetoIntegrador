@@ -974,7 +974,7 @@ public void limparCalculoPorcoes() {
         panelVP.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1570, 30));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel11.setText("Data");
+        jLabel11.setText("Pesquisar");
         panelVP.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
         jLabel1.setBackground(new java.awt.Color(103, 103, 103));
@@ -1064,7 +1064,7 @@ public void limparCalculoPorcoes() {
         panelLanche.add(snackSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 100, 45));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel13.setText("id");
+        jLabel13.setText("Pesquisar");
         panelLanche.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
         snackTitleField.setEditable(false);
@@ -1357,7 +1357,7 @@ public void limparCalculoPorcoes() {
         panelIngredientes.add(ingredientDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel17.setText("id");
+        jLabel17.setText("Pesquisar");
         panelIngredientes.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
         ingredientNameField.setEditable(false);
@@ -1537,7 +1537,7 @@ public void limparCalculoPorcoes() {
         panelIngredientes1.add(dataSheetDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel36.setText("id");
+        jLabel36.setText("Pesquisar");
         panelIngredientes1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
         dataFieldSnackField.setEditable(false);
@@ -2239,7 +2239,7 @@ public void limparCalculoPorcoes() {
         panelEntradas.add(inputDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
-        jLabel27.setText("id");
+        jLabel27.setText("Pesquisar");
         panelEntradas.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
         inputIngredientNameField.setEditable(false);
