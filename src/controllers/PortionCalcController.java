@@ -63,7 +63,7 @@ public class PortionCalcController {
         float quantity = Float.parseFloat(stringQuantity);
         float resultQuantity = Float.parseFloat(stringResultQuantity);
         
-        float value = ( (cost * resultQuantity) / quantity) * spinnerValue;
+        float value = ( (cost * resultQuantity) / quantity);
         return value;
     }
     

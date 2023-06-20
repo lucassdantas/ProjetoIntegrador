@@ -672,7 +672,7 @@ public class PortionCalcResult extends javax.swing.JFrame {
         });
         panelEntradas1.add(resultPortionQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 102, 45));
 
-        areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1040, 900));
+        areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1060, 900));
 
         jDesktopPane1.add(areaEntradas_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1060, 930));
 
