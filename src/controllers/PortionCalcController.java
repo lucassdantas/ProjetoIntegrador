@@ -21,7 +21,13 @@ public class PortionCalcController {
     
     private JTextField calcTotalCost;
     private JTextField calcPortionField;
+    
     private int calcPortionQuantityFieldValue;
+    
+    private JTextField sellingValueField;
+    private JTextField revenueValueField;
+    private JTextField gainField;
+    private JTextField gainMarginField;
     
     
     private List<JTextField> resultItemField = new ArrayList<>();
@@ -139,8 +145,8 @@ public class PortionCalcController {
         return value;
     }
     public void multiplyValues(){
-        this.setResultCostFieldValue();
         this.setResultQntFieldValue();
+        this.setResultCostFieldValue();
         /*
         for(int i = 0; i < this.resultCostField.size(); i++){
             if(!this.resultCostField.get(i).getText().isEmpty() || this.resultCostField.get(i).getText() == " "){
@@ -166,8 +172,24 @@ public class PortionCalcController {
         this.resultCostField = new ArrayList<>();
         //this.resultPortionField.setValue(1); 
     }
+    
     public void setUnitySnackField(JTextField field){
         this.resultUnitySnackFieldPrice = field;
+    }
+    public void setSellingValueField(JTextField field){
+        this.sellingValueField = field;
+        
+    }
+    public void setValuePerPortionField(JTextField field){
+        this.revenueValueField = field;
+        
+    }
+    public void setGainField(JTextField field){
+        this.gainField = field;
+        
+    }
+    public void setGainMarginField(JTextField field){
+        this.gainMarginField = field;
     }
     
     public void addResultItemField(javax.swing.JTextField field) {
@@ -220,10 +242,25 @@ public class PortionCalcController {
         }
     }
     public void setResultQntFieldValue(){
+        float calcPortion = Float.parseFloat(calcPortionField.getText());
+        float resultPortion = 1;
+        try{
+             resultPortion = (float)(int) resultPortionField.getValue();
+        }catch(NullPointerException e){}
+        
         for(int i = 0; i< calcQuantityFieldValue.size(); i++){
-            this.resultQuantityField.get(i).setText(calcQuantityFieldValue.get(i).getText());
+            if(calcQuantityFieldValue.get(i).getText().trim().isEmpty() || calcQuantityFieldValue.get(i).getText() == " "){
+                this.resultQuantityField.get(i).setText("");
+                //this.resultQuantityField.get(i).setText(calcQuantityFieldValue.get(i).getText());
+            }else{
+                float calcValue = Float.parseFloat(calcQuantityFieldValue.get(i).getText());
+                System.out.println(calcValue);
+                float value = (calcValue/calcPortion) * resultPortion;
+                System.out.println(value);
+                this.resultQuantityField.get(i).setText(String.valueOf(value));
+            }
+            
         }
-        this.setOriginalQuantityFieldValue();
     }
     public void setResultUnFieldValue(){
         List<JTextField> unityField = this.getCalcUnityFieldValue();
@@ -279,5 +316,18 @@ public class PortionCalcController {
             }
         }
         this.resultUnitySnackFieldPrice.setText( String.valueOf(value));
+    }
+    public void calcDetails(){
+        float totalCost = Float.parseFloat(calcTotalCost.getText());
+        float sellingValue = Float.parseFloat(sellingValueField.getText());
+        float totalPortionValue = Float.parseFloat(calcPortionField.getText());
+        
+        float revenueTotalValue = totalPortionValue*sellingValue;
+        float gain = revenueTotalValue - totalCost;
+        float gainMargin = gain/totalCost;
+        
+        this.revenueValueField.setText(String.valueOf(revenueTotalValue));
+        this.gainField.setText(String.valueOf(gain));
+        this.gainMarginField.setText(String.valueOf(gainMargin));
     }
 }
