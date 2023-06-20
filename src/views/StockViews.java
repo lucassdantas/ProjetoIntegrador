@@ -252,8 +252,6 @@ public void limparCalculoPorcoes() {
         mybtn21 = new views.styles.Mybtn2();
         areaLanche = new javax.swing.JInternalFrame();
         panelLanche = new javax.swing.JPanel();
-        fotoVP1 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         snackSearchButton = new views.styles.Mybtn2();
         snackSearchField = new javax.swing.JTextField();
@@ -271,6 +269,7 @@ public void limparCalculoPorcoes() {
         snackAddButton = new views.styles.Mybtn();
         snackEditButton = new views.styles.Mybtn();
         snackDeleteButton = new views.styles.Mybtn();
+        snackPhoto = new javax.swing.JLabel();
         areaIngredientes = new javax.swing.JInternalFrame();
         panelIngredientes = new javax.swing.JPanel();
         fotoVP2 = new javax.swing.JPanel();
@@ -1044,31 +1043,6 @@ public void limparCalculoPorcoes() {
         panelLanche.setPreferredSize(new java.awt.Dimension(1690, 1020));
         panelLanche.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("FOTO");
-        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout fotoVP1Layout = new javax.swing.GroupLayout(fotoVP1);
-        fotoVP1.setLayout(fotoVP1Layout);
-        fotoVP1Layout.setHorizontalGroup(
-            fotoVP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fotoVP1Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
-        );
-        fotoVP1Layout.setVerticalGroup(
-            fotoVP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fotoVP1Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
-        );
-
-        panelLanche.add(fotoVP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 240, 240));
-
         jLabel4.setBackground(new java.awt.Color(103, 103, 103));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa 2.png"))); // NOI18N
@@ -1235,6 +1209,14 @@ public void limparCalculoPorcoes() {
             }
         });
         panelLanche.add(snackDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 150, 129, 40));
+
+        snackPhoto.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        snackPhoto.setForeground(new java.awt.Color(255, 255, 255));
+        snackPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        snackPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/productImages/default.jpg"))); // NOI18N
+        snackPhoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        snackPhoto.setMaximumSize(new java.awt.Dimension(225, 225));
+        panelLanche.add(snackPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 200, 200));
 
         areaLanche.getContentPane().add(panelLanche, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 900));
 
@@ -3023,6 +3005,7 @@ public void limparCalculoPorcoes() {
     private void snackTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_snackTableMouseClicked
         snackTitleField.setText(snackTable.getValueAt(snackTable.getSelectedRow(), 1).toString());
         snackPriceOfSellingField.setText(snackTable.getValueAt(snackTable.getSelectedRow(), 2).toString());
+        snackPhoto.setIcon(snackController.getImageByIndex(snackTable.getSelectedRow()));
     }//GEN-LAST:event_snackTableMouseClicked
 
     private void snackSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snackSearchButtonActionPerformed
@@ -3566,7 +3549,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JTextField dataSheetSearchField;
     private views.tables.Table dataSheetTable;
     private javax.swing.JPanel fotoVP;
-    private javax.swing.JPanel fotoVP1;
     private javax.swing.JPanel fotoVP2;
     private javax.swing.JPanel fotoVP3;
     private views.styles.Mybtn ingredientAddButton;
@@ -3587,7 +3569,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -3672,6 +3653,7 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn snackAddButton;
     private views.styles.Mybtn snackDeleteButton;
     private views.styles.Mybtn snackEditButton;
+    private javax.swing.JLabel snackPhoto;
     private javax.swing.JTextField snackPriceOfSellingField;
     private views.styles.Mybtn2 snackSearchButton;
     private javax.swing.JTextField snackSearchField;
