@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class DataSheet extends EntityMultipleId {
     private int dsSnackId;
     private int dsIngredientId;
-    private int dsQuantity;
+    private float dsQuantity;
     private float dsTotalCost;
     private String dsStatus;
     
@@ -44,11 +44,11 @@ public class DataSheet extends EntityMultipleId {
         this.dsIngredientId = dsIngredientId;
     }
 
-    public int getDsQuantity() {
+    public float getDsQuantity() {
         return dsQuantity;
     }
 
-    public void setDsQuantity(int dsQuantity) {
+    public void setDsQuantity(float dsQuantity) {
         this.dsQuantity = dsQuantity;
     }
 

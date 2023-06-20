@@ -90,6 +90,7 @@ public class DataSheetController {
     public JTextField getTotalValueField (){
         return this.totalValueField;
     }
+    
     public JTable getTable(){
         return this.table;
     }
@@ -156,8 +157,8 @@ public class DataSheetController {
         for (DataSheet ds: dao.readAll()){
             this.snacksList.add(ds.getSnack());
             this.ingredientsList.add(ds.getIngredient());
-            float DsQuantity = ds.getDsQuantity();
-            
+            float dsQuantity = ds.getDsQuantity();
+            System.out.println(dsQuantity);
 
             model.addRow(new Object[]{
                 ds.getSnack().getSnackTitle(),
@@ -168,8 +169,12 @@ public class DataSheetController {
                     
             });
             
-            int DsQuantityInteger;
+            int dsQuantityInteger;
             
+            if( dsQuantity % 1 == 0){
+                dsQuantityInteger = (int) dsQuantity;
+                model.setValueAt(dsQuantityInteger, i, 2);
+            }  
             
             
         i++; 
