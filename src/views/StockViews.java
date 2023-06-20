@@ -1693,8 +1693,6 @@ public void limparCalculoPorcoes() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField01KeyReleased(evt);
             }
-        });
-        calcCostField01.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 calcCostField01KeyTyped(evt);
             }
@@ -1720,6 +1718,11 @@ public void limparCalculoPorcoes() {
 
         calcCostField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField02.setName(""); // NOI18N
+        calcCostField02.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField02KeyTyped(evt);
+            }
+        });
         calcCostField02.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField02ActionPerformed(evt);
@@ -1730,15 +1733,15 @@ public void limparCalculoPorcoes() {
                 calcCostField02KeyReleased(evt);
             }
         });
-        calcCostField02.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField02KeyTyped(evt);
-            }
-        });
         panelPE1.add(calcCostField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 365, 100, 45));
 
         calcPortionField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcPortionField.setName(""); // NOI18N
+        calcPortionField.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                calcPortionFieldCaretUpdate(evt);
+            }
+        });
         calcPortionField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcPortionFieldActionPerformed(evt);
@@ -1770,7 +1773,12 @@ public void limparCalculoPorcoes() {
 
         calcCostField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField03.setName(""); // NOI18N
-                calcCostField03.addActionListener(new java.awt.event.ActionListener() {
+        calcCostField03.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField03KeyTyped(evt);
+            }
+        });
+        calcCostField03.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField03ActionPerformed(evt);
             }
@@ -1778,11 +1786,6 @@ public void limparCalculoPorcoes() {
         calcCostField03.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField03KeyReleased(evt);
-            }
-        });
-        calcCostField03.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField03KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 100, 45));
@@ -1806,7 +1809,12 @@ public void limparCalculoPorcoes() {
 
         calcCostField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField04.setName(""); // NOI18N
-                calcCostField04.addActionListener(new java.awt.event.ActionListener() {
+        calcCostField04.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField04KeyTyped(evt);
+            }
+        });
+        calcCostField04.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField04ActionPerformed(evt);
             }
@@ -1814,11 +1822,6 @@ public void limparCalculoPorcoes() {
         calcCostField04.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField04KeyReleased(evt);
-            }
-        });
-        calcCostField04.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField04KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 475, 100, 45));
@@ -1859,7 +1862,12 @@ public void limparCalculoPorcoes() {
 
         calcCostField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField06.setName(""); // NOI18N
-               calcCostField06.addActionListener(new java.awt.event.ActionListener() {
+        calcCostField06.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField06KeyTyped(evt);
+            }
+        });
+        calcCostField06.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField06ActionPerformed(evt);
             }
@@ -1869,15 +1877,15 @@ public void limparCalculoPorcoes() {
                 calcCostField06KeyReleased(evt);
             }
         });
-        calcCostField06.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField06KeyTyped(evt);
-            }
-        });
         panelPE1.add(calcCostField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 585, 100, 45));
 
         calcCostField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField05.setName(""); // NOI18N
+        calcCostField05.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField05KeyTyped(evt);
+            }
+        });
         calcCostField05.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField05ActionPerformed(evt);
@@ -1888,15 +1896,15 @@ public void limparCalculoPorcoes() {
                 calcCostField05KeyReleased(evt);
             }
         });
-        calcCostField05.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField05KeyTyped(evt);
-            }
-        });
         panelPE1.add(calcCostField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 100, 45));
 
         calcCostField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField07.setName(""); // NOI18N
+        calcCostField07.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField07KeyTyped(evt);
+            }
+        });
         calcCostField07.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField07ActionPerformed(evt);
@@ -1905,11 +1913,6 @@ public void limparCalculoPorcoes() {
         calcCostField07.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField07KeyReleased(evt);
-            }
-        });
-        calcCostField07.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField07KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, 100, 45));
@@ -1950,6 +1953,11 @@ public void limparCalculoPorcoes() {
 
         calcCostField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField08.setName(""); // NOI18N
+        calcCostField08.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField08KeyTyped(evt);
+            }
+        });
         calcCostField08.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField08ActionPerformed(evt);
@@ -1958,11 +1966,6 @@ public void limparCalculoPorcoes() {
         calcCostField08.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField08KeyReleased(evt);
-            }
-        });
-        calcCostField08.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField08KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 695, 100, 45));
@@ -1986,6 +1989,11 @@ public void limparCalculoPorcoes() {
 
         calcCostField09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField09.setName(""); // NOI18N
+        calcCostField09.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField09KeyTyped(evt);
+            }
+        });
         calcCostField09.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField09ActionPerformed(evt);
@@ -1994,11 +2002,6 @@ public void limparCalculoPorcoes() {
         calcCostField09.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField09KeyReleased(evt);
-            }
-        });
-        calcCostField09.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField09KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 750, 100, 45));
@@ -2022,6 +2025,11 @@ public void limparCalculoPorcoes() {
 
         calcCostField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField10.setName(""); // NOI18N
+        calcCostField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField10KeyTyped(evt);
+            }
+        });
         calcCostField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField10ActionPerformed(evt);
@@ -2030,11 +2038,6 @@ public void limparCalculoPorcoes() {
         calcCostField10.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField10KeyReleased(evt);
-            }
-        });
-        calcCostField10.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField10KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 805, 100, 45));
@@ -2103,11 +2106,26 @@ public void limparCalculoPorcoes() {
         calcTotalField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcTotalField.setName(""); // NOI18N
         calcTotalField.setOpaque(true);
-        panelPE1.add(calcTotalField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 210, 45));
+        calcTotalField.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                calcTotalFieldCaretUpdate(evt);
+            }
+        });
+        calcTotalField.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                calcTotalFieldPropertyChange(evt);
+            }
+        });
+        calcTotalField.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                calcTotalFieldVetoableChange(evt);
+            }
+        });
+        panelPE1.add(calcTotalField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 210, 45));
 
         jLabel34.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel34.setText("Custo Total de Produção (R$):");
-        panelPE1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 210, 45));
+        panelPE1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 210, 45));
 
         jLabel38.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel38.setText("Itens");
@@ -2615,10 +2633,13 @@ public void limparCalculoPorcoes() {
 
     private void portionCalcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portionCalcBtnActionPerformed
         portionCalcResult.setController(calcController);
+        
+        portionCalcResult.clearFields();
         portionCalcResult.findItemFields();
         portionCalcResult.findQntFields();
         portionCalcResult.findUnityFields();
         portionCalcResult.findCostFields();
+        portionCalcResult.findInfoFields();
             
         portionCalcResult.setCurrentPortionQuantity();
         portionCalcResult.setFieldsValue();
@@ -3387,6 +3408,21 @@ public void limparCalculoPorcoes() {
     private void calcCostField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField10KeyReleased
         calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
     }//GEN-LAST:event_calcCostField10KeyReleased
+
+    private void calcTotalFieldPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calcTotalFieldPropertyChange
+    }//GEN-LAST:event_calcTotalFieldPropertyChange
+
+    private void calcTotalFieldVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_calcTotalFieldVetoableChange
+        
+    }//GEN-LAST:event_calcTotalFieldVetoableChange
+
+    private void calcTotalFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_calcTotalFieldCaretUpdate
+        calcController.setCalcTotalCostField(calcTotalField);
+    }//GEN-LAST:event_calcTotalFieldCaretUpdate
+
+    private void calcPortionFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_calcPortionFieldCaretUpdate
+        calcController.setCalcPortionField(calcPortionField);
+    }//GEN-LAST:event_calcPortionFieldCaretUpdate
     /**
      * @param args the command line arguments
      */
