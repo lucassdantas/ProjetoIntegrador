@@ -41,9 +41,11 @@ public class SnackAdd extends javax.swing.JFrame {
     private OrdersController ordersController;
     public SnackAdd() {
         initComponents();
-        this.snackController = new SnackController();
         //IconManager.setIcon(this);
         this.setIcon();
+    }
+    public void setController(SnackController controller){
+        this.snackController = controller;
     }
     private void setIcon(){
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
