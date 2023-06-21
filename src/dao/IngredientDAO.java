@@ -40,6 +40,7 @@ public class IngredientDAO {
                 ingredient.setIngredientStock(resultSet.getFloat("ingredientStock"));
                 ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
                 ingredient.setIngredientUnitQuantity(resultSet.getFloat("ingredientUnitQuantity"));
+           //   ingredient.setIngredientImageUrl(resultSet.getString("IngredientImageUrl"));
                 ingredients.add(ingredient);
             }
                
@@ -65,7 +66,7 @@ public class IngredientDAO {
                     ingredient.setIngredientStock(resultSet.getFloat("ingredientStock"));
                     ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
                     ingredient.setIngredientUnitQuantity(resultSet.getFloat("ingredientUnitQuantity"));
-
+                    ingredient.setIngredientImageUrl(resultSet.getString("IngredientImageUrl"));
                     ingredients.add(ingredient);
                 }
             }
@@ -89,7 +90,7 @@ public class IngredientDAO {
                     ingredient.setIngredientStock(resultSet.getFloat("ingredientStock"));
                     ingredient.setIngredientStockStatus(resultSet.getString("ingredientStockStatus"));
                     ingredient.setIngredientUnitQuantity(resultSet.getFloat("ingredientUnitQuantity"));
-
+//                    ingredient.setIngredientImageUrl(resultSet.getString("IngredientImageUrl"));
                 }
             }
         }
@@ -98,8 +99,8 @@ public class IngredientDAO {
     
     public void addIngredient(Ingredient ingredient) throws SQLException {
         String query = "INSERT INTO ingredient (ingredientName, ingredientMinQuantity, ingredientUnitOfMeasure, " +
-                "ingredientUnitCost, ingredientStatus, ingredientStock, ingredientStockStatus, ingredientUnitQuantity) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                "ingredientUnitCost, ingredientStatus, ingredientStock, ingredientStockStatus, ingredientUnitQuantity,ingredientImageUrl) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, ingredient.getIngredientName());
             statement.setFloat(2, ingredient.getIngredientMinQuantity());
@@ -109,7 +110,8 @@ public class IngredientDAO {
             statement.setFloat(6, ingredient.getIngredientStock());
             statement.setString(7, ingredient.getIngredientStockStatus());
             statement.setFloat(8, ingredient.getIngredientUnitQuantity());
-            statement.executeUpdate();
+            statement.setString(9, ingredient.getIngredientImageUrl());
+            statement.executeUpdate();   
 
         }
     }
@@ -133,7 +135,7 @@ public class IngredientDAO {
     public void updateIngredient(Ingredient ingredient) throws SQLException {
         String query = "UPDATE ingredient SET ingredientName = ?, ingredientMinQuantity = ?, " +
                 "ingredientUnitOfMeasure = ?, ingredientUnitCost = ?, ingredientStatus = ?, " +
-                "ingredientStock = ?, ingredientStockStatus = ?, ingredientUnitQuantity = ? WHERE ingredientId = ?";
+                "ingredientStock = ?, ingredientStockStatus = ?, ingredientUnitQuantity = ?,ingredientImageUrl = ?  WHERE ingredientId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, ingredient.getIngredientName());
             statement.setFloat(2, ingredient.getIngredientMinQuantity());
@@ -143,6 +145,7 @@ public class IngredientDAO {
             statement.setFloat(6, ingredient.getIngredientStock());
             statement.setString(7, ingredient.getIngredientStockStatus());
             statement.setFloat(8, ingredient.getIngredientUnitQuantity());
+            statement.setString(9, ingredient.getIngredientImageUrl());
             statement.setInt(9, ingredient.getId());
             statement.executeUpdate();
         }
