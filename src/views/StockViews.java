@@ -75,7 +75,8 @@ public class StockViews extends javax.swing.JFrame {
             orderTable,
             orderSnackComboBox,
             orderTotalValueField,
-            orderQuantitySpinner
+            orderQuantitySpinner,
+            orderSnackPhoto
         );
         ordersController.main();
         
@@ -237,10 +238,9 @@ public void limparCalculoPorcoes() {
         orderQuantitySpinner = new views.spinner.Spinner();
         jScrollPane2 = new javax.swing.JScrollPane();
         ordersDataSheetTable = new views.tables.Table();
-        fotoVP = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         orderTotalValueField = new javax.swing.JTextField();
         orderAddButton = new views.styles.Mybtn();
+        orderSnackPhoto = new javax.swing.JLabel();
         areaVisualizarPedidos = new javax.swing.JInternalFrame();
         panelVP = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -896,31 +896,6 @@ public void limparCalculoPorcoes() {
 
         panelNP.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 610, 450));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("FOTO");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout fotoVPLayout = new javax.swing.GroupLayout(fotoVP);
-        fotoVP.setLayout(fotoVPLayout);
-        fotoVPLayout.setHorizontalGroup(
-            fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fotoVPLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-        );
-        fotoVPLayout.setVerticalGroup(
-            fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fotoVPLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
-        );
-
-        panelNP.add(fotoVP, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 213, 213));
-
         orderTotalValueField.setBackground(new java.awt.Color(243, 243, 243));
         orderTotalValueField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         orderTotalValueField.setName(""); // NOI18N
@@ -942,6 +917,14 @@ public void limparCalculoPorcoes() {
             }
         });
         panelNP.add(orderAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 129, 40));
+
+        orderSnackPhoto.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        orderSnackPhoto.setForeground(new java.awt.Color(255, 255, 255));
+        orderSnackPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        orderSnackPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/productImages/default.jpg"))); // NOI18N
+        orderSnackPhoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        orderSnackPhoto.setMaximumSize(new java.awt.Dimension(225, 225));
+        panelNP.add(orderSnackPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 200, 200));
 
         areaNovoPedido.getContentPane().add(panelNP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
 
@@ -3011,6 +2994,7 @@ public void limparCalculoPorcoes() {
         inputController.setJTable(inputTable);
         try {   
             inputController.delete();
+            
         } catch (SQLException ex) {
             Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3051,9 +3035,12 @@ public void limparCalculoPorcoes() {
         if(currentValue != oldValue){
             try {
                 oldValue = currentValue;
-
+                
+               
                 ordersController.readDataSheetTable(orderSnackComboBox.getSelectedIndex());
                 ordersController.calcTotalValue();
+                ordersController.setSnackImage();
+               
             } catch (SQLException ex) {
                 Logger.getLogger(StockViews.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -3518,7 +3505,6 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn2 dataSheetSearchButton;
     private javax.swing.JTextField dataSheetSearchField;
     private views.tables.Table dataSheetTable;
-    private javax.swing.JPanel fotoVP;
     private views.styles.Mybtn ingredientAddButton;
     private views.styles.Mybtn ingredientDeleteButton;
     private views.styles.Mybtn ingredientEditButton;
@@ -3543,7 +3529,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -3601,6 +3586,7 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn orderAddButton;
     private views.spinner.Spinner orderQuantitySpinner;
     private views.combobox.Combobox orderSnackComboBox;
+    private javax.swing.JLabel orderSnackPhoto;
     private views.tables.Table orderTable;
     private javax.swing.JTextField orderTotalValueField;
     private views.tables.Table ordersDataSheetTable;

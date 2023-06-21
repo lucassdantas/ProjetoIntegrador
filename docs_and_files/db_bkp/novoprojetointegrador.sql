@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Jun-2023 às 21:41
+-- Tempo de geração: 20-Jun-2023 às 22:44
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -42,7 +42,7 @@ CREATE TABLE `datasheet` (
 INSERT INTO `datasheet` (`dsSnackId`, `dsIngredientId`, `dsQuantity`, `dsTotalCost`, `dsStatus`) VALUES
 (1, 1, 1, 0.998, NULL),
 (1, 2, 1, 1.52, NULL),
-(1, 3, 0.01, 0.277, NULL),
+(1, 3, 1, 0.8333, NULL),
 (1, 4, 0.01, 0.384, NULL),
 (1, 5, 0.1, 0.356, NULL),
 (1, 6, 0.03, 0.1797, NULL);
@@ -72,7 +72,7 @@ CREATE TABLE `ingredient` (
 INSERT INTO `ingredient` (`ingredientId`, `ingredientName`, `ingredientMinQuantity`, `ingredientUnitQuantity`, `ingredientUnitOfMeasure`, `ingredientUnitCost`, `ingredientStatus`, `ingredientStock`, `ingredientStockStatus`) VALUES
 (1, 'pao de hamburguer', 20, 1, 'un', 0.998, NULL, 100, NULL),
 (2, 'hamburguer', 20, 1, 'un', 1.52, NULL, 100, NULL),
-(3, 'batata palha', 5, 0.01, 'kg', 0.277, NULL, 1, NULL),
+(3, 'ovo', 20, 1, 'un', 0.8333, NULL, 100, NULL),
 (4, 'queijo fatiado', 1, 0.01, 'kg', 0.384, NULL, 1, NULL),
 (5, 'bacon fatiado', 1, 0.01, 'kg', 0.356, NULL, 1, NULL),
 (6, 'alface', 3, 0.03, 'pes', 0.1797, NULL, 3, NULL);
@@ -99,7 +99,7 @@ CREATE TABLE `input` (
 INSERT INTO `input` (`inputId`, `inputIngredientId`, `inputQuantity`, `inputCost`, `inputDate`, `inputStatus`) VALUES
 (1, 1, 100, 99.8, '2023-06-20', NULL),
 (2, 2, 100, 152, '2023-06-20', NULL),
-(3, 3, 1, 27.7, '2023-06-20', NULL),
+(3, 3, 100, 83.33, '2023-06-20', NULL),
 (4, 4, 1, 38.4, '2023-06-20', NULL),
 (5, 5, 1, 35.6, '2023-06-20', NULL),
 (6, 6, 3, 17.97, '2023-06-20', NULL);
@@ -154,13 +154,6 @@ CREATE TABLE `usuario` (
   `login` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`login`, `senha`) VALUES
-('gabriel.modesto', 'newnew');
 
 --
 -- Índices para tabelas despejadas
