@@ -158,7 +158,6 @@ public class DataSheetController {
             this.snacksList.add(ds.getSnack());
             this.ingredientsList.add(ds.getIngredient());
             float dsQuantity = ds.getDsQuantity();
-            System.out.println(dsQuantity);
 
             model.addRow(new Object[]{
                 ds.getSnack().getSnackTitle(),

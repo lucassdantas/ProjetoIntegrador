@@ -2093,6 +2093,11 @@ public void limparCalculoPorcoes() {
                 calcTotalFieldCaretUpdate(evt);
             }
         });
+        calcTotalField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcTotalFieldActionPerformed(evt);
+            }
+        });
         calcTotalField.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 calcTotalFieldPropertyChange(evt);
@@ -3295,7 +3300,7 @@ public void limparCalculoPorcoes() {
          }
     }//GEN-LAST:event_snackPriceOfSellingFieldKeyTyped
     private void calcCostField01KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField01KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField01KeyReleased
 
     private void calcCostField01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField01ActionPerformed
@@ -3303,75 +3308,75 @@ public void limparCalculoPorcoes() {
     }//GEN-LAST:event_calcCostField01ActionPerformed
 
     private void calcCostField02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField02ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField02ActionPerformed
 
     private void calcCostField03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField03ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField03ActionPerformed
 
     private void calcCostField04ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField04ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField04ActionPerformed
 
     private void calcCostField05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField05ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField05ActionPerformed
 
     private void calcCostField06ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField06ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField06ActionPerformed
 
     private void calcCostField07ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField07ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField07ActionPerformed
 
     private void calcCostField08ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField08ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField08ActionPerformed
 
     private void calcCostField09ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField09ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField09ActionPerformed
 
     private void calcCostField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField10ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField10ActionPerformed
 
     private void calcCostField02KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField02KeyReleased
-       calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+       calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField02KeyReleased
 
     private void calcCostField03KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField03KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField03KeyReleased
 
     private void calcCostField04KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField04KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField04KeyReleased
 
     private void calcCostField05KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField05KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField05KeyReleased
 
     private void calcCostField06KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField06KeyReleased
-       calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+       calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField06KeyReleased
 
     private void calcCostField07KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField07KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField07KeyReleased
 
     private void calcCostField08KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField08KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField08KeyReleased
 
     private void calcCostField09KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField09KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField09KeyReleased
 
     private void calcCostField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField10KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField10KeyReleased
 
     private void calcTotalFieldPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calcTotalFieldPropertyChange
@@ -3387,6 +3392,10 @@ public void limparCalculoPorcoes() {
 
     private void calcPortionFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_calcPortionFieldCaretUpdate
     }//GEN-LAST:event_calcPortionFieldCaretUpdate
+
+    private void calcTotalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcTotalFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calcTotalFieldActionPerformed
     /**
      * @param args the command line arguments
      */
