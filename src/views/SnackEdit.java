@@ -32,8 +32,7 @@ public class SnackEdit extends javax.swing.JFrame {
     public SnackEdit() {
         initComponents();
         snackController = new SnackController();
-        //icon
-        IconManager.setIcon(this);
+        //IconManager.setIcon(this);
         this.setIcon();
     }
     private void setIcon(){

@@ -29,6 +29,7 @@ public class DataSheetEdit extends javax.swing.JFrame {
         initComponents();
         dsController = new DataSheetController();
         //IconManager.setIcon(this);
+        this.setIcon();
     }
     private void setIcon(){
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));

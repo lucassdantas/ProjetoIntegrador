@@ -29,7 +29,7 @@ public class InputAdd extends javax.swing.JFrame {
     public InputAdd() {
 
         initComponents();
-        IconManager.setIcon(this);
+       // IconManager.setIcon(this);
         this.setIcon();
     }
     private void setIcon(){
