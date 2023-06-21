@@ -9,6 +9,7 @@ import controllers.OrdersController;
 import controllers.SnackController;
 import dao.SnackDAO;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -41,7 +42,11 @@ public class SnackAdd extends javax.swing.JFrame {
     public SnackAdd() {
         initComponents();
         this.snackController = new SnackController();
-        IconManager.setIcon(this);
+        //IconManager.setIcon(this);
+        this.setIcon();
+    }
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
     }
     public void setOrdersController(OrdersController ordersController){
         this.ordersController = ordersController;

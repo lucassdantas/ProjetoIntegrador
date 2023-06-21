@@ -6,6 +6,7 @@ package views;
 
 import controllers.IngredientController;
 import controllers.SnackController;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -31,8 +32,11 @@ public class SnackEdit extends javax.swing.JFrame {
     public SnackEdit() {
         initComponents();
         snackController = new SnackController();
-        //icon
-        IconManager.setIcon(this);
+        //IconManager.setIcon(this);
+        this.setIcon();
+    }
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
     }
     public void setJTable(JTable table){
         this.snackController.setJTable(table);

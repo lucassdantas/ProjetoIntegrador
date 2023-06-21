@@ -5,6 +5,7 @@
 package views;
 
 import controllers.DataSheetController;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -27,8 +28,11 @@ public class DataSheetEdit extends javax.swing.JFrame {
     public DataSheetEdit() {
         initComponents();
         dsController = new DataSheetController();
-        IconManager.setIcon(this);
-
+        //IconManager.setIcon(this);
+        this.setIcon();
+    }
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
     }
     
     @SuppressWarnings("unchecked")

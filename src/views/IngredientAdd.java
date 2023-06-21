@@ -6,6 +6,7 @@ package views;
 
 import controllers.IngredientController;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,9 +27,11 @@ public class IngredientAdd extends javax.swing.JFrame {
     public IngredientAdd() {
         initComponents();
         ingredientController = new IngredientController();
-        IconManager.setIcon(this);
-
-
+        //IconManager.setIcon(this);
+        this.setIcon();
+    }
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
     }
     public void setJTable(JTable table){
         this.ingredientController.setJTable(table);
@@ -55,17 +58,15 @@ public class IngredientAdd extends javax.swing.JFrame {
         colorBtn19 = new javax.swing.JPanel();
         colorBtn20 = new javax.swing.JPanel();
         ingredientCostField = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        fotoVP = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         ingredientUnityQuantityField = new javax.swing.JTextField();
         ingredientMinQuantityField = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         ingredientMediaField = new javax.swing.JTextField();
+        ingredientAddPhoto = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -162,54 +163,13 @@ public class IngredientAdd extends javax.swing.JFrame {
         });
         panelEntradas1.add(ingredientCostField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 140, 45));
 
-        jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(126, 126, 126));
-        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel33.setText("recomendação: 200 x 200 pixels");
-        jLabel33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelEntradas1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 70, 210, 30));
-
         jLabel34.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel34.setText("Qnt. Unitária");
         panelEntradas1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 140, 30));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("FOTO");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout fotoVPLayout = new javax.swing.GroupLayout(fotoVP);
-        fotoVP.setLayout(fotoVPLayout);
-        fotoVPLayout.setHorizontalGroup(
-            fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fotoVPLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-        );
-        fotoVPLayout.setVerticalGroup(
-            fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fotoVPLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        panelEntradas1.add(fotoVP, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 100, -1, 210));
-
         jLabel35.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jLabel35.setText("Custo Unitário (R$)");
         panelEntradas1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 140, 30));
-
-        jButton1.setBackground(new java.awt.Color(246, 246, 246));
-        jButton1.setForeground(new java.awt.Color(126, 126, 126));
-        jButton1.setText("escolher arquivo");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setOpaque(true);
-        panelEntradas1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 320, 120, 23));
 
         ingredientUnityQuantityField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         ingredientUnityQuantityField.setName(""); // NOI18N
@@ -245,6 +205,21 @@ public class IngredientAdd extends javax.swing.JFrame {
             }
         });
         panelEntradas1.add(ingredientMediaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 140, 45));
+
+        ingredientAddPhoto.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        ingredientAddPhoto.setForeground(new java.awt.Color(255, 255, 255));
+        ingredientAddPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ingredientAddPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/productImages/default.jpg"))); // NOI18N
+        ingredientAddPhoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ingredientAddPhoto.setMaximumSize(new java.awt.Dimension(225, 225));
+        panelEntradas1.add(ingredientAddPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 200, 200));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(126, 126, 126));
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setText("recomendação: 200 x 200 pixels");
+        jLabel33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelEntradas1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 70, 210, 30));
 
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
@@ -366,17 +341,15 @@ public class IngredientAdd extends javax.swing.JFrame {
     private javax.swing.JInternalFrame areaEntradas_entrada;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
-    private javax.swing.JPanel fotoVP;
     private views.styles.Mybtn ingredientAddCancelButton;
+    private javax.swing.JLabel ingredientAddPhoto;
     private views.styles.Mybtn ingredientAddSaveButton;
     private javax.swing.JTextField ingredientCostField;
     private javax.swing.JTextField ingredientMediaField;
     private javax.swing.JTextField ingredientMinQuantityField;
     private javax.swing.JTextField ingredientNameField;
     private javax.swing.JTextField ingredientUnityQuantityField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;

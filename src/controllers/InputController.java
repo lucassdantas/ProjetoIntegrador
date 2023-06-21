@@ -107,6 +107,7 @@ public class InputController {
         this.getFields().get(1).setText(String.valueOf(ingredient.getIngredientName().replaceAll("," , ".")));
         this.getFields().get(3).setText(String.valueOf(ingredient.getIngredientUnitOfMeasure().replaceAll("," , ".")));
     }
+    @SuppressWarnings("unchecked")
     public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -149,6 +150,7 @@ public class InputController {
          }       
     }
     
+    @SuppressWarnings("unchecked")
     public void readJTableSearch(String search) throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        

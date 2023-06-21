@@ -5,6 +5,7 @@
 package views;
 
 import controllers.InputController;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -27,10 +28,12 @@ public class InputEdit extends javax.swing.JFrame {
     private InputController inputController;
     public InputEdit() {
         initComponents();
-        IconManager.setIcon(this);
-        
+        //IconManager.setIcon(this);
+        this.setIcon();
     }
-    
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

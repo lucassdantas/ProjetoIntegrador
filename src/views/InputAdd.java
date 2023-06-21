@@ -7,6 +7,7 @@ package views;
 import controllers.IngredientController;
 import controllers.InputController;
 import controllers.StockController;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -28,9 +29,12 @@ public class InputAdd extends javax.swing.JFrame {
     public InputAdd() {
 
         initComponents();
-        IconManager.setIcon(this);
+       // IconManager.setIcon(this);
+        this.setIcon();
     }
-    
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

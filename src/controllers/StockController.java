@@ -51,6 +51,7 @@ public class StockController {
         }
     }
      
+    @SuppressWarnings("unchecked")
     public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -85,6 +86,7 @@ public class StockController {
         }       
     }
     
+    @SuppressWarnings("unchecked")
     public void readJTableSearch(String search) throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        

@@ -57,6 +57,7 @@ public class IngredientController {
         }
     }
      
+    @SuppressWarnings("unchecked")
     public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -98,6 +99,7 @@ public class IngredientController {
         }       
     
     
+    @SuppressWarnings("unchecked")
   public void readJTableSearch(String search) throws SQLException {
     DefaultTableModel model = (DefaultTableModel) this.table.getModel();
     this.table.setRowSorter(new TableRowSorter(model));
