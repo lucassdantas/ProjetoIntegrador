@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Jun-2023 às 23:41
+-- Tempo de geração: 21-Jun-2023 às 23:59
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -141,7 +141,7 @@ CREATE TABLE `snack` (
 --
 
 INSERT INTO `snack` (`snackId`, `snackTitle`, `snackSellingPrice`, `snackDescription`, `snackImageUrl`, `snackStatus`) VALUES
-(1, 'Hamburguer', 12, 'Aqui é a descrição do lanche.', 'C:\\Users\\42labinfo\\Documents\\NetBeansProjects\\ProjetoIntegrador\\src\\productImages\\default.jpg', NULL);
+(1, 'Hamburguer', 12, 'Aqui é a descrição do lanche.', 'C:\\Users\\42labinfo\\Documents\\NetBeansProjects\\ProjetoIntegrador\\src\\productImages\\hamburguer.jpg', NULL);
 
 -- --------------------------------------------------------
 
