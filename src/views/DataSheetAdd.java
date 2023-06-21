@@ -372,14 +372,6 @@ public class DataSheetAdd extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_dsIngredientSearchButtonActionPerformed
 
-    private void dsIngredientUnityQuantitySpinnerInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_dsIngredientUnityQuantitySpinnerInputMethodTextChanged
-        dsController.calcTotalValue();
-    }//GEN-LAST:event_dsIngredientUnityQuantitySpinnerInputMethodTextChanged
-
-    private void dsIngredientUnityQuantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_dsIngredientUnityQuantitySpinnerStateChanged
-        dsController.calcTotalValue();
-    }//GEN-LAST:event_dsIngredientUnityQuantitySpinnerStateChanged
-
     private void dsIngredientUnityQuantityFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dsIngredientUnityQuantityFieldKeyTyped
           String caracteres = "0123456789.,";
          if (!caracteres.contains(evt.getKeyChar() + "")) {
@@ -404,12 +396,20 @@ public class DataSheetAdd extends javax.swing.JFrame {
     }                             
     }//GEN-LAST:event_dsUnityCostFieldKeyTyped
 
+    private void dsIngredientUnityQuantitySpinnerInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_dsIngredientUnityQuantitySpinnerInputMethodTextChanged
+        dsController.calcTotalValue();
+    }//GEN-LAST:event_dsIngredientUnityQuantitySpinnerInputMethodTextChanged
+
+    private void dsIngredientUnityQuantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_dsIngredientUnityQuantitySpinnerStateChanged
+        dsController.calcTotalValue();
+    }//GEN-LAST:event_dsIngredientUnityQuantitySpinnerStateChanged
+
     private void dsTotalCostFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dsTotalCostFieldKeyTyped
-            String caracteres = "0123456789.,";
-         if (!caracteres.contains(evt.getKeyChar() + "")) {
-             
-              evt.consume();
-    }                             
+        String caracteres = "0123456789.,";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+
+            evt.consume();
+        }
     }//GEN-LAST:event_dsTotalCostFieldKeyTyped
 
     /**
