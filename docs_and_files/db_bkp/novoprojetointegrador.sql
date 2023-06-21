@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Jun-2023 às 21:36
+-- Tempo de geração: 20-Jun-2023 às 22:44
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -154,13 +154,6 @@ CREATE TABLE `usuario` (
   `login` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`login`, `senha`) VALUES
-('gabriel.modesto', 'newnew');
 
 --
 -- Índices para tabelas despejadas
