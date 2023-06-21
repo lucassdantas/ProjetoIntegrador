@@ -15,7 +15,7 @@ public class Orders {
     private int orderId;
     private int orderSnackId;
     private String orderSnackName;
-    private int orderQuantity;
+    private float orderQuantity;
     private float orderCost;
     private float orderUnitPrice;
     private float orderTotalPrice;
@@ -47,11 +47,11 @@ public class Orders {
     public String getOrderSnackName(){
         return this.orderSnackName;
     }
-    public int getOrderQuantity() {
+    public float getOrderQuantity() {
         return orderQuantity;
     }
 
-    public void setOrderQuantity(int orderQuantity) {
+    public void setOrderQuantity(float orderQuantity) {
         this.orderQuantity = orderQuantity;
     }
 

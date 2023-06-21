@@ -386,8 +386,6 @@ public void limparCalculoPorcoes() {
         jLabel30 = new javax.swing.JLabel();
         areaProdutoEstoque = new javax.swing.JInternalFrame();
         panelPE = new javax.swing.JPanel();
-        fotoVP3 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         stockSearchField = new javax.swing.JTextField();
         stockSearchButton = new views.styles.Mybtn2();
@@ -2326,31 +2324,6 @@ public void limparCalculoPorcoes() {
         panelPE.setPreferredSize(new java.awt.Dimension(1690, 900));
         panelPE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("FOTO");
-        jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout fotoVP3Layout = new javax.swing.GroupLayout(fotoVP3);
-        fotoVP3.setLayout(fotoVP3Layout);
-        fotoVP3Layout.setHorizontalGroup(
-            fotoVP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fotoVP3Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
-        );
-        fotoVP3Layout.setVerticalGroup(
-            fotoVP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fotoVP3Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
-        );
-
-        panelPE.add(fotoVP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 240, 240));
-
         jLabel20.setBackground(new java.awt.Color(103, 103, 103));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa 2.png"))); // NOI18N
@@ -3555,7 +3528,6 @@ public void limparCalculoPorcoes() {
     private views.tables.Table dataSheetTable;
     private javax.swing.JPanel fotoVP;
     private javax.swing.JPanel fotoVP2;
-    private javax.swing.JPanel fotoVP3;
     private views.styles.Mybtn ingredientAddButton;
     private views.styles.Mybtn ingredientDeleteButton;
     private views.styles.Mybtn ingredientEditButton;
@@ -3580,7 +3552,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
