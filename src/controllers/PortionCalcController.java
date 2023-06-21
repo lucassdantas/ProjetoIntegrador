@@ -256,10 +256,13 @@ public class PortionCalcController {
                 //this.resultQuantityField.get(i).setText(calcQuantityFieldValue.get(i).getText());
             }else{
                 float calcValue = Float.parseFloat(calcQuantityFieldValue.get(i).getText());
-                System.out.println(calcValue);
                 float value = (calcValue/calcPortion) * resultPortion;
-                System.out.println(value);
-                this.resultQuantityField.get(i).setText(String.valueOf(value));
+                if(value % 1 == 0){
+                    this.resultQuantityField.get(i).setText(String.valueOf((int)value));
+
+                }else{
+                    this.resultQuantityField.get(i).setText(String.format("%.3f", value));
+                }
             }
             
         }
