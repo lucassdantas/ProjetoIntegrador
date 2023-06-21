@@ -111,8 +111,7 @@ public class IngredientDAO {
             statement.setString(7, ingredient.getIngredientStockStatus());
             statement.setFloat(8, ingredient.getIngredientUnitQuantity());
             statement.setString(9, ingredient.getIngredientImageUrl());
-               
-         
+            statement.executeUpdate();   
 
         }
     }
