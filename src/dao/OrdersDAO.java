@@ -27,7 +27,7 @@ public class OrdersDAO {
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, order.getOrderSnackId());
-            statement.setInt(2, order.getOrderQuantity());
+            statement.setFloat(2, order.getOrderQuantity());
             statement.setFloat(3, order.getOrderCost());
             statement.setFloat(4, order.getOrderUnitPrice());
             statement.setFloat(5, order.getOrderTotalPrice());
@@ -42,7 +42,7 @@ public class OrdersDAO {
                 "orderUnitPrice = ?, orderTotalPrice = ?, orderDate = ? WHERE orderId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, order.getOrderSnackId());
-            statement.setInt(2, order.getOrderQuantity());
+            statement.setFloat(2, order.getOrderQuantity());
             statement.setFloat(3, order.getOrderCost());
             statement.setFloat(4, order.getOrderUnitPrice());
             statement.setFloat(5, order.getOrderTotalPrice());
@@ -70,7 +70,7 @@ public class OrdersDAO {
                     Orders order = new Orders();
                     order.setOrderId(resultSet.getInt("orderId"));
                     order.setOrderSnackId(resultSet.getInt("orderSnackId"));
-                    order.setOrderQuantity(resultSet.getInt("orderQuantity"));
+                    order.setOrderQuantity(resultSet.getFloat("orderQuantity"));
                     order.setOrderCost(resultSet.getFloat("orderCost"));
                     order.setOrderUnitPrice(resultSet.getFloat("orderUnitPrice"));
                     order.setOrderTotalPrice(resultSet.getFloat("orderTotalPrice"));
@@ -107,7 +107,7 @@ public class OrdersDAO {
                 Orders order = new Orders();
                 order.setOrderId(resultSet.getInt("orderId"));
                 order.setOrderSnackId(resultSet.getInt("orderSnackId"));
-                order.setOrderQuantity(resultSet.getInt("orderQuantity"));
+                order.setOrderQuantity(resultSet.getFloat("orderQuantity"));
                 order.setOrderCost(resultSet.getFloat("orderCost"));
                 order.setOrderUnitPrice(resultSet.getFloat("orderUnitPrice"));
                 order.setOrderTotalPrice(resultSet.getFloat("orderTotalPrice"));

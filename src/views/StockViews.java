@@ -386,8 +386,6 @@ public void limparCalculoPorcoes() {
         jLabel30 = new javax.swing.JLabel();
         areaProdutoEstoque = new javax.swing.JInternalFrame();
         panelPE = new javax.swing.JPanel();
-        fotoVP3 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         stockSearchField = new javax.swing.JTextField();
         stockSearchButton = new views.styles.Mybtn2();
@@ -2095,6 +2093,11 @@ public void limparCalculoPorcoes() {
                 calcTotalFieldCaretUpdate(evt);
             }
         });
+        calcTotalField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcTotalFieldActionPerformed(evt);
+            }
+        });
         calcTotalField.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 calcTotalFieldPropertyChange(evt);
@@ -2325,31 +2328,6 @@ public void limparCalculoPorcoes() {
         panelPE.setMinimumSize(new java.awt.Dimension(1690, 900));
         panelPE.setPreferredSize(new java.awt.Dimension(1690, 900));
         panelPE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("FOTO");
-        jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout fotoVP3Layout = new javax.swing.GroupLayout(fotoVP3);
-        fotoVP3.setLayout(fotoVP3Layout);
-        fotoVP3Layout.setHorizontalGroup(
-            fotoVP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fotoVP3Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
-        );
-        fotoVP3Layout.setVerticalGroup(
-            fotoVP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fotoVP3Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
-        );
-
-        panelPE.add(fotoVP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 240, 240));
 
         jLabel20.setBackground(new java.awt.Color(103, 103, 103));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -3322,83 +3300,83 @@ public void limparCalculoPorcoes() {
          }
     }//GEN-LAST:event_snackPriceOfSellingFieldKeyTyped
     private void calcCostField01KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField01KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField01KeyReleased
 
     private void calcCostField01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField01ActionPerformed
-        // TODO add your handling code here:
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField01ActionPerformed
 
     private void calcCostField02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField02ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField02ActionPerformed
 
     private void calcCostField03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField03ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField03ActionPerformed
 
     private void calcCostField04ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField04ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField04ActionPerformed
 
     private void calcCostField05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField05ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField05ActionPerformed
 
     private void calcCostField06ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField06ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField06ActionPerformed
 
     private void calcCostField07ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField07ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField07ActionPerformed
 
     private void calcCostField08ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField08ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField08ActionPerformed
 
     private void calcCostField09ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField09ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField09ActionPerformed
 
     private void calcCostField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcCostField10ActionPerformed
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField10ActionPerformed
 
     private void calcCostField02KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField02KeyReleased
-       calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+       calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField02KeyReleased
 
     private void calcCostField03KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField03KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField03KeyReleased
 
     private void calcCostField04KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField04KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField04KeyReleased
 
     private void calcCostField05KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField05KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField05KeyReleased
 
     private void calcCostField06KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField06KeyReleased
-       calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+       calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField06KeyReleased
 
     private void calcCostField07KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField07KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField07KeyReleased
 
     private void calcCostField08KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField08KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField08KeyReleased
 
     private void calcCostField09KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField09KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField09KeyReleased
 
     private void calcCostField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calcCostField10KeyReleased
-        calcTotalField.setText(String.valueOf(calcController.sumAllCalcCost()));
+        calcTotalField.setText(String.format("%.2f", calcController.sumAllCalcCost()).replace(".",","));
     }//GEN-LAST:event_calcCostField10KeyReleased
 
     private void calcTotalFieldPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calcTotalFieldPropertyChange
@@ -3414,6 +3392,10 @@ public void limparCalculoPorcoes() {
 
     private void calcPortionFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_calcPortionFieldCaretUpdate
     }//GEN-LAST:event_calcPortionFieldCaretUpdate
+
+    private void calcTotalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcTotalFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calcTotalFieldActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -3555,7 +3537,6 @@ public void limparCalculoPorcoes() {
     private views.tables.Table dataSheetTable;
     private javax.swing.JPanel fotoVP;
     private javax.swing.JPanel fotoVP2;
-    private javax.swing.JPanel fotoVP3;
     private views.styles.Mybtn ingredientAddButton;
     private views.styles.Mybtn ingredientDeleteButton;
     private views.styles.Mybtn ingredientEditButton;
@@ -3580,7 +3561,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
