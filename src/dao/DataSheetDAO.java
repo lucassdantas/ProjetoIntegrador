@@ -26,7 +26,7 @@ public class DataSheetDAO {
                 DataSheet dataSheet = new DataSheet();
                 dataSheet.setDsSnackId(resultSet.getInt("dsSnackId"));
                 dataSheet.setDsIngredientId(resultSet.getInt("dsIngredientId"));
-                dataSheet.setDsQuantity(resultSet.getInt("dsQuantity"));
+                dataSheet.setDsQuantity(resultSet.getFloat("dsQuantity"));
                 dataSheet.setDsTotalCost(resultSet.getFloat("dsTotalCost"));
                 dataSheet.setDsStatus(resultSet.getString("dsStatus"));
                 
@@ -68,7 +68,7 @@ public class DataSheetDAO {
                 DataSheet dataSheet = new DataSheet();
                 dataSheet.setDsSnackId(resultSet.getInt("dsSnackId"));
                 dataSheet.setDsIngredientId(resultSet.getInt("dsIngredientId"));
-                dataSheet.setDsQuantity(resultSet.getInt("dsQuantity"));
+                dataSheet.setDsQuantity(resultSet.getFloat("dsQuantity"));
                 dataSheet.setDsTotalCost(resultSet.getFloat("dsTotalCost"));
                 dataSheet.setDsStatus(resultSet.getString("dsStatus"));
                 
@@ -113,7 +113,7 @@ public class DataSheetDAO {
                     DataSheet dataSheet = new DataSheet();
                     dataSheet.setDsSnackId(resultSet.getInt("dsSnackId"));
                     dataSheet.setDsIngredientId(resultSet.getInt("dsIngredientId"));
-                    dataSheet.setDsQuantity(resultSet.getInt("dsQuantity"));
+                    dataSheet.setDsQuantity(resultSet.getFloat("dsQuantity"));
                     dataSheet.setDsTotalCost(resultSet.getFloat("dsTotalCost"));
                     dataSheet.setDsStatus(resultSet.getString("dsStatus"));
 
@@ -143,7 +143,7 @@ public class DataSheetDAO {
         }
         return dataSheets;
     }
-public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
+    public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
         List<DataSheet> dataSheets = new ArrayList<>();
         String query = "SELECT datasheet.*, snack.*, ingredient.* " +
                 "FROM datasheet " +
@@ -157,7 +157,7 @@ public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
                 DataSheet dataSheet = new DataSheet();
                 dataSheet.setDsSnackId(resultSet.getInt("dsSnackId"));
                 dataSheet.setDsIngredientId(resultSet.getInt("dsIngredientId"));
-                dataSheet.setDsQuantity(resultSet.getInt("dsQuantity"));
+                dataSheet.setDsQuantity(resultSet.getFloat("dsQuantity"));
                 dataSheet.setDsTotalCost(resultSet.getFloat("dsTotalCost"));
                 dataSheet.setDsStatus(resultSet.getString("dsStatus"));
 
@@ -194,7 +194,7 @@ public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, dataSheet.getSnack().getId());
             statement.setInt(2, dataSheet.getIngredient().getId());
-            statement.setInt(3, dataSheet.getDsQuantity());
+            statement.setFloat(3, dataSheet.getDsQuantity());
             statement.setFloat(4, dataSheet.getDsTotalCost());
             statement.setString(5, dataSheet.getDsStatus());
             statement.executeUpdate();
@@ -207,7 +207,7 @@ public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, dataSheet.getSnack().getId());
             statement.setInt(2, dataSheet.getIngredient().getId());
-            statement.setInt(3, dataSheet.getDsQuantity());
+            statement.setFloat(3, dataSheet.getDsQuantity());
             statement.setFloat(4, dataSheet.getDsTotalCost());
             statement.setString(5, dataSheet.getDsStatus());
             statement.setInt(6, dataSheet.getSnack().getId());
@@ -231,7 +231,7 @@ public List<DataSheet> searchBySnackId(int searchTerm) throws SQLException {
             statement.executeUpdate();
         }
     }
-        public void deleteByIngredientId(int id) throws SQLException{
+    public void deleteByIngredientId(int id) throws SQLException{
         String query = "DELETE FROM datasheet WHERE dsIngredientId = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, id);
