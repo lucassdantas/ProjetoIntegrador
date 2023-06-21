@@ -130,7 +130,7 @@ public class StockViews extends javax.swing.JFrame {
     }
 
     private void setIcon(){
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../img/logo icon program.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
     }
     
 public void limparCalculoPorcoes() {

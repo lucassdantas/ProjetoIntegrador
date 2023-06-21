@@ -82,6 +82,7 @@ public class SnackController {
         
     }
      
+    @SuppressWarnings("unchecked")
     public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -103,6 +104,7 @@ public class SnackController {
         }       
     }
     
+    @SuppressWarnings("unchecked")
     public void readJTableSearch(String search) throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        

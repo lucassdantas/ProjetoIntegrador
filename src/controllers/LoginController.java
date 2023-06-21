@@ -46,6 +46,7 @@ public class LoginController {
         }
     }
      
+   @SuppressWarnings("unchecked")
     public void readJTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        

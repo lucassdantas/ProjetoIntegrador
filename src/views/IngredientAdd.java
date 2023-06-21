@@ -6,6 +6,7 @@ package views;
 
 import controllers.IngredientController;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,9 +27,11 @@ public class IngredientAdd extends javax.swing.JFrame {
     public IngredientAdd() {
         initComponents();
         ingredientController = new IngredientController();
-        IconManager.setIcon(this);
-
-
+        //IconManager.setIcon(this);
+        this.setIcon();
+    }
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
     }
     public void setJTable(JTable table){
         this.ingredientController.setJTable(table);

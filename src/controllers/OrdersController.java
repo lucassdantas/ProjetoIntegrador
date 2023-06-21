@@ -125,6 +125,7 @@ public final class OrdersController {
     public List<DataSheet> getCurrentDS(){
         return this.currentDS;
     }
+    @SuppressWarnings("unchecked")
     public void setComboBoxOptions(){
         this.resetCombobox();
         for(int i = 0; i < this.dataSheets.size(); i++){
@@ -134,6 +135,7 @@ public final class OrdersController {
 
        
     }
+    @SuppressWarnings("unchecked")
     public void readDataSheetTable(int index) throws SQLException{
         if(index > this.dataSheets.size() || index < 0){
             index = 0 ;
@@ -157,6 +159,7 @@ public final class OrdersController {
                 });
         } 
     }
+    @SuppressWarnings("unchecked")
     public void readOrdersTable() throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.orderTable.getModel();        
@@ -193,6 +196,7 @@ public final class OrdersController {
         }       
     }
     
+    @SuppressWarnings("unchecked")
     public void readJTableSearch(String search) throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.dsTable.getModel();        

@@ -5,8 +5,10 @@
 package views;
 
 import controllers.PortionCalcController;
+import java.awt.Toolkit;
 import java.util.List;
 import java.util.ListIterator;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -21,10 +23,13 @@ public class PortionCalcResult extends javax.swing.JFrame {
 
     public PortionCalcResult() {
         initComponents();
-        IconManager.setIcon(this);
+        this.setIcon();
+               
         
     }
-    
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

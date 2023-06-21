@@ -27,13 +27,15 @@ import views.TelaLogin;
 public class LoginDao {
     
     private final TelaLogin view;
+    private final Connection connection;
     
-    public LoginDao(TelaLogin view){
+    public LoginDao(TelaLogin view) throws SQLException{
+        this.connection = ConnectionFactory.getConnection();
         this.view = view;
     }
     
     public void create(Login usuario) throws SQLException{
-         Connection con = ConnectionFactory.getConnection();
+        Connection con = ConnectionFactory.getConnection();
         PreparedStatement sql = null;
 
     try{

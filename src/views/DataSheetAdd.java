@@ -6,6 +6,7 @@ package views;
 
 import controllers.DataSheetController;
 import controllers.OrdersController;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,10 +29,12 @@ public class DataSheetAdd extends javax.swing.JFrame {
     public DataSheetAdd() {
         initComponents();
         dsController = new DataSheetController();
-        
-        IconManager.setIcon(this);
+        this.setIcon();
+        //IconManager.setIcon(this);
     }
-    
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

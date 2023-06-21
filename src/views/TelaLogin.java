@@ -8,20 +8,25 @@ import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import dao.LoginDao;
+import java.awt.Toolkit;
+import java.util.logging.Logger;
 
 public class TelaLogin extends javax.swing.JFrame {
 
     public TelaLogin() {
         initComponents();
-        IconManager.setIcon(this);
+        this.setIcon();
         txtSenhaVisivel.setVisible(false);
         btn_passwordOcultar.setVisible(false);
     }
-    
+     private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/logo icon program.png")));
+    }
     /*public boolean checkLogin(String login, String senha){
          return login.equals("usuario")&& senha.equals("123");
      }*/
-        public void entrar (){
+    @SuppressWarnings("deprecation")
+        public void entrar () throws SQLException{
             if(!txtLogin.getText().isEmpty() && !txtSenha.getText().isEmpty()){
             String login = txtLogin.getText();
             String senha = txtSenha.getText();
@@ -204,13 +209,19 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaVisivelActionPerformed
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-        entrar();
+        try {
+            entrar();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_txtLoginActionPerformed
 
+    @SuppressWarnings("deprecation")
     private void txtSenhaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyReleased
         txtSenhaVisivel.setText(txtSenha.getText());
     }//GEN-LAST:event_txtSenhaKeyReleased
 
+    @SuppressWarnings("deprecation")
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
         }
@@ -218,7 +229,11 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaKeyPressed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-       entrar();
+        try {
+            entrar();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btn_passwordOcultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_passwordOcultarActionPerformed
@@ -259,7 +274,11 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_passwordVisualizarActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        entrar();
+        try {
+            entrar();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     //Entrar - Aqui estamos realizando o login

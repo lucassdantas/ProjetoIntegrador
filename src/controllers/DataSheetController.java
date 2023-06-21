@@ -116,7 +116,7 @@ public class DataSheetController {
         
         SnackDAO dao = new SnackDAO();
         this.snack = dao.searchById(id);
- ;
+ 
         this.getSnackFields().get(0).setText(String.valueOf(snack.getSnackTitle()));
     }
     public void searchIngredient(int id) throws SQLException{
@@ -145,6 +145,7 @@ public class DataSheetController {
         this.totalValueField.setText(String.format("%.2f",result));
         return result;
     }
+    @SuppressWarnings({"unchecked", "unchecked"})
     public void readJTable() throws SQLException, java.sql.SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
@@ -180,6 +181,7 @@ public class DataSheetController {
     }
 }          
     
+    @SuppressWarnings("unchecked")
     public void readJTableSearch(String search) throws SQLException{
         
         DefaultTableModel model = (DefaultTableModel) this.table.getModel();        
