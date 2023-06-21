@@ -274,8 +274,6 @@ public void limparCalculoPorcoes() {
         snackPhoto = new javax.swing.JLabel();
         areaIngredientes = new javax.swing.JInternalFrame();
         panelIngredientes = new javax.swing.JPanel();
-        fotoVP2 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         ingredientSearchField = new javax.swing.JTextField();
         colorBtn7 = new javax.swing.JPanel();
@@ -1235,31 +1233,6 @@ public void limparCalculoPorcoes() {
         panelIngredientes.setMinimumSize(new java.awt.Dimension(1690, 900));
         panelIngredientes.setPreferredSize(new java.awt.Dimension(1690, 900));
         panelIngredientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("FOTO");
-        jLabel16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout fotoVP2Layout = new javax.swing.GroupLayout(fotoVP2);
-        fotoVP2.setLayout(fotoVP2Layout);
-        fotoVP2Layout.setHorizontalGroup(
-            fotoVP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fotoVP2Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
-        );
-        fotoVP2Layout.setVerticalGroup(
-            fotoVP2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fotoVP2Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
-        );
-
-        panelIngredientes.add(fotoVP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 240, 240));
 
         jLabel10.setBackground(new java.awt.Color(103, 103, 103));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -3536,7 +3509,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JTextField dataSheetSearchField;
     private views.tables.Table dataSheetTable;
     private javax.swing.JPanel fotoVP;
-    private javax.swing.JPanel fotoVP2;
     private views.styles.Mybtn ingredientAddButton;
     private views.styles.Mybtn ingredientDeleteButton;
     private views.styles.Mybtn ingredientEditButton;
@@ -3558,7 +3530,6 @@ public void limparCalculoPorcoes() {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
