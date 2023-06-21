@@ -1587,6 +1587,7 @@ public void limparCalculoPorcoes() {
         panelPE1.setPreferredSize(new java.awt.Dimension(1690, 1020));
         panelPE1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        calcQntField01.setText("100");
         calcQntField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField01.setName(""); // NOI18N
         calcQntField01.addActionListener(new java.awt.event.ActionListener() {
@@ -1601,6 +1602,7 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcQntField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 100, 45));
 
+        calcItemField01.setText("Pão de hamburguer");
         calcItemField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcItemField01.setName(""); // NOI18N
         calcItemField01.addCaretListener(new javax.swing.event.CaretListener() {
@@ -1625,10 +1627,12 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcItemField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 320, 45));
 
+        calcUnField01.setText("un");
         calcUnField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcUnField01.setName(""); // NOI18N
         panelPE1.add(calcUnField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 100, 45));
 
+        calcCostField01.setText("99,80");
         calcCostField01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField01.setName(""); // NOI18N
         calcCostField01.addActionListener(new java.awt.event.ActionListener() {
@@ -1646,10 +1650,12 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcCostField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 100, 45));
 
+        calcItemField02.setText("Hamburguer");
         calcItemField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcItemField02.setName(""); // NOI18N
         panelPE1.add(calcItemField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 365, 320, 45));
 
+        calcQntField02.setText("100");
         calcQntField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField02.setName(""); // NOI18N
         calcQntField02.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1659,10 +1665,12 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcQntField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 365, 100, 45));
 
+        calcUnField02.setText("un");
         calcUnField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcUnField02.setName(""); // NOI18N
         panelPE1.add(calcUnField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 365, 100, 45));
 
+        calcCostField02.setText("152,00");
         calcCostField02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField02.setName(""); // NOI18N
         calcCostField02.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1682,6 +1690,7 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcCostField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 365, 100, 45));
 
+        calcPortionField.setText("100");
         calcPortionField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcPortionField.setName(""); // NOI18N
         calcPortionField.addCaretListener(new javax.swing.event.CaretListener() {
@@ -1697,14 +1706,17 @@ public void limparCalculoPorcoes() {
         panelPE1.add(calcPortionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 140, 45));
         calcPortionField.setText("1");
 
+        calcLunchField.setText("Hamburguer");
         calcLunchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcLunchField.setName(""); // NOI18N
         panelPE1.add(calcLunchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 240, 45));
 
+        calcItemField03.setText("Ovo");
         calcItemField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcItemField03.setName(""); // NOI18N
         panelPE1.add(calcItemField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 320, 45));
 
+        calcQntField03.setText("100");
         calcQntField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField03.setName(""); // NOI18N
         calcQntField03.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1714,10 +1726,12 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcQntField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 100, 45));
 
+        calcUnField03.setText("un");
         calcUnField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcUnField03.setName(""); // NOI18N
         panelPE1.add(calcUnField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 100, 45));
 
+        calcCostField03.setText("83,33");
         calcCostField03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField03.setName(""); // NOI18N
         calcCostField03.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1737,10 +1751,12 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcCostField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 100, 45));
 
+        calcItemField04.setText("Queijo fatiado");
         calcItemField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcItemField04.setName(""); // NOI18N
         panelPE1.add(calcItemField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 475, 320, 45));
 
+        calcQntField04.setText("1");
         calcQntField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField04.setName(""); // NOI18N
         calcQntField04.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1750,10 +1766,12 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcQntField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 475, 100, 45));
 
+        calcUnField04.setText("kg");
         calcUnField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcUnField04.setName(""); // NOI18N
         panelPE1.add(calcUnField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 475, 100, 45));
 
+        calcCostField04.setText("38,40");
         calcCostField04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField04.setName(""); // NOI18N
         calcCostField04.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1773,10 +1791,12 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcCostField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 475, 100, 45));
 
+        calcItemField05.setText("Bacon fatiado");
         calcItemField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcItemField05.setName(""); // NOI18N
         panelPE1.add(calcItemField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 320, 45));
 
+        calcQntField05.setText("1");
         calcQntField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField05.setName(""); // NOI18N
         calcQntField05.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1786,14 +1806,17 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcQntField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 100, 45));
 
+        calcUnField05.setText("kg");
         calcUnField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcUnField05.setName(""); // NOI18N
         panelPE1.add(calcUnField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 100, 45));
 
+        calcItemField06.setText("Alface");
         calcItemField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcItemField06.setName(""); // NOI18N
         panelPE1.add(calcItemField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 585, 320, 45));
 
+        calcQntField06.setText("3");
         calcQntField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField06.setName(""); // NOI18N
         calcQntField06.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1803,17 +1826,14 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcQntField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 585, 100, 45));
 
+        calcUnField06.setText("pes");
         calcUnField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcUnField06.setName(""); // NOI18N
         panelPE1.add(calcUnField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 585, 100, 45));
 
+        calcCostField06.setText("17,97");
         calcCostField06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField06.setName(""); // NOI18N
-        calcCostField06.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField06KeyTyped(evt);
-            }
-        });
         calcCostField06.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField06ActionPerformed(evt);
@@ -1823,9 +1843,13 @@ public void limparCalculoPorcoes() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField06KeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField06KeyTyped(evt);
+            }
         });
         panelPE1.add(calcCostField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 585, 100, 45));
 
+        calcCostField05.setText("35,60");
         calcCostField05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField05.setName(""); // NOI18N
         calcCostField05.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1845,13 +1869,9 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcCostField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 100, 45));
 
+        calcCostField07.setText("27,70");
         calcCostField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField07.setName(""); // NOI18N
-        calcCostField07.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField07KeyTyped(evt);
-            }
-        });
         calcCostField07.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField07ActionPerformed(evt);
@@ -1861,13 +1881,18 @@ public void limparCalculoPorcoes() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField07KeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField07KeyTyped(evt);
+            }
         });
         panelPE1.add(calcCostField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, 100, 45));
 
+        calcUnField07.setText("kg");
         calcUnField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcUnField07.setName(""); // NOI18N
         panelPE1.add(calcUnField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, 100, 45));
 
+        calcQntField07.setText("1");
         calcQntField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField07.setName(""); // NOI18N
         calcQntField07.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1877,14 +1902,17 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcQntField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 640, 100, 45));
 
+        calcItemField07.setText("Batata palha");
         calcItemField07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcItemField07.setName(""); // NOI18N
         panelPE1.add(calcItemField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 320, 45));
 
+        calcItemField08.setText("Embalagens p/ hamburguer");
         calcItemField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcItemField08.setName(""); // NOI18N
         panelPE1.add(calcItemField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 695, 320, 45));
 
+        calcQntField08.setText("100");
         calcQntField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcQntField08.setName(""); // NOI18N
         calcQntField08.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1894,17 +1922,14 @@ public void limparCalculoPorcoes() {
         });
         panelPE1.add(calcQntField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 695, 100, 45));
 
+        calcUnField08.setText("un");
         calcUnField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcUnField08.setName(""); // NOI18N
         panelPE1.add(calcUnField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 695, 100, 45));
 
+        calcCostField08.setText("104,65");
         calcCostField08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcCostField08.setName(""); // NOI18N
-        calcCostField08.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                calcCostField08KeyTyped(evt);
-            }
-        });
         calcCostField08.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcCostField08ActionPerformed(evt);
@@ -1913,6 +1938,9 @@ public void limparCalculoPorcoes() {
         calcCostField08.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 calcCostField08KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calcCostField08KeyTyped(evt);
             }
         });
         panelPE1.add(calcCostField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 695, 100, 45));
@@ -2050,6 +2078,7 @@ public void limparCalculoPorcoes() {
 
         calcTotalField.setEditable(false);
         calcTotalField.setBackground(new java.awt.Color(243, 243, 243));
+        calcTotalField.setText("559,45");
         calcTotalField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         calcTotalField.setName(""); // NOI18N
         calcTotalField.setOpaque(true);
