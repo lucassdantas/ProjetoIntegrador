@@ -289,6 +289,7 @@ public void limparCalculoPorcoes() {
         jSeparator4 = new javax.swing.JSeparator();
         jScrollPane5 = new javax.swing.JScrollPane();
         ingredientTable = new views.tables.Table();
+        ingredientPhoto = new javax.swing.JLabel();
         areaFichaTecnica = new javax.swing.JInternalFrame();
         panelIngredientes1 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
@@ -1395,6 +1396,14 @@ public void limparCalculoPorcoes() {
         }
 
         panelIngredientes.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 1000, 450));
+
+        ingredientPhoto.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        ingredientPhoto.setForeground(new java.awt.Color(255, 255, 255));
+        ingredientPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ingredientPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/productImages/default.jpg"))); // NOI18N
+        ingredientPhoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ingredientPhoto.setMaximumSize(new java.awt.Dimension(225, 225));
+        panelIngredientes.add(ingredientPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 200, 200));
 
         areaIngredientes.getContentPane().add(panelIngredientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 900));
 
@@ -3513,6 +3522,7 @@ public void limparCalculoPorcoes() {
     private views.styles.Mybtn ingredientDeleteButton;
     private views.styles.Mybtn ingredientEditButton;
     private javax.swing.JTextField ingredientNameField;
+    private javax.swing.JLabel ingredientPhoto;
     private views.styles.Mybtn2 ingredientSearchButton;
     private javax.swing.JTextField ingredientSearchField;
     private views.tables.Table ingredientTable;

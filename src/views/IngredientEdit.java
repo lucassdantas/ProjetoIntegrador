@@ -70,6 +70,8 @@ public class IngredientEdit extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         ingredientMediaField = new javax.swing.JTextField();
+        ingredientEditPhoto = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -209,6 +211,21 @@ public class IngredientEdit extends javax.swing.JFrame {
         });
         panelEntradas1.add(ingredientMediaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 140, 45));
 
+        ingredientEditPhoto.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        ingredientEditPhoto.setForeground(new java.awt.Color(255, 255, 255));
+        ingredientEditPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ingredientEditPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/productImages/default.jpg"))); // NOI18N
+        ingredientEditPhoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ingredientEditPhoto.setMaximumSize(new java.awt.Dimension(225, 225));
+        panelEntradas1.add(ingredientEditPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 200, 200));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(126, 126, 126));
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setText("recomendação: 200 x 200 pixels");
+        jLabel33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelEntradas1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 70, 210, 30));
+
         areaEntradas_entrada.getContentPane().add(panelEntradas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 900, 660));
 
         jDesktopPane1.add(areaEntradas_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 940, 710));
@@ -346,6 +363,7 @@ public class IngredientEdit extends javax.swing.JFrame {
     private javax.swing.JPanel colorBtn20;
     private javax.swing.JTextField ingredientCostField;
     private views.styles.Mybtn ingredientEditCancelButton;
+    private javax.swing.JLabel ingredientEditPhoto;
     private views.styles.Mybtn ingredientEditSaveButton;
     private javax.swing.JTextField ingredientMediaField;
     private javax.swing.JTextField ingredientMinQuantityField;
@@ -353,6 +371,7 @@ public class IngredientEdit extends javax.swing.JFrame {
     private javax.swing.JTextField ingredientUnityQuantityField;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
