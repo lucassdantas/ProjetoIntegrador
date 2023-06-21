@@ -5,16 +5,11 @@
 package views;
 
 import controllers.IngredientController;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -43,7 +38,6 @@ public class IngredientEdit extends javax.swing.JFrame {
         this.ingredientController.setFields(ingredientUnityQuantityField);
         this.ingredientController.setFields(ingredientMinQuantityField);
         this.ingredientController.setFields(ingredientMediaField);
-        this.ingredientController.setFields(ingredientEditPhoto);
     }
     public void setFieldsValue(){
         this.ingredientController.setFieldsValue();
@@ -65,9 +59,9 @@ public class IngredientEdit extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         fotoVP = new javax.swing.JPanel();
-        ingredientEditPhoto = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        editIngredientFileChoseButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         ingredientEditCancelButton = new views.styles.Mybtn();
         ingredientEditSaveButton = new views.styles.Mybtn();
         ingredientUnityQuantityField = new javax.swing.JTextField();
@@ -163,23 +157,27 @@ public class IngredientEdit extends javax.swing.JFrame {
         jLabel34.setText("Qnt. Unitária");
         panelEntradas1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 140, 30));
 
-        ingredientEditPhoto.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        ingredientEditPhoto.setForeground(new java.awt.Color(255, 255, 255));
-        ingredientEditPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ingredientEditPhoto.setText("FOTO");
-        ingredientEditPhoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("FOTO");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout fotoVPLayout = new javax.swing.GroupLayout(fotoVP);
         fotoVP.setLayout(fotoVPLayout);
         fotoVPLayout.setHorizontalGroup(
             fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fotoVPLayout.createSequentialGroup()
-                .addComponent(ingredientEditPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fotoVPLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
         fotoVPLayout.setVerticalGroup(
             fotoVPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ingredientEditPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+            .addGroup(fotoVPLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         panelEntradas1.add(fotoVP, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 100, -1, -1));
@@ -188,19 +186,14 @@ public class IngredientEdit extends javax.swing.JFrame {
         jLabel35.setText("Custo Unitário (R$)");
         panelEntradas1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 140, 30));
 
-        editIngredientFileChoseButton.setBackground(new java.awt.Color(246, 246, 246));
-        editIngredientFileChoseButton.setForeground(new java.awt.Color(126, 126, 126));
-        editIngredientFileChoseButton.setText("escolher arquivo");
-        editIngredientFileChoseButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
-        editIngredientFileChoseButton.setContentAreaFilled(false);
-        editIngredientFileChoseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        editIngredientFileChoseButton.setOpaque(true);
-        editIngredientFileChoseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editIngredientFileChoseButtonActionPerformed(evt);
-            }
-        });
-        panelEntradas1.add(editIngredientFileChoseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 320, 120, 23));
+        jButton1.setBackground(new java.awt.Color(246, 246, 246));
+        jButton1.setForeground(new java.awt.Color(126, 126, 126));
+        jButton1.setText("escolher arquivo");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setOpaque(true);
+        panelEntradas1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 320, 120, 23));
 
         ingredientEditCancelButton.setText("CANCELAR");
         ingredientEditCancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -322,24 +315,6 @@ public class IngredientEdit extends javax.swing.JFrame {
                            
     }//GEN-LAST:event_ingredientMediaFieldKeyTyped
 
-    private void editIngredientFileChoseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editIngredientFileChoseButtonActionPerformed
-        editIngredientFileChoseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                int returnValue = fileChooser.showOpenDialog(null);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    String filePath = selectedFile.getPath();
-                    ingredientController.setImageUrl(filePath);
-                    ImageIcon img = new ImageIcon(filePath);
-                    ingredientEditPhoto.setIcon(img);
-                }
-     
-            }
-        });
-    }//GEN-LAST:event_editIngredientFileChoseButtonActionPerformed
-                
     /**
      * @param args the command line arguments
      */
@@ -409,17 +384,17 @@ public class IngredientEdit extends javax.swing.JFrame {
     private javax.swing.JInternalFrame areaEntradas_entrada;
     private javax.swing.JPanel colorBtn19;
     private javax.swing.JPanel colorBtn20;
-    private javax.swing.JButton editIngredientFileChoseButton;
     private javax.swing.JPanel fotoVP;
     private javax.swing.JTextField ingredientCostField;
     private views.styles.Mybtn ingredientEditCancelButton;
-    private javax.swing.JLabel ingredientEditPhoto;
     private views.styles.Mybtn ingredientEditSaveButton;
     private javax.swing.JTextField ingredientMediaField;
     private javax.swing.JTextField ingredientMinQuantityField;
     private javax.swing.JTextField ingredientNameField;
     private javax.swing.JTextField ingredientUnityQuantityField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
