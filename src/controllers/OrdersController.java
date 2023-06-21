@@ -264,7 +264,7 @@ public final class OrdersController {
         this.snackPhotoLabel.setIcon(image);
     }
     
-    public void buildSnack() throws SQLException{
+    public boolean buildSnack() throws SQLException{
         int index = this.comboBox.getSelectedIndex();
         Snack snack = this.snacks.get(index);
         Orders order = new Orders();
@@ -289,7 +289,11 @@ public final class OrdersController {
             ingredientDAO.removeStock(currentDS.get(i).getDsQuantity(), ingredientId);
         }
         
-        this.add(this.order);
+        if(this.add(this.order)){
+            return true;
+        }else{
+            return false;
+        }
     }
     public void clean (List <javax.swing.JTextField> fields){
         fields.forEach((field) -> {

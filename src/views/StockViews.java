@@ -3066,7 +3066,9 @@ public void limparCalculoPorcoes() {
 
     private void orderAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderAddButtonActionPerformed
         try {
-            ordersController.buildSnack();
+            if(ordersController.buildSnack()){
+                JOptionPane.showMessageDialog(null,"Pedido reealizado com sucesso!");
+            }
             stockController.readJTable();
             ingredientController.readJTable();
         } catch (SQLException ex) {
