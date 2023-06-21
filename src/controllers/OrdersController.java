@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 import javax.swing.JTable;
@@ -33,11 +35,14 @@ public final class OrdersController {
     private List<Ingredient> ingredients;
     private List<DataSheet> dataSheets;
     private List<DataSheet> currentDS;
+    private List<ImageIcon> snackImages;
+    
     private Ingredient ingredient;
     private Orders order;
     private JTextField totalField;
     private Spinner quantitySpinner;
     private Combobox comboBox;
+    private JLabel snackPhotoLabel;
     public OrdersController() throws SQLException {
         this.snacks = new ArrayList<>();
         this.ingredients = new ArrayList<>();
@@ -47,6 +52,7 @@ public final class OrdersController {
         
         this.order = new Orders();
     }
+    
     public void main() throws SQLException{
         this.readOrdersTable();
         this.searchDataSheet();
@@ -55,12 +61,13 @@ public final class OrdersController {
         this.setComboBoxOptions();
         this.readDataSheetTable(this.comboBox.getSelectedIndex());
     }
-    public void setItems(JTable dsTable, JTable orderTable, Combobox combobox, JTextField orderTotalValueField, Spinner spinner){
+    public void setItems(JTable dsTable, JTable orderTable, Combobox combobox, JTextField orderTotalValueField, Spinner spinner, JLabel photo){
         this.setDSJTable(dsTable);
         this.setOrderTable(orderTable);
         this.setComboBox(combobox);
         this.totalField = orderTotalValueField;
         this.quantitySpinner = spinner;
+        this.snackPhotoLabel = photo;
         
     }
     public void search() throws SQLException{
@@ -95,6 +102,10 @@ public final class OrdersController {
     }
     public void setCurrentDS(DataSheet ds){
         this.currentDS.add(ds);
+    }
+    
+    public List<Snack> getSnacks(){
+        return this.snacks;
     }
     
     public void searchDataSheet() throws SQLException{
@@ -140,23 +151,28 @@ public final class OrdersController {
         if(index > this.dataSheets.size() || index < 0){
             index = 0 ;
         }
+        
+        
         DefaultTableModel model = (DefaultTableModel) this.dsTable.getModel();        
         this.dsTable.setRowSorter(new TableRowSorter(model));
         model.setNumRows(0);
         
         this.order = new Orders();
         DataSheetDAO dao = new DataSheetDAO();
+        
         this.currentDS = new ArrayList<>();
-
+        
+        
         int snackId = this.dataSheets.get(index).getDsSnackId();
         for (DataSheet dataSheet: dao.searchBySnackId(snackId)){
             this.currentDS.add(dataSheet);
             this.order.sumCost(dataSheet.getDsQuantity()* dataSheet.getIngredient().getIngredientUnitCost());
-                model.addRow(new Object[]{
-                    dataSheet.getIngredient().getIngredientName(),
-                    dataSheet.getDsQuantity(),
-                    dataSheet.getIngredient().getIngredientUnitOfMeasure(),
-                });
+            
+            model.addRow(new Object[]{
+                dataSheet.getIngredient().getIngredientName(),
+                dataSheet.getDsQuantity(),
+                dataSheet.getIngredient().getIngredientUnitOfMeasure(),
+            });
         } 
     }
     @SuppressWarnings("unchecked")
@@ -238,6 +254,14 @@ public final class OrdersController {
         }
         float snackValue =  this.dataSheets.get(index).getSnack().getSnackSellingPrice();
         this.totalField.setText(String.valueOf(Float.parseFloat(String.valueOf( this.quantitySpinner.getValue())) * snackValue));
+    }
+    public void setSnackImage(){
+        int index = this.comboBox.getSelectedIndex();
+        if(index > this.dataSheets.size() || index < 0){
+            index = 0;
+        }
+        ImageIcon image = new ImageIcon(this.dataSheets.get(index).getSnack().getSnackImageUrl());
+        this.snackPhotoLabel.setIcon(image);
     }
     
     public void buildSnack() throws SQLException{
