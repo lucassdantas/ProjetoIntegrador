@@ -285,18 +285,18 @@ public class PortionCalcController {
                     .get(i)
                     .setText(costField.get(i).getText().replace(",", "."));
             }else{
-                this
-                    .getResultCostField()
-                    .get(i)
-                    .setText(  
-                        String.format("%.3f",
-                            this.ruleOfThree(
+                float value = this.ruleOfThree(
                             calcQuantityFieldValue.get(i).getText().replace(",", "."), 
                             calcCostFieldValue.get(i).getText().replace(",", "."), 
                             resultQuantityField.get(i).getText().replace(",", ".")
-                            )
-                        )
-                    );
+                            );
+                
+                this
+                .getResultCostField()
+                .get(i)
+                .setText(  String.format("%.2f",value));
+                
+                
             }
             
         }
@@ -327,7 +327,7 @@ public class PortionCalcController {
                 }
             }
         }
-        this.resultUnitySnackFieldPrice.setText( String.valueOf(value));
+        this.resultUnitySnackFieldPrice.setText( String.format("%.2f", value));
     }
     public void calcDetails(){
         float totalCost = Float.parseFloat(calcTotalCost.getText().replace(",", "."));
@@ -336,10 +336,10 @@ public class PortionCalcController {
         
         float revenueTotalValue = totalPortionValue*sellingValue;
         float gain = revenueTotalValue - totalCost;
-        float gainMargin = gain/totalCost;
+        float gainMargin = (gain*totalPortionValue)/totalCost;
         
-        this.revenueValueField.setText(format.format(revenueTotalValue));
-        this.gainField.setText(format.format(gain));
-        this.gainMarginField.setText(format.format(gainMargin));
+        this.revenueValueField.setText(String.format("%.2f", revenueTotalValue));
+        this.gainField.setText(String.format("%.2f", gain));
+        this.gainMarginField.setText(String.format( "%.2f", gainMargin));
     }
 }
