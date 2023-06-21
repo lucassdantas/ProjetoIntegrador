@@ -9,6 +9,7 @@ package controllers;
 import dao.DataSheetDAO;
 import dao.IngredientDAO;
 import dao.InputDAO;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,10 @@ import javax.swing.table.TableRowSorter;
 import models.Ingredient;
 import java.util.Scanner;
 import java.math.BigDecimal;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import models.Snack;
+import views.text.area.AreaText;
 
 
 
@@ -32,10 +37,15 @@ import java.math.BigDecimal;
  */
 public class IngredientController {
     
+    private List<Ingredient> ingredients;
     private JTable table;
     private final List<JTextField> fields;
+    private views.text.area.AreaText textArea;
+    private String imageUrl;
     public IngredientController() {
         this.fields = new ArrayList<>();
+        this.ingredients = new ArrayList<>();
+        this.textArea = new views.text.area.AreaText();   
     }
     
     public void setJTable(JTable table){
@@ -44,6 +54,19 @@ public class IngredientController {
     public void setFields(javax.swing.JTextField field){
         this.fields.add(field);
     }
+    
+     public void setTextArea(views.text.area.AreaText textArea){
+        this.textArea = textArea;
+    }
+    
+     public void setImageUrl(String url){
+        this.imageUrl = url;
+    } 
+    
+     public views.text.area.AreaText getTextArea(){
+        return this.textArea;
+    } 
+     
     public JTable getTable(){
         return this.table;
     }
@@ -51,11 +74,44 @@ public class IngredientController {
         return this.fields;
     }
     
-     public void setFieldsValue(){
+     public List<Ingredient> getSnacks(){
+        return this.ingredients;
+    }
+    
+    /**
+     *
+     */
+    public void setFieldsValue(){
         for (int i = 0; i < this.fields.size(); i++){
             fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
         }
     }
+     
+      public ImageIcon getImageByIndex(int i){
+        String imagePath = ingredients.get(i).getIngredientImageUrl();
+        ImageIcon image = new ImageIcon("productImages/default.jpg");
+        System.out.println(imagePath);
+        if(new File(imagePath).isFile()){
+             image = new ImageIcon(ingredients.get(i).getIngredientImageUrl());
+        }
+        return image;
+    }
+
+     public void setFieldsValue (){
+        for (int i = 0; i < this.fields.size(); i++){
+            fields.get(i).setText(String.valueOf(table.getValueAt(table.getSelectedRow(), i+1)));
+        }
+        this.textArea.setText(String.valueOf(table.getValueAt(table.getSelectedRow(), 3)));
+          
+     }
+     
+     
+     
+     
+     
+     
+     
+     
      
     public void readJTable() throws SQLException{
         
@@ -171,16 +227,22 @@ public class IngredientController {
             ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText().replaceAll("," , ".")));
             ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText().replaceAll("," , ".")));
             ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
+            ingredient.setIngredientImageUrl("productImages/default.jpg");
+              if(!this.imageUrl.isEmpty()){
+             ingredient.setIngredientImageUrl(this.imageUrl);
+            }           
             
-            try {
+             try {
                 dao.addIngredient(ingredient);
-                this.clean(this.fields);
+                this.ingredients = new ArrayList<>();
+                this.clean(this.fields, this.textArea);
                 this.readJTable();
                 return true;
             } catch (SQLException ex) {
                 System.out.print(ex);
                 return false;
             }
+        
         }
     }
     
@@ -208,7 +270,9 @@ public class IngredientController {
                 ingredient.setIngredientUnitQuantity(Float.parseFloat(fields.get(2).getText().replaceAll("," , ".")));
                 ingredient.setIngredientMinQuantity(Float.parseFloat(fields.get(3).getText().replaceAll("," , ".")));
                 ingredient.setIngredientUnitOfMeasure(fields.get(4).getText());
-
+                if(!this.imageUrl.isEmpty()){
+                    ingredient.setIngredientImageUrl(this.imageUrl);
+                }
                 try {
                     dao.updateIngredient(ingredient);
                     this.readJTable();
@@ -251,5 +315,13 @@ public class IngredientController {
             JOptionPane.showMessageDialog(null,
                     "Selecione um serviço na tabela abaixo!");
         }
+    }
+
+    private void clean(List<JTextField> fields, AreaText textArea) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setFields(JLabel ingredientImageUrl) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
