@@ -286,7 +286,7 @@ public class PortionCalcController {
                     .getResultCostField()
                     .get(i)
                     .setText(  
-                        format.format(
+                        String.format("%.3f",
                             this.ruleOfThree(
                             calcQuantityFieldValue.get(i).getText().replace(",", "."), 
                             calcCostFieldValue.get(i).getText().replace(",", "."), 
