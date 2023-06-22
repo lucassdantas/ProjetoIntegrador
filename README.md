@@ -53,8 +53,8 @@ Como alternativa, consulte a documentação do GitHub em [como criar uma solicit
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
-<table>
-  <tr width="50%">
+<table style="width:100%;">
+  <tr style="width:100%">
     <td width="33%" align="center">
       <a href="https://github.com/lucassdantas">
         <img src="https://avatars.githubusercontent.com/u/95001459?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
@@ -86,7 +86,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       </a>
     </td>
   </tr>
-  <tr width="50%">
+  <tr>
     <td width="33%" align="center">
       <a href="https://github.com/JoaoVitorTRJ">
         <img src="https://avatars.githubusercontent.com/u/134016319?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
