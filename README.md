@@ -53,83 +53,75 @@ Como alternativa, consulte a documentação do GitHub em [como criar uma solicit
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
-<table style="width:100%;">
-  <tr style="width:100%">
-    <td width="33%" align="center">
+<table>
+  <tr>
+    <td align="center">
       <a href="https://github.com/lucassdantas">
         <img src="https://avatars.githubusercontent.com/u/95001459?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
-        <sub>
-          <b>Lucas Dantas</b>
-          <br>
-          <ul>
-            <li>Lider Back-end</li>
-            <li>Lider GitHub</li>
-          </ul>
-        </sub>
+        <div align="center">
+            <sub>
+                <b>Lucas Dantas</b>
+                <br>
+                <i>Lider Back-end</i>
+                <br>
+                <i>Lider Git Hub</i>
+            </sub>
+        </div>
       </a>
     </td>
-    <td width="33%" align="center">
+    <td align="center">
       <a href="https://github.com/GabrielModesto-O">
         <img src="https://avatars.githubusercontent.com/u/122651099?v=4" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
         <sub>
           <b>Gabriel Modesto</b>
           <br>
-          <ul>
-            <li>Lider Front-end</li>
-            <li>Lider Planejamento</li>
-          </ul>
+          <i>Lider front-end</i>
+          <br>
+          <i>Lider planejamento</i>
         </sub>
       </a>
     </td>
-    <td width="33%" align="center">
+    <td align="center">
       <a href="https://github.com/Lipee221">
         <img src="https://avatars.githubusercontent.com/u/115747668?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Luiz Felipe</b>
           <br>
-          <ul>
-            <li>Dev Back-end</li>
-          </ul>
+          <i>Dev Back-end</i>
         </sub>
       </a>
     </td>
   </tr>
   <tr>
-    <td width="33%" align="center">
+    <td align="center">
       <a href="https://github.com/JoaoVitorTRJ">
         <img src="https://avatars.githubusercontent.com/u/134016319?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>João Jardim</b>
           <br>
-          <ul>
-            <li>Dev Back-end</li>
-            <li>Criador dos diagramas</li>
-          </ul>
+          <i>Dev back-end</i>
         </sub>
       </a>
     </td>
-    <td width="33%" align="center">
+    <td align="center">
       <a href="https://github.com/EoPontax">
         <img src="https://avatars.githubusercontent.com/u/122834167?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Ruan Bandeira</b>
           <br>
-            <ul>
-              <li>Dev Front-end</li>
-              <li>Documentador</li>
-            </ul>
+          <i>Dev front-end</i><br>
+          <i>Documentação</i><br>
+          <i>Apresentação</i>
         </sub>
       </a>
     </td>
-    <td width="33%" align="center">
+    <td align="center">
       <a href="https://github.com/Peterson-santos">
         <img src="https://avatars.githubusercontent.com/u/119008951?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Peterson Santos</b>
           <br>
-          <ul>
-            <li>Dev Tela de Login/li>
-          </ul>
+          <i>Dev tela de login</i>
         </sub>
       </a>
     </td>
