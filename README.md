@@ -1,4 +1,4 @@
-# Projeto Integrador
+# Projeto Integrador - Stock Chef
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
@@ -131,4 +131,4 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
 
-[⬆ Voltar ao topo](#projetointegrador)<br>
+[⬆ Voltar ao topo](#projeto-integrador)<br>
