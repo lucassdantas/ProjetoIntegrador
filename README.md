@@ -6,7 +6,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/lucassdantas/projetointegrador?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/lucassdantas/projetointegrador?style=for-the-badge)
 
-<img src="exemplo-image.png" alt="exemplo imagem">
+<img src="https://github.com/lucassdantas/ProjetoIntegrador/blob/main/docs_and_files/ordersScreenShoot.png?raw=true" alt="Print do software">
 
 
 > Projeto realizado para a conclusão do 3° módulo do Curso Técnico de Informática do SENAC, sob a tutela da professora Jeany Laranjeiras.
