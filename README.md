@@ -57,7 +57,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td valign="top" align="center">
       <a href="https://github.com/lucassdantas">
-        <img src="https://avatars.githubusercontent.com/u/95001459?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/95001459?v=4" width="100px;" alt="Foto do Lucas Dantas"/><br>
         <sub>
             <b>Lucas Dantas</b>
             <br>
@@ -69,7 +69,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td valign="top" align="center">
       <a href="https://github.com/GabrielModesto-O">
-        <img src="https://avatars.githubusercontent.com/u/122651099?v=4" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
+        <img src="https://avatars.githubusercontent.com/u/122651099?v=4" width="100px;" alt="Foto do Gabriel Modesto"/><br>
         <sub>
           <b>Gabriel Modesto</b>
           <br>
@@ -81,7 +81,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td valign="top" align="center">
       <a href="https://github.com/Lipee221">
-        <img src="https://avatars.githubusercontent.com/u/115747668?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://avatars.githubusercontent.com/u/115747668?v=4" width="100px;" alt="Foto do Luiz Felipe"/><br>
         <sub>
           <b>Luiz Felipe</b>
           <br>
@@ -93,7 +93,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td valign="top" align="center">
       <a href="https://github.com/JoaoVitorTRJ">
-        <img src="https://avatars.githubusercontent.com/u/134016319?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://avatars.githubusercontent.com/u/134016319?v=4" width="100px;" alt="Foto do João Jardim"/><br>
         <sub>
           <b>João Jardim</b>
           <br>
@@ -103,7 +103,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td valign="top" align="center">
       <a href="https://github.com/EoPontax">
-        <img src="https://avatars.githubusercontent.com/u/122834167?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://avatars.githubusercontent.com/u/122834167?v=4" width="100px;" alt="Foto do Ruan Bandeira"/><br>
         <sub>
           <b>Ruan Bandeira</b>
           <br>
@@ -115,7 +115,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td valign="top" align="center">
       <a href="https://github.com/Peterson-santos">
-        <img src="https://avatars.githubusercontent.com/u/119008951?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://avatars.githubusercontent.com/u/119008951?v=4" width="100px;" alt="Foto do Peterson Santos"/><br>
         <sub>
           <b>Peterson Santos</b>
           <br>
