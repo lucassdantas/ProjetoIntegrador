@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Jun-2023 às 23:59
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 22-Jun-2023 às 05:00
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `datasheet` (
   `dsQuantity` float DEFAULT NULL,
   `dsTotalCost` float DEFAULT NULL,
   `dsStatus` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `datasheet`
@@ -63,7 +63,7 @@ CREATE TABLE `ingredient` (
   `ingredientStatus` varchar(255) DEFAULT NULL,
   `ingredientStock` float DEFAULT NULL,
   `ingredientStockStatus` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `ingredient`
@@ -90,7 +90,7 @@ CREATE TABLE `input` (
   `inputCost` float DEFAULT NULL,
   `inputDate` date DEFAULT NULL,
   `inputStatus` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `input`
@@ -119,7 +119,7 @@ CREATE TABLE `orders` (
   `orderTotalPrice` float DEFAULT NULL,
   `orderDate` date DEFAULT NULL,
   `orderSnackName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ CREATE TABLE `snack` (
   `snackDescription` varchar(255) DEFAULT NULL,
   `snackImageUrl` varchar(255) DEFAULT 'C:\\Users\\42labinfo\\Documents\\NetBeansProjects\\ProjetoIntegrador\\src\\productImages\\default.jpg',
   `snackStatus` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `snack`
@@ -150,16 +150,17 @@ INSERT INTO `snack` (`snackId`, `snackTitle`, `snackSellingPrice`, `snackDescrip
 --
 
 CREATE TABLE `usuario` (
+  `userId` int(11) NOT NULL,
   `login` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`login`, `senha`) VALUES
-('gabriel.modesto', 'newnew');
+INSERT INTO `usuario` (`userId`, `login`, `senha`) VALUES
+(1, 'admin', 'admin');
 
 --
 -- Índices para tabelas despejadas
@@ -199,6 +200,12 @@ ALTER TABLE `snack`
   ADD PRIMARY KEY (`snackId`);
 
 --
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`userId`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -225,6 +232,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `snack`
   MODIFY `snackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para despejos de tabelas
