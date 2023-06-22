@@ -33,6 +33,7 @@ Windows, Linux e macOS:
   <li>Criar um banco de dados com o nome "novoprojetointegrador"</li> 
   <li>Importar o banco de dados localizado em docs_and_files</li> 
   <li>Executar o arquivo .jar que está dentro de src/dist</li> 
+  <li>Caso os produtos estejam sem imagens, é necessário inseri-las na edição das imagens</li>
 </ul>
 
 ## 📫 Contribuindo para <Stock Chef>
