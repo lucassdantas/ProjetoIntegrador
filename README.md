@@ -10,9 +10,9 @@
 
 <img src="exemplo-image.png" alt="exemplo imagem">
 
-> Projeto realizado para a conclusão do 3° módulo do Curso Técnico de Informática do SENAC, apresentado em 21/06/2023.
+> Projeto realizado para a conclusão do 3° módulo do Curso Técnico de Informática do SENAC, sob a tutela da professora Jeany Laranjeiras.
 Construímos um sistema corporativo em equipe, utilizando Java e GitHub em equipe, priorizando uma qualidade excepcional em nosso projeto. 
-Pesquisamos muito por conta própria e adquirimos bastante experiência com este projeto.
+Pesquisamos muito por conta própria e adquirimos bastante experiência com este projeto que foi apresentado em 21/06/2023.
 
 
 ## 💻 Pré-requisitos
@@ -21,7 +21,6 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
 * Você instalou a versão mais recente de `<JVM>`
 * Você tem uma máquina `<Windows / Linux / Mac>`. 
-* Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
 
 ## 🚀 Instalando <Stock Chef>
 
@@ -37,19 +36,9 @@ Windows, Linux e macOS:
   <li>Executar o arquivo .jar que está dentro de src/dist</li> 
 </ul>
 
-## ☕ Usando <nome_do_projeto>
-
-Para usar <nome_do_projeto>, siga estas etapas:
-
-```
-<exemplo_de_uso>
-```
-
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
-
-## 📫 Contribuindo para <nome_do_projeto>
+## 📫 Contribuindo para <Stock Chef>
 <!---Se o seu README for longo ou se você tiver algum processo ou etapas específicas que deseja que os contribuidores sigam, considere a criação de um arquivo CONTRIBUTING.md separado--->
-Para contribuir com <nome_do_projeto>, siga estas etapas:
+Para contribuir com <Stock Chef>, siga estas etapas:
 
 1. Bifurque este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.
@@ -70,6 +59,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <img src="https://avatars.githubusercontent.com/u/95001459?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
         <sub>
           <b>Lucas Dantas</b>
+          <small>Lider Back-end | Lider Git Hub</small>
         </sub>
       </a>
     </td>
