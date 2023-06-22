@@ -52,9 +52,9 @@ Como alternativa, consulte a documentação do GitHub em [como criar uma solicit
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
-<table>
+<table >
   <tr>
-    <td valign="top" align="center">
+    <td width="200px" valign="top" align="center">
       <a href="https://github.com/lucassdantas">
         <img src="https://avatars.githubusercontent.com/u/95001459?v=4" width="100px;" alt="Foto do Lucas Dantas"/><br>
         <sub>
@@ -66,7 +66,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         </sub>
       </a>
     </td>
-    <td valign="top" align="center">
+    <td width="200px" valign="top" align="center">
       <a href="https://github.com/GabrielModesto-O">
         <img src="https://avatars.githubusercontent.com/u/122651099?v=4" width="100px;" alt="Foto do Gabriel Modesto"/><br>
         <sub>
@@ -78,7 +78,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         </sub>
       </a>
     </td>
-    <td valign="top" align="center">
+    <td width="200px" valign="top" align="center">
       <a href="https://github.com/Lipee221">
         <img src="https://avatars.githubusercontent.com/u/115747668?v=4" width="100px;" alt="Foto do Luiz Felipe"/><br>
         <sub>
@@ -90,7 +90,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
   </tr>
   <tr>
-    <td valign="top" align="center">
+    <td width="200px" valign="top" align="center">
       <a href="https://github.com/JoaoVitorTRJ">
         <img src="https://avatars.githubusercontent.com/u/134016319?v=4" width="100px;" alt="Foto do João Jardim"/><br>
         <sub>
@@ -102,7 +102,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         </sub>
       </a>
     </td>
-    <td valign="top" align="center">
+    <td width="200px" valign="top" align="center">
       <a href="https://github.com/EoPontax">
         <img src="https://avatars.githubusercontent.com/u/122834167?v=4" width="100px;" alt="Foto do Ruan Bandeira"/><br>
         <sub>
@@ -116,7 +116,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         </sub>
       </a>
     </td>
-    <td valign="top" align="center">
+    <td width="200px" valign="top" align="center">
       <a href="https://github.com/Peterson-santos">
         <img src="https://avatars.githubusercontent.com/u/119008951?v=4" width="100px;" alt="Foto do Peterson Santos"/><br>
         <sub>
