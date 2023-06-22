@@ -1,6 +1,4 @@
-# ProjetoIntegrador
-
-# Nome do projeto
+# Projeto Integrador
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
@@ -25,19 +23,19 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Você tem uma máquina `<Windows / Linux / Mac>`. 
 * Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
 
-## 🚀 Instalando <nome_do_projeto>
+## 🚀 Instalando <Stock Chef>
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+Para instalar o <Stock Chef>, siga estas etapas:
 
-Linux e macOS:
-```
-<comando_de_instalação>
-```
-
-Windows:
-```
-<comando_de_instalação>
-```
+Windows, Linux e macOS:
+<ul>
+  <li>Instalar o JVM</li> 
+  <li>Baixar este repositório</li> 
+  <li>Simular um servidor local com XAMPP ou outro software</li> 
+  <li>Criar um banco de dados com o nome "novoprojetointegrador"</li> 
+  <li>Importar o banco de dados localizado em docs_and_files</li> 
+  <li>Executar o arquivo .jar que está dentro de src/dist</li> 
+</ul>
 
 ## ☕ Usando <nome_do_projeto>
 
