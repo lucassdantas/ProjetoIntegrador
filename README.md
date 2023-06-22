@@ -98,6 +98,8 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
           <b>João Jardim</b>
           <br>
           <i>Dev back-end</i>
+          <br>
+          <i>Diagrama de uso e classes</i>
         </sub>
       </a>
     </td>
@@ -107,8 +109,10 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Ruan Bandeira</b>
           <br>
-          <i>Dev front-end</i><br>
-          <i>Documentação</i><br>
+          <i>Dev front-end</i>
+          <br>
+          <i>Documentação</i>
+          <br>
           <i>Apresentação</i>
         </sub>
       </a>
