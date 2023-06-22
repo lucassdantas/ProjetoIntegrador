@@ -60,7 +60,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <img src="https://avatars.githubusercontent.com/u/95001459?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
         <sub>
           <b>Lucas Dantas</b>
-          <small>Lider Back-end | Lider Git Hub</small>
+          <i>Lider Back-end | Lider Git Hub</i>
         </sub>
       </a>
     </td>
@@ -69,6 +69,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <img src="https://avatars.githubusercontent.com/u/122651099?v=4" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
         <sub>
           <b>Gabriel Modesto</b>
+          <i>Lider front-end | Lider planejamento</i>
         </sub>
       </a>
     </td>
@@ -77,22 +78,18 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <img src="https://avatars.githubusercontent.com/u/115747668?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Luiz Felipe</b>
+          <i>Dev Back-end</i>
         </sub>
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/Peterson-santos">
-        <img src="https://avatars.githubusercontent.com/u/119008951?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
-        <sub>
-          <b>Peterson Santos</b>
-        </sub>
-      </a>
-    </td>
+  </tr>
+  <tr>
     <td align="center">
       <a href="https://github.com/JoaoVitorTRJ">
         <img src="https://avatars.githubusercontent.com/u/134016319?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>João Jardim</b>
+          <i>Dev back-end</i>
         </sub>
       </a>
     </td>
@@ -101,6 +98,16 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <img src="https://avatars.githubusercontent.com/u/122834167?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Ruan Bandeira</b>
+          <i>Dev front-end | Documentação | Apresentação</i>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Peterson-santos">
+        <img src="https://avatars.githubusercontent.com/u/119008951?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <sub>
+          <b>Peterson Santos</b>
+          <i>Dev tela de login</i>
         </sub>
       </a>
     </td>
