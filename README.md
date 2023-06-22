@@ -12,7 +12,7 @@
 
 
 > Projeto realizado para a conclusão do 3° módulo do Curso Técnico de Informática do SENAC, sob a tutela da professora Jeany Laranjeiras.
-Construímos um sistema corporativo em equipe, utilizando Java e GitHub em equipe, priorizando uma qualidade excepcional em nosso projeto. 
+Construímos um sistema corporativo em equipe, utilizando Java Swing e GitHub, priorizando uma qualidade excepcional em nosso projeto. 
 Pesquisamos muito por conta própria e adquirimos bastante experiência com este projeto que foi apresentado em 21/06/2023.
 
 
@@ -54,59 +54,65 @@ Como alternativa, consulte a documentação do GitHub em [como criar uma solicit
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 <table>
-  <tr>
-    <td align="center">
+  <tr width="50%">
+    <td width="33%" align="center">
       <a href="https://github.com/lucassdantas">
         <img src="https://avatars.githubusercontent.com/u/95001459?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
         <sub>
           <b>Lucas Dantas</b>
+          <br>
           <i>Lider Back-end | Lider Git Hub</i>
         </sub>
       </a>
     </td>
-    <td align="center">
+    <td width="33%" align="center">
       <a href="https://github.com/GabrielModesto-O">
         <img src="https://avatars.githubusercontent.com/u/122651099?v=4" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
         <sub>
           <b>Gabriel Modesto</b>
+          <br>
           <i>Lider front-end | Lider planejamento</i>
         </sub>
       </a>
     </td>
-    <td align="center">
+    <td width="33%" align="center">
       <a href="https://github.com/Lipee221">
         <img src="https://avatars.githubusercontent.com/u/115747668?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Luiz Felipe</b>
+          <br>
           <i>Dev Back-end</i>
         </sub>
       </a>
     </td>
   </tr>
-  <tr>
-    <td align="center">
+  <tr width="50%">
+    <td width="33%" align="center">
       <a href="https://github.com/JoaoVitorTRJ">
         <img src="https://avatars.githubusercontent.com/u/134016319?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>João Jardim</b>
+          <br>
           <i>Dev back-end</i>
         </sub>
       </a>
     </td>
-    <td align="center">
+    <td width="33%" align="center">
       <a href="https://github.com/EoPontax">
         <img src="https://avatars.githubusercontent.com/u/122834167?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Ruan Bandeira</b>
+          <br>
           <i>Dev front-end | Documentação | Apresentação</i>
         </sub>
       </a>
     </td>
-    <td align="center">
+    <td width="33%" align="center">
       <a href="https://github.com/Peterson-santos">
         <img src="https://avatars.githubusercontent.com/u/119008951?v=4" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Peterson Santos</b>
+          <br>
           <i>Dev tela de login</i>
         </sub>
       </a>
