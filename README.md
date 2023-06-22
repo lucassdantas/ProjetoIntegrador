@@ -62,7 +62,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
             <br>
             <i>Lider Back-end</i>
             <br>
-            <i>Lider Git Hub</i>
+            <i>Lider GitHub</i>
         </sub>
       </a>
     </td>
@@ -72,7 +72,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Gabriel Modesto</b>
           <br>
-          <i>Lider front-end</i>
+          <i>Lider Front-end</i>
           <br>
           <i>Lider planejamento</i>
         </sub>
@@ -96,7 +96,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>João Jardim</b>
           <br>
-          <i>Dev back-end</i>
+          <i>Dev Back-end</i>
           <br>
           <i>Diagrama de uso e classes</i>
         </sub>
@@ -108,11 +108,9 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Ruan Bandeira</b>
           <br>
-          <i>Dev front-end</i>
+          <i>Dev Front-end</i>
           <br>
-          <i>Documentação</i>
-          <br>
-          <i>Apresentação</i>
+          <i>Documentação & apresentação</i>
         </sub>
       </a>
     </td>
