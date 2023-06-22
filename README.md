@@ -61,7 +61,10 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Lucas Dantas</b>
           <br>
-          <i>Lider Back-end | Lider Git Hub</i>
+          <ul>
+            <li>Lider Back-end</li>
+            <li>Lider GitHub</li>
+          </ul>
         </sub>
       </a>
     </td>
@@ -71,7 +74,10 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Gabriel Modesto</b>
           <br>
-          <i>Lider front-end | Lider planejamento</i>
+          <ul>
+            <li>Lider Front-end</li>
+            <li>Lider Planejamento</li>
+          </ul>
         </sub>
       </a>
     </td>
@@ -81,7 +87,9 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Luiz Felipe</b>
           <br>
-          <i>Dev Back-end</i>
+          <ul>
+            <li>Dev Back-end</li>
+          </ul>
         </sub>
       </a>
     </td>
@@ -93,7 +101,10 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>João Jardim</b>
           <br>
-          <i>Dev back-end</i>
+          <ul>
+            <li>Dev Back-end</li>
+            <li>Criador dos diagramas</li>
+          </ul>
         </sub>
       </a>
     </td>
@@ -103,7 +114,10 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Ruan Bandeira</b>
           <br>
-          <i>Dev front-end | Documentação | Apresentação</i>
+            <ul>
+              <li>Dev Front-end</li>
+              <li>Documentador</li>
+            </ul>
         </sub>
       </a>
     </td>
@@ -113,7 +127,9 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Peterson Santos</b>
           <br>
-          <i>Dev tela de login</i>
+          <ul>
+            <li>Dev Tela de Login/li>
+          </ul>
         </sub>
       </a>
     </td>
