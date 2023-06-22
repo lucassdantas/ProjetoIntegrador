@@ -120,7 +120,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Peterson Santos</b>
           <br>
-          <i>Dev tela de login</i>
+          <i>Dev tela de login e cadastro</i>
         </sub>
       </a>
     </td>
