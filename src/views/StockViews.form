@@ -2806,7 +2806,6 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextField" name="calcQntField01">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="100"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -2828,7 +2827,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcItemField01">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="P&#xe3;o de hamburguer"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -2852,7 +2850,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcUnField01">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="un"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -2862,6 +2859,9 @@
                         </Property>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calcUnField01ActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="500" y="310" width="100" height="45"/>
@@ -2870,7 +2870,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcCostField01">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="99,80"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -2893,7 +2892,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcItemField02">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Hamburguer"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -2911,7 +2909,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcQntField02">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="100"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -2932,7 +2929,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcUnField02">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="un"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -2942,6 +2938,9 @@
                         </Property>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calcUnField02ActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="500" y="365" width="100" height="45"/>
@@ -2950,7 +2949,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcCostField02">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="152,00"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -2973,7 +2971,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcPortionField">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="100"/>
+                        <Property name="text" type="java.lang.String" value="1"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3016,7 +3014,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcItemField03">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Ovo"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3034,7 +3031,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcQntField03">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="100"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3055,25 +3051,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcUnField03">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="un"/>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                            <LineBorder>
-                              <Color PropertyName="color" blue="c0" green="c0" red="c0" type="rgb"/>
-                            </LineBorder>
-                          </Border>
-                        </Property>
-                        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-                      </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="500" y="420" width="100" height="45"/>
-                        </Constraint>
-                      </Constraints>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="calcCostField03">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="83,33"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3084,9 +3061,29 @@
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="calcCostField03KeyTyped"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calcUnField03ActionPerformed"/>
+                      </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="500" y="420" width="100" height="45"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="calcCostField03">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                            <LineBorder>
+                              <Color PropertyName="color" blue="c0" green="c0" red="c0" type="rgb"/>
+                            </LineBorder>
+                          </Border>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                      </Properties>
+                      <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calcCostField03ActionPerformed"/>
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="calcCostField03KeyReleased"/>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="calcCostField03KeyTyped"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -3096,7 +3093,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcItemField04">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Queijo fatiado"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3114,7 +3110,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcQntField04">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="1"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3135,7 +3130,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcUnField04">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="kg"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3153,7 +3147,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcCostField04">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="38,40"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3176,7 +3169,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcItemField05">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Bacon fatiado"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3194,7 +3186,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcQntField05">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="1"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3215,7 +3206,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcUnField05">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="kg"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3233,7 +3223,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcItemField06">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Alface"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3251,7 +3240,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcQntField06">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="3"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3272,7 +3260,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcUnField06">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="pes"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3290,7 +3277,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcCostField06">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="17,97"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3313,7 +3299,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcCostField05">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="35,60"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3336,7 +3321,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcCostField07">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="27,70"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3359,7 +3343,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcUnField07">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="kg"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3377,7 +3360,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcQntField07">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="1"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3398,7 +3380,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcItemField07">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Batata palha"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3416,7 +3397,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcItemField08">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Embalagens p/ hamburguer"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3434,7 +3414,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcQntField08">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="100"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3455,7 +3434,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcUnField08">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="un"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3473,7 +3451,6 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="calcCostField08">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="104,65"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
@@ -3768,7 +3745,6 @@
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f3" green="f3" red="f3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="559,45"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder>
