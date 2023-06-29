@@ -85,8 +85,6 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
           <b>Luiz Felipe</b>
           <br>
           <i>Dev Back-end</i>
-          <br>
-          <i>Auxíliar planejamento</i>
         </sub>
       </a>
     </td>
